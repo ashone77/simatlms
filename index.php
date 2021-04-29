@@ -40,7 +40,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>ELMS | Home Page</title>
+        <title>SIMAT LMS | Home Page</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -119,7 +119,7 @@ else{
                             </a>
                         </section>
                         <div class="header-title col s3">      
-                            <span class="chapter-title">ELMS | Employee Leave Management System</span>
+                            <span class="chapter-title">SIMAT LMS | Employee Leave Management System</span>
                         </div>
                       
                            
@@ -144,7 +144,7 @@ else{
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="http://phpgurukul.com/">ELMS </a>©</p>
+                    <p class="copyright"><a href="http://phpgurukul.com/">SIMAT LMS </a>©</p>
                 
                 </div>
                 </div>
