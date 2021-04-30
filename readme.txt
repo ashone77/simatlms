@@ -1,3 +1,4 @@
+     Leave management system
 Open phpmyadmin
 
 Create Database elms.
