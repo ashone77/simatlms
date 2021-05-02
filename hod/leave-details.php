@@ -193,7 +193,7 @@ if($stats==0)
 ?>
 <tr>
  <td colspan="5">
-  <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
+  <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Forward to&nbsp;Principal</a>
 <form name="adminaction" method="post">
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
