@@ -208,6 +208,7 @@ if($stats==0)
     <div class="modal-footer" style="width:90%">
        <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
     </div>
+    <!-- Add forward to Principal Button here  -->
 
 </div>   
 
