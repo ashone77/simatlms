@@ -7,6 +7,8 @@ if(strlen($_SESSION['emplogin'])==0)
 header('location:index.php');
 }
 else{
+
+    // code for inserting into leave table
 if(isset($_POST['apply']))
 {
 $empid=$_SESSION['eid'];
@@ -19,6 +21,7 @@ $isread=0;
 if($fromdate > $todate){
                 $error=" ToDate should be greater than FromDate ";
            }
+        //    insert leave into leave table
 $sql="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
