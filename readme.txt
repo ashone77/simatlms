@@ -13,3 +13,8 @@ For admin login click on the admin login then provide username and password
 
 Email id : admin
 Passowrd : Test@12345
+
+*****************************************
+
+You will have to add hod and principal in the "admin" table
+of the database elms in order to login to hod and principal previleges. 
