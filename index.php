@@ -141,6 +141,8 @@ else{
                     <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i>Emp Password Recovery</a></li>
                 
                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="principal/"><i class="material-icons">account_box</i>Principal Login</a></li>
                 
                 </ul>
           <div class="footer">
