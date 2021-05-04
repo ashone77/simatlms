@@ -189,7 +189,7 @@ echo htmlentities($result->AdminRemarkDate);
 <?php 
 if($stats==0)
 {
-
+// add one more status for forwarding to principal
 ?>
 <tr>
  <td colspan="5">
