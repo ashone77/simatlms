@@ -23,14 +23,14 @@
                             </ul>
                         </div>
                     </li>
-                   <!-- <li class="no-padding">
+                    <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">code</i>Leave Type<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="addleavetype.php">Add Leave Type</a></li>
                                 <li><a href="manageleavetype.php">Manage Leave Type</a></li>
                             </ul>
-                        </div> -->
+                        </div> 
                     </li>
                     <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">account_box</i>Employees<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
