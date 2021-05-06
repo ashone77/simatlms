@@ -18,3 +18,6 @@ Passowrd : Test@12345
 
 You will have to add hod and principal in the "admin" table
 of the database elms in order to login to hod and principal previleges. 
+
+create a table called " tblprincipal " in elms database.
+ use query " create table tblprincipal like tblleaves " 
