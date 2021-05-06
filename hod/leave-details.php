@@ -27,7 +27,7 @@ $description=$_POST['description'];
 $status=$_POST['status'];   
 date_default_timezone_set('Asia/Kolkata');
 $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
-$sql="update tblleaves set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=:did";
+$sql="update tblprincipal set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=:did";
 $query = $dbh->prepare($sql);
 $query->bindParam(':description',$description,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
@@ -152,9 +152,9 @@ foreach($results as $result)
 <tr>
 <td style="font-size:16px;"><b>leave Status :</b></td>
 <td colspan="5"><?php $stats=$result->Status;
-if($stats==1){
+if($stats==3){
 ?>
-<span style="color: green">Approved</span>
+<span style="color: green">Forwarded to Princiapl</span>
  <?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
@@ -200,8 +200,10 @@ if($stats==0)
         <h4>Leave take action</h4>
           <select class="browser-default" name="status" required="">
                                             <option value="">Choose your option</option>
-                                            <option value="1">Approved</option>
+                                            <!-- <option value="1">Approved</option> -->
                                             <option value="2">Not Approved</option>
+                                            <option value="3">Forward to Principal</option>
+                                            
                                         </select></p>
                                         <p><textarea id="textarea1" name="description" class="materialize-textarea" name="description" placeholder="Description" length="500" maxlength="500" required></textarea></p>
     </div>
