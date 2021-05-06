@@ -27,12 +27,18 @@ $description=$_POST['description'];
 $status=$_POST['status'];   
 date_default_timezone_set('Asia/Kolkata');
 $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
-$sql="update tblprincipal set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=:did";
+$dbh->query("INSERT into tblprincipal select * from tblleaves where id=$did");
+// updates the data in table principal - working code
+$sql="update tblprincipal set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=$did";
+// updates data also in table leaves - test code
+$sql_update="update tblleaves set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=$did";
+
 $query = $dbh->prepare($sql);
+$query = $dbh->prepare($sql_update);
 $query->bindParam(':description',$description,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':admremarkdate',$admremarkdate,PDO::PARAM_STR);
-$query->bindParam(':did',$did,PDO::PARAM_STR);
+// $query->bindParam(':did',$did,PDO::PARAM_STR); do not uncomment this line, page will crash
 $query->execute();
 $msg="Leave updated Successfully";
 }

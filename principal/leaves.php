@@ -82,7 +82,7 @@ else{
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblleaves.LeaveType,tblleaves.PostingDate,tblleaves.Status from tblleaves join tblemployees on tblleaves.empid=tblemployees.id order by lid desc";
+<?php $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id order by lid desc";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -106,7 +106,9 @@ if($stats==1){
                                                 <span style="color: red">Not Approved</span>
                                                  <?php } if($stats==0)  { ?>
  <span style="color: blue">waiting for approval</span>
- <?php } ?>
+ <?php } if($stats==3)  { ?>
+                                                <span style="color: green">Forwarded to Principal</span>
+                                                 <?php } ?>
 
 
                                              </td>
