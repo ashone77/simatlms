@@ -22,6 +22,7 @@ $query->execute();
 // code for action taken on leave
 if(isset($_POST['update']))
 { 
+
 $did=intval($_GET['leaveid']);
 $description=$_POST['description'];
 $status=$_POST['status'];   
@@ -35,6 +36,7 @@ $query->bindParam(':admremarkdate',$admremarkdate,PDO::PARAM_STR);
 $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
 $msg="Leave updated Successfully";
+
 
 
 
@@ -71,6 +73,8 @@ $msg="Leave updated Successfully";
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
+            
+            
             function sendEmail() {
             Email.send({
                 Host: "smtp.gmail.com",
@@ -192,7 +196,40 @@ foreach($results as $result)
 <td colspan="5"><?php $stats=$result->Status;
 if($stats==1){
 ?>
-<span style="color: green">Approved</span>
+<span style="color: green">Approved<script type="text/javascript">
+            // this script runs each time the page is reloaded as approved is displayed each time
+            var x = sendEmail();
+            function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "simatlms5@gmail.com",
+                Password: "#Simat@LMS100%",
+                To: 'aswinvharidas@gmail.com',
+                From: "simatlms5@gmail.com",
+                Subject: "Your Leave Application has been approved.",
+                Body: "Your leave has been approved. ",
+                // Attachments: [
+                // {
+                // 	name: "File_Name_with_Extension",
+                // 	path: "Full Path of the file"
+                // }]
+            })
+                .then(message =>{
+                            //console.log (message);
+                            if(message=='OK'){
+                            alert('Your mail has been send. Thank you for connecting.');
+                            }
+                            else{
+                                console.error (message);
+                                alert('There is error at sending message. ')
+                                
+                            }
+
+                        });
+            }
+        </script></span>
+
+
  <?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
@@ -232,7 +269,14 @@ if($stats==0)
 <tr>
  <td colspan="5">
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
-<form name="adminaction" method="post" onsubmit="return sendEmail()">
+  <script>
+    $(document).ready(function(){
+        $("form").submit(function(){
+            sendEmail();
+        });
+    });
+  </script>
+<form name="adminaction" method="post">
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
         <h4>Leave take action</h4>
@@ -244,7 +288,9 @@ if($stats==0)
                                         <p><textarea id="textarea1" name="description" class="materialize-textarea" name="description" placeholder="Description" length="500" maxlength="500" required></textarea></p>
     </div>
     <div class="modal-footer" style="width:90%">
+    
        <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
+      
        <!-- <form method="post">
 	<input type="button" value="Send Mail"
 		onclick="sendEmail()" /> -->
