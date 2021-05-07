@@ -6,7 +6,7 @@
                         </div>
                         <div class="sidebar-profile-info">
                        
-                                <p>Admin</p>
+                                <p>HR</p>
 
                          
                         </div>
@@ -14,7 +14,7 @@
             
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <!-- <li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li> -->
-                    <li class="no-padding">
+                    <!-- <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">apps</i>Department<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
@@ -22,7 +22,7 @@
                                 <li><a href="managedepartments.php">Manage Department</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> 
                     <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">code</i>Leave Type<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
@@ -41,20 +41,20 @@
        
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
 
-   <!-- <li class="no-padding">
+    <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">desktop_windows</i>Leave Management<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="leaves.php">All Leaves </a></li>
-                                <li><a href="pending-leavehistory.php">Pending Leaves </a></li>
+                                <!-- <li><a href="pending-leavehistory.php">Pending Leaves </a></li> -->
                                 <li><a href="approvedleave-history.php">Approved Leaves</a></li>
-                                  <li><a href="notapproved-leaves.php">Not Approved Leaves</a></li>
+                                <!--  <li><a href="notapproved-leaves.php">Not Approved Leaves</a></li> -->
        
                             </ul>
                         </div>
-                    </li> -->
+                    </li> 
 
 
   <li class="no-padding"><a class="waves-effect waves-grey" href="changepassword.php"><i class="material-icons">settings_input_svideo</i>Change Password</a></li>
@@ -68,8 +68,8 @@
               
                 </ul>
                    <div class="footer">
-                    <p class="copyright"><a href="http://phpgurukul.com/">ELMS </a>©</p>
-                
+                    <p class="copyright"><a href="http://simat.ac.in/">SIMAT LMS </a>©</p>
+            
                 </div>
                 </div>
             </aside>

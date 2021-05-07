@@ -45,7 +45,7 @@ $msg="Leave updated Successfully";
     <head>
         
         <!-- Title -->
-        <title>Admin | Leave Details </title>
+        <title>HR | Leave Details </title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -191,7 +191,7 @@ if($stats==0)
 {
 
 ?>
-<tr>
+<!-- <tr>
  <td colspan="5">
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
 <form name="adminaction" method="post">
@@ -204,10 +204,10 @@ if($stats==0)
                                             <option value="2">Not Approved</option>
                                         </select></p>
                                         <p><textarea id="textarea1" name="description" class="materialize-textarea" name="description" placeholder="Description" length="500" maxlength="500" required></textarea></p>
-    </div>
+     </div>
     <div class="modal-footer" style="width:90%">
        <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
-    </div>
+    </div> -->
 
 </div>   
 
