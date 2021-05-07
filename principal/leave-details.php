@@ -35,6 +35,9 @@ $query->bindParam(':admremarkdate',$admremarkdate,PDO::PARAM_STR);
 $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
 $msg="Leave updated Successfully";
+
+
+
 }
 
 
@@ -63,6 +66,41 @@ $msg="Leave updated Successfully";
         <!-- Theme Styles -->
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+
+        <!-- JS Mail Script -->
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "simatlms5@gmail.com",
+                Password: "#Simat@LMS100%",
+                To: 'aswinvharidas@gmail.com',
+                From: "simatlms5@gmail.com",
+                Subject: "Your Leave Application has been approved.",
+                Body: "Your leave has been approved. ",
+                // Attachments: [
+                // {
+                // 	name: "File_Name_with_Extension",
+                // 	path: "Full Path of the file"
+                // }]
+            })
+                .then(message =>{
+                            //console.log (message);
+                            if(message=='OK'){
+                            alert('Your mail has been send. Thank you for connecting.');
+                            }
+                            else{
+                                console.error (message);
+                                alert('There is error at sending message. ')
+                                
+                            }
+
+                        });
+            }
+        </script>
+
 <style>
         .errorWrap {
     padding: 10px;
@@ -194,7 +232,7 @@ if($stats==0)
 <tr>
  <td colspan="5">
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
-<form name="adminaction" method="post">
+<form name="adminaction" method="post" onsubmit="return sendEmail()">
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
         <h4>Leave take action</h4>
@@ -207,11 +245,15 @@ if($stats==0)
     </div>
     <div class="modal-footer" style="width:90%">
        <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
+       <!-- <form method="post">
+	<input type="button" value="Send Mail"
+		onclick="sendEmail()" /> -->
+</form>
     </div>
 
 </div>   
 
- </td>
+ </td> 
 </tr>
 <?php } ?>
    </form>                                     </tr>
