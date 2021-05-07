@@ -143,6 +143,7 @@ else{
                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/">Admin Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="hod/">HOD Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="principal/">Principal Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="HR/">HR Login</a></li>
                 
                 </ul>
           <div class="footer">
