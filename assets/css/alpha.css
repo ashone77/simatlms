@@ -1656,6 +1656,7 @@ li.active .nav-drop-icon {
 
 .mn-inner.hidden-fixed-sidebar {
     padding-left: 25px!important;
+    width: 100%;
 }
 
 .mn-inner.inner-active-sidebar {

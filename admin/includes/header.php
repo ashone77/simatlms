@@ -41,7 +41,7 @@
         </div>
         <div class="mn-content fixed-sidebar">
             <header class="mn-header navbar-fixed">
-                <nav class="cyan darken-1">
+                <nav style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79));   class="cyan darken-1">
                     <div class="nav-wrapper row">
                         <section class="material-design-hamburger navigation-toggle">
                             <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">

@@ -3022,11 +3022,12 @@ body.search-app .search-input input:-ms-input-placeholder {
 .signin-page {
   height: 100%;
   width: 100%;
-  background: url(../images/mountains2.jpg) no-repeat;
+  
+
   background-size: cover;
 }
 .signup-page {
-  background: url(../images/mountains3.png) no-repeat;
+  
   background-size: cover;
 }
 .pattern-lock-screen {
