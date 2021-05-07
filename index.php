@@ -137,7 +137,7 @@ else{
                   
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" style="">
                     <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php">Employe Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php">Employee Login</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php">Emp Password Recovery</a></li>
                 
                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/">Admin Login</a></li>
