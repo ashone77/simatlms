@@ -119,7 +119,7 @@ else{
                             </a>
                         </section>
                         <div class="header-title col s3">      
-                            <span class="chapter-title">SIMAT LMS | Employee Leave Management System</span>
+                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
                         </div>
                       
                            
@@ -136,9 +136,9 @@ else{
                    
                   
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" style="">
-                    <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php">Employee Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php">Emp Password Recovery</a></li>
+                    <li>&nbsp;</li>                    
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php">Faculty Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php">Faculty Password Recovery</a></li>
                 
                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/">Admin Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="hod/">HOD Login</a></li>
@@ -155,13 +155,13 @@ else{
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title"><h4>Welcome to Employee Leave Management System</h4></div>
+                        <div class="page-title"><h4>Faculty Leave Management System</h4></div>
 
                           <div class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">
 
                                   <div class="card-content ">
-                                      <span class="card-title" style="font-size:20px;">Employee Login</span>
+                                      <span class="card-title" style="font-size:20px;">Faculty Login</span>
                                          <?php if($msg){?><div class="errorWrap"><strong>Error</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">
