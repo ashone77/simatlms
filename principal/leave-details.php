@@ -231,7 +231,7 @@ echo htmlentities($result->AdminRemarkDate);
 ?></td>
  </tr>
 <?php 
-if($stats==0)
+if($stats==3)
 {
 
 ?>
