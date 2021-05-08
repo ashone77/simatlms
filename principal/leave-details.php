@@ -196,38 +196,7 @@ foreach($results as $result)
 <td colspan="5"><?php $stats=$result->Status;
 if($stats==1){
 ?>
-<span style="color: green">Approved<script type="text/javascript">
-            // this script runs each time the page is reloaded as approved is displayed each time
-            var x = sendEmail();
-            function sendEmail() {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "simatlms5@gmail.com",
-                Password: "#Simat@LMS100%",
-                To: 'aswinvharidas@gmail.com',
-                From: "simatlms5@gmail.com",
-                Subject: "Your Leave Application has been approved.",
-                Body: "Your leave has been approved. ",
-                // Attachments: [
-                // {
-                // 	name: "File_Name_with_Extension",
-                // 	path: "Full Path of the file"
-                // }]
-            })
-                .then(message =>{
-                            //console.log (message);
-                            if(message=='OK'){
-                            alert('Your mail has been send. Thank you for connecting.');
-                            }
-                            else{
-                                console.error (message);
-                                alert('There is error at sending message. ')
-                                
-                            }
-
-                        });
-            }
-        </script></span>
+<span style="color: green">Approved</span>
 
 
  <?php } if($stats==2)  { ?>
@@ -269,13 +238,6 @@ if($stats==0)
 <tr>
  <td colspan="5">
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
-  <script>
-    $(document).ready(function(){
-        $("form").submit(function(){
-            sendEmail();
-        });
-    });
-  </script>
 <form name="adminaction" method="post">
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
@@ -291,9 +253,9 @@ if($stats==0)
     
        <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
       
-       <!-- <form method="post">
+       <form method="post">
 	<input type="button" value="Send Mail"
-		onclick="sendEmail()" /> -->
+		onclick="sendEmail()" />
 </form>
     </div>
 
