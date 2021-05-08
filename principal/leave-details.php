@@ -238,19 +238,7 @@ if($stats==0)
 <tr>
  <td colspan="5">
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
-<<<<<<< HEAD
-  <script>
-$(document).ready(function(){
-  $("form").submit(function(){
-      sendEmail();
-    alert("Submitted");
-  });
-});
-</script>
-<form name="adminaction" method="post" onsubmit="return sendEmail()">
-=======
 <form name="adminaction" method="post">
->>>>>>> a1fa2a10c1de3216ea84802e79e21f6bdf7757eb
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
         <h4>Leave take action</h4>

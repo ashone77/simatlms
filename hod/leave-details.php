@@ -160,11 +160,11 @@ foreach($results as $result)
 <td colspan="5"><?php $stats=$result->Status;
 if($stats==3){
 ?>
-<span style="color: green">Forwarded to Princiapl</span>
+<span style="color: green">Forwarded to Principal</span>
  <?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
- <span style="color: blue">waiting for approval</span>
+ <span style="color: blue">Waiting for Approval</span>
  <?php } ?>
 </td>
 </tr>
@@ -199,7 +199,7 @@ if($stats==0)
 ?>
 <tr>
  <td colspan="5">
-  <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Forward to&nbsp;Principal</a>
+  <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
 <form name="adminaction" method="post">
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">

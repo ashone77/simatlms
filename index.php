@@ -119,11 +119,7 @@ else{
                             </a>
                         </section>
                         <div class="header-title col s3">      
-<<<<<<< HEAD
-                            <span class="chapter-title">ELMS | Employee Leave Management System</span>
-=======
                             <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
->>>>>>> a1fa2a10c1de3216ea84802e79e21f6bdf7757eb
                         </div>
                       
                            
@@ -138,19 +134,11 @@ else{
             <aside id="slide-out" class="side-nav white fixed">
                 <div class="side-nav-wrapper">
                    
-<<<<<<< HEAD
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Employe Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i>Emp Password Recovery</a></li>
-=======
-                  
-                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" style="">
-                    <li>&nbsp;</li>                    
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php">Faculty Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php">Faculty Password Recovery</a></li>
->>>>>>> a1fa2a10c1de3216ea84802e79e21f6bdf7757eb
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i>Faculty&nbsp;Password&nbsp;Recovery</a></li>
                 
                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
