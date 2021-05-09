@@ -23,7 +23,8 @@ $leavecount = "SELECT nofleaves from tblemployees where id= :empid ";
 $query = $dbh-> prepare($leavecount);
 $query->bindParam(':empid' ,$empid, PDO::PARAM_STR);
 $query->execute();
-if(($nofdays+$leavecount)>12)
+$totalnoleaves = $nofdays+$leavecount;
+if($totalnoleaves>12)
 {
                 $error=" Limit Exceeded";
 }
@@ -43,6 +44,13 @@ $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->bindParam(':empid',$empid,PDO::PARAM_STR);
 $query->execute();
+
+
+// $updateCount= "UPDATE tblemployees SET nofleaves = '$totalnoleaves' where id = :empid";
+// $query = $dbh->prepare($updateCount);
+// $query->bindParam(':empid', $empid, PDO::PARAM_STR);
+// $query->execute(); 
+
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
