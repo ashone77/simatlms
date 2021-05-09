@@ -45,7 +45,7 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body class="signin-page">
+    <body style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))"; class="signin-page">
 
         <div class="mn-content valign-wrapper">
 

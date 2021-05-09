@@ -28,8 +28,8 @@ echo "<script type='text/javascript'> document.location = 'apply-leave.php'; </s
 } }
 
 else{
-  
   echo "<script>alert('Invalid Details');</script>";
+  
 
 }
 
@@ -40,7 +40,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>SIMAT LMS | Home Page</title>
+        <title>ELMS | Home Page</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -111,7 +111,7 @@ else{
         </div>
         <div class="mn-content fixed-sidebar">
             <header class="mn-header navbar-fixed">
-                <nav style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79));">
+                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79));" class="cyan darken-1">
                     <div class="nav-wrapper row">
                         <section class="material-design-hamburger navigation-toggle">
                             <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
@@ -119,7 +119,7 @@ else{
                             </a>
                         </section>
                         <div class="header-title col s3">      
-                            <span class="chapter-title">SIMAT LMS | Employee Leave Management System</span>
+                            <span class="chapter-title">ELMS | Employee Leave Management System</span>
                         </div>
                       
                            
@@ -134,20 +134,20 @@ else{
             <aside id="slide-out" class="side-nav white fixed">
                 <div class="side-nav-wrapper">
                    
-                  
-                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" style="">
-                    <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php">Employee Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php">Emp Password Recovery</a></li>
                 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">desktop_windows</i>Admin Login</a></li>
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="hod/">HOD Login</a></li>
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="principal/">Principal Login</a></li>
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="HR/">HR Login</a></li>
+                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
+                    <li>&nbsp;</li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Employe Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i>Emp Password Recovery</a></li>
+                
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="principal/"><i class="material-icons">account_box</i>Principal Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="HR/"><i class="material-icons">account_box</i>HR Login</a></li>
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="http://simat.ac.in/">SIMAT LMS </a>©</p>
+                    <p class="copyright"><a href="http://phpgurukul.com/">ELMS </a>©</p>
                 
                 </div>
                 </div>
@@ -155,7 +155,7 @@ else{
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title"><h4 style="margin-left: 150px;">          Welcome to Employee Leave Management System</h4></div>
+                        <div class="page-title"><h4>Welcome to Employee Leave Management System</h4></div>
 
                           <div class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">
