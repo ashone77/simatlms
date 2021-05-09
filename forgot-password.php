@@ -144,7 +144,7 @@ $msg="Your Password succesfully changed";
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title"><h4>Employee Password Recovery</h4></div>
+                        <div class="page-title"><h4>Faculty Password Recovery</h4></div>
 
                           <div class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">

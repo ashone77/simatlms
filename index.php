@@ -138,7 +138,7 @@ else{
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php"><i class="material-icons">account_box</i>Faculty &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Password Recovery</a></li>
+                    
                 
                        <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
@@ -176,17 +176,18 @@ else{
                                                <div class="col s12 right-align m-t-sm">
                                                
                                                 
-                                                   <input type="submit" name="signin" value="Sign in" class="waves-effect waves-light btn teal">
-                                                  <br> <br>
-                                               </div>
+                                                   <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
+                                                  
+                                               
 
                                            </form>
+                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='forgot-password';">
+                                            Forgot Password
+                                          </button>
+                                           </div>
                                            
                                            
-                                           <form action="forgot-password.php"> 
                                            
-                                               <input style="color: white; background-color:#006e12; border-style:none; padding:10px" type="submit" value="FORGOT PASSWORD" />
-                                               </form>
                                       </div>
                                   </div>
                               </div>
