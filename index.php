@@ -177,16 +177,17 @@ else{
                                                
                                                 
                                                    <input type="submit" name="signin" value="Sign in" class="waves-effect waves-light btn teal">
-                                                  <br> <br>
-                                               </div>
+                                                  
+                                               
 
                                            </form>
+                                           <button style="color: white; background-color:#006e12; border-style:none; padding:7px;" onclick="window.location.href='forgot-password';">
+                                            FORGOT PASSWORD
+                                          </button>
+                                           </div>
                                            
                                            
-                                           <form action="forgot-password.php"> 
                                            
-                                               <input style="color: white; background-color:#006e12; border-style:none; padding:10px" type="submit" value="FORGOT PASSWORD" />
-                                               </form>
                                       </div>
                                   </div>
                               </div>
