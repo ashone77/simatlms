@@ -7,7 +7,7 @@ if(strlen($_SESSION['emplogin'])==0)
 header('location:index.php');
 }
 else{
-
+    // insert code for checking if leave count is less than 12
     // code for inserting into leave table
 if(isset($_POST['apply']))
 {
