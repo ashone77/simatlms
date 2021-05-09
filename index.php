@@ -140,7 +140,7 @@ else{
                     <li class="no-padding"><a class="waves-effect waves-grey" href="index.php">Employee Login</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="forgot-password.php">Emp Password Recovery</a></li>
                 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/">Admin Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">desktop_windows</i>Admin Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="hod/">HOD Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="principal/">Principal Login</a></li>
                        <li class="no-padding"><a class="waves-effect waves-grey" href="HR/">HR Login</a></li>
@@ -155,7 +155,7 @@ else{
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title"><h4>Welcome to Employee Leave Management System</h4></div>
+                        <div class="page-title"><h4 style="margin-left: 150px;">          Welcome to Employee Leave Management System</h4></div>
 
                           <div class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">
