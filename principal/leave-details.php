@@ -72,7 +72,7 @@ $msg="Leave updated Successfully";
         <!-- JS Mail Script -->
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             
             
             function sendEmail() {
@@ -82,8 +82,8 @@ $msg="Leave updated Successfully";
                 Password: "#Simat@LMS100%",
                 To: 'aswinvharidas@gmail.com',
                 From: "simatlms5@gmail.com",
-                Subject: "Your Leave Application has been approved.",
-                Body: "Your leave has been approved. ",
+                Subject: "Leave application approved",
+                Body: "Your leave application has been approved by the Principal. ",
                 // Attachments: [
                 // {
                 // 	name: "File_Name_with_Extension",
@@ -103,7 +103,7 @@ $msg="Leave updated Successfully";
 
                         });
             }
-        </script>
+        </script> -->
 
 <style>
         .errorWrap {
@@ -168,6 +168,8 @@ foreach($results as $result)
                                           </tr>
 
                                           <tr>
+                                            <?php $facultyid = $result->EmailId ?>
+
                                              <td style="font-size:16px;"><b>Emp Email id :</b></td>
                                             <td><?php echo htmlentities($result->EmailId);?></td>
                                              <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
@@ -175,6 +177,38 @@ foreach($results as $result)
                                             <td>&nbsp;</td>
                                              <td>&nbsp;</td>
                                         </tr>
+                                        <script type="text/javascript">
+                                        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "simatlms5@gmail.com",
+                Password: "#Simat@LMS100%",
+                To: '<?php $facultyid ?>',
+                From: "simatlms5@gmail.com",
+                Subject: "Leave application approved",
+                Body: "Your leave application has been approved by the Principal. ",
+                // Attachments: [
+                // {
+                // 	name: "File_Name_with_Extension",
+                // 	path: "Full Path of the file"
+                // }]
+            })
+                .then(message =>{
+                            //console.log (message);
+                            if(message=='OK'){
+                            alert('Your mail has been send. Thank you for connecting.');
+                            }
+                            else{
+                                console.error (message);
+                                alert('There is error at sending message. ')
+                                
+                            }
+
+                        });
+            }
+        </script>
+
+                                        
 
   <tr>
                                              <td style="font-size:16px;"><b>Leave Type :</b></td>
