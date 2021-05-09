@@ -11,6 +11,7 @@ else{
     // code for inserting into leave table
 if(isset($_POST['apply']))
 {
+$nofdays = $_POST['nofdays'];
 $empid=$_SESSION['eid'];
  $leavetype=$_POST['leavetype'];
 $fromdate=$_POST['fromdate'];  
@@ -18,6 +19,13 @@ $todate=$_POST['todate'];
 $description=$_POST['description'];  
 $status=0;
 $isread=0;
+$leavecount = mysql_query( "SELECT nofleaves from tblemployees where id='$empid'");
+if(($nofdays+$leavecount)>12)
+{
+                $error=" Limit Exceeded";
+}
+
+
 if($fromdate > $todate){
                 $error=" ToDate should be greater than FromDate ";
            }
@@ -137,7 +145,10 @@ foreach($results as $result)
 <label for="todate">To Date</label>
 <input placeholder="" id="mask1" name="todate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
 </div>
+<div class="input-field col m6 s12">
+<textarea id="textarea1" name="nofdays" class="materialize-textarea" length="10" required></textarea>
 <div class="input-field col m12 s12">
+</div>
 <label for="birthdate">Description</label>    
 
 <textarea id="textarea1" name="description" class="materialize-textarea" length="500" required></textarea>
