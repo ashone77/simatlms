@@ -19,20 +19,32 @@ $todate=$_POST['todate'];
 $description=$_POST['description'];  
 $status=0;
 $isread=0;
-$leavecount = "SELECT nofleaves from tblemployees where id= :empid ";
-$query = $dbh-> prepare($leavecount);
-$query->bindParam(':empid' ,$empid, PDO::PARAM_STR);
-$query->execute();
-$totalnoleaves = $nofdays+$leavecount;
-if($totalnoleaves>12)
+// $leavecount = "SELECT nofleaves from tblemployees where id= :empid ";
+// $query = $dbh->prepare($leavecount);
+// $query->bindParam(':empid' ,$empid, PDO::PARAM_STR);
+// $query->execute(['id'=>$empid]);
+// $user = $query->fetch();
+
+$totalnoleaves = $nofdays;
+if($totalnoleaves > 12)
 {
                 $error=" Limit Exceeded";
 }
+else
+{
 
 
 if($fromdate > $todate){
                 $error=" ToDate should be greater than FromDate ";
+            
            }
+
+$updateCount= "UPDATE tblemployees SET nofleaves = :tnl where id = :empid";
+$query = $dbh->prepare($updateCount);
+$query->bindParam(':tnl',$totalnoleaves, PDO::PARAM_INT);
+$query->bindParam(':empid' ,$empid, PDO::PARAM_STR);
+$query->execute(); 
+
         //    insert leave into leave table
 $sql="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
 $query = $dbh->prepare($sql);
@@ -46,11 +58,6 @@ $query->bindParam(':empid',$empid,PDO::PARAM_STR);
 $query->execute();
 
 
-//  $updateCount= "UPDATE tblemployees SET nofleaves = '$totalnoleaves' where id = :empid";
-// $query = $dbh->prepare($updateCount);
-// $query->bindParam(':empid', $empid, PDO::PARAM_STR);
-// $query->execute(); 
-
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
@@ -62,7 +69,7 @@ $error="Something went wrong. Please try again";
 }
 
 }
-
+}
     ?>
 
 <!DOCTYPE html>
@@ -158,7 +165,7 @@ foreach($results as $result)
 </div>
 <div>
 <label for="days">No of days:</label>
-<input type="number" id="nofdays" name="nofdays" min="1" max ="12">
+<input type="number" id="nofdays" name="nofdays" min="1" max ="13">
 </div>
 <div class="input-field col m12 s12">
 <label for="birthdate">Description</label>    
