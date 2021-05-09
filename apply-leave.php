@@ -145,6 +145,10 @@ foreach($results as $result)
 <label for="todate">To Date</label>
 <input placeholder="" id="mask1" name="todate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
 </div>
+<div>
+<label for="days">No of days:</label>
+<input type="number" id="nofdays" name="nofdays" min="1" max="12">
+</div>
 <div class="input-field col m12 s12">
 <label for="birthdate">Description</label>    
 
