@@ -68,8 +68,7 @@
               
                 </ul>
                    <div class="footer">
-                    <p class="copyright"><a href="http://phpgurukul.com/">ELMS </a>©</p>
-                
+                   <p class="copyright"><a href="http://simat.ac.in/">SIMAT LMS </a>©</p>                
                 </div>
                 </div>
             </aside>

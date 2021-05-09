@@ -30,7 +30,7 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
     <head>
         
         <!-- Title -->
-        <title>Employee leave management system |  Admin</title>
+        <title>Faculty Leave Management System |  Admin</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -50,7 +50,11 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
         <div style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79));" class="mn-content valign-wrapper">
 
             <main class="mn-inner container">
+<<<<<<< HEAD
   <h4 c align="center"><a href="../index.php"> Employee Leave Management System | Admin Login</a></h4>
+=======
+  <h4 c align="center"><a href="../index.php"> <i style="color: white;">Faculty Leave Management System | Admin Login</i></a></h4>
+>>>>>>> a1fa2a10c1de3216ea84802e79e21f6bdf7757eb
                 <div class="valign">
                       <div class="row">
 

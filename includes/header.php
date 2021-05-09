@@ -49,7 +49,7 @@
                             </a>
                         </section>
                         <div class="header-title col s3">      
-                            <span class="chapter-title">SIMAT LMS | Employee</span>
+                            <span class="chapter-title">SIMAT LMS | Faculty</span>
                         </div>
                      
                 

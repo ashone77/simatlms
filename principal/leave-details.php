@@ -22,6 +22,7 @@ $query->execute();
 // code for action taken on leave
 if(isset($_POST['update']))
 { 
+
 $did=intval($_GET['leaveid']);
 $description=$_POST['description'];
 $status=$_POST['status'];   
@@ -35,6 +36,7 @@ $query->bindParam(':admremarkdate',$admremarkdate,PDO::PARAM_STR);
 $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
 $msg="Leave updated Successfully";
+
 
 
 
@@ -71,6 +73,8 @@ $msg="Leave updated Successfully";
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
+            
+            
             function sendEmail() {
             Email.send({
                 Host: "smtp.gmail.com",
@@ -193,6 +197,8 @@ foreach($results as $result)
 if($stats==1){
 ?>
 <span style="color: green">Approved</span>
+
+
  <?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
@@ -232,6 +238,7 @@ if($stats==0)
 <tr>
  <td colspan="5">
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
+<<<<<<< HEAD
   <script>
 $(document).ready(function(){
   $("form").submit(function(){
@@ -241,6 +248,9 @@ $(document).ready(function(){
 });
 </script>
 <form name="adminaction" method="post" onsubmit="return sendEmail()">
+=======
+<form name="adminaction" method="post">
+>>>>>>> a1fa2a10c1de3216ea84802e79e21f6bdf7757eb
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
         <h4>Leave take action</h4>
@@ -252,10 +262,12 @@ $(document).ready(function(){
                                         <p><textarea id="textarea1" name="description" class="materialize-textarea" name="description" placeholder="Description" length="500" maxlength="500" required></textarea></p>
     </div>
     <div class="modal-footer" style="width:90%">
+    
        <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
-       <!-- <form method="post">
+      
+       <form method="post">
 	<input type="button" value="Send Mail"
-		onclick="sendEmail()" /> -->
+		onclick="sendEmail()" />
 </form>
     </div>
 
