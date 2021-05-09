@@ -19,7 +19,10 @@ $todate=$_POST['todate'];
 $description=$_POST['description'];  
 $status=0;
 $isread=0;
-$leavecount = mysql_query( "SELECT nofleaves from tblemployees where id='$empid'");
+$leavecount = "SELECT nofleaves from tblemployees where id= :empid ";
+$query = $dbh-> prepare($leavecount);
+$query->bindParam(':empid' ,$empid, PDO::PARAM_STR);
+$query->execute();
 if(($nofdays+$leavecount)>12)
 {
                 $error=" Limit Exceeded";
@@ -147,7 +150,7 @@ foreach($results as $result)
 </div>
 <div>
 <label for="days">No of days:</label>
-<input type="number" id="nofdays" name="nofdays" min="1" max="12">
+<input type="number" id="nofdays" name="nofdays" min="1" max ="12">
 </div>
 <div class="input-field col m12 s12">
 <label for="birthdate">Description</label>    
