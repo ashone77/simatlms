@@ -145,10 +145,7 @@ foreach($results as $result)
 <label for="todate">To Date</label>
 <input placeholder="" id="mask1" name="todate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
 </div>
-<div class="input-field col m6 s12">
-<textarea id="textarea1" name="nofdays" class="materialize-textarea" length="10" required></textarea>
 <div class="input-field col m12 s12">
-</div>
 <label for="birthdate">Description</label>    
 
 <textarea id="textarea1" name="description" class="materialize-textarea" length="500" required></textarea>
