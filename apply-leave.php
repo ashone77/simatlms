@@ -46,7 +46,7 @@ $query->bindParam(':empid',$empid,PDO::PARAM_STR);
 $query->execute();
 
 
-// $updateCount= "UPDATE tblemployees SET nofleaves = '$totalnoleaves' where id = :empid";
+//  $updateCount= "UPDATE tblemployees SET nofleaves = '$totalnoleaves' where id = :empid";
 // $query = $dbh->prepare($updateCount);
 // $query->bindParam(':empid', $empid, PDO::PARAM_STR);
 // $query->execute(); 
