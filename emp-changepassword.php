@@ -39,7 +39,7 @@ $error="Your current password is wrong";
     <head>
         
         <!-- Title -->
-        <title>Employee | Change Password</title>
+        <title>Faculty | Change Password</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

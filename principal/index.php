@@ -14,7 +14,7 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 $_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'changepassword.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 } else{
   
   echo "<script>alert('Invalid Details');</script>";
@@ -30,7 +30,7 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
     <head>
         
         <!-- Title -->
-        <title>Employee leave management system |  Admin</title>
+        <title>Principal Login | Simat LMS</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

@@ -40,7 +40,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>ELMS | Home Page</title>
+        <title>Simat LMS</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

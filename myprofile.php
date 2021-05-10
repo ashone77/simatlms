@@ -43,7 +43,7 @@ $msg="Employee record updated Successfully";
     <head>
         
         <!-- Title -->
-        <title>My Profile | Simat LMS</title>
+        <title>My Profile</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

@@ -50,7 +50,7 @@ $msg="Leave updated Successfully";
     <head>
         
         <!-- Title -->
-        <title>Admin | Leave Details </title>
+        <title>Leave Details </title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
