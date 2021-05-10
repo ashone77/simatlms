@@ -22,3 +22,5 @@ of the database elms in order to login to hod and principal previleges.
 create a table called " tblprincipal " in elms database.
  use query " create table tblprincipal like tblleaves " 
  **** simat lms 
+
+ edit
