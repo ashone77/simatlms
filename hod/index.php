@@ -50,7 +50,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         <div style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="mn-content valign-wrapper">
 
             <main class="mn-inner container">
-  <h4 align="center"><a href="../index.php"> Employee Leave Management System | HOD Login</i></a></h4>
+  <h4 align="center"><a href="../index.php"> Employee Leave Management System | HOD Login</a></h4>
                 <div class="valign">
                       <div class="row">
 

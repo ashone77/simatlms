@@ -17,7 +17,7 @@ $sql="update tblleaves set IsRead=:isread where id=:did";
 $query = $dbh->prepare($sql);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->bindParam(':did',$did,PDO::PARAM_STR);
-$query->execute();**
+$query->execute();
 
 // code for action taken on leave
 if(isset($_POST['update']))
