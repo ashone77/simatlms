@@ -39,12 +39,8 @@ $error="Your current password is wrong";
     <head>
         
         <!-- Title -->
-<<<<<<< HEAD
-        <title>Employee | Change Password</title>
         <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
-=======
         <title>Faculty | Change Password</title>
->>>>>>> d108eee915d65a45e723fd3311e26d85fb5e266c
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

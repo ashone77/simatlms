@@ -51,11 +51,7 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
         <div style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79));" class="mn-content valign-wrapper">
 
             <main class="mn-inner container">
-<<<<<<< HEAD
-  <h4 c align="center"><a href="../index.php"> Employee Leave Management System | Admin Login</a></h4>
-=======
   <h4 c align="center"><a href="../index.php"> Faculty Leave Management System | Admin Login</a></h4>
->>>>>>> d108eee915d65a45e723fd3311e26d85fb5e266c
                 <div class="valign">
                       <div class="row">
 
