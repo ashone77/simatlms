@@ -105,7 +105,7 @@ foreach($results as $result)
                                                  <?php } if($stats==2)  { ?>
                                                 <span style="color: red">Not Approved</span>
                                                  <?php } if($stats==0)  { ?>
- <span style="color: blue">waiting for approval</span>
+ <span style="color: blue">Waiting for Approval</span>
  <?php } if($stats==3)  { ?>
                                                 <span style="color: green">Forwarded to Principal</span>
                                                  <?php } ?>

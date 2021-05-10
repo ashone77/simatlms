@@ -16,7 +16,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>Admin | Total Leave </title>
+        <title>Leave History | Total Leave </title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -105,7 +105,7 @@ if($stats==1){
                                                  <?php } if($stats==2)  { ?>
                                                 <span style="color: red">Not Approved</span>
                                                  <?php } if($stats==0)  { ?>
- <span style="color: blue">waiting for approval</span>
+ <span style="color: blue">Waiting for Approval</span>
  <?php } if($stats==3)  { ?>
                                                 <span style="color: green">Forwarded to Principal</span>
                                                  <?php } ?>
