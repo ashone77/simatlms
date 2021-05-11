@@ -40,6 +40,7 @@ $error="Your current password is wrong";
         
         <!-- Title -->
         <title>Admin | Change Password</title>
+        <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

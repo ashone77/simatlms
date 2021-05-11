@@ -31,6 +31,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         
         <!-- Title -->
         <title>Employee leave management system |  Admin</title>
+        <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

@@ -35,18 +35,15 @@ else{
 
 }
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
-        
-        <!-- Title -->
-        <title>ELMS | Home Page</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <meta charset="UTF-8">
-        <meta name="description" content="Responsive Admin Dashboard Template" />
-        <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty</title>
+    <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Styles -->
         <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
@@ -111,7 +108,7 @@ else{
         </div>
         <div class="mn-content fixed-sidebar">
             <header class="mn-header navbar-fixed">
-                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79));" class="cyan darken-1">
+                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="cyan darken-1">
                     <div class="nav-wrapper row">
                         <section class="material-design-hamburger navigation-toggle">
                             <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">

@@ -37,7 +37,8 @@ $error="Something went wrong. Please try again";
     <head>
         
         <!-- Title -->
-        <title>Admin | Add Department</title>
+        <title>HR | Add Department</title>
+        <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">

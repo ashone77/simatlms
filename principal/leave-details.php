@@ -51,6 +51,7 @@ $msg="Leave updated Successfully";
         
         <!-- Title -->
         <title>Admin | Leave Details </title>
+        <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -178,12 +179,13 @@ foreach($results as $result)
                                              <td>&nbsp;</td>
                                         </tr>
                                         <script type="text/javascript">
-                                        function sendEmail() {
+                                        function sendEmail(mid) {
             Email.send({
+                
                 Host: "smtp.gmail.com",
                 Username: "simatlms5@gmail.com",
                 Password: "#Simat@LMS100%",
-                To: '<?php $result->EmailId ?>',
+                To:"sreesreeram71@gmail.com",
                 From: "simatlms5@gmail.com",
                 Subject: "Leave application approved",
                 Body: "Your leave application has been approved by the Principal. ",
