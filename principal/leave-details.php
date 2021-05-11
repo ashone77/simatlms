@@ -185,7 +185,7 @@ foreach($results as $result)
                 Host: "smtp.gmail.com",
                 Username: "simatlms5@gmail.com",
                 Password: "#Simat@LMS100%",
-                To:"sreesreeram71@gmail.com",
+                To:"<?php echo htmlentities($result->EmailId);?>",
                 From: "simatlms5@gmail.com",
                 Subject: "Leave application approved",
                 Body: "Your leave application has been approved by the Principal. ",
