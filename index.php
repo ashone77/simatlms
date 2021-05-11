@@ -124,7 +124,7 @@ else{
                                 <span class="material-design-hamburger__layer"></span>
                             </a>
                         </section>
-                        <div class="header-title col s3">      
+                        <div class="header-title col s4">      
                             <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
                         </div>
                       
@@ -161,7 +161,7 @@ else{
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title"><h4>Faculty Leave Management System</h4></div>
+                        <!-- <div class="page-title"><h4>Faculty Leave Management System</h4></div> -->
 
                           <div class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">

@@ -9,67 +9,39 @@ header('location:index.php');
 else{
     // insert code for checking if leave count is less than 12
     // code for inserting into leave table
-if(isset($_POST['apply']))
-{
-$nofdays = $_POST['nofdays'];
-$empid=$_SESSION['eid'];
- $leavetype=$_POST['leavetype'];
-$fromdate=$_POST['fromdate'];  
-$todate=$_POST['todate'];
-$description=$_POST['description'];  
-$status=0;
-$isread=0;
-// $leavecount = "SELECT nofleaves from tblemployees where id= :empid ";
-// $query = $dbh->prepare($leavecount);
-// $query->bindParam(':empid' ,$empid, PDO::PARAM_STR);
-// $query->execute(['id'=>$empid]);
-// $user = $query->fetch();
-
-$totalnoleaves = $nofdays;
-if($totalnoleaves > 12)
-{
-                $error=" Limit Exceeded";
-}
-else
-{
-
-
-if($fromdate > $todate){
-                $error=" ToDate should be greater than FromDate ";
-            
-           }
-
-$updateCount= "UPDATE tblemployees SET nofleaves = :tnl where id = :empid";
-$query = $dbh->prepare($updateCount);
-$query->bindParam(':tnl',$totalnoleaves, PDO::PARAM_INT);
-$query->bindParam(':empid' ,$empid, PDO::PARAM_STR);
-$query->execute(); 
-
-        //    insert leave into leave table
-$sql="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
-$query = $dbh->prepare($sql);
-$query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
-$query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
-$query->bindParam(':todate',$todate,PDO::PARAM_STR);
-$query->bindParam(':description',$description,PDO::PARAM_STR);
-$query->bindParam(':status',$status,PDO::PARAM_STR);
-$query->bindParam(':isread',$isread,PDO::PARAM_STR);
-$query->bindParam(':empid',$empid,PDO::PARAM_STR);
-$query->execute();
-
-
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-$msg="Leave applied successfully";
-}
-else 
-{
-$error="Something went wrong. Please try again";
-}
-
-}
-}
+    if(isset($_POST['apply']))
+    {
+        $empid=$_SESSION['eid'];
+        $leavetype=$_POST['leavetype'];
+        $fromdate=$_POST['fromdate'];  
+        $todate=$_POST['todate'];
+        $description=$_POST['description'];  
+        $status=0;
+        $isread=0;
+        if($fromdate > $todate){
+            $error=" ToDate should be greater than FromDate ";
+        }
+        $sql="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
+        $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
+        $query->bindParam(':todate',$todate,PDO::PARAM_STR);
+        $query->bindParam(':description',$description,PDO::PARAM_STR);
+        $query->bindParam(':status',$status,PDO::PARAM_STR);
+        $query->bindParam(':isread',$isread,PDO::PARAM_STR);
+        $query->bindParam(':empid',$empid,PDO::PARAM_STR);
+        $query->execute();
+        $lastInsertId = $dbh->lastInsertId();
+        if($lastInsertId)
+        {
+            $msg="Leave applied successfully";
+        }
+        else 
+        {
+            $error="Something went wrong. Please try again";
+        }
+    
+    }
     ?>
 
 <!DOCTYPE html>
@@ -138,7 +110,7 @@ $error="Something went wrong. Please try again";
      <?php if($error){?><div class="errorWrap"><strong>ERROR </strong>:<?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 
-
+<!-- Select Leave Type -->
  <div class="input-field col  s12">
 <select  name="leavetype" autocomplete="off">
 <option value="">Select leave type...</option>
@@ -156,7 +128,25 @@ foreach($results as $result)
 </select>
 </div>
 
+<!-- Select Department Type -->
+<div class="input-field col  s12">
+<select  name="select_dept" autocomplete="off">
+<option value="">Choose your Department </option>
+<?php $sql = "SELECT  DepartmentName from tbldepartments";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{   ?>                                            
+<option value="<?php echo htmlentities($result->DepartmentName);?>"><?php echo htmlentities($result->DepartmentName);?></option>
+<?php }} ?>
+</select>
+</div>
 
+<!-- Leave Details -->
 <div class="input-field col m6 s12">
 <label for="fromdate">From  Date</label>
 <input placeholder="" id="mask1" name="fromdate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
@@ -165,7 +155,7 @@ foreach($results as $result)
 <label for="todate">To Date</label>
 <input placeholder="" id="mask1" name="todate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
 </div>
-<div>
+<div class="input-field col m6 s12">
 <label for="days">No of days:</label>
 <input type="number" id="nofdays" name="nofdays" min="1" max ="13">
 </div>
