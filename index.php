@@ -39,11 +39,23 @@ else{
 <!DOCTYPE html>
 <html lang="en">
     <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty</title>
     <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
+=======
+        
+        <!-- Title -->
+        <title>Simat LMS</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Steelcoders" />
+>>>>>>> d108eee915d65a45e723fd3311e26d85fb5e266c
         
         <!-- Styles -->
         <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>

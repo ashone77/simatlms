@@ -22,7 +22,7 @@ $msg="Your Password succesfully changed";
     <head>
         
         <!-- Title -->
-        <title>ELMS | Password Recovery</title>
+        <title>Simat LMS - Password Recovery</title>
         
     <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
         
