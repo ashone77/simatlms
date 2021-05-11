@@ -153,7 +153,7 @@ else{
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="http://phpgurukul.com/">ELMS </a>©</p>
+                    <p class="copyright"><a href="simat.ac.in">Simat LMS </a>©</p>
                 
                 </div>
                 </div>
