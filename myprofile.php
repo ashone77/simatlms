@@ -150,6 +150,7 @@ foreach($results as $result)
 <div class="col m6">
 <div class="row">
 <div class="input-field col m6 s12">
+<label for="gender">Gender</label> <br>
 <select  name="gender" autocomplete="off">
 <option value="<?php echo htmlentities($result->Gender);?>"><?php echo htmlentities($result->Gender);?></option>                                          
 <option value="Male">Male</option>
@@ -166,6 +167,7 @@ foreach($results as $result)
                                                     
 
 <div class="input-field col m6 s12">
+<label for="department">Department</label> <br>
 <select  name="department" autocomplete="off">
 <option value="<?php echo htmlentities($result->Department);?>"><?php echo htmlentities($result->Department);?></option>
 <?php $sql = "SELECT DepartmentName from tbldepartments";
@@ -197,7 +199,6 @@ foreach($results as $resultt)
 <input id="country" name="country" type="text"  value="<?php echo htmlentities($result->Country);?>" autocomplete="off" required>
 </div>
 
-                                                            
 
 <?php }}?>
                                                         
