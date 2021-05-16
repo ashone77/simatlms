@@ -110,7 +110,33 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
 $lid=intval($_GET['leaveid']);
-$sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblleaves.LeaveType,tblleaves.ToDate,tblleaves.FromDate,tblleaves.Description,tblleaves.PostingDate,tblleaves.Status,tblleaves.AdminRemark,tblleaves.AdminRemarkDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.id=:lid";
+
+switch ($_SESSION['alogin']){
+    case "hodcse":
+        $selectTable = "tblleaves_cse";
+        break;
+    case "hodcivil":
+        $selectTable = "tblleaves_civil";
+        break;
+    case "hodeee":
+        $selectTable = "tblleaves_eee";
+        break;
+    case "hodme":
+        $selectTable = "tblleaves_me";
+        break; 
+    case "hodec":
+        $selectTable = "tblleaves_ece";
+        break;
+    case "hodash":
+        $selectTable = "tblleaves_ash";
+        break;
+    default:
+        $selectTable = "tblleaves";
+    
+
+}
+
+$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,$selectTable.LeaveType,$selectTable.ToDate,$selectTable.FromDate,$selectTable.Description,$selectTable.PostingDate,$selectTable.Status,$selectTable.AdminRemark,$selectTable.AdminRemarkDate from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
