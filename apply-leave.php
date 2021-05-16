@@ -15,13 +15,41 @@ else{
         $leavetype=$_POST['leavetype'];
         $fromdate=$_POST['fromdate'];  
         $todate=$_POST['todate'];
-        $description=$_POST['description'];  
+        $description=$_POST['description'];
+        $dept=$_POST['select_dept']; 
         $status=0;
         $isread=0;
         if($fromdate > $todate){
             $error=" ToDate should be greater than FromDate ";
         }
-        $sql="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
+
+        switch($dept){
+
+            case "Computer Science Engineering":
+                $selectTable = "tblleaves_cse";
+                break;
+            case "Applied Science & Humanities":
+                $selectTable = "tblleaves_ash";
+                break;
+            case "Civil Engineering":
+                $selectTable = "tblleaves_civil";
+                break;
+            case "Electrical And Electronics Engineering":
+                $selectTable = "tblleaves_eee";
+                break;
+            case "Mechanical Engineering":
+                $selectTable = "tblleaves_me";
+                break;
+            case "Electronics And Communication Engineering":
+                $selectTable = "tblleaves_ece";
+                break;
+
+            default:
+                $selectTable = "tblleaves";
+
+        }
+
+        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
         $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);

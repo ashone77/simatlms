@@ -145,41 +145,43 @@ $msg="Leave updated Successfully";
                                  
                                     <tbody>
 <?php 
-$lid=intval($_GET['leaveid']);
-$sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblleaves.LeaveType,tblleaves.ToDate,tblleaves.FromDate,tblleaves.Description,tblleaves.PostingDate,tblleaves.Status,tblleaves.AdminRemark,tblleaves.AdminRemarkDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.id=:lid";
-$query = $dbh -> prepare($sql);
-$query->bindParam(':lid',$lid,PDO::PARAM_STR);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{         
-      ?>  
+    $lid=intval($_GET['leaveid']);
+    $sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblleaves.LeaveType,tblleaves.ToDate,tblleaves.FromDate,tblleaves.Description,tblleaves.PostingDate,tblleaves.Status,tblleaves.AdminRemark,tblleaves.AdminRemarkDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.id=:lid";
+    $query = $dbh -> prepare($sql);
+    $query->bindParam(':lid',$lid,PDO::PARAM_STR);
+    $query->execute();
+    $results=$query->fetchAll(PDO::FETCH_OBJ);
+    $cnt=1;
+    if($query->rowCount() > 0)
+    {
+        foreach($results as $result)
+        {         
+?>  
 
-                                        <tr>
-                                            <td style="font-size:16px;"> <b>Employe Name :</b></td>
-                                              <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
-                                                <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
-                                              <td style="font-size:16px;"><b>Emp Id :</b></td>
-                                              <td><?php echo htmlentities($result->EmpId);?></td>
-                                              <td style="font-size:16px;"><b>Gender :</b></td>
-                                              <td><?php echo htmlentities($result->Gender);?></td>
-                                          </tr>
+<tr>
+    <td style="font-size:16px;"> <b>Employe Name :</b></td>
+        <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
+        <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
+        <td style="font-size:16px;"><b>Emp Id :</b></td>
+        <td><?php echo htmlentities($result->EmpId);?></td>
+        <td style="font-size:16px;"><b>Gender :</b></td>
+        <td><?php echo htmlentities($result->Gender);?></td>
+    </tr>
 
-                                          <tr>
-                                            <?php $facultyid = $result->EmailId ?>
+    <tr>
+    <?php $facultyid = $result->EmailId ?>
 
-                                             <td style="font-size:16px;"><b>Emp Email id :</b></td>
-                                            <td><?php echo htmlentities($result->EmailId);?></td>
-                                             <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
-                                            <td><?php echo htmlentities($result->Phonenumber);?></td>
-                                            <td>&nbsp;</td>
-                                             <td>&nbsp;</td>
-                                        </tr>
-                                        <script type="text/javascript">
-                                        function sendEmail(mid) {
+        <td style="font-size:16px;"><b>Emp Email id :</b></td>
+    <td><?php echo htmlentities($result->EmailId);?></td>
+        <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
+    <td><?php echo htmlentities($result->Phonenumber);?></td>
+    <td>&nbsp;</td>
+        <td>&nbsp;</td>
+</tr>
+
+<!-- Mail Script -->
+<script type="text/javascript">
+    function sendEmail(mid) {
             Email.send({
                 
                 Host: "smtp.gmail.com",
@@ -208,24 +210,29 @@ foreach($results as $result)
 
                         });
             }
-        </script>
+</script>
 
                                         
 
-  <tr>
-                                             <td style="font-size:16px;"><b>Leave Type :</b></td>
-                                            <td><?php echo htmlentities($result->LeaveType);?></td>
-                                             <td style="font-size:16px;"><b>Leave Date . :</b></td>
-                                            <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
-                                            <td style="font-size:16px;"><b>Posting Date</b></td>
-                                           <td><?php echo htmlentities($result->PostingDate);?></td>
-                                        </tr>
+<tr>
+        <td style="font-size:16px;"><b>Leave Type :</b></td>
+    <td><?php echo htmlentities($result->LeaveType);?></td>
+        <td style="font-size:16px;"><b>Leave Date . :</b></td>
+    <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
+    <td style="font-size:16px;"><b>Posting Date</b></td>
+    <td><?php echo htmlentities($result->PostingDate);?></td>
+    
+</tr>
 
 <tr>
-                                             <td style="font-size:16px;"><b>Employe Leave Description : </b></td>
-                                            <td colspan="5"><?php echo htmlentities($result->Description);?></td>
-                                          
-                                        </tr>
+    <td style="font-size:16px;"><b>Total Leaves Taken</b></td>
+    <td><?php echo htmlentities($result->nofleaves);?></td>
+</tr>
+
+<tr>
+    <td style="font-size:16px;"><b>Employe Leave Description : </b></td>
+    <td colspan="5"><?php echo htmlentities($result->Description);?></td>
+</tr>
 
 <tr>
 <td style="font-size:16px;"><b>leave Status :</b></td>

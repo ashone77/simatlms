@@ -7,6 +7,7 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
+    
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +121,34 @@ $leavtypcount=$query->rowCount();
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblleaves.LeaveType,tblleaves.PostingDate,tblleaves.Status from tblleaves join tblemployees on tblleaves.empid=tblemployees.id order by lid desc limit 6";
+<?php 
+
+switch ($_SESSION['alogin']){
+    case "hodcse":
+        $selectTable = "tblleaves_cse";
+        break;
+    case "hodcivil":
+        $selectTable = "tblleaves_civil";
+        break;
+    case "hodeee":
+        $selectTable = "tblleaves_eee";
+        break;
+    case "hodme":
+        $selectTable = "tblleaves_me";
+        break; 
+    case "hodec":
+        $selectTable = "tblleaves_ece";
+        break;
+    case "hodash":
+        $selectTable = "tblleaves_ash";
+        break;
+    default:
+        $selectTable = "tblleaves";
+    
+
+}
+
+$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,$selectTable.LeaveType,$selectTable.PostingDate,$selectTable.Status from $selectTable join tblemployees on $selectTable.empid=tblemployees.id order by lid desc limit 6";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
