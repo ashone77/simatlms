@@ -24,3 +24,5 @@ create a table called " tblprincipal " in elms database.
  **** simat lms 
 
  edit
+
+ ###sree

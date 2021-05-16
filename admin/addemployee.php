@@ -209,9 +209,10 @@ error:function (){}
 </select>
 </div>
 
+
 <div class="input-field col m6 s12">
-<label for="birthdate">Birthdate</label>
-<input id="birthdate" name="dob" type="date" class="datepicker" autocomplete="off" >
+<label for="birthdate"></label>
+<input id="birthdate" name="dob" type="date" class='input-group date'  autocomplete="off" >
 </div>
 
                                                     
