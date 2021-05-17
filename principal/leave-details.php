@@ -146,7 +146,7 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
     $lid=intval($_GET['leaveid']);
-    $sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblleaves.LeaveType,tblleaves.ToDate,tblleaves.FromDate,tblleaves.Description,tblleaves.PostingDate,tblleaves.Status,tblleaves.AdminRemark,tblleaves.AdminRemarkDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.id=:lid";
+    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
     $query = $dbh -> prepare($sql);
     $query->bindParam(':lid',$lid,PDO::PARAM_STR);
     $query->execute();
