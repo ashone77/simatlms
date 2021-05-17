@@ -142,6 +142,8 @@ if($stats==1){
                                                  <span style="color: green">Approved</span>
                                                  <?php } if($stats==2)  { ?>
                                                 <span style="color: red">Not Approved</span>
+                                                 <?php } if($stats==3)  { ?>
+                                                <span style="color: green">Forwarded from HOD</span>
                                                  <?php } if($stats==0)  { ?>
  <span style="color: blue">Waiting for approval</span>
  <?php } ?>
