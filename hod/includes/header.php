@@ -56,8 +56,34 @@
                         
                             <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">notifications_none</i>
 <?php 
+
+switch ($_SESSION['alogin']){
+    case "hodcse":
+        $selectTable = "tblleaves_cse";
+        break;
+    case "hodcivil":
+        $selectTable = "tblleaves_civil";
+        break;
+    case "hodeee":
+        $selectTable = "tblleaves_eee";
+        break;
+    case "hodme":
+        $selectTable = "tblleaves_me";
+        break; 
+    case "hodec":
+        $selectTable = "tblleaves_ece";
+        break;
+    case "hodash":
+        $selectTable = "tblleaves_ash";
+        break;
+    default:
+        $selectTable = "tblleaves";
+    
+
+}
+
 $isread=0;
-$sql = "SELECT id from tblleaves where IsRead=:isread";
+$sql = "SELECT id from $selectTable where IsRead=:isread";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->execute();
@@ -75,7 +101,7 @@ $unreadcount=$query->rowCount();?>
                                     <li class="notification-drop-title">Notifications</li>
 <?php 
 $isread=0;
-$sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblleaves.PostingDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.IsRead=:isread";
+$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,$selectTable.PostingDate from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.IsRead=:isread";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->execute();
