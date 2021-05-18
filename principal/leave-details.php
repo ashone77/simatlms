@@ -35,7 +35,34 @@ $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':admremarkdate',$admremarkdate,PDO::PARAM_STR);
 $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
+
+switch($_SESSION['ltype']){
+    case "Commuted":
+        $leavetbl = "lv_commutted";
+        break;
+    case "Casual Leave":
+        $leavetbl = "lv_casual";
+        break;
+    case "Loss of Pay":
+        $leavetbl = "lv_lop";
+        break;
+    case "Earned Leave":
+        $leavetbl = "lv_earned";
+        break;
+
+
+    default:
+        echo("Leave type not specified in the leave details");
+}
+
+$emp_id = $_SESSION['id'];
+
+$sql2 = "update tblemployees set $leavetbl=$leavetbl+1,nofleaves=nofleaves+1 where id=$emp_id";
+$query = $dbh->prepare($sql2);
+// $query->bindParam(':did',$did,PDO::PARAM_STR);
+$query->execute();
 $msg="Leave updated Successfully";
+
 
 
 
@@ -162,13 +189,18 @@ $msg="Leave updated Successfully";
     <td style="font-size:16px;"> <b>Employe Name :</b></td>
         <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
         <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
-        <td style="font-size:16px;"><b>Emp Id :</b></td>
+        <td style="font-size:16px;"><b>Faculty Code :</b></td>
         <td><?php echo htmlentities($result->EmpId);?></td>
         <td style="font-size:16px;"><b>Gender :</b></td>
         <td><?php echo htmlentities($result->Gender);?></td>
-    </tr>
+        
+</tr>
+<tr>
+<td style="font-size:16px;"><b>SL No:</b></td>
+        <td><?php echo htmlentities($result->id);$_SESSION['id']=$result->id;?></td>
+</tr>
 
-    <tr>
+<tr>
     <?php $facultyid = $result->EmailId ?>
 
         <td style="font-size:16px;"><b>Emp Email id :</b></td>
@@ -216,7 +248,8 @@ $msg="Leave updated Successfully";
 
 <tr>
         <td style="font-size:16px;"><b>Leave Type :</b></td>
-    <td><?php echo htmlentities($result->LeaveType);?></td>
+    <td><?php echo htmlentities($result->LeaveType);
+    $_SESSION['ltype']=$result->LeaveType;?></td>
         <td style="font-size:16px;"><b>Leave Date . :</b></td>
     <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
     <td style="font-size:16px;"><b>Posting Date</b></td>
