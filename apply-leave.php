@@ -188,12 +188,13 @@ foreach($results as $result)
 
 <!-- Leave Details -->
 <div class="input-field col m6 s12">
-<label for="fromdate">From  Date</label>
-<input placeholder="" id="mask1" name="fromdate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
+<label for="fromdate"></label>
+<input id="mask1" name="fromdate" type="date" class='input-group date'  autocomplete="off" required>
 </div>
 <div class="input-field col m6 s12">
-<label for="todate">To Date</label>
-<input placeholder="" id="mask1" name="todate" class="masked" type="text" data-inputmask="'alias': 'date'" required>
+<label for="todate"></label>
+<input id="mask1" name="todate" type="date" class='input-group date'  autocomplete="off" required>
+
 </div>
 <div class="input-field col m6 s12">
 <label for="days">No of days:</label>
