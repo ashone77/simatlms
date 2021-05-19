@@ -51,7 +51,7 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
         <div class="mn-content valign-wrapper">
 
             <main class="mn-inner container">
-  <h4 align="center"><a href="../index.php">SIMAT Leave Management System | HR Login</a></h4>
+  <h4 align="center"><a href="../index.php">Sreepathy Leave Management System | HR Login</a></h4>
                 <div class="valign">
                       <div class="row">
 
