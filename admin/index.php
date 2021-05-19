@@ -47,15 +47,32 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
     </head>
     <body >
+    <header class="mn-header navbar-fixed">
+    <nav style= "background-image: linear-gradient(to right, rgba(62, 0, 0), rgba(0, 20, 109))" class="cyan darken-1">
+                   
+                        
+                        <div style="margin-left: 0px;" class="header-title col s4">      
+                            <span  class="chapter-title">SIMAT LMS | ADMIN LOGIN</span>
+                            
+                        </div>
+                        <a style="float: right; margin-top:10px" class="btn btn-primary" href="../index.php" role="button">HOME</a>
+                       
+                     
+                        
+                    
+                </nav>
+            </header>
+    
 
         <div style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79));" class="mn-content valign-wrapper">
 
             <main class="mn-inner container">
-  <h4 c align="center"><a href="../index.php"> Faculty Leave Management System | Admin Login</a></h4>
+
                 <div class="valign">
                       <div class="row">
 
                           <div class="col s12 m6 l4 offset-l4 offset-m3">
+                          <h4 style="font-family: Garamond, serif; text-align:center;color:white">Admin Login</h4>
                               <div class="card white darken-1">
                                   <div class="card-content ">
                                       <span class="card-title">Sign In</span>

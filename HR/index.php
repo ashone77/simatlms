@@ -46,16 +46,33 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
     </head>
+    <header class="mn-header navbar-fixed">
+    <nav style= "background-image: linear-gradient(to right, rgba(62, 0, 0), rgba(0, 20, 109))" class="cyan darken-1">
+                   
+                        
+                        <div style="margin-left: 0px;" class="header-title col s4">      
+                            <span  class="chapter-title">SIMAT LMS | HR LOGIN</span>
+                            
+                        </div>
+                        <a style="float: right; margin-top:10px" class="btn btn-primary" href="../index.php" role="button">HOME</a>
+                       
+                     
+                        
+                    
+                </nav>
+            </header>
     <body style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))"; class="signin-page">
 
         <div class="mn-content valign-wrapper">
 
             <main class="mn-inner container">
-  <h4 align="center"><a href="../index.php">Employee Leave Management System | HR Login</a></h4>
+
+  
                 <div class="valign">
                       <div class="row">
 
                           <div class="col s12 m6 l4 offset-l4 offset-m3">
+                          <h4 style="font-family: Garamond, serif; text-align:center;color:white">HR Login</h4>
                               <div class="card white darken-1">
                                   <div class="card-content ">
                                       <span class="card-title">Sign In</span>
