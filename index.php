@@ -46,7 +46,7 @@ else{
     <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
-        <title>Simat LMS</title>
+        <title>SIMAT LMS</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -153,7 +153,7 @@ else{
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="simat.ac.in">Simat LMS </a>©</p>
+                    <p class="copyright"><a href="simat.ac.in">SIMAT LMS </a>©</p>
                 
                 </div>
                 </div>
