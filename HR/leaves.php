@@ -108,7 +108,7 @@ if($stats==1){
                                                  <?php } if($stats==0)  { ?>
  <span style="color: blue">Waiting for Approval from HOD</span>
  <?php } if($stats==3)  { ?>
-                                                <span style="color: grey">Waiting for Approval from Principal</span>
+                                                <span style="color: chocolate">Waiting for Approval from Principal</span>
                                                  <?php } ?>
 
 
