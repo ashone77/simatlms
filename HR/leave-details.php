@@ -104,7 +104,7 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
 $lid=intval($_GET['leaveid']);
-$sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblleaves.LeaveType,tblleaves.ToDate,tblleaves.FromDate,tblleaves.Description,tblleaves.PostingDate,tblleaves.Status,tblleaves.AdminRemark,tblleaves.AdminRemarkDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.id=:lid";
+$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -151,7 +151,7 @@ foreach($results as $result)
                                         </tr>
 
 <tr>
-<td style="font-size:16px;"><b>leave Status :</b></td>
+<td style="font-size:16px;"><b>Leave Status :</b></td>
 <td colspan="5"><?php $stats=$result->Status;
 if($stats==1){
 ?>
@@ -159,8 +159,10 @@ if($stats==1){
  <?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
- <span style="color: blue">waiting for approval</span>
- <?php } ?>
+ <span style="color: blue">Waiting for approval</span>
+ <?php } if($stats==3)  { ?>
+ <span style="color: grey">Waiting for approval from principal</span>
+ <?php }?>
 </td>
 </tr>
 

@@ -57,7 +57,7 @@
                             <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">notifications_none</i>
 <?php 
 $isread=0;
-$sql = "SELECT id from tblleaves where IsRead=:isread";
+$sql = "SELECT id from tblprincipal where IsRead=:isread";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->execute();
@@ -73,9 +73,9 @@ $unreadcount=$query->rowCount();?>
                             <li class="notificatoins-dropdown-container">
                                 <ul>
                                     <li class="notification-drop-title">Notifications</li>
-<?php 
+                                    <?php 
 $isread=0;
-$sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblleaves.PostingDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.IsRead=:isread";
+$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblprincipal.PostingDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.IsRead=:isread";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->execute();
@@ -94,10 +94,12 @@ foreach($results as $result)
                                         </div>
                                         </a>
                                     </li>
-                                   <?php }} ?>
+                                   <?php }} ?> 
+
                                    
                                   
-                        </ul>
+                        </ul> 
+
                     </div>
                 </nav>
             </header>

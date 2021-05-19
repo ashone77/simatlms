@@ -30,7 +30,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
     <head>
         
         <!-- Title -->
-        <title>Employee leave management system |  Admin</title>
+        <title>SIMAT LMS |  HOD</title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -51,7 +51,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         <div style="background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="mn-content valign-wrapper">
 
             <main class="mn-inner container">
-  <h4 align="center"><a href="../index.php"> Simat Leave Management System | HOD Login</a></h4>
+  <h4 align="center"><a href="../index.php"> SIMAT Leave Management System | HOD Login</a></h4>
                 <div class="valign">
                       <div class="row">
 
