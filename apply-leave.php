@@ -16,7 +16,7 @@ else{
         $fromdate=$_POST['fromdate'];  
         $todate=$_POST['todate'];
         $description=$_POST['description'];
-        $dept=$_POST['select_dept']; 
+        $dept=$_SESSION['deptcode'];
         $status=0;
         $isread=0;
         if($fromdate > $todate){
@@ -25,22 +25,22 @@ else{
 
         switch($dept){
 
-            case "Computer Science Engineering":
+            case "2":
                 $selectTable = "tblleaves_cse";
                 break;
-            case "Applied Science & Humanities":
+            case "3":
                 $selectTable = "tblleaves_ash";
                 break;
-            case "Civil Engineering":
+            case "1":
                 $selectTable = "tblleaves_civil";
                 break;
-            case "Electrical And Electronics Engineering":
+            case "4":
                 $selectTable = "tblleaves_eee";
                 break;
-            case "Mechanical Engineering":
+            case "5":
                 $selectTable = "tblleaves_me";
                 break;
-            case "Electronics And Communication Engineering":
+            case "6":
                 $selectTable = "tblleaves_ece";
                 break;
 
@@ -168,23 +168,7 @@ foreach($results as $result)
 </select>
 </div>
 
-<!-- Select Department Type -->
-<div class="input-field col  s12">
-<select  name="select_dept" autocomplete="off">
-<option value="">Choose your Department </option>
-<?php $sql = "SELECT  DepartmentName from tbldepartments";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{   ?>                                            
-<option value="<?php echo htmlentities($result->DepartmentName);?>"><?php echo htmlentities($result->DepartmentName);?></option>
-<?php }} ?>
-</select>
-</div>
+
 
 <!-- Leave Details -->
 <div class="input-field col m6 s12">

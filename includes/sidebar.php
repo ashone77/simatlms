@@ -19,6 +19,7 @@ foreach($results as $result)
 {               ?>  
                                 <p><?php echo htmlentities($result->FirstName." ".$result->LastName);?></p>
                                 <span><?php echo htmlentities($result->EmpId)?></span>
+                                
                          <?php }} ?>
                         </div>
                     </div>
