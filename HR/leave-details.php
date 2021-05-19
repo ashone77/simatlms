@@ -104,7 +104,7 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
 $lid=intval($_GET['leaveid']);
-$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
+$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -116,24 +116,29 @@ foreach($results as $result)
 {         
       ?>  
 
-                                        <tr>
-                                            <td style="font-size:16px;"> <b>Employe Name :</b></td>
-                                              <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
-                                                <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
-                                              <td style="font-size:16px;"><b>Emp Id :</b></td>
-                                              <td><?php echo htmlentities($result->EmpId);?></td>
-                                              <td style="font-size:16px;"><b>Gender :</b></td>
-                                              <td><?php echo htmlentities($result->Gender);?></td>
-                                          </tr>
+<tr>
+    <td style="font-size:16px;"> <b>Employe Name :</b></td>
+    <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
+    <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
+    <td style="font-size:16px;"><b>Emp Id :</b></td>
+    <td><?php echo htmlentities($result->EmpId);?></td>
+    <td style="font-size:16px;"><b>Gender :</b></td>
+    <td><?php echo htmlentities($result->Gender);?></td>
+</tr>
 
-                                          <tr>
-                                             <td style="font-size:16px;"><b>Emp Email id :</b></td>
-                                            <td><?php echo htmlentities($result->EmailId);?></td>
-                                             <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
-                                            <td><?php echo htmlentities($result->Phonenumber);?></td>
-                                            <td>&nbsp;</td>
-                                             <td>&nbsp;</td>
-                                        </tr>
+<tr>
+    <td style="font-size:16px;"><b>SL No:</b></td>
+    <td><?php echo htmlentities($result->id);$_SESSION['id']=$result->id;?></td>
+</tr>
+
+<tr>
+    <td style="font-size:16px;"><b>Emp Email id :</b></td>
+    <td><?php echo htmlentities($result->EmailId);?></td>
+    <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
+    <td><?php echo htmlentities($result->Phonenumber);?></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
 
   <tr>
                                              <td style="font-size:16px;"><b>Leave Type :</b></td>
@@ -143,6 +148,23 @@ foreach($results as $result)
                                             <td style="font-size:16px;"><b>Posting Date</b></td>
                                            <td><?php echo htmlentities($result->PostingDate);?></td>
                                         </tr>
+
+<tr>
+    <td style="font-size:16px;"><b>Total Leaves Taken:</b></td>
+    <td><?php echo htmlentities($result->nofleaves);?></td>
+    <td style="font-size:16px;"><b>Casual Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_casual);?></td>
+    <td style="font-size:16px;"><b>Loss of Pay Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_lop);?></td>
+    
+</tr>
+
+<tr>
+    <td style="font-size:16px;"><b>Commuted Half-Day Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_commuted_half);?></td>
+    <td style="font-size:16px;"><b>Commuted Full-Day Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_commuted_full);?></td>
+</tr>
 
 <tr>
                                              <td style="font-size:16px;"><b>Employe Leave Description : </b></td>

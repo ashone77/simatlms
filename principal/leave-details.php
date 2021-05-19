@@ -176,7 +176,7 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
     $lid=intval($_GET['leaveid']);
-    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
+    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
     $query = $dbh -> prepare($sql);
     $query->bindParam(':lid',$lid,PDO::PARAM_STR);
     $query->execute();
@@ -197,10 +197,11 @@ $msg="Leave updated Successfully";
         <td style="font-size:16px;"><b>Gender :</b></td>
         <td><?php echo htmlentities($result->Gender);?></td>
         
+        
 </tr>
 <tr>
-<td style="font-size:16px;"><b>SL No:</b></td>
-        <td><?php echo htmlentities($result->id);$_SESSION['id']=$result->id;?></td>
+    <td style="font-size:16px;"><b>SL No:</b></td>
+    <td><?php echo htmlentities($result->id);$_SESSION['id']=$result->id;?></td>
 </tr>
 
 <tr>
@@ -261,8 +262,20 @@ $msg="Leave updated Successfully";
 </tr>
 
 <tr>
-    <td style="font-size:16px;"><b>Total Leaves Taken</b></td>
+    <td style="font-size:16px;"><b>Total Leaves Taken:</b></td>
     <td><?php echo htmlentities($result->nofleaves);?></td>
+    <td style="font-size:16px;"><b>Casual Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_casual);?></td>
+    <td style="font-size:16px;"><b>Loss of Pay Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_lop);?></td>
+    
+</tr>
+
+<tr>
+    <td style="font-size:16px;"><b>Commuted Half-Day Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_commuted_half);?></td>
+    <td style="font-size:16px;"><b>Commuted Full-Day Leaves:</b></td>
+    <td><?php echo htmlentities($result->lv_commuted_full);?></td>
 </tr>
 
 <tr>
@@ -273,7 +286,12 @@ $msg="Leave updated Successfully";
 <tr>
 <td style="font-size:16px;"><b>Leave Status :</b></td>
 <td colspan="5"><?php $stats=$result->Status;
-if($stats==1){
+if($stats==3){
+    ?>
+    <span style="color: chocolate">Forwarded by HOD</span>
+    
+    
+     <?php }if($stats==1){
 ?>
 <span style="color: green">Approved</span>
 
@@ -287,7 +305,7 @@ if($stats==1){
 </tr>
 
 <tr>
-<td style="font-size:16px;"><b>Admin Remark: </b></td>
+<td style="font-size:16px;"><b>HOD Remark: </b></td>
 <td colspan="5"><?php
 if($result->AdminRemark==""){
   echo "waiting for Approval";  
@@ -299,7 +317,7 @@ echo htmlentities($result->AdminRemark);
  </tr>
 
  <tr>
-<td style="font-size:16px;"><b>Admin Action taken date : </b></td>
+<td style="font-size:16px;"><b>HOD Action taken date : </b></td>
 <td colspan="5"><?php
 if($result->AdminRemarkDate==""){
   echo "NA";  
