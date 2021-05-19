@@ -189,7 +189,7 @@ $msg="Leave updated Successfully";
 ?>  
 
 <tr>
-    <td style="font-size:16px;"> <b>Employe Name :</b></td>
+    <td style="font-size:16px;"> <b>Faculty Name :</b></td>
         <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
         <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
         <td style="font-size:16px;"><b>Faculty Code :</b></td>
@@ -206,9 +206,9 @@ $msg="Leave updated Successfully";
 <tr>
     <?php $facultyid = $result->EmailId ?>
 
-        <td style="font-size:16px;"><b>Emp Email id :</b></td>
+        <td style="font-size:16px;"><b>Email id :</b></td>
     <td><?php echo htmlentities($result->EmailId);?></td>
-        <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
+        <td style="font-size:16px;"><b>Contact No. :</b></td>
     <td><?php echo htmlentities($result->Phonenumber);?></td>
     <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -266,12 +266,12 @@ $msg="Leave updated Successfully";
 </tr>
 
 <tr>
-    <td style="font-size:16px;"><b>Employe Leave Description : </b></td>
+    <td style="font-size:16px;"><b>Leave Description : </b></td>
     <td colspan="5"><?php echo htmlentities($result->Description);?></td>
 </tr>
 
 <tr>
-<td style="font-size:16px;"><b>leave Status :</b></td>
+<td style="font-size:16px;"><b>Leave Status :</b></td>
 <td colspan="5"><?php $stats=$result->Status;
 if($stats==1){
 ?>

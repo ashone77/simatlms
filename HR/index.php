@@ -30,7 +30,7 @@ echo "<script type='text/javascript'> document.location = 'changepassword.php'; 
     <head>
         
         <!-- Title -->
-        <title>Employee leave management system |  HR</title>
+        <title>SIMAT LMS |  HR</title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
