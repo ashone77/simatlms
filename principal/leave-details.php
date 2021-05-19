@@ -37,8 +37,11 @@ $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
 
 switch($_SESSION['ltype']){
-    case "Commuted":
-        $leavetbl = "lv_commutted";
+    case "Commuted Half Day":
+        $leavetbl = "lv_commuted_half";
+        break;
+    case "Commuted Full Day":
+        $leavetbl = "lv_commuted_full";
         break;
     case "Casual Leave":
         $leavetbl = "lv_casual";
