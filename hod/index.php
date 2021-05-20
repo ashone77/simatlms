@@ -20,18 +20,18 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
   echo "<script>alert('Invalid Details');</script>";
 
 }
-
-}
-
-?>
-
+}?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMAT</title>
+    <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
-        <title>SIMAT LMS |  HOD</title>
-        <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
+        <title>SIMAT LMS</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -41,57 +41,144 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         
         <!-- Styles -->
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+             <link href="../assets/css/materialdesign.css" rel="stylesheet">
+        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+
+        	
+        <!-- Theme Styles -->
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
     </head>
-    <body >
-       
-    <header class="mn-header navbar-fixed">
-    <nav style= "background-image: linear-gradient(to right, rgba(62, 0, 0), rgba(0, 20, 109))" class="cyan darken-1">
-                   
-                        
-                        <div style="margin-left: 0px;" class="header-title col s4">      
-                            <span  class="chapter-title">SIMAT LMS | HOD LOGIN</span>
-                            
+    <body>
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+            <header class="mn-header navbar-fixed">
+                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="cyan darken-1">
+                    <div class="nav-wrapper row">
+                        <section class="material-design-hamburger navigation-toggle">
+                            <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
+                                <span class="material-design-hamburger__layer"></span>
+                            </a>
+                        </section>
+                        <div class="header-title col s4">      
+                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
                         </div>
-                        <a style="float: right; margin-top:10px" class="btn btn-primary" href="../index.php" role="button">HOME</a>
-                       
+                      
+                           
+                        </form>
                      
                         
-                    
+                    </div>
                 </nav>
             </header>
+           
+           
+            <aside id="slide-out" class="side-nav white fixed">
+                <div class="side-nav-wrapper">
+                   
+                
+                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
+                    <li>&nbsp;</li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                    
+                
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="principal/"><i class="material-icons">account_box</i>Principal Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="HR/"><i class="material-icons">account_box</i>HR Login</a></li>
+             
+                </ul>
+          <div class="footer">
+                    <p class="copyright"><a href="simat.ac.in">SIMAT LMS </a>©</p>
+                
+                </div>
+                </div>
+            </aside>
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <!-- <div class="page-title"><h4>Faculty Leave Management System</h4></div> -->
 
-        <div style="background-image:
-         linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="mn-content valign-wrapper">
-
-            <main class="mn-inner container">
-  
-                <div class="valign">
-                      <div class="row">
-
-                          <div class="col s12 m6 l4 offset-l4 offset-m3">
-                          <h4 style="font-family: Garamond, serif; text-align:center;color:white">HOD Login</h4>
+                          <div class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">
+
                                   <div class="card-content ">
-                                      <span class="card-title">Sign In</span>
+                                      <span class="card-title" style="font-size:20px;">HOD LOGIN</span></span>
+                                         
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">
                                                <div class="input-field col s12">
                                                    <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Username</label>
+                                                   <label for="email">Email id</label>
                                                </div>
                                                <div class="input-field col s12">
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
                                                    <label for="password">Password</label>
                                                </div>
                                                <div class="col s12 right-align m-t-sm">
+                                               
                                                 
-                                                   <input type="submit" name="signin" value="Sign in" class="waves-effect waves-light btn teal">
-                                               </div>
+                                                   <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
+                                                  
+                                               
+
                                            </form>
+                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword';">
+                                            Forgot Password
+                                          </button>
+                                           </div>
+                                           
+                                           
+                                           
                                       </div>
                                   </div>
                               </div>
@@ -99,7 +186,9 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                     </div>
                 </div>
             </main>
+            
         </div>
+        <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
         <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
