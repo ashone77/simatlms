@@ -64,6 +64,44 @@ $sql2 = "update tblemployees set $leavetbl=$leavetbl+1,nofleaves=nofleaves+1 whe
 $query = $dbh->prepare($sql2);
 // $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
+
+switch($_SESSION['deptcode']){
+
+    case "2":
+        $selectTable = "tblleaves_cse";
+        break;
+    case "3":
+        $selectTable = "tblleaves_ash";
+        break;
+    case "1":
+        $selectTable = "tblleaves_civil";
+        break;
+    case "4":
+        $selectTable = "tblleaves_eee";
+        break;
+    case "5":
+        $selectTable = "tblleaves_me";
+        break;
+    case "6":
+        $selectTable = "tblleaves_ece";
+        break;
+
+    default:
+        $selectTable = "tblleaves";
+
+}
+
+$update_hod="update $selectTable set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=:did";
+$query = $dbh->prepare($update_hod);
+$query->bindParam(':description',$description,PDO::PARAM_STR);
+$query->bindParam(':status',$status,PDO::PARAM_STR);
+$query->bindParam(':admremarkdate',$admremarkdate,PDO::PARAM_STR);
+$query->bindParam(':did',$did,PDO::PARAM_STR);
+$query->execute();
+
+
+
+
 $msg="Leave updated Successfully";
 
 
@@ -176,7 +214,7 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
     $lid=intval($_GET['leaveid']);
-    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
+    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblemployees.dept_code,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
     $query = $dbh -> prepare($sql);
     $query->bindParam(':lid',$lid,PDO::PARAM_STR);
     $query->execute();
@@ -185,7 +223,9 @@ $msg="Leave updated Successfully";
     if($query->rowCount() > 0)
     {
         foreach($results as $result)
-        {         
+        {   
+            $dept_id=$result->dept_code;
+            $_SESSION['deptcode']=$dept_id;      
 ?>  
 
 <tr>

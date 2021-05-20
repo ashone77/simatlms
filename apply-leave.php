@@ -21,7 +21,10 @@ else{
         $isread=0;
         if($fromdate > $todate){
             $error=" ToDate should be greater than FromDate ";
+        }elseif($_SESSION['lvcasualcount']>=12){
+            $error="You have exceeded your Casual Leave limit. Please contact your respective HOD";
         }
+        
 
         switch($dept){
 
@@ -48,6 +51,8 @@ else{
                 $selectTable = "tblleaves";
 
         }
+
+    
 
         $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
         $query = $dbh->prepare($sql);
