@@ -22,7 +22,7 @@ else{
         if($fromdate > $todate){
             $error=" ToDate should be greater than FromDate ";
         }elseif($_SESSION['lvcasualcount']>=12){
-            $error="You have exceeded your Casual Leave limit. Please contact your respective HOD";
+            $error="You have exceeded your Casual Leave limit. Please contact your HOD.";
         }
         
 
@@ -152,7 +152,7 @@ else{
                                                 <div class="row">
                                                     <div class="col m12">
                                                         <div class="row">
-     <?php if($error){?><div class="errorWrap"><strong>ERROR </strong>:<?php echo htmlentities($error); ?> </div><?php } 
+     <?php if($error){?><div class="errorWrap"><strong>Note </strong>:<?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 
 <!-- Select Leave Type -->
