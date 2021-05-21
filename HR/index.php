@@ -44,7 +44,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
 
              <link href="../assets/css/materialdesign.css" rel="stylesheet">
-        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
 
         	
         <!-- Theme Styles -->
@@ -106,7 +106,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         </div>
         <div class="mn-content fixed-sidebar">
             <header class="mn-header navbar-fixed">
-                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="cyan darken-1">
+                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))">
                     <div class="nav-wrapper row">
                         <section class="material-design-hamburger navigation-toggle">
                             <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
@@ -114,24 +114,28 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
+                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System </span>
                         </div>
+                      
+                         
                         <div ><img class="sreeku"  style="
-                        width: 60px;
-                        height:60px;
-                        margin-bottom:20px;
-                         float:right; "
+                        width: 55px;
+                        height:50px;
+                        float:right; 
+                         margin-top: 5px;
+                         "
                          src="../assets/images/half.png">
                         </div>
                         
-                    </div
-                           
-                        </form>
-                     
-                        
                     </div>
+                    
+                
                 </nav>
             </header>
+            
+            
+
+        
            
            
             <aside id="slide-out" class="side-nav white fixed">
@@ -145,14 +149,14 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                     
                 
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
-             
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
+                
                 </ul>
           <div class="footer">
                     <p class="copyright"><a href="simat.ac.in">SIMAT LMS </a>©</p>
@@ -175,7 +179,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                            <form class="col s12" name="signin" method="post">
                                                <div class="input-field col s12">
                                                    <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Email id</label>
+                                                   <label for="email">Email Id</label>
                                                </div>
                                                <div class="input-field col s12">
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
@@ -192,6 +196,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                            <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword';">
                                             Forgot Password
                                           </button>
+                                         
                                            </div>
                                            
                                            
@@ -208,10 +213,15 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
+
         <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+
         <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
+
         <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+
         <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+
         <script src="../assets/js/alpha.min.js"></script>
         
     </body>

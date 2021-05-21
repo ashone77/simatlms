@@ -131,7 +131,14 @@ else{
                         <div class="header-title col s4">      
                             <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
                         </div>
-                      
+                        <div ><img class="sreeku"  style="
+                        width: 60px;
+                        height:60px;
+                        margin-bottom:20px;
+                         float:right; "
+                         src="assets/images/half.png">
+                        </div>
+                       
                            
                         </form>
                      
@@ -188,10 +195,9 @@ else{
                                                 
                                                    <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
                                                   
-                                               
-
+                                               .
                                            </form>
-                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='forgot-password';">
+                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='forgot-password.php'">
                                             Forgot Password
                                           </button>
                                            </div>

@@ -119,10 +119,11 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                       
                          
                         <div ><img class="sreeku"  style="
-                        width: 60px;
-                        height:60px;
-                        margin-bottom:20px;
-                         float:right; "
+                        width: 55px;
+                        height:50px;
+                        float:right; 
+                         margin-top: 5px;
+                         "
                          src="../assets/images/half.png">
                         </div>
                         
