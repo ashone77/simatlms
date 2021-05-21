@@ -40,7 +40,7 @@ header('location:manageemployee.php');
     <head>
         
         <!-- Title -->
-        <title>Admin | Manage Employees</title>
+        <title>Admin | Manage Faculty</title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -85,13 +85,13 @@ header('location:manageemployee.php');
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Manage EmployesWWW</div>
+                        <div class="page-title">Manage Faculties</div>
                     </div>
                    
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Employees Info</span>
+                                <span class="card-title">Faculty Info</span>
                                 <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                 <table id="example" class="display responsive-table ">
                                     <thead>
