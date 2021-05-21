@@ -116,7 +116,15 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                         <div class="header-title col s4">      
                             <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
                         </div>
-                      
+                        <div ><img class="sreeku"  style="
+                        width: 60px;
+                        height:60px;
+                        margin-bottom:20px;
+                         float:right; "
+                         src="../assets/images/half.png">
+                        </div>
+                        
+                    </div
                            
                         </form>
                      

@@ -106,7 +106,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         </div>
         <div class="mn-content fixed-sidebar">
             <header class="mn-header navbar-fixed">
-                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="cyan darken-1">
+                <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))">
                     <div class="nav-wrapper row">
                         <section class="material-design-hamburger navigation-toggle">
                             <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
@@ -118,14 +118,23 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                         </div>
                       
                          
-                        <img style="width: 50px;width:50px; float:right; padding-top:4px" src="../assets/images/logo.jpeg">
-                     
+                        <div ><img class="sreeku"  style="
+                        width: 60px;
+                        height:60px;
+                        margin-bottom:20px;
+                         float:right; "
+                         src="../assets/images/half.png">
+                        </div>
                         
                     </div>
                     
                 
                 </nav>
             </header>
+            
+            
+
+        
            
            
             <aside id="slide-out" class="side-nav white fixed">
@@ -186,6 +195,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                            <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword';">
                                             Forgot Password
                                           </button>
+                                         
                                            </div>
                                            
                                            
