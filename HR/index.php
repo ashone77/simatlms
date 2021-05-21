@@ -28,7 +28,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMAT</title>
-    <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
+    <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
         <title>SIMAT LMS</title>
@@ -41,17 +41,17 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         
         <!-- Styles -->
 
-        <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
+        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
 
-             <link href="assets/css/materialdesign.css" rel="stylesheet">
-        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+             <link href="../assets/css/materialdesign.css" rel="stylesheet">
+        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
 
         	
         <!-- Theme Styles -->
 
-        <link href="assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
 
-        <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
         
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -133,17 +133,17 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
                     
                 
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="principal/"><i class="material-icons">account_box</i>Principal Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="HR/"><i class="material-icons">account_box</i>HR Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
              
                 </ul>
           <div class="footer">

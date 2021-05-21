@@ -137,13 +137,13 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                     
                 
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="principal/"><i class="material-icons">account_box</i>Principal Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="HR/"><i class="material-icons">account_box</i>HR Login</a></li>
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
                 
                 </ul>
           <div class="footer">
@@ -161,7 +161,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                               <div class="card white darken-1">
 
                                   <div class="card-content ">
-                                      <span class="card-title" style="font-size:20px;">HR LOGIN</span></span>
+                                      <span class="card-title" style="font-size:20px;">PRINCIPLE LOGIN</span></span>
                                          
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">

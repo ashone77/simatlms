@@ -147,13 +147,13 @@ else{
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="/index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href=""><i class="material-icons">account_box</i>Faculty Login</a></li>
                     
                 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="admin/"><i class="material-icons">account_box</i>Admin Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="hod/"><i class="material-icons">account_box</i>HOD Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="principal/"><i class="material-icons">account_box</i>Principal Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="HR/"><i class="material-icons">account_box</i>HR Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/admin"><i class="material-icons">account_box</i>Admin Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/hod"><i class="material-icons">account_box</i>HOD Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/principal"><i class="material-icons">account_box</i>Principal Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/HR/"><i class="material-icons">account_box</i>HR Login</a></li>
              
                 </ul>
           <div class="footer">
