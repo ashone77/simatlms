@@ -193,7 +193,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                                
 
                                            </form>
-                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword'">
+                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword.php'">
                                             Forgot Password
                                           </button>
                                          
