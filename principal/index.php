@@ -114,14 +114,16 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System <img src="" alt=""></span>
+                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System </span>
                         </div>
                       
-                           
-                        </form>
+                         
+                        <img style="width: 50px;width:50px; float:right; padding-top:4px" src="../assets/images/logo.jpeg">
                      
                         
                     </div>
+                    
+                
                 </nav>
             </header>
            
