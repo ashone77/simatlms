@@ -21,3 +21,10 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+.sreeku{
+  width: 300px;
+  height:67px;
+  margin-bottom:20px;
+   float:right;
+   margin-left:100px;
+}
