@@ -28,7 +28,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMAT</title>
-    <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
+    <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
         <title>SIMAT LMS</title>
@@ -114,7 +114,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
+                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System <img src="" alt=""></span>
                         </div>
                       
                            
