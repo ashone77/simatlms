@@ -179,7 +179,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                            <form class="col s12" name="signin" method="post">
                                                <div class="input-field col s12">
                                                    <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Email Id</label>
+                                                   <label for="email">Username</label>
                                                </div>
                                                <div class="input-field col s12">
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
@@ -193,7 +193,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                                
 
                                            </form>
-                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword';">
+                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword.php'">
                                             Forgot Password
                                           </button>
                                          
