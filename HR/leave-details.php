@@ -104,7 +104,7 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
 $lid=intval($_GET['leaveid']);
-$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
+$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblemployees.dept_code,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate,tblprincipal.DayCount from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -164,6 +164,8 @@ foreach($results as $result)
     <td><?php echo htmlentities($result->lv_commuted_half);?></td>
     <td style="font-size:16px;"><b>Commuted Full-Day Leaves:</b></td>
     <td><?php echo htmlentities($result->lv_commuted_full);?></td>
+    <td style="font-size:16px;"><b>Days of Leave:</b></td>
+    <td><?php echo htmlentities($result->DayCount);?></td>
 </tr>
 
 <tr>

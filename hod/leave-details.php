@@ -167,7 +167,7 @@ switch ($_SESSION['alogin']){
 
 }
 
-$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,$selectTable.LeaveType,$selectTable.ToDate,$selectTable.FromDate,$selectTable.Description,$selectTable.PostingDate,$selectTable.Status,$selectTable.AdminRemark,$selectTable.AdminRemarkDate from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.id=:lid";
+$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,$selectTable.LeaveType,$selectTable.ToDate,$selectTable.FromDate,$selectTable.Description,$selectTable.PostingDate,$selectTable.Status,$selectTable.AdminRemark,$selectTable.AdminRemarkDate, $selectTable.DayCount from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -206,6 +206,7 @@ foreach($results as $result)
     <td style="font-size:16px;"><b>Posting Date</b></td>
     <td><?php echo htmlentities($result->PostingDate);?></td>
 </tr>
+
 <tr>
     <td style="font-size:16px;"><b>Total Leaves Taken:</b></td>
     <td><?php echo htmlentities($result->nofleaves);?></td>
@@ -221,6 +222,8 @@ foreach($results as $result)
     <td><?php echo htmlentities($result->lv_commuted_half);?></td>
     <td style="font-size:16px;"><b>Commuted Full-Day Leaves:</b></td>
     <td><?php echo htmlentities($result->lv_commuted_full);?></td>
+    <td style="font-size:16px;"><b>Days of Leave:</b></td>
+    <td><?php echo htmlentities($result->DayCount);?></td>
 </tr>
 
 
@@ -248,7 +251,7 @@ if($stats==3){
 <td style="font-size:16px;"><b>Admin Remark: </b></td>
 <td colspan="5"><?php
 if($result->AdminRemark==""){
-  echo "waiting for Approval";  
+  echo "Waiting for Approval";  
 }
 else{
 echo htmlentities($result->AdminRemark);
