@@ -132,9 +132,10 @@ else{
                             <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
                         </div>
                         <div ><img class="sreeku"  style="
-                        width: 60px;
-                        height:60px;
+                        width: 55px;
+                        height:50px;
                         margin-bottom:20px;
+                        margin-top:5px;
                          float:right; "
                          src="assets/images/half.png">
                         </div>
