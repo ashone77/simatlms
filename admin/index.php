@@ -41,10 +41,11 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         
         <!-- Styles -->
 
+
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
 
              <link href="../assets/css/materialdesign.css" rel="stylesheet">
-        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
 
         	
         <!-- Theme Styles -->
@@ -138,14 +139,14 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         
            
            
-            <aside id="slide-out" class="side-nav white fixed">
+            <aside id="slide-out" class="side-nav  fixed">
                 <div class="side-nav-wrapper">
                    
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                    <li class="no-padding"><a class="waves-effect   "  href="../index.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
                     
                 
 

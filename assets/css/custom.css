@@ -6,6 +6,9 @@
     background-color: aqua;
     color: black;
 }
+.waves-effect:active{
+    color: brown;
+}
 
 
 
