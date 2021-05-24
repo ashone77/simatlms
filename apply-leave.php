@@ -189,9 +189,10 @@ foreach($results as $result)
 <input id="mask1" name="todate" type="date" class='input-group date'  autocomplete="off" required>
 
 </div>
+<?php $max=12-$_SESSION['lvcasualcount']; ?>
 <div class="input-field col m6 s12">
 <label for="days">No of days:</label>
-<input type="number" id="nofdays" name="nofdays" min="1" max ="13">
+<input type="number" id="nofdays" name="nofdays" min="1" max ="<?php echo htmlentities($max);?>"> 
 </div>
 <div class="input-field col m12 s12">
 <label for="birthdate">Description</label>    
