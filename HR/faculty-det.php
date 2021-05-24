@@ -1,84 +1,167 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php');
+if(strlen($_SESSION['alogin'])==0)
+    {   
+header('location:index.php');
+}
+else{
+// code for Inactive  employee    
+if(isset($_GET['inid']))
+{
+$id=$_GET['inid'];
+$status=0;
+$sql = "update tblemployees set Status=:status  WHERE id=:id";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':id',$id, PDO::PARAM_STR);
+$query -> bindParam(':status',$status, PDO::PARAM_STR);
+$query -> execute();
+header('location:manageemployee.php');
+}
+
+
+
+//code for active employee
+if(isset($_GET['id']))
+{
+$id=$_GET['id'];
+$status=1;
+$sql = "update tblemployees set Status=:status  WHERE id=:id";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':id',$id, PDO::PARAM_STR);
+$query -> bindParam(':status',$status, PDO::PARAM_STR);
+$query -> execute();
+header('location:manageemployee.php');
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    .c{
-        border: 2.5px solid black;
-    }
-    .btn{
-        float: right;
-        margin-top: 10px;
-    }
-    </style>
+    <head>
+        
+        <!-- Title -->
+        <title>Admin | Manage Faculty</title>
+        <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Steelcoders" />
+        
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+        <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+            
+        <!-- Theme Styles -->
+        <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+<style>
+        .errorWrap {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #dd3d36;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.succWrap{
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #5cb85c;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+        </style>
+    </head>
+    <body>
+       <?php include('includes/header.php');?>
+            
+       <?php include('includes/sidebar.php');?>
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Manage Faculties</div>
+                    </div>
+                   
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Faculty Info</span>
+                                <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
+                                <table id="example" class="display responsive-table ">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Emp Id</th>
+                                            <th>name</th>
+                                            <th>Depart</th>
+                                             <th>Status</th>
+                                             <th>Reg Date</th>
+                                            <th>Details</th>
+                                        </tr>
+                                    </thead>
+                                 
+                                    <tbody>
+<?php $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{               ?>  
+                                        <tr>
+                                            <td> <?php echo htmlentities($cnt);?></td>
+                                            <td><?php echo htmlentities($result->EmpId);?></td>
+                                            <td><?php echo htmlentities($result->FirstName);?>&nbsp;<?php echo htmlentities($result->LastName);?></td>
+                                            <td><?php echo htmlentities($result->Department);?></td>
+                                             <td><?php $stats=$result->Status;
+if($stats){
+                                             ?>
+                                                 <a class="waves-effect waves-green btn-flat m-b-xs">Active</a>
+                                                 <?php } else { ?>
+                                                 <a class="waves-effect waves-red btn-flat m-b-xs">Inactive</a>
+                                                 <?php } ?>
 
-    <title>FACULTY DETAILS</title>
-  </head>
-  <body>
-    <h1 style="text-align: center;">Faculty Details</h1>
-    <div class=" c container">
-   
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Faculty Code</th>
-      <th scope="col">Emp.Nmae</th>
-      <th scope="col">Department</th>
-      <th scope="col">view Details</th>
-    </tr>
-  </thead>
-  <tbody>
 
-    <tr>
-     
-      <td>SPT18CS038</td>
-      <td>SREERAM MS</td>
-      <td>CSE</td>
-      <td><a href="view details" role="button">VIEW-DETAILS</a></td>
-      
-    </tr>
-    <tr>
-    <td>SPT18CS011</td>
-      <td>ASWIN</td>
-      <td>CSE</td>
-      <td><a href="view details" role="button">VIEW-DETAILS</a></td>
-      
-    </tr>
-    
-  </tbody>
-  
-</table>
-</div>
-<div class=" container">
-<button type="button" onclick="window.location.href='./index.php'" class="btn btn-success">HOME</button>
-</div>
+                                             </td>
+                                              <td><?php echo htmlentities($result->RegDate);?></td>
+                                            <td><a href="../HR/fac.indi.php">VIEW</a>
+                                        <?php if($result->Status==1)
+ {?>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+<?php } else {?>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    -->
-  </body>
+                                            <a href="manageemployee.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to active this employee?');""> title="Active">done</i>
+                                            <?php } ?> </td>
+                                        </tr>
+                                         <?php $cnt++;} }?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+         
+        </div>
+        <div class="left-sidebar-hover"></div>
+        
+        <!-- Javascripts -->
+        <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
+        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="../assets/js/alpha.min.js"></script>
+        <script src="../assets/js/pages/table-data.js"></script>
+        
+    </body>
 </html>
-    
-</body>
-</html>
+<?php } ?>
