@@ -45,7 +45,7 @@ $msg="Leave updated Successfully";
     <head>
         
         <!-- Title -->
-        <title>HR | Leave Details </title>
+        <title>HR | Faculty Details </title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -103,10 +103,10 @@ $msg="Leave updated Successfully";
                                  
                                     <tbody>
 <?php 
-$lid=intval($_GET['leaveid']);
-$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblemployees.dept_code,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate,tblprincipal.DayCount from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
+$lid=intval($_GET['facultyid']);
+$sql = "SELECT * from tblemployees where id=$lid";
 $query = $dbh -> prepare($sql);
-$query->bindParam(':lid',$lid,PDO::PARAM_STR);
+// 
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
@@ -140,15 +140,6 @@ foreach($results as $result)
     <td>&nbsp;</td>
 </tr>
 
-  <tr>
-                                             <td style="font-size:16px;"><b>Leave Type :</b></td>
-                                            <td><?php echo htmlentities($result->LeaveType);?></td>
-                                             <td style="font-size:16px;"><b>Leave Date . :</b></td>
-                                            <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
-                                            <td style="font-size:16px;"><b>Posting Date</b></td>
-                                           <td><?php echo htmlentities($result->PostingDate);?></td>
-                                        </tr>
-
 <tr>
     <td style="font-size:16px;"><b>Total Leaves Taken:</b></td>
     <td><?php echo htmlentities($result->nofleaves);?></td>
@@ -164,77 +155,21 @@ foreach($results as $result)
     <td><?php echo htmlentities($result->lv_commuted_half);?></td>
     <td style="font-size:16px;"><b>Commuted Full-Day Leaves:</b></td>
     <td><?php echo htmlentities($result->lv_commuted_full);?></td>
-    <td style="font-size:16px;"><b>Days of Leave:</b></td>
-    <td><?php echo htmlentities($result->DayCount);?></td>
 </tr>
 
-<tr>
-                                             <td style="font-size:16px;"><b>Employe Leave Description : </b></td>
-                                            <td colspan="5"><?php echo htmlentities($result->Description);?></td>
-                                          
-                                        </tr>
 
-<tr>
-<td style="font-size:16px;"><b>Leave Status :</b></td>
-<td colspan="5"><?php $stats=$result->Status;
-if($stats==1){
-?>
-<span style="color: green">Approved</span>
- <?php } if($stats==2)  { ?>
-<span style="color: red">Not Approved</span>
-<?php } if($stats==0)  { ?>
- <span style="color: blue">Waiting for approval</span>
- <?php } if($stats==3)  { ?>
- <span style="color: grey">Waiting for approval from principal</span>
- <?php }?>
-</td>
-</tr>
 
-<tr>
-<td style="font-size:16px;"><b>Admin Remark: </b></td>
-<td colspan="5"><?php
-if($result->AdminRemark==""){
-  echo "waiting for Approval";  
-}
-else{
-echo htmlentities($result->AdminRemark);
-}
-?></td>
- </tr>
 
- <tr>
-<td style="font-size:16px;"><b>Admin Action taken date : </b></td>
-<td colspan="5"><?php
-if($result->AdminRemarkDate==""){
-  echo "NA";  
-}
-else{
-echo htmlentities($result->AdminRemarkDate);
-}
-?></td>
- </tr>
+
+
+
+
 <?php 
 if($stats==0)
 {
 
 ?>
-<!-- <tr>
- <td colspan="5">
-  <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
-<form name="adminaction" method="post">
-<div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
-    <div class="modal-content" style="width:90%">
-        <h4>Leave take action</h4>
-          <select class="browser-default" name="status" required="">
-                                            <option value="">Choose your option</option>
-                                            <option value="1">Approved</option>
-                                            <option value="2">Not Approved</option>
-                                        </select></p>
-                                        <p><textarea id="textarea1" name="description" class="materialize-textarea" name="description" placeholder="Description" length="500" maxlength="500" required></textarea></p>
-     </div>
-    <div class="modal-footer" style="width:90%">
-       <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">
-    </div> -->
+
 
 </div>   
 

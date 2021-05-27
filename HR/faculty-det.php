@@ -132,7 +132,7 @@ if($stats){
 
                                              </td>
                                               <td><?php echo htmlentities($result->RegDate);?></td>
-                                            <td><a href="../HR/fac.indi.php">VIEW</a>
+                                            <td><a href="../HR/fac.indi.php?facultyid=<?php echo htmlentities($result->id);?>">VIEW</a>
                                         <?php if($result->Status==1)
  {?>
 
