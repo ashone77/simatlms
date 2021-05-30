@@ -15,7 +15,7 @@
         $fromdate=$_POST['fromdate'];  
         $todate=$_POST['todate'];
         $description=$_POST['description'];
-        
+        $dept=$_SESSION['dept_code'];
         $status=3;
         $isread=0;
         if($fromdate > $todate){
@@ -47,7 +47,7 @@
         
         }
 
-        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
+        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,$dept)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
         $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
@@ -56,9 +56,11 @@
         $query->bindParam(':status',$status,PDO::PARAM_STR);
         $query->bindParam(':isread',$isread,PDO::PARAM_STR);
         $query->bindParam(':empid',$empid,PDO::PARAM_STR);
+        $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
+        // $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
         $query->execute();
 
-        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
+        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,$dept)";
         
         $query = $dbh->prepare($sql2);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
@@ -68,7 +70,23 @@
         $query->bindParam(':status',$status,PDO::PARAM_STR);
         $query->bindParam(':isread',$isread,PDO::PARAM_STR);
         $query->bindParam(':empid',$empid,PDO::PARAM_STR);
+        $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
+        // $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
         $query->execute();
+
+        $sql3="INSERT INTO tblprincipal(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,$dept)";
+        $query = $dbh->prepare($sql3);
+        $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
+        $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
+        $query->bindParam(':todate',$todate,PDO::PARAM_STR);
+        $query->bindParam(':description',$description,PDO::PARAM_STR);
+        $query->bindParam(':status',$status,PDO::PARAM_STR);
+        $query->bindParam(':isread',$isread,PDO::PARAM_STR);
+        $query->bindParam(':empid',$empid,PDO::PARAM_STR);
+        $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
+        // $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
+        $query->execute();
+        
         $lastInsertId = $dbh->lastInsertId();
         if($lastInsertId)
         {
