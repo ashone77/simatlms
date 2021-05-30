@@ -10,42 +10,41 @@
 
     if(isset($_POST['apply']))
     {
-        $empid=$_SESSION['eid'];
+        
         $leavetype=$_POST['leavetype'];
         $fromdate=$_POST['fromdate'];  
         $todate=$_POST['todate'];
         $description=$_POST['description'];
-        $dept=$_SESSION['deptcode'];
-        $status=0;
+        
+        $status=3;
         $isread=0;
         if($fromdate > $todate){
             $error=" ToDate should be greater than FromDate ";
         }
 
-        switch($dept){
-
-            case "2":
+        switch ($_SESSION['alogin']){
+            case "hodcse":
                 $selectTable = "tblleaves_cse";
                 break;
-            case "3":
-                $selectTable = "tblleaves_ash";
-                break;
-            case "1":
+            case "hodcivil":
                 $selectTable = "tblleaves_civil";
                 break;
-            case "4":
+            case "hodeee":
                 $selectTable = "tblleaves_eee";
                 break;
-            case "5":
+            case "hodme":
                 $selectTable = "tblleaves_me";
-                break;
-            case "6":
+                break; 
+            case "hodec":
                 $selectTable = "tblleaves_ece";
                 break;
-
+            case "hodash":
+                $selectTable = "tblleaves_ash";
+                break;
             default:
                 $selectTable = "tblleaves";
-
+            
+        
         }
 
         $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid)";
