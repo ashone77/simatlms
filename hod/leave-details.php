@@ -239,7 +239,9 @@ foreach($results as $result)
 if($stats==3){
 ?>
 <span style="color: green">Forwarded to Principal</span>
- <?php } if($stats==2)  { ?>
+ <?php } if($stats==4)  { ?>
+<span style="color: orange">Application Returned</span>
+<?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
  <span style="color: blue">Waiting for Approval</span>
@@ -286,6 +288,7 @@ if($stats==0)
                                             <option value="">Choose your option</option>
                                             <!-- <option value="1">Approved</option> -->
                                             <option value="2">Not Approved</option>
+                                            <option value="4">Return Application</option>
                                             <option value="3">Forward to Principal</option>
                                             
                                         </select></p>

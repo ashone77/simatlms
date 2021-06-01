@@ -184,7 +184,9 @@ if($stats==1){
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
  <span style="color: blue">Waiting for approval</span>
- <?php } if($stats==3)  { ?>
+ <?php } if($stats==4)  { ?>
+<span style="color: orange">Application Returned</span>
+<?php } if($stats==3)  { ?>
  <span style="color: grey">Waiting for approval from principal</span>
  <?php }?>
 </td>

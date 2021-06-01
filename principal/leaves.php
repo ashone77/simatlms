@@ -102,14 +102,16 @@ foreach($results as $result)
                                                                        <td><?php $stats=$result->Status;
 if($stats==1){
                                              ?>
-                                                 <span style="color: green">Approved</span>
-                                                 <?php } if($stats==2)  { ?>
+                                                <span style="color: green">Approved</span>
+                                                <?php } if($stats==2)  { ?>
                                                 <span style="color: red">Not Approved</span>
-                                                 <?php } if($stats==0)  { ?>
- <span style="color: blue">Waiting for Approval</span>
- <?php } if($stats==3)  { ?>
+                                                <?php } if($stats==4)  { ?>
+                                                <span style="color: orange">Application Returned</span>
+                                                <?php } if($stats==0)  { ?>
+                                                <span style="color: blue">Waiting for Approval</span>
+                                                <?php } if($stats==3)  { ?>
                                                 <span style="color: chocolate">Forwarded by HOD</span>
-                                                 <?php } ?>
+                                                <?php } ?>
 
 
                                              </td>
