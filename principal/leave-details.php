@@ -299,6 +299,7 @@ function updateMailSent(){
     $sql="update tblprincipal set MailSent=1 where id=$did";
     $query = $dbh -> prepare($sql);
     $query->execute();
+    echo 'alert("JavaScript Alert Box by PHP")';
     ?>  
 }
 </script>

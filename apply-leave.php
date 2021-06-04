@@ -55,7 +55,7 @@ else{
 
     
 
-        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode)";
+        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
         $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
@@ -68,7 +68,7 @@ else{
         $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
         $query->execute();
 
-        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode)";
+        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0)";
         
         $query = $dbh->prepare($sql2);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
