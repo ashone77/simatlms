@@ -279,7 +279,7 @@ $msg="Leave updated Successfully";
                             //console.log (message);
                             if(message=='OK'){
                             alert('Your mail has been send. Thank you for connecting.');
-                            sree()
+                            updateMailSent()
                             
                             }
                             else{
@@ -293,13 +293,13 @@ $msg="Leave updated Successfully";
             }
 </script>
 <script>
-function sree(){
+function updateMailSent(){
     <?php   
-$sql="update tblprincipal set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate,MailSent=1 where id=$did";
-echo 'alert("JavaScript Alert Box by PHP")';  
- 
-?>  
-
+    $did=intval($_GET['leaveid']);
+    $sql="update tblprincipal set MailSent=1 where id=$did";
+    $query = $dbh -> prepare($sql);
+    $query->execute();
+    ?>  
 }
 </script>
 
