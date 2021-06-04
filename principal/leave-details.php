@@ -380,7 +380,7 @@ if($stats==3)
 <tr>
  <td colspan="5">
   <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
-<form name="adminaction" method="post">
+  <form name="adminaction" method="post">
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
         <h4>Leave take action</h4>
@@ -402,6 +402,13 @@ if($stats==3)
     </div>
 
 </div>   
+
+ </td> 
+</tr>
+  <?php } ?> <?php if($stats==1 || $stats==2 || $stats == 4){?>
+    <tr>
+ <td colspan="5">
+ <input type="button" class="waves-effect waves-light btn blue m-b-xs" name="sendmail" value="Send Email" onclick="sendEmail()">
 
  </td> 
 </tr>
