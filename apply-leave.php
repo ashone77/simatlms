@@ -199,8 +199,62 @@ foreach($results as $result)
 <label for="birthdate">Description</label>    
 
 <textarea id="textarea1" name="description" class="materialize-textarea" length="500" required></textarea>
+
+
+
+
 </div>
+
 </div>
+<br> <br>
+<h4>Aternate arangements</h4> <br> <br>
+<form>
+  <div class="form-group">
+  <h6>SELECT DATE:</h6>
+  <input type="date" class='input-group date'  autocomplete="off" required>
+  <h6>SUBJECT:</h6>
+  <input type="text" class='input-group date' placeholder="SUBJECT CODE"  autocomplete="off" required>
+  <input type="text" class='input-group date' placeholder="SUBJECT NAME"  autocomplete="off" required>
+  <h6>SEM&BRANCH&PERIOD</h6>
+  <input type="text" class='input-group date' placeholder="SEM/BRANCH/PERIOD"  autocomplete="off" required>
+
+   <div id="demo"></div>
+<script>
+  class OneDialog extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = ` <h6>SUBJECT:</h6>
+    <input type="text" class='input-group date' placeholder="SUBJECT CODE"  autocomplete="off" required><br> <br>
+    <input type="text" class='input-group date' placeholder="SUBJECT NAME"  autocomplete="off" required><br>
+    <h6>SEM&BRANCH&PERIOD</h6>
+    <input type="text" class='input-group date' placeholder="SEM/BRANCH/PERIOD"  autocomplete="off" required><br><br>`;
+  }
+}
+
+customElements.define('one-dialog', OneDialog);
+</script>
+<script>
+  let n=1;
+</script>
+<script>
+  function s()
+{
+  
+  var x ="";
+for (i=1; i<=n; i++) {
+  x = x + "<h5"  + "><one-dialog> " + i + "</h" + i + ">";
+}
+n=n+1
+document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+
+<button type="button"  onclick="s()" class="btn btn-light">ADD MORE SUBJECTS</button> <br> <br>
+   
+
+
+
+</form>
       <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply</button>                                             
 
                                                 </div>
