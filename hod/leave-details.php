@@ -167,7 +167,7 @@ switch ($_SESSION['alogin']){
 
 }
 
-$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,$selectTable.LeaveType,$selectTable.ToDate,$selectTable.FromDate,$selectTable.Description,$selectTable.PostingDate,$selectTable.Status,$selectTable.AdminRemark,$selectTable.AdminRemarkDate, $selectTable.DayCount from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.id=:lid";
+$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,$selectTable.LeaveType,$selectTable.ToDate,$selectTable.FromDate,$selectTable.Description,$selectTable.PostingDate,$selectTable.Status,$selectTable.AdminRemark,$selectTable.AdminRemarkDate, $selectTable.DayCount, $selectTable.AltArrangement from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -228,8 +228,13 @@ foreach($results as $result)
 
 
 <tr>
-    <td style="font-size:16px;"><b>Employe Leave Description : </b></td>
+    <td style="font-size:16px;"><b>Leave Description : </b></td>
     <td colspan="5"><?php echo htmlentities($result->Description);?></td>
+                                          
+</tr>
+<tr>
+    <td style="font-size:16px;"><b>Alternate Arranegement : </b></td>
+    <td colspan="5"><?php echo htmlentities($result->AltArrangement);?></td>
                                           
 </tr>
 

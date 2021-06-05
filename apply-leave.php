@@ -16,6 +16,7 @@ else{
         $fromdate=$_POST['fromdate'];  
         $todate=$_POST['todate'];
         $description=$_POST['description'];
+        $alternatearr=$_POST['altarr'];
         $dept=$_SESSION['deptcode'];
         $leavedays=$_POST['nofdays'];
         $status=0;
@@ -55,7 +56,7 @@ else{
 
     
 
-        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0)";
+        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent,AltArrangement) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0,:altarr)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
         $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
@@ -66,9 +67,10 @@ else{
         $query->bindParam(':empid',$empid,PDO::PARAM_STR);
         $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
         $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
+        $query->bindParam(':altarr',$alternatearr,PDO::PARAM_STR);
         $query->execute();
 
-        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0)";
+        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent,AltArrangement) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0,:altarr)";
         
         $query = $dbh->prepare($sql2);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
@@ -80,6 +82,7 @@ else{
         $query->bindParam(':empid',$empid,PDO::PARAM_STR);
         $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
         $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
+        $query->bindParam(':altarr',$alternatearr,PDO::PARAM_STR);
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         if($lastInsertId)
@@ -185,81 +188,31 @@ foreach($results as $result)
 <label for="fromdate"></label>
 <input id="mask1" name="fromdate" type="date" class='input-group date'  autocomplete="off" required>
 </div>
+
 <div class="input-field col m6 s12">
 <label for="todate"></label>
 <input id="mask1" name="todate" type="date" class='input-group date'  autocomplete="off" required>
-
 </div>
+
 <?php $max=12-$_SESSION['lvcasualcount']; ?>
 <div class="input-field col m6 s12">
-<label for="days">No of days:</label>
-<input type="number" id="nofdays" name="nofdays" min="1" max ="<?php echo htmlentities($max);?>"> 
+    <label for="days">No of days:</label>
+    <input type="number" id="nofdays" name="nofdays" min="1" max ="<?php echo htmlentities($max);?>"> 
 </div>
+
 <div class="input-field col m12 s12">
-<label for="birthdate">Description</label>    
+    <label for="birthdate">Description</label>    
+    <textarea id="textarea1" name="description" class="materialize-textarea" length="500" required></textarea>
+</div>
 
-<textarea id="textarea1" name="description" class="materialize-textarea" length="500" required></textarea>
-
-
-
-
+<div class="input-field col m12 s12">
+    <label for="birthdate">Alternate Arrangement</label> <br><br>
+    <p>Format : [Sl.no] [Date] [subject] [Period] [Sem] [Branch] </p>
+    <textarea id="textarea1" name="altarr" class="materialize-textarea" length="500" required></textarea>
 </div>
 
 </div>
-<br> <br>
-<h4>Aternate arangements</h4> <br> <br>
-<form>
-  <div class="form-group">
-  <h6>SELECT DATE:</h6>
-  <input type="date" name="DATE" class='input-group date'  autocomplete="off" >
-  <h6>SUBJECT:</h6>
-  <input type="text" name="SCODE" class='input-group date' placeholder="SUBJECT CODE"  autocomplete="off">
-  <input type="text" name="SNAME" class='input-group date' placeholder="SUBJECT NAME"  autocomplete="off" >
-  <h6>SEM&BRANCH&PERIOD</h6>
-  <input type="text" name="SBP" class='input-group date' placeholder="SEM/BRANCH/PERIOD"  autocomplete="off" >
 
-  <div id="demo"></div>
-<script>
-  class OneDialog extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `<h6>ADDICTIONAL SUBJECTS</H6> <h6>SUBJECT`+(--i)+`:</h6>
-    <input type="text" name='SC`+(i)+`' class='input-group date' placeholder="SUBJECT CODE`+(i)+` "  autocomplete="off" required><br> <br>
-    <input type="text" name='SN`+(i)+`' class='input-group date' placeholder="SUBJECT NAME`+(i)+`"  autocomplete="off" required><br>
-    <h6>SEM&BRANCH&PERIOD`+(i)+`</h6>
-    <input type="text" name='SBP`+(i)+`' class='input-group date' placeholder="SEM/BRANCH/PERIOD`+(i)+`"  autocomplete="off" required><br><br>`;
-  
-  
-  }
- 
-}
-
-
-customElements.define('one-dialog', OneDialog);
-</script>
-<script>
-  let n=2;
-</script>
-<script>
-  function s()
-{
-  
-  var x ="";
-for (i=1; i<n; i++) {
- 
-  x = x + "<h5"  + "><one-dialog> " + i + "</h" + i + ">";
- 
-}
-
-document.getElementById("demo").innerHTML = x;
-n=n+1;
-
-}
-</script>
-
-
-
-<button type="button"  onclick="s()" class="btn btn-light">ADD MORE SUBJECTS</button> <br> <br>
-   
 
 
 

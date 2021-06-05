@@ -215,7 +215,7 @@ $msg="Leave updated Successfully";
                                     <tbody>
 <?php 
     $lid=intval($_GET['leaveid']);
-    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblemployees.dept_code,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate,tblprincipal.DayCount from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
+    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,tblemployees.dept_code,tblprincipal.LeaveType,tblprincipal.ToDate,tblprincipal.FromDate,tblprincipal.Description,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.AdminRemark,tblprincipal.AdminRemarkDate,tblprincipal.DayCount, tblprincipal.AltArrangement from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.id=:lid";
     $query = $dbh -> prepare($sql);
     $query->bindParam(':lid',$lid,PDO::PARAM_STR);
     $query->execute();
@@ -339,6 +339,11 @@ function updateMailSent(){
 <tr>
     <td style="font-size:16px;"><b>Leave Description : </b></td>
     <td colspan="5"><?php echo htmlentities($result->Description);?></td>
+</tr>
+<tr>
+    <td style="font-size:16px;"><b>Alternate Arranegement : </b></td>
+    <td colspan="5"><?php echo htmlentities($result->AltArrangement);?></td>
+                                          
 </tr>
 
 <tr>
