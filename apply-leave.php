@@ -211,42 +211,51 @@ foreach($results as $result)
 <form>
   <div class="form-group">
   <h6>SELECT DATE:</h6>
-  <input type="date" class='input-group date'  autocomplete="off" required>
+  <input type="date" name="DATE" class='input-group date'  autocomplete="off" >
   <h6>SUBJECT:</h6>
-  <input type="text" class='input-group date' placeholder="SUBJECT CODE"  autocomplete="off" required>
-  <input type="text" class='input-group date' placeholder="SUBJECT NAME"  autocomplete="off" required>
+  <input type="text" name="SCODE" class='input-group date' placeholder="SUBJECT CODE"  autocomplete="off">
+  <input type="text" name="SNAME" class='input-group date' placeholder="SUBJECT NAME"  autocomplete="off" >
   <h6>SEM&BRANCH&PERIOD</h6>
-  <input type="text" class='input-group date' placeholder="SEM/BRANCH/PERIOD"  autocomplete="off" required>
+  <input type="text" name="SBP" class='input-group date' placeholder="SEM/BRANCH/PERIOD"  autocomplete="off" >
 
-   <div id="demo"></div>
+  <div id="demo"></div>
 <script>
   class OneDialog extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = ` <h6>SUBJECT:</h6>
-    <input type="text" class='input-group date' placeholder="SUBJECT CODE"  autocomplete="off" required><br> <br>
-    <input type="text" class='input-group date' placeholder="SUBJECT NAME"  autocomplete="off" required><br>
-    <h6>SEM&BRANCH&PERIOD</h6>
-    <input type="text" class='input-group date' placeholder="SEM/BRANCH/PERIOD"  autocomplete="off" required><br><br>`;
+    this.innerHTML = `<h6>ADDICTIONAL SUBJECTS</H6> <h6>SUBJECT`+(--i)+`:</h6>
+    <input type="text" name='SC`+(i)+`' class='input-group date' placeholder="SUBJECT CODE`+(i)+` "  autocomplete="off" required><br> <br>
+    <input type="text" name='SN`+(i)+`' class='input-group date' placeholder="SUBJECT NAME`+(i)+`"  autocomplete="off" required><br>
+    <h6>SEM&BRANCH&PERIOD`+(i)+`</h6>
+    <input type="text" name='SBP`+(i)+`' class='input-group date' placeholder="SEM/BRANCH/PERIOD`+(i)+`"  autocomplete="off" required><br><br>`;
+  
+  
   }
+ 
 }
+
 
 customElements.define('one-dialog', OneDialog);
 </script>
 <script>
-  let n=1;
+  let n=2;
 </script>
 <script>
   function s()
 {
   
   var x ="";
-for (i=1; i<=n; i++) {
+for (i=1; i<n; i++) {
+ 
   x = x + "<h5"  + "><one-dialog> " + i + "</h" + i + ">";
+ 
 }
-n=n+1
+
 document.getElementById("demo").innerHTML = x;
+n=n+1;
+
 }
 </script>
+
 
 
 <button type="button"  onclick="s()" class="btn btn-light">ADD MORE SUBJECTS</button> <br> <br>

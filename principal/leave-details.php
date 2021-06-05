@@ -258,7 +258,8 @@ $msg="Leave updated Successfully";
 
 <!-- Mail Script -->
 <script type="text/javascript">
-    function sendEmail(mid) {
+    function sendEmail() {
+        
             Email.send({
                 
                 Host: "smtp.gmail.com",
@@ -278,6 +279,8 @@ $msg="Leave updated Successfully";
                             //console.log (message);
                             if(message=='OK'){
                             alert('Your mail has been send. Thank you for connecting.');
+                            sree()
+                            
                             }
                             else{
                                 console.error (message);
@@ -286,7 +289,18 @@ $msg="Leave updated Successfully";
                             }
 
                         });
+                     
             }
+</script>
+<script>
+function sree(){
+    <?php   
+$sql="update tblprincipal set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate,MailSent=1 where id=$did";
+echo 'alert("JavaScript Alert Box by PHP")';  
+ 
+?>  
+
+}
 </script>
 
                                         
@@ -397,7 +411,7 @@ if($stats==3)
       
        <form method="post">
 	<input type="button" value="Send Mail"
-		onclick="sendEmail()" />
+		onclick="sendEmail(sree)" />
 </form>
     </div>
 

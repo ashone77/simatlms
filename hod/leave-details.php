@@ -54,7 +54,7 @@ if(isset($_POST['update']))
     $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
     $dbh->query("INSERT into tblprincipal select * from $selectTbl where id=$did");
     // updates the data in table principal - working code
-    $sql="update tblprincipal set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=$did";
+    $sql="update tblprincipal set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate,MailSent=0 where id=$did";
     $query = $dbh->prepare($sql);
     $query->bindParam(':description',$description,PDO::PARAM_STR);
     $query->bindParam(':status',$status,PDO::PARAM_STR);
@@ -62,7 +62,7 @@ if(isset($_POST['update']))
     // $query->bindParam(':did',$did,PDO::PARAM_STR); do not uncomment this line, page will crash
     $query->execute();
     // updates data also in table leaves - test code
-    $sql_update="update $selectTbl set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=$did";
+    $sql_update="update $selectTbl set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate,MailSent=0 where id=$did";
 
     // $query = $dbh->prepare($sql);
     $query = $dbh->prepare($sql_update);
