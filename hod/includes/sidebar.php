@@ -1,3 +1,32 @@
+     <?php 
+     
+     switch ($_SESSION['alogin']){
+        case "hodcse":
+            $userhod = "Computer Science Engineering";
+            break;
+        case "hodcivil":
+            $userhod = "Civil Engineering";
+            break;
+        case "hodeee":
+            $userhod = "Electrical & Electronics Engineering";
+            break;
+        case "hodme":
+            $userhod = "Mechanical Engineering";
+            break; 
+        case "hodec":
+            $userhod = "Electrical & Electronics Engineering";
+            break;
+        case "hodash":
+            $userhod = "Applied Science & Humanities";
+            break;
+        default:
+            $userhod = "Department";
+        
+    
+    }
+     
+     ?>
+     
      <aside id="slide-out" class="side-nav white fixed">
                 <div class="side-nav-wrapper">
                     <div class="sidebar-profile">
@@ -7,6 +36,7 @@
                         <div class="sidebar-profile-info">
                        
                                 <p>HOD</p>
+                                <span><?php echo $userhod?></span>
 
                          
                         </div>

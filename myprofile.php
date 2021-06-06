@@ -44,7 +44,7 @@ $msg="Employee record updated Successfully";
         
         <!-- Title -->
         <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
-        <title>My Profile</title>
+        <title>Faculty | My Profile</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -89,14 +89,14 @@ $msg="Employee record updated Successfully";
    <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Update employee</div>
+                        <div class="page-title">Faculty Info</div>
                     </div>
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
                                 <form id="example-form" method="post" name="updatemp">
                                     <div>
-                                        <h3>Update Employee Info</h3>
+                                        <h3>Update Your Profile</h3>
                                            <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
                 else if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                         <section>
@@ -117,19 +117,19 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {               ?> 
  <div class="input-field col  s12">
-<label for="empcode">Employee Code</label>
+<label for="empcode">Faculty Code</label>
 <input  name="empcode" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
 <span id="empid-availability" style="font-size:12px;"></span> 
 </div>
 
 
 <div class="input-field col m6 s12">
-<label for="firstName">First name</label>
+<label for="firstName">First Name</label>
 <input id="firstName" name="firstName" value="<?php echo htmlentities($result->FirstName);?>"  type="text" required>
 </div>
 
 <div class="input-field col m6 s12">
-<label for="lastName">Last name </label>
+<label for="lastName">Last Name </label>
 <input id="lastName" name="lastName" value="<?php echo htmlentities($result->LastName);?>" type="text" autocomplete="off" required>
 </div>
 
@@ -140,7 +140,7 @@ foreach($results as $result)
 </div>
 
 <div class="input-field col s12">
-<label for="phone">Mobile number</label>
+<label for="phone">Mobile Number</label>
 <input id="phone" name="mobileno" type="tel" value="<?php echo htmlentities($result->Phonenumber);?>" maxlength="10" autocomplete="off" required>
  </div>
 
