@@ -43,7 +43,7 @@
                             </ul>
                         </div>
                     </li> -->
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="myprofile.php"><i class="material-icons">account_box</i>Profile</a></li>        
+                    <!-- <li class="no-padding"><a class="waves-effect waves-grey" href="myprofile.php"><i class="material-icons">account_box</i>Profile</a></li>         -->
                     <li class="no-padding"><a class="waves-effect waves-grey" href="faculty-det.php"> <i class="material-icons prefix">account_circle</i>All Faculties</a></li>
    <li class="no-padding">
     <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">desktop_windows</i>Leave Management<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
@@ -73,7 +73,7 @@
               
                 </ul>
                    <div class="footer">
-                    <p class="copyright"><a href="http://simat.ac.in">SIMAT ELMS </a>©</p>
+                    <p class="copyright"><a href="http://simat.ac.in">SIMAT E-Governance</a>©</p>
                 
                 </div>
                 </div>

@@ -160,7 +160,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="simat.ac.in">SIMAT LMS </a>©</p>
+                    <p class="copyright"><a href="simat.ac.in">SIMAT E-Governance</a>©</p>
                 
                 </div>
                 </div>
