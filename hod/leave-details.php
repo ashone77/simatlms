@@ -83,7 +83,7 @@ if(isset($_POST['update']))
         
         <!-- Title -->
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
-        <title>Leave Details </title>
+        <title>HOD | Leave Details </title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -180,19 +180,19 @@ foreach($results as $result)
       ?>  
 
 <tr>
-    <td style="font-size:16px;"> <b>Employe Name :</b></td>
+    <td style="font-size:16px;"> <b>Faculty Name :</b></td>
     <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
     <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
-    <td style="font-size:16px;"><b>Emp Id :</b></td>
+    <td style="font-size:16px;"><b>Faculty Code :</b></td>
     <td><?php echo htmlentities($result->EmpId);?></td>
     <td style="font-size:16px;"><b>Gender :</b></td>
     <td><?php echo htmlentities($result->Gender);?></td>
 </tr>
 
 <tr>
-    <td style="font-size:16px;"><b>Emp Email id :</b></td>
+    <td style="font-size:16px;"><b>Email id :</b></td>
     <td><?php echo htmlentities($result->EmailId);?></td>
-    <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
+    <td style="font-size:16px;"><b>Contact No. :</b></td>
     <td><?php echo htmlentities($result->Phonenumber);?></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -201,7 +201,7 @@ foreach($results as $result)
 <tr>
     <td style="font-size:16px;"><b>Leave Type :</b></td>
     <td><?php echo htmlentities($result->LeaveType);?></td>
-    <td style="font-size:16px;"><b>Leave Date . :</b></td>
+    <td style="font-size:16px;"><b>Leave Date :</b></td>
     <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
     <td style="font-size:16px;"><b>Posting Date</b></td>
     <td><?php echo htmlentities($result->PostingDate);?></td>
@@ -239,7 +239,7 @@ foreach($results as $result)
 </tr>
 
 <tr>
-<td style="font-size:16px;"><b>leave Status :</b></td>
+<td style="font-size:16px;"><b>Leave Status :</b></td>
 <td colspan="5"><?php $stats=$result->Status;
 if($stats==3){
 ?>
@@ -258,7 +258,7 @@ if($stats==3){
 <td style="font-size:16px;"><b>Admin Remark: </b></td>
 <td colspan="5"><?php
 if($result->AdminRemark==""){
-  echo "Waiting for Approval";  
+  echo "N/A";  
 }
 else{
 echo htmlentities($result->AdminRemark);
@@ -270,7 +270,7 @@ echo htmlentities($result->AdminRemark);
 <td style="font-size:16px;"><b>Admin Action taken date : </b></td>
 <td colspan="5"><?php
 if($result->AdminRemarkDate==""){
-  echo "NA";  
+  echo "N/A";  
 }
 else{
 echo htmlentities($result->AdminRemarkDate);

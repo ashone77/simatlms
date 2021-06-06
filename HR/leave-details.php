@@ -117,10 +117,10 @@ foreach($results as $result)
       ?>  
 
 <tr>
-    <td style="font-size:16px;"> <b>Employe Name :</b></td>
+    <td style="font-size:16px;"> <b>Faculty Name :</b></td>
     <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
     <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
-    <td style="font-size:16px;"><b>Emp Id :</b></td>
+    <td style="font-size:16px;"><b>Faculty Code :</b></td>
     <td><?php echo htmlentities($result->EmpId);?></td>
     <td style="font-size:16px;"><b>Gender :</b></td>
     <td><?php echo htmlentities($result->Gender);?></td>
@@ -132,22 +132,22 @@ foreach($results as $result)
 </tr>
 
 <tr>
-    <td style="font-size:16px;"><b>Emp Email id :</b></td>
+    <td style="font-size:16px;"><b>Email id :</b></td>
     <td><?php echo htmlentities($result->EmailId);?></td>
-    <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
+    <td style="font-size:16px;"><b>Contact No. :</b></td>
     <td><?php echo htmlentities($result->Phonenumber);?></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr>
 
-  <tr>
-                                             <td style="font-size:16px;"><b>Leave Type :</b></td>
-                                            <td><?php echo htmlentities($result->LeaveType);?></td>
-                                             <td style="font-size:16px;"><b>Leave Date . :</b></td>
-                                            <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
-                                            <td style="font-size:16px;"><b>Posting Date</b></td>
-                                           <td><?php echo htmlentities($result->PostingDate);?></td>
-                                        </tr>
+<tr>
+    <td style="font-size:16px;"><b>Leave Type :</b></td>
+    <td><?php echo htmlentities($result->LeaveType);?></td>
+    <td style="font-size:16px;"><b>Leave Date . :</b></td>
+    <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
+    <td style="font-size:16px;"><b>Posting Date</b></td>
+    <td><?php echo htmlentities($result->PostingDate);?></td>
+</tr>
 
 <tr>
     <td style="font-size:16px;"><b>Total Leaves Taken:</b></td>
@@ -169,12 +169,12 @@ foreach($results as $result)
 </tr>
 
 <tr>
-    <td style="font-size:16px;"><b>Employe Leave Description : </b></td>
+    <td style="font-size:16px;"><b>Leave Description : </b></td>
     <td colspan="5"><?php echo htmlentities($result->Description);?></td>
 </tr>
 <tr>
     <td style="font-size:16px;"><b>Alternate Arranegement : </b></td>
-    <td colspan="5"><?php echo htmlentities($result->AltArrangement);?></td>
+    <td colspan="5"><?php echo nl2br(htmlentities($result->AltArrangement));?></td>
                                           
 </tr>
 
@@ -187,11 +187,11 @@ if($stats==1){
  <?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
- <span style="color: blue">Waiting for approval</span>
+ <span style="color: blue">Waiting for Approval</span>
  <?php } if($stats==4)  { ?>
 <span style="color: orange">Application Returned</span>
 <?php } if($stats==3)  { ?>
- <span style="color: grey">Waiting for approval from principal</span>
+ <span style="color: grey">Waiting for Approval from Principal</span>
  <?php }?>
 </td>
 </tr>
