@@ -234,7 +234,7 @@ foreach($results as $result)
 </tr>
 <tr>
     <td style="font-size:16px;"><b>Alternate Arranegement : </b></td>
-    <td colspan="5"><?php echo htmlentities($result->AltArrangement);?></td>
+    <td colspan="5"><?php echo nl2br(htmlentities ($result->AltArrangement ));?> <br></td>
                                           
 </tr>
 

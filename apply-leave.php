@@ -207,7 +207,7 @@ foreach($results as $result)
 
 <div class="input-field col m12 s12">
     <label for="birthdate">Alternate Arrangement</label> <br><br>
-    <p>Format : [Sl.no] [Date] [subject] [Period] [Sem] [Branch] </p>
+    <p>Format : [Sl.no] [Date] [subject] [Period] [Sem] [Branch] <br> </p>
     <textarea id="textarea1" name="altarr" class="materialize-textarea" length="500" required></textarea>
 </div>
 
