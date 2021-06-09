@@ -97,7 +97,7 @@ header('location:manageemployee.php');
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Emp Id</th>
+                                            <th>Faculty Id</th>
                                             <th>name</th>
                                             <th>Depart</th>
                                              <th>Status</th>
