@@ -206,8 +206,8 @@ foreach($results as $result)
 </div>
 
 <div class="input-field col m12 s12">
-    <h5>Alternate Arrangement</h5>
-    <P>(If you have more than one arrangement then you can add it one by one)</P>
+    <h4>ALTERNATE ARRANGEMENT</h4>
+    <p>(If you have more than one arrangement then you can add it one by one)</p> <br> <br>
 </div>
 
 </div>
@@ -217,48 +217,33 @@ foreach($results as $result)
 
 </form>
 <form id="myForm" >
-    <div class="input-field col m6 s12">
-        <h6>Date</h6>
-        <input type="date" > <br> <br>
-    </div>
-    <div class="input-field col m6 s12">
-        <h6>Subject</h6> 
-        <input type="text" placeholder="Subject" required><br> <br>
-    </div>
-    <div class="input-field col m4 s12">
-        <h6>Period</h6> 
-        <input type="text" placeholder="Period" required  ><br> <br>
-    </div>
-    <div class="input-field col m4 s12">
-        <h6>Semester</h6>
-        <input type="text" placeholder="Semester" required><br><br>
-    </div>
-    <div class="input-field col m4 s12">
-        <h6>Branch</h6>
-        <input type="text" placeholder="Branch" required><br><br>
-    </div>
-    <div class="input-field col m12 s12">
+        <h6>DATE</h6><input type="date" > <br> <br>
+        <h6>SUBJECT CODE</h6> 
+         <input type="text" placeholder="Subject code" required><br> <br>
+         <h6>SUBJECT NAME</h6>
+          <input type="text" placeholder="Subject code" required  ><br> <br>
+          <h6>SEMESTER-BRANCH-PERIOD</h6>
+           <input type="text" placeholder="Semester-branch-period" ><br><br>
         <h6>Alternate Faculty: </h6>
-        <input type="text" placeholder="Alternate faculty" required ><br>
-    </div>
+         <input type="text" placeholder="Alternate faculty" required ><br>
 
       
       </form> 
       
+      
      
       
      
-      <button style="margin-top: 10px;" onclick="addArrangement()" type="button" class="btn btn-primary">Save</button>
+      <button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
       
       
      
       <script>
           let date=[]
-          let sub=[]
-          let period=[]
-          let sem=[]
-          let branch=[]
-          let altf=[]
+          let sc=[]
+          let sn=[]
+          let bsp=[]
+          let af=[]
           
       </script>
       
@@ -269,11 +254,9 @@ foreach($results as $result)
               document.getElementById("myForm").elements[2].value=""
               document.getElementById("myForm").elements[3].value=""
               document.getElementById("myForm").elements[4].value=""
-              document.getElementById("myForm").elements[5].value=""
-              
       
           }
-      function addArrangement() {
+      function myFunction() {
        
        
         let a=""+document.getElementById("myForm").elements[0].value;+"'"
@@ -281,20 +264,16 @@ foreach($results as $result)
         let c=""+document.getElementById("myForm").elements[2].value;+"'"
         let d=""+document.getElementById("myForm").elements[3].value;+"'"
         let e=""+document.getElementById("myForm").elements[4].value;+"'"
-        let f=""+document.getElementById("myForm").elements[5].value;+"'"
-        
        date.push(a)
-       sub.push(b)
-       period.push(c)
-       sem.push(d)
-       branch.push(e)
-       altf.push(f)
+       sc.push(b)
+       sn.push(c)
+       bsp.push(d)
+       af.push(e)
        console.log(date)
-       console.log(sub)
-       console.log(period)
-       console.log(sem)
-       console.log(branch)
-       console.log(altf)
+       console.log(sc)
+       console.log(sn)
+       console.log(bsp)
+       console.log(af)
         addmore()
       
       
@@ -303,18 +282,8 @@ foreach($results as $result)
         //document.getElementById("demo").innerHTML = x;
         ///document.getElementById("demo2").innerHTML =y;
       }
-      </script>
-      
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    --> <br> <br>    <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply</button>                                             
+      </script> <br> <br> 
+      <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply Leave</button>                                             
 
                                                 </div>
                                             </div>
