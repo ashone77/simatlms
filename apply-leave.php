@@ -217,15 +217,30 @@ foreach($results as $result)
 
 </form>
 <form id="myForm" >
-        <h6>DATE</h6><input type="date" > <br> <br>
-        <h6>SUBJECT CODE</h6> 
-         <input type="text" placeholder="Subject code" required><br> <br>
-         <h6>SUBJECT NAME</h6>
-          <input type="text" placeholder="Subject code" required  ><br> <br>
-          <h6>SEMESTER-BRANCH-PERIOD</h6>
-           <input type="text" placeholder="Semester-branch-period" ><br><br>
+    <div class="input-field col m4 s12">
+        <h6>Date</h6>
+        <input type="date" > <br> <br>
+    </div>
+    <div class="input-field col m8 s12">
+        <h6>Subject</h6> 
+        <input type="text" placeholder="Subject" required><br> <br>
+    </div>
+    <div class="input-field col m4 s12">
+        <h6>Period</h6> 
+        <input type="text" placeholder="Period" required  ><br> <br>
+    </div>
+    <div class="input-field col m4 s12">
+        <h6>Semester</h6>
+        <input type="text" placeholder="Semester" required><br><br>
+    </div>
+    <div class="input-field col m4 s12">
+        <h6>Branch</h6>
+        <input type="text" placeholder="Branch" required><br><br>
+    </div>
+    <div class="input-field col m12 s12">
         <h6>Alternate Faculty: </h6>
-         <input type="text" placeholder="Alternate faculty" required ><br>
+        <input type="text" placeholder="Alternate faculty" required >
+    </div>
 
       
       </form> 
@@ -239,22 +254,24 @@ foreach($results as $result)
       
      
       <script>
-          let date=[]
-          let sc=[]
-          let sn=[]
-          let bsp=[]
-          let af=[]
+        let date=[]
+        let sub=[]
+        let period=[]
+        let sem=[]
+        let branch=[]
+        let altf=[]
           
       </script>
       
       <script>
           function addmore(){
-              document.getElementById("myForm").elements[0].value=""
-              document.getElementById("myForm").elements[1].value=""
-              document.getElementById("myForm").elements[2].value=""
-              document.getElementById("myForm").elements[3].value=""
-              document.getElementById("myForm").elements[4].value=""
-      
+            document.getElementById("myForm").elements[0].value=""
+            document.getElementById("myForm").elements[1].value=""
+            document.getElementById("myForm").elements[2].value=""
+            document.getElementById("myForm").elements[3].value=""
+            document.getElementById("myForm").elements[4].value=""
+            document.getElementById("myForm").elements[5].value=""
+
           }
       function myFunction() {
        
@@ -264,16 +281,18 @@ foreach($results as $result)
         let c=""+document.getElementById("myForm").elements[2].value;+"'"
         let d=""+document.getElementById("myForm").elements[3].value;+"'"
         let e=""+document.getElementById("myForm").elements[4].value;+"'"
-       date.push(a)
-       sc.push(b)
-       sn.push(c)
-       bsp.push(d)
-       af.push(e)
-       console.log(date)
-       console.log(sc)
-       console.log(sn)
-       console.log(bsp)
-       console.log(af)
+        let f=""+document.getElementById("myForm").elements[5].value;+"'"
+        date.push(a)
+        sub.push(b)
+        period.push(c)
+        sem.push(d)
+        branch.push(e)
+        altf.push(f)
+        console.log(date)
+        console.log(sc)
+        console.log(sn)
+        console.log(bsp)
+        console.log(af)
         addmore()
       
       
