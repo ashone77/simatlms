@@ -206,9 +206,8 @@ foreach($results as $result)
 </div>
 
 <div class="input-field col m12 s12">
-    <label for="birthdate">Alternate Arrangement</label> <br><br>
-    <p>Format : [Sl.no] [Date] [subject] [Period] [Sem] [Branch] [Alternate Staff] <br> </p>
-    <textarea id="textarea1" name="altarr" class="materialize-textarea" length="500" required></textarea>
+    <h4>ALTERNATE ARRAGEMENTS</h4>
+    <P>(If you have more than one arrangement then you can add it one by one)</P>
 </div>
 
 </div>
@@ -217,7 +216,83 @@ foreach($results as $result)
 
 
 </form>
-      <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply</button>                                             
+<form id="myForm" >
+        <h6>DATE</h6><input type="date" > <br> <br>
+        <h6>SUBJECT CODE</h6> 
+         <input type="text" placeholder="Subject code" required><br> <br>
+         <h6>SUBJECT NAME</h6>
+          <input type="text" placeholder="Subject code" required  ><br> <br>
+          <h6>SEMESTER-BRANCH-PERIOD</h6>
+           <input type="text" placeholder="Semester-branch-period" ><br><br>
+        <h6>Alternate Faculty: </h6>
+         <input type="text" placeholder="Alternate faculty" required ><br>
+
+      
+      </form> 
+      
+     
+      
+     
+      <button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
+      
+      
+     
+      <script>
+          let date=[]
+          let sc=[]
+          let sn=[]
+          let bsp=[]
+          let af=[]
+          
+      </script>
+      
+      <script>
+          function addmore(){
+              document.getElementById("myForm").elements[0].value=""
+              document.getElementById("myForm").elements[1].value=""
+              document.getElementById("myForm").elements[2].value=""
+              document.getElementById("myForm").elements[3].value=""
+              document.getElementById("myForm").elements[4].value=""
+      
+          }
+      function myFunction() {
+       
+       
+        let a=""+document.getElementById("myForm").elements[0].value;+"'"
+        let b=""+document.getElementById("myForm").elements[1].value;+"'"
+        let c=""+document.getElementById("myForm").elements[2].value;+"'"
+        let d=""+document.getElementById("myForm").elements[3].value;+"'"
+        let e=""+document.getElementById("myForm").elements[4].value;+"'"
+       date.push(a)
+       sc.push(b)
+       sn.push(c)
+       bsp.push(d)
+       af.push(e)
+       console.log(date)
+       console.log(sc)
+       console.log(sn)
+       console.log(bsp)
+       console.log(af)
+        addmore()
+      
+      
+       
+      
+        //document.getElementById("demo").innerHTML = x;
+        ///document.getElementById("demo2").innerHTML =y;
+      }
+      </script>
+      
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    --> <br> <br>    <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply</button>                                             
 
                                                 </div>
                                             </div>
