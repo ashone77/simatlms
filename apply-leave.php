@@ -147,14 +147,14 @@ else{
    <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Apply for Leave</div>
+                        <div class="page-title">Leave Application</div>
                     </div>
                     <div class="col s12 m12 l8">
                         <div class="card">
                             <div class="card-content">
                                 <form id="example-form" method="post" name="addemp">
                                     <div>
-                                        <h3>Apply for Leave</h3>
+                                        <h5>Provide the details below :</h5  >
                                         <section>
                                             <div class="wizard-content">
                                                 <div class="row">
@@ -206,7 +206,7 @@ foreach($results as $result)
 </div>
 
 <div class="input-field col m12 s12">
-    <h4>ALTERNATE ARRAGEMENTS</h4>
+    <h5>Alternate Arrangement</h5>
     <P>(If you have more than one arrangement then you can add it one by one)</P>
 </div>
 
@@ -217,15 +217,30 @@ foreach($results as $result)
 
 </form>
 <form id="myForm" >
-        <h6>DATE</h6><input type="date" > <br> <br>
-        <h6>SUBJECT CODE</h6> 
-         <input type="text" placeholder="Subject code" required><br> <br>
-         <h6>SUBJECT NAME</h6>
-          <input type="text" placeholder="Subject code" required  ><br> <br>
-          <h6>SEMESTER-BRANCH-PERIOD</h6>
-           <input type="text" placeholder="Semester-branch-period" ><br><br>
+    <div class="input-field col m6 s12">
+        <h6>Date</h6>
+        <input type="date" > <br> <br>
+    </div>
+    <div class="input-field col m6 s12">
+        <h6>Subject</h6> 
+        <input type="text" placeholder="Subject" required><br> <br>
+    </div>
+    <div class="input-field col m4 s12">
+        <h6>Period</h6> 
+        <input type="text" placeholder="Period" required  ><br> <br>
+    </div>
+    <div class="input-field col m4 s12">
+        <h6>Semester</h6>
+        <input type="text" placeholder="Semester" required><br><br>
+    </div>
+    <div class="input-field col m4 s12">
+        <h6>Branch</h6>
+        <input type="text" placeholder="Branch" required><br><br>
+    </div>
+    <div class="input-field col m12 s12">
         <h6>Alternate Faculty: </h6>
-         <input type="text" placeholder="Alternate faculty" required ><br>
+        <input type="text" placeholder="Alternate faculty" required ><br>
+    </div>
 
       
       </form> 
@@ -233,16 +248,17 @@ foreach($results as $result)
      
       
      
-      <button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
+      <button style="margin-top: 10px;" onclick="addArrangement()" type="button" class="btn btn-primary">Save</button>
       
       
      
       <script>
           let date=[]
-          let sc=[]
-          let sn=[]
-          let bsp=[]
-          let af=[]
+          let sub=[]
+          let period=[]
+          let sem=[]
+          let branch=[]
+          let altf=[]
           
       </script>
       
@@ -253,9 +269,11 @@ foreach($results as $result)
               document.getElementById("myForm").elements[2].value=""
               document.getElementById("myForm").elements[3].value=""
               document.getElementById("myForm").elements[4].value=""
+              document.getElementById("myForm").elements[5].value=""
+              
       
           }
-      function myFunction() {
+      function addArrangement() {
        
        
         let a=""+document.getElementById("myForm").elements[0].value;+"'"
@@ -263,16 +281,20 @@ foreach($results as $result)
         let c=""+document.getElementById("myForm").elements[2].value;+"'"
         let d=""+document.getElementById("myForm").elements[3].value;+"'"
         let e=""+document.getElementById("myForm").elements[4].value;+"'"
+        let f=""+document.getElementById("myForm").elements[5].value;+"'"
+        
        date.push(a)
-       sc.push(b)
-       sn.push(c)
-       bsp.push(d)
-       af.push(e)
+       sub.push(b)
+       period.push(c)
+       sem.push(d)
+       branch.push(e)
+       altf.push(f)
        console.log(date)
-       console.log(sc)
-       console.log(sn)
-       console.log(bsp)
-       console.log(af)
+       console.log(sub)
+       console.log(period)
+       console.log(sem)
+       console.log(branch)
+       console.log(altf)
         addmore()
       
       
