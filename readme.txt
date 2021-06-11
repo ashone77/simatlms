@@ -25,4 +25,11 @@ create a table called " tblprincipal " in elms database.
 
  edit
 
- ###sree
+ Login details
+
+ For Faculties
+
+ user name - faculty code
+ password - [DEPARTMENT]123@ eg: CSE123@
+
+ 
