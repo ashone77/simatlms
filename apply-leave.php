@@ -303,10 +303,15 @@ foreach($results as $result)
         }
     </script> <br> <br> 
     
+ 
     <div>
         <p>Arrangements: </p>
-        <!-- <p name="arrangement" id="arrangement"></p> -->
-        <textarea name="arrangement" id="arrangement" cols="30" rows="30"></textarea>
+        <p id="arrangement"></p>
+        <br><br>
+    </div>
+    <div>
+      <!-- <p name="arrangement" id="arrangement"></p> -->
+        <textarea style="display: none;" type="hidden" name="arrangement" id="arrangement2" cols="30" rows="30"></textarea>
         <br><br>
     </div>
     <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
@@ -315,12 +320,17 @@ foreach($results as $result)
         function displayArrangement(){
           
 var text = "";
+var text2="";
 var i;
 for (i = 0; i < arrangement.length; i++) {
   text += arrangement[i] + "<br>";
+  text2+=arrangement[i];
 }
 //document.getElementById("demo").innerHTML = text;
+console.log(text)
+           
             document.getElementById("arrangement").innerHTML = text
+            document.getElementById("arrangement2").innerHTML = text2
         }
     
     </script>
