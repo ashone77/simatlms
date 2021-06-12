@@ -19,7 +19,7 @@ else{
         // $alternatearr=$_POST['altarr'];
         $dept=$_SESSION['deptcode'];
         $leavedays=$_POST['nofdays'];
-        $arrangement=$_POST['arrangement'];
+        $arrangement=$_POST['arrangement2'];
         $status=0;
         $isread=0;
         if($fromdate > $todate){
@@ -57,7 +57,7 @@ else{
 
     
 
-        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent,AltArrangement) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0,:arrangement)";
+        $sql="INSERT INTO $selectTable(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent,AltArrangement) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0,:arrangement2)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
         $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
@@ -68,10 +68,10 @@ else{
         $query->bindParam(':empid',$empid,PDO::PARAM_STR);
         $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
         $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
-        $query->bindParam(':arrangement',$arrangement,PDO::PARAM_STR);
+        $query->bindParam(':arrangement2',$arrangement,PDO::PARAM_STR);
         $query->execute();
 
-        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent,AltArrangement) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0,:arrangement)";
+        $sql2="INSERT INTO tblleaves(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,MailSent,AltArrangement) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,:deptcode,0,:arrangement2)";
         
         $query = $dbh->prepare($sql2);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
@@ -83,7 +83,7 @@ else{
         $query->bindParam(':empid',$empid,PDO::PARAM_STR);
         $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
         $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
-        $query->bindParam(':arrangement',$arrangement,PDO::PARAM_STR);
+        $query->bindParam(':arrangement2',$arrangement,PDO::PARAM_STR);
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         if($lastInsertId)
