@@ -245,7 +245,7 @@ foreach($results as $result)
     </form> 
     
     <button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
-    
+    <button style="background-color: brown;margin-top:10px;" onclick="embedElements()" type="button" class="btn  ">SHOW & EDIT ARRANGEMENTS</button>
     <script>
             let date=[]
             let sub=[]
@@ -319,7 +319,7 @@ foreach($results as $result)
   
     
         <div id="result"></div>
-        <button style="background-color: brown;" onclick="embedElements()" type="button" class="btn  ">SHOW & EDIT ARRANGEMENTS</button>
+       
         
         <script>
         {
@@ -334,7 +334,7 @@ foreach($results as $result)
                 });
             };
         }
-    </script> <br> <br>
+    </script> 
 
 
 <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply Leave</button>                                             
