@@ -217,103 +217,110 @@ foreach($results as $result)
 
 </form>
 <form id="myForm" >
-    <div class="input-field col m4 s12">
-        <h6>Date</h6>
-        <input type="date" > <br> <br>
-    </div>
-    <div class="input-field col m8 s12">
-        <h6>Subject</h6> 
-        <input type="text" placeholder="Subject" required><br> <br>
-    </div>
-    <div class="input-field col m4 s12">
-        <h6>Period</h6> 
-        <input type="text" placeholder="Period" required  ><br> <br>
-    </div>
-    <div class="input-field col m4 s12">
-        <h6>Semester</h6>
-        <input type="text" placeholder="Semester" required><br><br>
-    </div>
-    <div class="input-field col m4 s12">
-        <h6>Branch</h6>
-        <input type="text" placeholder="Branch" required><br><br>
-    </div>
-    <div class="input-field col m12 s12">
-        <h6>Alternate Faculty: </h6>
-        <input type="text" placeholder="Alternate faculty" required >
-    </div>
-</form> 
-
-<button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
-
-<script>
-        let date=[]
-        let sub=[]
-        let period=[]
-        let sem=[]
-        let branch=[]
-        let altf=[]
-        let arrangement=[]  
-        
-</script>
-      
-<script>
-    function addmore(){
-        document.getElementById("myForm").elements[0].value=""
-        document.getElementById("myForm").elements[1].value=""
-        document.getElementById("myForm").elements[2].value=""
-        document.getElementById("myForm").elements[3].value=""
-        document.getElementById("myForm").elements[4].value=""
-        document.getElementById("myForm").elements[5].value=""
-
-    }
-
+        <div class="input-field col m4 s12">
+            <h6>Date</h6>
+            <input type="date" > <br> <br>
+        </div>
+        <div class="input-field col m8 s12">
+            <h6>Subject</h6> 
+            <input type="text" placeholder="Subject" required><br> <br>
+        </div>
+        <div class="input-field col m4 s12">
+            <h6>Period</h6> 
+            <input type="text" placeholder="Period" required  ><br> <br>
+        </div>
+        <div class="input-field col m4 s12">
+            <h6>Semester</h6>
+            <input type="text" placeholder="Semester" required><br><br>
+        </div>
+        <div class="input-field col m4 s12">
+            <h6>Branch</h6>
+            <input type="text" placeholder="Branch" required><br><br>
+        </div>
+        <div class="input-field col m12 s12">
+            <h6>Alternate Faculty: </h6>
+            <input type="text" placeholder="Alternate faculty" required >
+        </div>
+    </form> 
     
-
-    function myFunction(){
-        let a=""+document.getElementById("myForm").elements[0].value;+"'"
-        let b=""+document.getElementById("myForm").elements[1].value;+"'"
-        let c=""+document.getElementById("myForm").elements[2].value;+"'"
-        let d=""+document.getElementById("myForm").elements[3].value;+"'"
-        let e=""+document.getElementById("myForm").elements[4].value;+"'"
-        let f=""+document.getElementById("myForm").elements[5].value;+"'"
-
-        date.push(a)
-        sub.push(b)
-        period.push(c)
-        sem.push(d)
-        branch.push(e)
-        altf.push(f)
-
-        arrangement.push(a+" "+b+" "+c+" "+d+" "+e+" "+f)
+    <button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
+    
+    <script>
+            let date=[]
+            let sub=[]
+            let period=[]
+            let sem=[]
+            let branch=[]
+            let altf=[]
+            let arrangement=[]  
+            
+    </script>
+          
+    <script>
+        function addmore(){
+            document.getElementById("myForm").elements[0].value=""
+            document.getElementById("myForm").elements[1].value=""
+            document.getElementById("myForm").elements[2].value=""
+            document.getElementById("myForm").elements[3].value=""
+            document.getElementById("myForm").elements[4].value=""
+            document.getElementById("myForm").elements[5].value=""
+    
+        }
+    
         
-
-        console.log(date)
-        console.log(sub)
-        console.log(period)
-        console.log(sem)
-        console.log(branch)
-        console.log(altf)
-        console.log(arrangement)
-        addmore()        
-
-        //document.getElementById("demo").innerHTML = x;
-        ///document.getElementById("demo2").innerHTML =y;
-    }
-</script> <br> <br> 
-
-<div>
-    <p>Arrangements: </p>
-    <p id="arrangement"></p>
-    <br><br>
-</div>
-
-<script>
-    function displayArrangement(){
-        
-        document.getElementById("arrangement").innerHTML = arrangement
-    }
-
-</script>
+    
+        function myFunction(){
+            let a=""+document.getElementById("myForm").elements[0].value;+"'"
+            let b=""+document.getElementById("myForm").elements[1].value;+"'"
+            let c=""+document.getElementById("myForm").elements[2].value;+"'"
+            let d=""+document.getElementById("myForm").elements[3].value;+"'"
+            let e=""+document.getElementById("myForm").elements[4].value;+"'"
+            let f=""+document.getElementById("myForm").elements[5].value;+"'"
+    
+            date.push(a)
+            sub.push(b)
+            period.push(c)
+            sem.push(d)
+            branch.push(e)
+            altf.push(f)
+    
+            arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
+            
+    
+            console.log(date)
+            console.log(sub)
+            console.log(period)
+            console.log(sem)
+            console.log(branch)
+            console.log(altf)
+            console.log(arrangement)
+            addmore()      
+            displayArrangement()  
+    
+            //document.getElementById("demo").innerHTML = x;
+            ///document.getElementById("demo2").innerHTML =y;
+        }
+    </script> <br> <br> 
+    
+    <div>
+        <p>Arrangements: </p>
+        <p id="arrangement"></p>
+        <br><br>
+    </div>
+    
+    <script>
+        function displayArrangement(){
+          
+var text = "";
+var i;
+for (i = 0; i < arrangement.length; i++) {
+  text += arrangement[i] + "<br>";
+}
+//document.getElementById("demo").innerHTML = text;
+            document.getElementById("arrangement").innerHTML = text
+        }
+    
+    </script>
 
 
 <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply Leave</button>                                             
