@@ -325,7 +325,7 @@ foreach($results as $result)
         {
             
             function embedElements(){
-               
+                document.getElementById('result').innerHTML="";
                 arrangement.forEach(el => {
                     let i=0
                     document.getElementById('result').innerHTML += `<textarea id=`+i+`>${el}</textarea><br />`;
