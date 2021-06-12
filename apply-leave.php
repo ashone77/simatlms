@@ -296,7 +296,7 @@ foreach($results as $result)
             console.log(altf)
             console.log(arrangement)
             addmore()      
-            displayArrangement()  
+            //displayArrangement()  
     
             //document.getElementById("demo").innerHTML = x;
             ///document.getElementById("demo2").innerHTML =y;
@@ -304,36 +304,37 @@ foreach($results as $result)
     </script> <br> <br> 
     
  
-    <div>
+   <!-- <div>
         <p>Arrangements: </p>
         <p id="arrangement"></p>
         <br><br>
     </div>
     <div>
-      <!-- <p name="arrangement" id="arrangement"></p> -->
-        <textarea style="display: none;" type="hidden" name="arrangement" id="arrangement2" cols="30" rows="30"></textarea>
+<p name="arrangement" id="arrangement"></p>
+        <textarea  name="arrangement" id="arrangement2" cols="30" rows="30"></textarea>
         <br><br>
-    </div>
+    </div>-->
     <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
     
-    <script>
-        function displayArrangement(){
-          
-var text = "";
-var text2="";
-var i;
-for (i = 0; i < arrangement.length; i++) {
-  text += arrangement[i] + "<br>";
-  text2+=arrangement[i];
-}
-//document.getElementById("demo").innerHTML = text;
-console.log(text)
-           
-            document.getElementById("arrangement").innerHTML = text
-            document.getElementById("arrangement2").innerHTML = text2
-        }
+  
     
-    </script>
+        <div id="result"></div>
+        <button style="background-color: brown;" onclick="embedElements()" type="button" class="btn  ">SHOW & EDIT ARRANGEMENTS</button>
+        
+        <script>
+        {
+            
+            function embedElements(){
+               
+                arrangement.forEach(el => {
+                    let i=0
+                    document.getElementById('result').innerHTML += `<textarea id=`+i+`>${el}</textarea><br />`;
+                // here result is the id of the div present in the dom
+                i=i+1
+                });
+            };
+        }
+    </script> <br> <br>
 
 
 <button type="submit" name="apply" id="apply" class="waves-effect waves-light btn indigo m-b-xs">Apply Leave</button>                                             
