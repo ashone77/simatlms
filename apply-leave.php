@@ -247,7 +247,7 @@ foreach($results as $result)
     </form> 
     
     <button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
-    <button style="background-color: brown;margin-top:10px;" onclick="embedElements()" type="button" class="btn  ">SHOW & EDIT ARRANGEMENTS</button>
+    <button id="butid" style="background-color: brown;margin-top:8px" onclick="myFunctionSree()" type="button" class="btn btn-warning">SHOW & EDIT ARRANGEMENTS</button>
     <script>
             let date=[]
             let sub=[]
@@ -269,8 +269,7 @@ foreach($results as $result)
             document.getElementById("myForm").elements[5].value=""
     
         }
-    
-        
+
     
         function myFunction(){
             let a=""+document.getElementById("myForm").elements[0].value;+"'"
@@ -288,6 +287,8 @@ foreach($results as $result)
             altf.push(f)
     
             arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
+            embedElements()
+           myFunction2()
             
     
             console.log(date)
@@ -321,6 +322,7 @@ foreach($results as $result)
   
     
         <div id="result"></div>
+       <textarea hidden  id="aswin"></textarea>
        
         
         <script>
@@ -331,11 +333,38 @@ foreach($results as $result)
                 arrangement.forEach(el => {
                     let i=0
                     document.getElementById('result').innerHTML += `<textarea id=`+i+`>${el}</textarea><br />`;
+                    //document.getElementById('sree').innerHTML += el+"\n";
                 // here result is the id of the div present in the dom
                 i=i+1
+               
                 });
+            
             };
         }
+       const myFunction2=()=>{
+        let text = "";
+        for (let i = 0; i <arrangement.length; i++) {
+        text += arrangement[i]+"\n" ;
+        }
+        document.getElementById("aswin").innerHTML = text;
+    }
+  
+    function myFunctionSree() {
+        var x = document.getElementById("result");
+        if (x.style.display === "none"&&arrangement.length!==0) {
+          x.style.display = "block";
+          document.getElementById("butid").innerHTML="HIDE ARRANGEMENT"
+         
+
+        } else if(arrangement.length==0){
+            x.style.display = "none";
+        alert("PLEASE ADD ALTERNATE ARRANGEMENTS :)")
+        }
+         else  {
+          x.style.display = "none";
+          document.getElementById("butid").innerHTML="SHOW AND EDIT ARRANGEMENT"
+        }
+      }
     </script> 
 
 
