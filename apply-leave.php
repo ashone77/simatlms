@@ -247,7 +247,7 @@ foreach($results as $result)
     </form> 
     
     <button style="margin-top: 10px;" onclick="myFunction()" type="button" class="btn btn-primary">ADD FACULTY</button>
-    <button id="butid" style="background-color: brown;margin-top:8px" onclick="myFunctionSree()" type="button" class="btn btn-warning">SHOW & EDIT ARRANGEMENTS</button>
+    <button id="butid" style="background-color: brown;margin-top:8px" onclick="myFunctionSree()" type="button" class="btn btn-warning">SHOW & HIDE ARRANGEMENTS</button>
     <script>
             let date=[]
             let sub=[]
@@ -272,6 +272,12 @@ foreach($results as $result)
 
     
         function myFunction(){
+            if(document.getElementById("myForm").elements[0].value!=""&&
+            document.getElementById("myForm").elements[1].value!=""&&
+            document.getElementById("myForm").elements[2].value!=""&&
+            document.getElementById("myForm").elements[3].value!=""&&
+            document.getElementById("myForm").elements[4].value!=""&&
+            document.getElementById("myForm").elements[5].value!=""){
             let a=""+document.getElementById("myForm").elements[0].value;+"'"
             let b=""+document.getElementById("myForm").elements[1].value;+"'"
             let c=""+document.getElementById("myForm").elements[2].value;+"'"
@@ -287,22 +293,21 @@ foreach($results as $result)
             altf.push(f)
     
             arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
+            
             embedElements()
            myFunction2()
             
     
-            console.log(date)
-            console.log(sub)
-            console.log(period)
-            console.log(sem)
-            console.log(branch)
-            console.log(altf)
-            console.log(arrangement)
+          
             addmore()      
             //displayArrangement()  
     
             //document.getElementById("demo").innerHTML = x;
             ///document.getElementById("demo2").innerHTML =y;
+        }
+        else{
+            alert("PLEASE FILL ALL COLUMNS :)")
+        }
         }
     </script> <br> <br> 
     
