@@ -43,6 +43,7 @@
                     </div>
             
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="myprofile.php"> <i class="material-icons prefix">account_circle</i>My Profile</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php"><i class="material-icons">settings_input_svideo</i>Home</a></li>
                    <!-- <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">apps</i>Department<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>

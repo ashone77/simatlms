@@ -5,34 +5,36 @@
             header('location:index.php');
     }
     else {
-        $user=$_SESSION['alogin'];
-        if(isset($_POST['update'])){        
-            $fname=$_POST['firstName'];
-            $lname=$_POST['lastName'];   
-            $gender=$_POST['gender']; 
-            $dob=$_POST['dob']; 
-            $department=$_POST['department']; 
-            $address=$_POST['address']; 
-            $city=$_POST['city']; 
-            $country=$_POST['country']; 
-            $mobileno=$_POST['mobileno']; 
+        $eid=$_SESSION['alogin'];
+        if(isset($_POST['update']))
+        {
 
-            $sql="UPDATE tblemployees SET FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where EmailId=:eid";
-
-            $query = $dbh->prepare($sql);
-            $query->bindParam(':fname',$fname,PDO::PARAM_STR);
-            $query->bindParam(':lname',$lname,PDO::PARAM_STR);
-            $query->bindParam(':gender',$gender,PDO::PARAM_STR);
-            $query->bindParam(':dob',$dob,PDO::PARAM_STR);
-            $query->bindParam(':department',$department,PDO::PARAM_STR);
-            $query->bindParam(':address',$address,PDO::PARAM_STR);
-            $query->bindParam(':city',$city,PDO::PARAM_STR);
-            $query->bindParam(':country',$country,PDO::PARAM_STR);
-            $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
-            $query->bindParam(':eid',$eid,PDO::PARAM_STR);
-            $query->execute();
-            $msg="Employee record updated Successfully";
+        $fname=$_POST['firstName'];
+        $lname=$_POST['lastName'];   
+        $gender=$_POST['gender']; 
+        $dob=$_POST['dob']; 
+        $department=$_POST['department']; 
+        $address=$_POST['address']; 
+        $city=$_POST['city']; 
+        $country=$_POST['country']; 
+        $mobileno=$_POST['mobileno']; 
+        $sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where EmailId=:eid";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':fname',$fname,PDO::PARAM_STR);
+        $query->bindParam(':lname',$lname,PDO::PARAM_STR);
+        $query->bindParam(':gender',$gender,PDO::PARAM_STR);
+        $query->bindParam(':dob',$dob,PDO::PARAM_STR);
+        $query->bindParam(':department',$department,PDO::PARAM_STR);
+        $query->bindParam(':address',$address,PDO::PARAM_STR);
+        $query->bindParam(':city',$city,PDO::PARAM_STR);
+        $query->bindParam(':country',$country,PDO::PARAM_STR);
+        $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
+        $query->bindParam(':eid',$eid,PDO::PARAM_STR);
+        $query->execute();
+        $msg="Employee record updated Successfully";
         }
+        
+        
         
             ?>
         
@@ -41,7 +43,7 @@
             <head>
                 
                 <!-- Title -->
-                <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
+                <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
                 <title>My Profile</title>
                 
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -51,11 +53,11 @@
                 <meta name="author" content="Steelcoders" />
                 
                 <!-- Styles -->
-                <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
+                <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
                 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"> 
-                <link href="assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-                <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+                <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"> 
+                <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
+                <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
           <style>
                 .errorWrap {
             padding: 10px;
@@ -103,10 +105,10 @@
                                                             <div class="col m6">
                                                                 <div class="row">
         <?php 
-        $eid=$_SESSION['emplogin'];
-        $sql = "SELECT * from  tblemployees where EmpId=:eid";
+        $hod=$_SESSION['alogin'];
+        $sql = "SELECT * from  admin where UserName=:hod";
         $query = $dbh -> prepare($sql);
-        $query -> bindParam(':eid',$eid, PDO::PARAM_STR);
+        $query -> bindParam(':hod',$hod, PDO::PARAM_STR);
         $query->execute();
         $results=$query->fetchAll(PDO::FETCH_OBJ);
         $cnt=1;
@@ -116,7 +118,7 @@
         {               ?> 
          <div class="input-field col  s12">
         <label for="empcode">Employee Code</label>
-        <input  name="empcode" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
+        <input  name="empcode" id="empcode" value="<?php echo htmlentities($result->UserName);?>" type="text" autocomplete="off" readonly required>
         <span id="empid-availability" style="font-size:12px;"></span> 
         </div>
         
@@ -224,12 +226,12 @@
                 <div class="left-sidebar-hover"></div>
                 
                 <!-- Javascripts -->
-                <script src="assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-                <script src="assets/plugins/materialize/js/materialize.min.js"></script>
-                <script src="assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-                <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-                <script src="assets/js/alpha.min.js"></script>
-                <script src="assets/js/pages/form_elements.js"></script>
+                <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+                <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
+                <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+                <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+                <script src="../assets/js/alpha.min.js"></script>
+                <script src="../assets/js/pages/form_elements.js"></script>
                 
             </body>
         </html>
