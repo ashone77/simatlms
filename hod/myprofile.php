@@ -8,7 +8,7 @@
         $eid=$_SESSION['alogin'];
         if(isset($_POST['update']))
         {
-
+        $email=$_POST['email'];
         $fname=$_POST['firstName'];
         $lname=$_POST['lastName'];   
         $gender=$_POST['gender']; 
@@ -18,7 +18,7 @@
         $city=$_POST['city']; 
         $country=$_POST['country']; 
         $mobileno=$_POST['mobileno']; 
-        $sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where EmailId=:eid";
+        $sql="update admin set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno,EmailId=:mail where UserName=:eid";
         $query = $dbh->prepare($sql);
         $query->bindParam(':fname',$fname,PDO::PARAM_STR);
         $query->bindParam(':lname',$lname,PDO::PARAM_STR);
@@ -30,6 +30,7 @@
         $query->bindParam(':country',$country,PDO::PARAM_STR);
         $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
         $query->bindParam(':eid',$eid,PDO::PARAM_STR);
+        $query->bindParam(':mail',$email,PDO::PARAM_STR);
         $query->execute();
         $msg="Employee record updated Successfully";
         }
@@ -116,9 +117,15 @@
         {
         foreach($results as $result)
         {               ?> 
-         <div class="input-field col  s12">
-        <label for="empcode">Employee Code</label>
-        <input  name="empcode" id="empcode" value="<?php echo htmlentities($result->UserName);?>" type="text" autocomplete="off" readonly required>
+        <div class="input-field col  s12">
+        <label for="username">Username</label>
+        <input  name="username" id="username" value="<?php echo htmlentities($result->UserName);?>" type="text" autocomplete="off" readonly required>
+        <span id="empid-availability" style="font-size:12px;"></span> 
+        </div>
+
+        <div class="input-field col  s12">
+        <label for="username">Faculty Code</label>
+        <input  name="username" id="username" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
         <span id="empid-availability" style="font-size:12px;"></span> 
         </div>
         
@@ -135,7 +142,7 @@
         
         <div class="input-field col s12">
         <label for="email">Email</label>
-        <input  name="email" type="email" id="email" value="<?php echo htmlentities($result->EmailId);?>" readonly autocomplete="off" required>
+        <input  name="email" type="email" id="email" value="<?php echo htmlentities($result->EmailId);?>"  autocomplete="off" required>
         <span id="emailid-availability" style="font-size:12px;"></span> 
         </div>
         
