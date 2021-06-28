@@ -28,6 +28,7 @@ else{
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
         <link href="assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
             
         <!-- Theme Styles -->
@@ -129,9 +130,11 @@ echo htmlentities('waiting for approval');
 
                                              </td>
                                              <td><?php $stats=$result->Status;
+                                           if($stats==4){
                                             ?>
-                                            
-                                               
+                                              <a href="./apply-leave.php">  <i  class="fas fa-edit"></i></a>
+                                              
+                                                     <?php } ?>  
 
                                              </td>
           
