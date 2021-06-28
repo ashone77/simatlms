@@ -78,6 +78,7 @@ else{
                                              <th width="120">Posting Date</th>
                                             <th width="200">Admin Remak</th>
                                             <th>Status</th>
+                                            <th>Action</th
                                         </tr>
                                     </thead>
                                  
@@ -125,6 +126,15 @@ echo htmlentities('waiting for approval');
                                                 <?php } if($stats==0)  { ?>
                                                 <span style="color: blue">Waiting for Approval</span>
                                                 <?php } ?>
+
+                                             </td>
+                                             <td><?php $stats=$result->Status;
+                                           if($stats==3){
+                                            ?>
+                                                <span style="color: chocolate">Forwarded to Principal</span>
+                                                <?php }if($stats==1){
+                                             ?>
+                                               
 
                                              </td>
           
