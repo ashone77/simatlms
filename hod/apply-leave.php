@@ -63,7 +63,7 @@
         // $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
         $query->execute();
 
-        $sql3="INSERT INTO tblprincipal(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,$dept)";
+        $sql3="INSERT INTO tblprincipal(LeaveType,ToDate,FromDate,Description,Status,IsRead,empid,DayCount,dept_code,FacultyCode) VALUES(:leavetype,:todate,:fromdate,:description,:status,:isread,:empid,:nofdays,$dept,:fcode)";
         $query = $dbh->prepare($sql3);
         $query->bindParam(':leavetype',$leavetype,PDO::PARAM_STR);
         $query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
@@ -73,6 +73,7 @@
         $query->bindParam(':isread',$isread,PDO::PARAM_STR);
         $query->bindParam(':empid',$empid,PDO::PARAM_STR);
         $query->bindParam(':nofdays',$leavedays,PDO::PARAM_STR);
+        $query->bindParam(':fcode',$empid,PDO::PARAM_STR);
         // $query->bindParam(':deptcode',$dept,PDO::PARAM_STR);
         $query->execute();
         

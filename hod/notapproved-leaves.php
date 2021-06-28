@@ -111,7 +111,7 @@ switch ($_SESSION['alogin']){
 
 }
 
-$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,$selectTable.LeaveType,$selectTable.PostingDate,$selectTable.Status from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.Status=:status order by lid desc";
+$sql = "SELECT $selectTable.EmpId as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,$selectTable.LeaveType,$selectTable.PostingDate,$selectTable.Status,$selectTable.id as leaveid from $selectTable join tblemployees on $selectTable.empid=tblemployees.EmpId where $selectTable.Status=:status order by lid desc";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
@@ -142,7 +142,7 @@ if($stats==1){
                                              </td>
 
           <td>
-           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
+           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->leaveid);?>" class="waves-effect waves-light btn blue m-b-xs"> View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>

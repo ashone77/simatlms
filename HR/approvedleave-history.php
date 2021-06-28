@@ -85,7 +85,7 @@ else{
                                     <tbody>
 <?php 
 $status=1;
-$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id where tblprincipal.Status=:status order by lid desc";
+$sql = "SELECT tblprincipal.EmpId as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.id as leaveid from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId where tblprincipal.Status=:status order by lid desc";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
@@ -116,7 +116,7 @@ if($stats==1){
                                              </td>
 
           <td>
-           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
+           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->leaveid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>

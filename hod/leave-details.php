@@ -7,13 +7,36 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
-
+    switch ($_SESSION['alogin']){
+        case "hodcse":
+            $sTable = "tblleaves_cse";
+            break;
+        case "hodcivil":
+            $sTable = "tblleaves_civil";
+            break;
+        case "hodeee":
+            $sTable = "tblleaves_eee";
+            break;
+        case "hodme":
+            $sTable = "tblleaves_me";
+            break; 
+        case "hodec":
+            $sTable = "tblleaves_ece";
+            break;
+        case "hodash":
+            $sTable = "tblleaves_ash";
+            break;
+        default:
+            $sTable = "tblleaves";
+        
+    
+    }
 // code for update the read notification status
 $isread=1;
 $did=intval($_GET['leaveid']);  
 date_default_timezone_set('Asia/Kolkata');
 $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
-$sql="update tblleaves set IsRead=:isread where id=:did";
+$sql="update $sTable set IsRead=:isread where id=:did";
 $query = $dbh->prepare($sql);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->bindParam(':did',$did,PDO::PARAM_STR);
@@ -167,7 +190,7 @@ switch ($_SESSION['alogin']){
 
 }
 
-$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,$selectTable.LeaveType,$selectTable.ToDate,$selectTable.FromDate,$selectTable.Description,$selectTable.PostingDate,$selectTable.Status,$selectTable.AdminRemark,$selectTable.AdminRemarkDate, $selectTable.DayCount, $selectTable.AltArrangement from $selectTable join tblemployees on $selectTable.empid=tblemployees.id where $selectTable.id=:lid";
+$sql = "SELECT $selectTable.EmpId as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblemployees.nofleaves,tblemployees.lv_casual,tblemployees.lv_lop,tblemployees.lv_commuted_half,tblemployees.lv_commuted_full,$selectTable.LeaveType,$selectTable.ToDate,$selectTable.FromDate,$selectTable.Description,$selectTable.PostingDate,$selectTable.Status,$selectTable.AdminRemark,$selectTable.AdminRemarkDate, $selectTable.DayCount, $selectTable.AltArrangement from $selectTable join tblemployees on $selectTable.empid=tblemployees.EmpId where $selectTable.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
