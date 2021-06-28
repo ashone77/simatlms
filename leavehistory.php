@@ -129,12 +129,10 @@ echo htmlentities('waiting for approval');
 
                                              </td>
                                              <td><?php $stats=$result->Status;
-                                           if($stats==3){
+                                           if($stats==4){
                                             ?>
-                                                <span style="color: chocolate">Forwarded to Principal</span>
-                                                <?php }if($stats==1){
-                                             ?>
-                                               
+                                                <button type="button">Edit</button>
+                                                     <?php } ?>  
 
                                              </td>
           
