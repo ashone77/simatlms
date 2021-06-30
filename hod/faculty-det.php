@@ -76,6 +76,70 @@ header('location:manageemployee.php');
     -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
+open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  right: 15px;
+  border: 3px solid black;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
         </style>
     </head>
     <body>
@@ -111,11 +175,10 @@ header('location:manageemployee.php');
                                     
 
                                     
-<script>
 
-</script>
 <?php
-$dept="Civil Engineering";
+
+$dept=$_POST["name"];
 if ($dept=="Civil Engineering") {
     $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department='Civil Engineering'";
   }elseif($dept=="Computer Science Engineering"){
@@ -126,8 +189,10 @@ if ($dept=="Civil Engineering") {
     $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Electrical And Electronics Engineering' ";   
   }elseif($dept=="Mechanical Engineering"){
     $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Mechanical Engineering' ";   
-  }else{
+  }else if($dept=="Electronics And Communication Engineering"){
     $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Electronics And Communication Engineering' ";   
+  }else{
+    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees  ";  
   }
 
 $query = $dbh -> prepare($sql);
@@ -165,7 +230,36 @@ if($stats){
                                         </tr>
                                          <?php $cnt++;} }?>
  </tbody>
-                                </table>
+ 
+                                </table> <br>
+                                <button style="background-color: black;color:blanchedalmond" type="button" class="btn btn-dark" onclick="openForm()">SORT WITH  DEPARTMENT</button>
+                              
+<div style="background-color: white;width:200px; text-align:center;margin-top:20px;" class="form-popup" id="myForm">
+
+<form action="faculty-det.php" method="post">
+    <h6 style="color: black ;font-style:italic">SELECT DEPARTMENT</h6>
+    <input style="text-align: center;" placeholder="Select here" list="browsers" name="name">
+    <datalist id="browsers" >
+    <option value="Civil Engineering">
+    <option value="Computer Science Engineering">
+    <option value="Applied Science & Humanities">
+    <option value="Electrical And Electronics Engineering">
+    <option value="Mechanical Engineering">
+    <option value="Electronics And Communication Engineering">
+  </datalist>
+<input style="background-color: black;color:blanchedalmond;font-style:italic;border:5px solid white " type="submit">
+</form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
                             </div>
                         </div>
                     </div>
