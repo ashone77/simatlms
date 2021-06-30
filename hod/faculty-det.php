@@ -80,6 +80,7 @@ header('location:manageemployee.php');
     </head>
     <body>
        <?php include('includes/header.php');?>
+    
             
        <?php include('includes/sidebar.php');?>
             <main class="mn-inner">
@@ -105,9 +106,30 @@ header('location:manageemployee.php');
                                             <th>Details</th>
                                         </tr>
                                     </thead>
-                                 
+                                    
                                     <tbody>
-<?php $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees";
+                                    
+
+                                    
+<script>
+
+</script>
+<?php
+$dept="Civil Engineering";
+if ($dept=="Civil Engineering") {
+    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department='Civil Engineering'";
+  }elseif($dept=="Computer Science Engineering"){
+    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Computer Science Engineering' ";   
+  }elseif($dept=="Applied Science & Humanities"){
+    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Applied Science & Humanities' ";   
+  }elseif($dept=="Electrical And Electronics Engineering"){
+    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Electrical And Electronics Engineering' ";   
+  }elseif($dept=="Mechanical Engineering"){
+    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Mechanical Engineering' ";   
+  }else{
+    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Electronics And Communication Engineering' ";   
+  }
+
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -142,7 +164,7 @@ if($stats){
                                             <?php } ?> </td>
                                         </tr>
                                          <?php $cnt++;} }?>
-                                    </tbody>
+ </tbody>
                                 </table>
                             </div>
                         </div>
@@ -151,6 +173,7 @@ if($stats){
             </main>
          
         </div>
+
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
