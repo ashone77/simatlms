@@ -344,7 +344,9 @@ foreach($results as $result)
   
     
         <div id="result"></div>
-       <textarea  id="finalarrangement" name="finalarrangement"> <?php echo htmlentities($ldata->AltArrangement);?> </textarea>
+       <textarea  id="finalarrangement" hidden name="finalarrangement">  </textarea>
+       <h5>Already Updated (Can Edit)</h5>
+       <textarea  id="finalarrangement2" name="finalarrangement2"> <?php echo htmlentities($ldata->AltArrangement);?> </textarea>
        <?php }} ?>
         
         <script>
