@@ -232,7 +232,7 @@ foreach($results as $result)
 
 </div>
 
-<?php }} ?>
+
 
 
 </form>
@@ -344,8 +344,8 @@ foreach($results as $result)
   
     
         <div id="result"></div>
-       <textarea hidden  id="finalarrangement" name="finalarrangement"></textarea>
-       
+       <textarea  id="finalarrangement" name="finalarrangement"> <?php echo htmlentities($ldata->AltArrangement);?> </textarea>
+       <?php }} ?>
         
         <script>
         {
