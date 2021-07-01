@@ -312,6 +312,7 @@ foreach($results as $result)
             arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
             
             embedElements()
+            document.getElementById('finalarrangement2').innerHTML =document.getElementById('finalarrangement2').value+sreram;
            myFunction2()
             
     
@@ -342,26 +343,36 @@ foreach($results as $result)
     <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
     
   
-    
-        <div id="result"></div>
-       <textarea  id="finalarrangement" hidden name="finalarrangement">  </textarea>
-       <h5>Already Updated (Can Edit)</h5>
-       <textarea  id="finalarrangement2" name="finalarrangement2"> <?php echo htmlentities($ldata->AltArrangement);?> </textarea>
+         <h5 id="heading" style="color: black;"></h5>
+        <div style="color: black;" id="result"></div>
+       <textarea style="color: black;border:1px solid black"  id="finalarrangement" hidden name="finalarrangement">  </textarea>
+       <h5 style="color: black;">Full arrangements (Can Edit)</h5>
+       <textarea style="color: black;border:1px solid black"  id="finalarrangement2" name="finalarrangement2"> <?php echo htmlentities($ldata->AltArrangement);?> </textarea>
        <?php }} ?>
         
         <script>
+        let sreram=document.getElementById("finalarrangement2").value;
         {
             
             function embedElements(){
                 document.getElementById('result').innerHTML="";
+                document.getElementById('finalarrangement2').innerHTML="";
+
+               
                 arrangement.forEach(el => {
                     let i=0
+                    document .getElementById('finalarrangement2').innerHTML +=`${el}`+"\n";
+                    document .getElementById('heading').innerHTML="New Arrangements";
+                   
+           
                     document.getElementById('result').innerHTML += `<textarea id=`+i+`>${el}</textarea><br />`;
-                    //document.getElementById('sree').innerHTML += el+"\n";
+                   
+                  
                 // here result is the id of the div present in the dom
                 i=i+1
                
                 });
+               
             
             };
         }
