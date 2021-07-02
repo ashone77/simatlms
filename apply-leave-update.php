@@ -20,7 +20,7 @@ else{
         // $alternatearr=$_POST['altarr'];
         $dept=$_SESSION['deptcode'];
         $leavedays=$_POST['nofdays'];
-        $arrangement=$_POST['finalarrangement'];
+        $arrangement=$_POST['finalarrangement2'];
         $status=0;
         $isread=0;
         if($fromdate > $todate){
