@@ -289,6 +289,10 @@ foreach($results as $result)
 
     
         function myFunction(){
+            let date=new Date()
+            let sree=document.getElementById("myForm").elements[0].value;
+           console.log(date)
+           console.log(sree)
             if(document.getElementById("myForm").elements[0].value!=""&&
             document.getElementById("myForm").elements[1].value!=""&&
             document.getElementById("myForm").elements[2].value!=""&&
@@ -327,6 +331,7 @@ foreach($results as $result)
             alert("PLEASE FILL ALL COLUMNS :)")
         }
         }
+    
     </script> <br> <br> 
     
  
@@ -347,7 +352,7 @@ foreach($results as $result)
         <div style="color: black;" id="result"></div>
        <textarea style="color: black;border:1px solid black"  id="finalarrangement" hidden name="finalarrangement">  </textarea>
        <h5 style="color: black;">Full arrangements (Can Edit)</h5>
-       <textarea style="color: black;border:1px solid black"  id="finalarrangement2" name="finalarrangement2"> <?php echo htmlentities($ldata->AltArrangement);?> </textarea>
+       <textarea style="border:3px solid black;min-height:200px;color:black;background-color:yellowgreen;font-size:17px;"  id="finalarrangement2" name="finalarrangement2"> <?php echo htmlentities($ldata->AltArrangement);?> </textarea>
        <?php }} ?>
         
         <script>
