@@ -155,7 +155,8 @@ else{
                     <div class="col s12 m12 l8">
                         <div class="card">
                             <div class="card-content">
-                                <form id="example-form" method="post" name="addemp">
+                                <form id="example-form" 
+onsubmit="return  myFunction22() " method="post" name="addemp">
                                     <div>
                                         <h5>Provide the details below :</h5  >
                                         <section>
@@ -219,10 +220,27 @@ foreach($results as $result)
 
 
 </form>
-<form id="myForm" >
+
+<script>
+function  myFunction22() {
+var date=new Date;
+
+let x = document.forms["addemp"]["fromdate"].value;
+  var date2=new Date(x)
+  if (date2<date) {
+    alert("Sorry!!!,Leave Can't be applied for past leaves.");
+    return false;
+  }
+}
+</script>
+
+
+
+
+<form onsubmit="return   " id="myForm" name="altern" >
         <div class="input-field col m4 s12">
             <h6>Date</h6>
-            <input type="date" > <br> <br>
+            <input name="alterdate" type="date" > <br> <br>
         </div>
         <div class="input-field col m8 s12">
             <h6>Subject</h6> 
