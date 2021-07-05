@@ -227,7 +227,7 @@ var date=new Date;
 
 let x = document.forms["addemp"]["fromdate"].value;
   var date2=new Date(x)
-  if (date2<date) {
+  if ((date2)<=date) {
     alert("Sorry!!!,Leave Can't be applied for past leaves.");
     return false;
   }
@@ -237,7 +237,7 @@ let x = document.forms["addemp"]["fromdate"].value;
 
 
 
-<form onsubmit="return   " id="myForm" name="altern" >
+<form id="myForm" name="altern" >
         <div class="input-field col m4 s12">
             <h6>Date</h6>
             <input name="alterdate" type="date" > <br> <br>
@@ -285,16 +285,20 @@ let x = document.forms["addemp"]["fromdate"].value;
             document.getElementById("myForm").elements[3].value=""
             document.getElementById("myForm").elements[4].value=""
             document.getElementById("myForm").elements[5].value=""
+           
     
         }
-
+        
+        
     
         function myFunction(){
-            if(document.getElementById("myForm").elements[0].value!=""&&
-            document.getElementById("myForm").elements[1].value!=""&&
+             if (document.getElementById("myForm").elements[0].value!=""&&
+        
+             document.getElementById("myForm").elements[1].value!=""&&
             document.getElementById("myForm").elements[2].value!=""&&
             document.getElementById("myForm").elements[3].value!=""&&
             document.getElementById("myForm").elements[4].value!=""&&
+
             document.getElementById("myForm").elements[5].value!=""){
             let a=""+document.getElementById("myForm").elements[0].value;+"'"
             let b=""+document.getElementById("myForm").elements[1].value;+"'"
@@ -317,12 +321,14 @@ let x = document.forms["addemp"]["fromdate"].value;
             
     
           
-            addmore()      
+            addmore()   
+           
             //displayArrangement()  
     
             //document.getElementById("demo").innerHTML = x;
             ///document.getElementById("demo2").innerHTML =y;
         }
+      
         else{
             alert("PLEASE FILL ALL COLUMNS :)")
         }
