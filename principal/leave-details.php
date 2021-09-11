@@ -267,8 +267,8 @@ $msg="Leave updated Successfully";
                 Password: "#Simat@LMS100%",
                 To:"<?php echo htmlentities($result->EmailId);?>",
                 From: "simatlms5@gmail.com",
-                Subject: "Leave application approved",
-                Body: "Your leave application has been approved by the Principal. ",
+                Subject: "Leave Application Status Updated",
+                Body: "Your leave application has been checked and updated, please login to the E-Governance Portal to check your leave status. ",
                 // Attachments: [
                 // {
                 // 	name: "File_Name_with_Extension",
