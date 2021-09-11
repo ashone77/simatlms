@@ -48,8 +48,10 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
 
-             <link href="../assets/css/materialdesign.css" rel="stylesheet">
-        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+        <link href="../assets/css/materialdesign.css" rel="stylesheet">
+        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       
 
         	
         <!-- Theme Styles -->
