@@ -161,7 +161,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                        <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
 
                        <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
-                
+                       <li class="no-padding"><a class="waves-effect waves-grey" href="../applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
                 </ul>
           <div class="footer">
                     <p class="copyright"><a href="simat.ac.in">SIMAT LMS </a>©</p>
