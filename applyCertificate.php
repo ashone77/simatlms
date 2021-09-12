@@ -30,9 +30,10 @@ $query-> bindParam(':bankName', $bankName, PDO::PARAM_STR);
 $query-> bindParam(':bankBranch', $bankBranch, PDO::PARAM_STR);
 $query-> execute();
 $lastInsertId = $dbh->lastInsertId();
+
 if($lastInsertId)
 {
-    $msg="Leave applied successfully";
+    $msg="Certificate applied successfully!";
 }
 else 
 {
