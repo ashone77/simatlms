@@ -60,6 +60,14 @@ else{
         <meta name="author" content="Steelcoders" />
         
         <!-- Styles -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+
+</head>
         <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
              <link href="assets/css/materialdesign.css" rel="stylesheet">
         <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
@@ -202,13 +210,14 @@ else{
 </div>
 
 <div class="input-field col s12">
-<label for="Rno">Register Number</label>
-<input  name="Rno" type="text" id="text"  autocomplete="off" required>
+<label for="Ano">Admision Number</label>
+<input  name="Ano" type="text" id="text"  autocomplete="off" required>
 
 </div>
+
 <div class="input-field col s12">
-<label for="Dept"></label>
-<select id="Dept" name="Dept" required>
+<h6>Select Department</h6>
+<select  id="Dept" name="Dept" required>
   <option value="cse">Computer Science and Engineering</option>
   <option value="mech">Mechanical Engineering</option>
   <option value="civil">Civil Engineering</option>
@@ -217,11 +226,74 @@ else{
 </select>
 
   <br>
-  <input type="checkbox" name="Valid" value="True" required>
-  <label style="color: black;" for="Valid"> This form is applying for genuine purpose </label><br>
+  </div>
+  <div class="input-field col s12">
+  <h6>Select Quata</h6>
+<select id="Quota" name="Quota" required>
+  <option value="MGT">Management</option>
+  <option value="Merit">Merit</option>
+</select>
+
+  <br>
+  </div>
+  <div  class="input-field col s12">
+
+<h6>Select Year of Admision</h6>
+<input class="date-own form-control" required placeholder="Select Here"  type="text">
+
+
+  <script type="text/javascript">
+      $('.date-own').datepicker({
+         minViewMode: 2,
+         format: 'yyyy',
+         startdate:new Date(2018),
+      
+       });
+  </script>
 
 
 </div>
+<div>
+<h6>Current Academic Year</h6>
+<select id="Ayear" name="Ayear" required>
+  <option value="1">First</option>
+  <option value="2">Second</option>
+  <option value="3">Third</option>
+  <option value="4">Fourth</option>
+</select>
+
+  <br>
+  </div>
+  <div>
+<h6>Year of Study which the Loan is applied for</h6>
+<select id="Ayear" name="Ayear" required>
+  <option value="1">First</option>
+  <option value="2">Second</option>
+  <option value="3">Third</option>
+  <option value="4">Fourth</option>
+</select>
+
+  <br>
+  </div>
+  
+<div class="input-field col s12">
+<label for="BName">Bank Name</label>
+<input  name="BName" type="text" id="BName"  autocomplete="off" required>
+
+</div>
+
+<div class="input-field col s12">
+<label for="Branch">Bank Branch</label>
+<input  name="Branch" type="text" id="Branch"  autocomplete="off" required>
+
+</div>
+
+
+
+  <input type="checkbox" id="conformation" name="conformation" required >
+  <label style="color: black;"  for="conformation"> This form is applying for genuine purpose</label><br>
+
+
 </div>
 </div>
 
