@@ -1,41 +1,41 @@
-
-
 <?php
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(isset($_POST['signin']))
+if(isset($_POST['update']))
 {
-$uname=$_POST['username'];
-$password=md5($_POST['password']);
-$sql ="SELECT EmpId,Password,Status,dept_code,lv_casual FROM tblemployees WHERE EmpId=:uname and Password=:password";
+$fname=$_POST["firstName"];
+$lname=$_POST["lastName"];
+$department=$_POST["Dept"];
+$quota=$_POST["Quota"];
+$admssnYear=$_POST["AdmssnYear"];
+$currYear=$_POST["CurrYear"];
+$loanYear=$_POST["LoanYear"];
+$admssnNo=$_POST["Ano"];
+$bankName=$_POST["BName"];
+$bankBranch=$_POST["Branch"];
+
+$sql="INSERT INTO $bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
 $query= $dbh -> prepare($sql);
-$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
-$query-> bindParam(':password', $password, PDO::PARAM_STR);
+$query-> bindParam(':fname', $fname, PDO::PARAM_STR);
+$query-> bindParam(':lname', $lname, PDO::PARAM_STR);
+$query-> bindParam(':department', $department, PDO::PARAM_STR);
+$query-> bindParam(':quota', $quota, PDO::PARAM_STR);
+$query-> bindParam(':admssnYear', $admssnYear, PDO::PARAM_STR);
+$query-> bindParam(':currYear', $currYear, PDO::PARAM_STR);
+$query-> bindParam(':loanYear', $loanYear, PDO::PARAM_STR);
+$query-> bindParam(':admssnNo', $admssnNo, PDO::PARAM_STR);
+$query-> bindParam(':bankName', $bankName, PDO::PARAM_STR);
+$query-> bindParam(':bankBranch', $bankBranch, PDO::PARAM_STR);
 $query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
 {
- foreach ($results as $result) {
-    $status=$result->Status;
-    $_SESSION['eid']=$result->EmpId;
-    $_SESSION['deptcode']=$result->dept_code;
-    $_SESSION['lvcasualcount']=$result->lv_casual;
-    
-  } 
-if($status==0)
+    $msg="Leave applied successfully";
+}
+else 
 {
-$msg="Your account is Inactive. Please contact admin";
-} else{
-$_SESSION['emplogin']=$_POST['username'];
-
-echo "<script type='text/javascript'> document.location = 'myprofile.php'; </script>";
-} }
-
-else{
-  echo "<script>alert('Invalid Details');</script>";
-  
-
+    $error="Something went wrong. Please try again";
 }
 
 }
@@ -165,7 +165,7 @@ else{
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href=""><i class="material-icons">account_box</i>Faculty Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/"><i class="material-icons">account_box</i>Faculty Login</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/hod"><i class="material-icons">account_box</i>HOD Login</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/principal"><i class="material-icons">account_box</i>Principal Login</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/HR/"><i class="material-icons">account_box</i>HR Login</a></li>
@@ -189,7 +189,8 @@ else{
                                 <form  method="post">
                                     <div>
                                         <h3>APPLY FOR CERTIFICATE</h3>
-                                         
+                                        <?php if($error){?><div class="errorWrap"><strong>Note </strong>:<?php echo htmlentities($error); ?> </div><?php } 
+                else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
                                         <section>
                                             <div class="wizard-content">
                                                 <div class="row">
@@ -228,7 +229,7 @@ else{
   <br>
   </div>
   <div class="input-field col s12">
-  <h6>Select Quata</h6>
+  <h6>Select Quota</h6>
 <select id="Quota" name="Quota" required>
   <option value="MGT">Management</option>
   <option value="Merit">Merit</option>
@@ -239,7 +240,7 @@ else{
   <div  class="input-field col s12">
 
 <h6>Select Year of Admision</h6>
-<input class="date-own form-control" required placeholder="Select Here"  type="text">
+<input class="date-own form-control" name="AdmssnYear" required placeholder="Select Here"  type="text">
 
 
   <script type="text/javascript">
@@ -255,7 +256,7 @@ else{
 
 
 <h6>Current Academic Year</h6>
-<select id="Ayear" name="Ayear" required>
+<select id="Ayear" name="CurrYear" required>
   <option value="1">First</option>
   <option value="2">Second</option>
   <option value="3">Third</option>
@@ -266,7 +267,7 @@ else{
 
 
 <h6>Year of Study which the Loan is applied for</h6>
-<select id="Ayear" name="Ayear" required>
+<select id="Ayear" name="LoanYear" required>
   <option value="1">First</option>
   <option value="2">Second</option>
   <option value="3">Third</option>
