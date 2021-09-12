@@ -252,8 +252,8 @@ else{
   </script>
 
 
-</div>
-<div>
+
+
 <h6>Current Academic Year</h6>
 <select id="Ayear" name="Ayear" required>
   <option value="1">First</option>
@@ -263,8 +263,8 @@ else{
 </select>
 
   <br>
-  </div>
-  <div>
+
+
 <h6>Year of Study which the Loan is applied for</h6>
 <select id="Ayear" name="Ayear" required>
   <option value="1">First</option>
