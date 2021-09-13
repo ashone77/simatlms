@@ -7,6 +7,32 @@ if(strlen($_SESSION['emplogin'])==0)
 header('location:index.php');
 }
 else{
+    $dept=$_SESSION['deptcode'];
+    switch($dept){
+
+        case "2":
+            $selectTable = "tblleaves_cse";
+            break;
+        case "3":
+            $selectTable = "tblleaves_ash";
+            break;
+        case "1":
+            $selectTable = "tblleaves_civil";
+            break;
+        case "4":
+            $selectTable = "tblleaves_eee";
+            break;
+        case "5":
+            $selectTable = "tblleaves_me";
+            break;
+        case "6":
+            $selectTable = "tblleaves_ece";
+            break;
+
+        default:
+            $selectTable = "tblleaves";
+
+    }
 
  ?>
 <!DOCTYPE html>
@@ -86,7 +112,7 @@ else{
                                     <tbody>
 <?php 
 $eid=$_SESSION['eid'];
-$sql = "SELECT LeaveType,ToDate,FromDate,Description,PostingDate,AdminRemarkDate,AdminRemark,Status,id from tblprincipal where empid=:eid";
+$sql = "SELECT LeaveType,ToDate,FromDate,Description,PostingDate,AdminRemarkDate,AdminRemark,Status,id from $selectTable where empid=:eid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();
