@@ -15,7 +15,7 @@ $admssnNo=$_POST["Ano"];
 $bankName=$_POST["BName"];
 $bankBranch=$_POST["Branch"];
 
-$sql="INSERT INTO $bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
+$sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':fname', $fname, PDO::PARAM_STR);
 $query-> bindParam(':lname', $lname, PDO::PARAM_STR);
@@ -29,6 +29,7 @@ $query-> bindParam(':bankName', $bankName, PDO::PARAM_STR);
 $query-> bindParam(':bankBranch', $bankBranch, PDO::PARAM_STR);
 $query-> execute();
 $lastInsertId = $dbh->lastInsertId();
+echo $lastInsertId;
 if($lastInsertId)
 {
     $msg="Leave applied successfully";
@@ -256,12 +257,17 @@ else
 
 
 <h6>Current Academic Year</h6>
-<select id="Ayear" name="CurrYear" required>
-  <option value="1">First</option>
-  <option value="2">Second</option>
-  <option value="3">Third</option>
-  <option value="4">Fourth</option>
-</select>
+<input class="date-own form-control" name="AcYear" required placeholder="Academic Year"  type="text">
+
+
+  <script type="text/javascript">
+      $('.date-own').datepicker({
+         minViewMode: 2,
+         format: 'yyyy',
+         startdate:new Date(2018),
+      
+       });
+  </script>
 
   <br>
 
