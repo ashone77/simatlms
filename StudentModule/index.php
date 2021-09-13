@@ -144,21 +144,14 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                    
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
-                <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Home</a></li>
                     <li>&nbsp;</li>
-
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../facindex.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Home</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="."><i class="material-icons">account_box</i>Student login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="../applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
                     
                 
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
-
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
-
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
-
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
+                    
                 </ul>
           <div class="footer">
                     <p class="copyright"><a href="simat.ac.in">SIMAT LMS </a>©</p>
@@ -175,31 +168,9 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                               <div class="card white darken-1">
 
                                   <div class="card-content ">
-                                      <span class="card-title" style="font-size:20px;">HR LOGIN</span></span>
+                                      <span class="card-title" style="font-size:20px;">Sorry!!! This Section is under maintetance..</span></span>
                                          
-                                       <div class="row">
-                                           <form class="col s12" name="signin" method="post">
-                                               <div class="input-field col s12">
-                                                   <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Username</label>
-                                               </div>
-                                               <div class="input-field col s12">
-                                                   <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
-                                                   <label for="password">Password</label>
-                                               </div>
-                                               <div class="col s12 right-align m-t-sm">
-                                               
-                                                
-                                                   <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
-                                                  
-                                               
-
-                                           </form>
-                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword.php'">
-                                            Forgot Password
-                                          </button>
-                                         
-                                           </div>
+                                     
                                            
                                            
                                            

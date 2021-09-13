@@ -59,6 +59,9 @@ else{
         <meta name="author" content="Steelcoders" />
         
         <!-- Styles -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="assets/plugins/materialize/css/materialize.min.css"/>
              <link href="assets/css/materialdesign.css" rel="stylesheet">
         <link href="assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
@@ -80,46 +83,7 @@ else{
     </head>
     <body>
         <div class="loader-bg"></div>
-        <div class="loader">
-            <div class="preloader-wrapper big active">
-                <div class="spinner-layer spinner-blue">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                    </div>
-                </div>
-                <div class="spinner-layer spinner-spinner-teal lighten-1">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                    </div>
-                </div>
-                <div class="spinner-layer spinner-yellow">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                    </div>
-                </div>
-                <div class="spinner-layer spinner-green">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <div class="mn-content fixed-sidebar">
             <header class="mn-header navbar-fixed">
                 <nav style= "background-image: linear-gradient(to right, rgba(43, 0, 0), rgba(0, 16, 79))" class="cyan darken-1">
@@ -154,55 +118,29 @@ else{
                 <div class="side-nav-wrapper">
                    
                 
-                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
-                    <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href=""><i class="material-icons">account_box</i>Faculty Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/hod"><i class="material-icons">account_box</i>HOD Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/principal"><i class="material-icons">account_box</i>Principal Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/HR/"><i class="material-icons">account_box</i>HR Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/admin"><i class="material-icons">account_box</i>Admin Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
              
-                </ul>
           <div class="footer">
                     <p class="copyright"><a href="simat.ac.in">SIMAT E-Governance</a>©</p>
                 
                 </div>
                 </div>
             </aside>
-            <main class="mn-inner">
+            <main  class="mn-inner">
                 <div class="row">
                     <div class="col s12">
                         <!-- <div class="page-title"><h4>Faculty Leave Management System</h4></div> -->
 
-                          <div class="col s12 m6 l8 offset-l2 offset-m3">
+                          <div  class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">
 
                                   <div class="card-content ">
-                                      <span class="card-title" style="font-size:20px;">Faculty Login</span>
-                                         <?php if($msg){?><div class="errorWrap"><strong>Error</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                       <div class="row">
-                                           <form class="col s12" name="signin" method="post">
-                                               <div class="input-field col s12">
-                                                   <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Faculty Code</label>
-                                               </div>
-                                               <div class="input-field col s12">
-                                                   <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
-                                                   <label for="password">Password</label>
-                                               </div>
-                                               <div class="col s12 right-align m-t-sm">
-                                               
-                                                
-                                                   <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
-                                                  
-                                               .
-                                           </form>
-                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='forgot-password.php'">
-                                            Forgot Password
-                                          </button>
-                                           </div>
-                                           
+                                 
+                                      <h4 style="text-align: center;color:#002d75;font-family: 'Rubik', sans-serif;" >WELCOME</h4> 
+                                      <h5 style="text-align: center;color:#002d75;font-family: 'Rubik', sans-serif;" >SREEPATHY E-GOVERNANCE SYSTEM</h5> <br> 
+                                        
+                                         <h4 style="text-align: center;"><button   onclick="window.location.href = './facindex.php';" type="button" class="btn btn-primary">Department Login</button></h4>  
+                                         <h4 style="text-align: center; "><button   onclick="window.location.href = './studentModule/index.php';" style="padding-left:45px;padding-right:45px" type="button" class="btn btn-primary">  Student Login<h4>........</h4>   </button></h4>
+
                                           
                                            
                                       </div>

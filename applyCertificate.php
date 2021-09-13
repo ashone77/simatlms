@@ -16,11 +16,7 @@ $admssnNo=$_POST["Ano"];
 $bankName=$_POST["BName"];
 $bankBranch=$_POST["Branch"];
 
-<<<<<<< HEAD
-$sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
-=======
 $sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch,DocumentNumber,DateTime) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch,0,0)"; 
->>>>>>> 17a53ae804c18cae2ec87b99ade688b469e8a47d
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':fname', $fname, PDO::PARAM_STR);
 $query-> bindParam(':lname', $lname, PDO::PARAM_STR);
@@ -34,11 +30,6 @@ $query-> bindParam(':bankName', $bankName, PDO::PARAM_STR);
 $query-> bindParam(':bankBranch', $bankBranch, PDO::PARAM_STR);
 $query-> execute();
 $lastInsertId = $dbh->lastInsertId();
-<<<<<<< HEAD
-echo $lastInsertId;
-=======
-
->>>>>>> 17a53ae804c18cae2ec87b99ade688b469e8a47d
 if($lastInsertId)
 {
     $msg="Certificate applied successfully!";
@@ -175,12 +166,8 @@ else
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/"><i class="material-icons">account_box</i>Faculty Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/hod"><i class="material-icons">account_box</i>HOD Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/principal"><i class="material-icons">account_box</i>Principal Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/HR/"><i class="material-icons">account_box</i>HR Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/admin"><i class="material-icons">account_box</i>Admin Login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../simatlms/applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="./StudentModule/index.php"><i class="material-icons">account_box</i>Student login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="./applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
              
                 </ul>
           <div class="footer">
