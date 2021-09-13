@@ -160,7 +160,8 @@ echo htmlentities('waiting for approval');
                                             ?>
 
 
-                                              <a href="./apply-leave-update.php?leaveid=<?php echo htmlentities($result->id);?>">  <i  class="fas fa-edit"></i></a>
+                                              <a href="./apply-leave-update.php?leaveid=<?php echo htmlentities($result->id);?>">  <i  class="fas fa-edit"></i></a>&nbsp;
+                                              <a href="./leave-details.php">&nbsp; <i  class="fas fa-info"></i></a>
                                               
                                                      <?php } ?>  
 
