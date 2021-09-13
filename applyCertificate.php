@@ -4,6 +4,7 @@ error_reporting(0);
 include('includes/config.php');
 if(isset($_POST['update']))
 {
+
 $fname=$_POST["firstName"];
 $lname=$_POST["lastName"];
 $department=$_POST["Dept"];
@@ -15,7 +16,11 @@ $admssnNo=$_POST["Ano"];
 $bankName=$_POST["BName"];
 $bankBranch=$_POST["Branch"];
 
+<<<<<<< HEAD
 $sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
+=======
+$sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch,DocumentNumber,DateTime) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch,0,0)"; 
+>>>>>>> 17a53ae804c18cae2ec87b99ade688b469e8a47d
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':fname', $fname, PDO::PARAM_STR);
 $query-> bindParam(':lname', $lname, PDO::PARAM_STR);
@@ -29,10 +34,14 @@ $query-> bindParam(':bankName', $bankName, PDO::PARAM_STR);
 $query-> bindParam(':bankBranch', $bankBranch, PDO::PARAM_STR);
 $query-> execute();
 $lastInsertId = $dbh->lastInsertId();
+<<<<<<< HEAD
 echo $lastInsertId;
+=======
+
+>>>>>>> 17a53ae804c18cae2ec87b99ade688b469e8a47d
 if($lastInsertId)
 {
-    $msg="Leave applied successfully";
+    $msg="Certificate applied successfully!";
 }
 else 
 {
