@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])!=0)
+if(strlen($_SESSION['emplogin'])==0)
     {   
 header('location:index.php');
 }
@@ -81,15 +81,15 @@ $msg="Leave updated Successfully";
         <meta name="author" content="Steelcoders" />
         
         <!-- Styles -->
-        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
+        <link type="text/css" rel="stylesheet" href="./assets/plugins/materialize/css/materialize.min.css"/>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
-        <link href="../assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+        <link href="./assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
 
-                <link href="../assets/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>  
+                <link href="/assets/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>  
         <!-- Theme Styles -->
-        <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="./assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
+        <link href="./assets/css/custom.css" rel="stylesheet" type="text/css"/>
 <style>
         .errorWrap {
     padding: 10px;
@@ -287,13 +287,13 @@ if($stats==0)
         <div class="left-sidebar-hover"></div>
         
         <!-- Javascripts -->
-        <script src="../assets/plugins/jquery/jquery-2.2.0.min.js"></script>
-        <script src="../assets/plugins/materialize/js/materialize.min.js"></script>
-        <script src="../assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
-        <script src="../assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="../assets/js/alpha.min.js"></script>
-        <script src="../assets/js/pages/table-data.js"></script>
+        <script src="./assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+        <script src="./assets/plugins/materialize/js/materialize.min.js"></script>
+        <script src="./assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+        <script src="./assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="./assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="./assets/js/alpha.min.js"></script>
+        <script src="./assets/js/pages/table-data.js"></script>
          <script src="assets/js/pages/ui-modals.js"></script>
         <script src="assets/plugins/google-code-prettify/prettify.js"></script>
         
