@@ -71,8 +71,8 @@ $msg="Leave updated Successfully";
     <head>
         
         <!-- Title -->
-        <title>HR | Leave Details </title>
-        <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
+        <title>Faculty | Leave Details </title>
+        <link rel="shortcut icon" href="./assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -86,7 +86,7 @@ $msg="Leave updated Successfully";
         <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
         <link href="./assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
 
-                <link href="/assets/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>  
+                <link href="./assets/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>  
         <!-- Theme Styles -->
         <link href="./assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="./assets/css/custom.css" rel="stylesheet" type="text/css"/>

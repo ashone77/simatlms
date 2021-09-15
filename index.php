@@ -94,7 +94,7 @@ else{
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
+                            <span class="chapter-title">SIMAT e-Governance System</span>
                         </div>
                         <div ><img class="sreeku"  style="
                         width: 55px;
@@ -120,7 +120,7 @@ else{
                 
              
           <div class="footer">
-                    <p class="copyright"><a href="simat.ac.in">SIMAT E-Governance</a>©</p>
+                    <p class="copyright"><a href="http://simat.ac.in">SIMAT e-Governance</a>©</p>
                 
                 </div>
                 </div>
@@ -136,7 +136,7 @@ else{
                                   <div class="card-content ">
                                  
                                       <h4 style="text-align: center;color:#002d75;font-family: 'Rubik', sans-serif;" >WELCOME</h4> 
-                                      <h5 style="text-align: center;color:#002d75;font-family: 'Rubik', sans-serif;" >SREEPATHY E-GOVERNANCE SYSTEM</h5> <br> 
+                                      <h5 style="text-align: center;color:#002d75;font-family: 'Rubik', sans-serif;" >SREEPATHY e-GOVERNANCE SYSTEM</h5> <br> 
                                         
                                          <h4 style="text-align: center;"><button   onclick="window.location.href = './facindex.php';" type="button" class="btn btn-primary">Department Login</button></h4>  
                                          <h4 style="text-align: center; "><button   onclick="window.location.href = './studentModule/index.php';" style="padding-left:45px;padding-right:45px" type="button" class="btn btn-primary">  Student Login<h4>........</h4>   </button></h4>

@@ -130,7 +130,7 @@ else{
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
+                            <span class="chapter-title">SIMAT e-Governance System</span>
                         </div>
                         <div ><img class="sreeku"  style="
                         width: 55px;
@@ -166,7 +166,7 @@ else{
              
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="simat.ac.in">SIMAT E-Governance</a>©</p>
+                    <p class="copyright"><a href="http://simat.ac.in">SIMAT e-Governance</a>©</p>
                 
                 </div>
                 </div>
