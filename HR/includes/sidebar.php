@@ -68,6 +68,9 @@
                         <li class="no-padding">
                                 <a class="waves-effect waves-grey" href="logout.php"><i class="material-icons">exit_to_app</i>Sign Out</a>
                             </li>  
+
+                            <li class="no-padding"><a class="waves-effect waves-grey" href="invoice-form-db.php"><i class="material-icons prefix">account_circle</i>Test : invoice-form-db</a></li>
+                            <li class="no-padding"><a class="waves-effect waves-grey" href="invoice-db.php"><i class="material-icons prefix">account_circle</i>Test :invoice-db</a></li>
                  
 
                  
