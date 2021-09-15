@@ -130,6 +130,12 @@ else{
     -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
+.hide {
+  display: none;
+}
+p {
+  font-weight: bold;
+}
 .succWrap{
     padding: 10px;
     margin: 0 0 20px 0;
@@ -184,25 +190,71 @@ foreach($results as $result)
 <?php }} ?>
 </select>
 </div>
+<script>
+ 
+function show2s(){
+  document.getElementById('div1').style.display = 'block';
+}
+</script>
 
 
 
 <!-- Leave Details -->
 <div class="input-field col m6 s12">
 <label for="fromdate"></label>
-<input id="mask1" name="fromdate" type="date" class='input-group date'  autocomplete="off" required>
+<input id="sree" onchange="adddate()" name="fromdate" type="date" class='input-group date'  autocomplete="off" required>
 </div>
 
 <div class="input-field col m6 s12">
 <label for="todate"></label>
-<input id="mask1" name="todate" type="date" class='input-group date'  autocomplete="off" required>
-</div>
+<input  id="sree2" onchange="adddate()" name="todate" type="date" class='input-group date'  autocomplete="off" required>
 
+</div>
+<div  class="input-field col m6 s12">
+<input style="display: none;"  id="sree3" type="text">
+</div>
+<script>
+ 
+  function adddate(){
+    date1=document.getElementById('sree').value;
+    date2=document.getElementById('sree2').value;
+    date1=new Date(date1)
+    date2=new Date(date2)
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+   
+    
+
+
+    var x = document.getElementById("sree3");
+    x.style.display = "block";
+    console.log(date1)
+    anirudh=date2
+    console.log(anirudh)
+    if(anirudh=="Invalid Date"){
+    document.getElementById("sree3").value="Please specify end date"
+        
+    }else{
+        document.getElementById("sree3").value=diffDays
+
+    }
+  
+    
+  
+
+  }
+  
+
+</script>
+
+
+
+<!-- 
 <?php $max=12-$_SESSION['lvcasualcount']; ?>
 <div class="input-field col m6 s12">
     <label for="days">No of days:</label>
     <input type="number" id="nofdays" name="nofdays" min="1" max ="<?php echo htmlentities($max);?>"> 
-</div>
+</div> -->
 
 <div class="input-field col m12 s12">
     <label for="birthdate">Description</label>    
