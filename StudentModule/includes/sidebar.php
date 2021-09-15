@@ -2,7 +2,7 @@
                 <div class="side-nav-wrapper">
                     <div class="sidebar-profile">
                         <div class="sidebar-profile-image">
-                            <img src="../assets/images/profile-image.png" class="circle" alt="">
+                            <img src="./assets/images/profile-image.png" class="circle" alt="">
                         </div>
                         <div class="sidebar-profile-info">
                        
