@@ -52,7 +52,7 @@ else
     <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
-        <title>SIMAT LMS</title>
+        <title>SIMAT e-GOVERNANCE</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -140,7 +140,7 @@ else
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
+                            <span class="chapter-title">SIMAT e-GOVERNANCE | STUDENT</span>
                         </div>
                         <div ><img class="sreeku"  style="
                         width: 55px;
