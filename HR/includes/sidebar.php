@@ -54,6 +54,8 @@
                                 <!-- <li><a href="pending-leavehistory.php">Pending Leaves </a></li> -->
                                 <li><a href="approvedleave-history.php">Approved Leaves</a></li>
                                 <!--  <li><a href="notapproved-leaves.php">Not Approved Leaves</a></li> -->
+                                <li><a href="consolidated-leaves.php">Consolidated Leaves</a></li>
+
        
                             </ul>
                         </div>
