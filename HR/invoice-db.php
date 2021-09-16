@@ -59,12 +59,11 @@ $html .= '<tr>
 <td>Designation</td>
 <td>Department</td>
 <td>Casual Leave</td>
-<td>Compensatory</td>
-<td>Half Pay</td>
-<td>Duty Leave</td>
-<td>Earned leaves</td>
-<td>Casual Leave</td>
-<td>Compensatory</td>
+<td></td>
+<td>cl</td>
+<td>col</td>
+<td>hpl</td>
+<td>dl</td>
 <td>lop</td>
 <td>el</td>
 <td>hpl</td>
