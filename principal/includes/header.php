@@ -49,7 +49,7 @@
                             </a>
                         </section>
                         <div class="header-title col s3">      
-                            <span class="chapter-title">SIMAT LMS | Principal</span>
+                            <span class="chapter-title">SIMAT e-GOVERNANCE | PRINCIPAL</span>
                         </div>
                       
                         <ul class="right col s9 m3 nav-right-menu">

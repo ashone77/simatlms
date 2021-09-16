@@ -268,7 +268,7 @@ $msg="Leave updated Successfully";
                 To:"<?php echo htmlentities($result->EmailId);?>",
                 From: "simatlms5@gmail.com",
                 Subject: "Leave Application Status Updated",
-                Body: "Your leave application has been checked and updated, please login to the E-Governance Portal to check your leave status. ",
+                Body: "Your leave application has been checked and updated, please login to the e-GOVERNANCE Portal to check your leave status. ",
                 // Attachments: [
                 // {
                 // 	name: "File_Name_with_Extension",
