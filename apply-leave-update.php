@@ -288,49 +288,48 @@ foreach($results as $result)
         }
 
     
-        function myFunction(){
-            let date=new Date()
-            let sree=document.getElementById("myForm").elements[0].value;
-           console.log(date)
-           console.log(sree)
-            if(document.getElementById("myForm").elements[0].value!=""&&
-            document.getElementById("myForm").elements[1].value!=""&&
-            document.getElementById("myForm").elements[2].value!=""&&
-            document.getElementById("myForm").elements[3].value!=""&&
-            document.getElementById("myForm").elements[4].value!=""&&
-            document.getElementById("myForm").elements[5].value!=""){
-            let a=""+document.getElementById("myForm").elements[0].value;+"'"
-            let b=""+document.getElementById("myForm").elements[1].value;+"'"
-            let c=""+document.getElementById("myForm").elements[2].value;+"'"
-            let d=""+document.getElementById("myForm").elements[3].value;+"'"
-            let e=""+document.getElementById("myForm").elements[4].value;+"'"
-            let f=""+document.getElementById("myForm").elements[5].value;+"'"
+         function myFunction(){
+        //     let date=new Date()
+        //     let sree=document.getElementById("myForm").elements[0].value;
+        
+        //     if(document.getElementById("myForm").elements[0].value!=""&&
+        //     document.getElementById("myForm").elements[1].value!=""&&
+        //     document.getElementById("myForm").elements[2].value!=""&&
+        //     document.getElementById("myForm").elements[3].value!=""&&
+        //     document.getElementById("myForm").elements[4].value!=""&&
+        //     document.getElementById("myForm").elements[5].value!=""){
+        //     let a=""+document.getElementById("myForm").elements[0].value;+"'"
+        //     let b=""+document.getElementById("myForm").elements[1].value;+"'"
+        //     let c=""+document.getElementById("myForm").elements[2].value;+"'"
+        //     let d=""+document.getElementById("myForm").elements[3].value;+"'"
+        //     let e=""+document.getElementById("myForm").elements[4].value;+"'"
+        //     let f=""+document.getElementById("myForm").elements[5].value;+"'"
     
-            date.push(a)
-            sub.push(b)
-            period.push(c)
-            sem.push(d)
-            branch.push(e)
-            altf.push(f)
+        //     date.push(a)
+        //     sub.push(b)
+        //     period.push(c)
+        //     sem.push(d)
+        //     branch.push(e)
+        //     altf.push(f)
     
-            arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
+        //     arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
             
-            embedElements()
-            document.getElementById('finalarrangement2').innerHTML =document.getElementById('finalarrangement2').value+sreram;
-           myFunction2()
+        //     embedElements()
+        //     document.getElementById('finalarrangement2').innerHTML =document.getElementById('finalarrangement2').value+arrangement;
+        //   myFunction2()
             
     
           
             addmore()      
-            //displayArrangement()  
+           // displayArrangement()  
     
-            //document.getElementById("demo").innerHTML = x;
-            ///document.getElementById("demo2").innerHTML =y;
-        }
-        else{
-            alert("PLEASE FILL ALL COLUMNS :)")
-        }
-        }
+        //     document.getElementById("demo").innerHTML = x;
+        //     document.getElementById("demo2").innerHTML =y;
+        // }
+        //  else{
+        //      alert("PLEASE FILL ALL COLUMNS :)")
+        //  }
+         }
     
     </script> <br> <br> 
     
@@ -386,6 +385,7 @@ foreach($results as $result)
         for (let i = 0; i <arrangement.length; i++) {
         text += arrangement[i]+"\n" ;
         }
+   
         document.getElementById("finalarrangement").innerHTML = text;
     }
   

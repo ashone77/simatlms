@@ -148,7 +148,7 @@ switch ($_SESSION['alogin']){
 
 }
 
-$sql = "SELECT $selectTable.EmpId as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,$selectTable.LeaveType,$selectTable.PostingDate,$selectTable.Status,$selectTable.id as leaveid from $selectTable join tblemployees on $selectTable.empid=tblemployees.EmpId order by lid desc limit 6";
+$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,$selectTable.LeaveType,$selectTable.PostingDate,$selectTable.Status,$selectTable.id as leaveid from $selectTable join tblemployees on $selectTable.empid=tblemployees.EmpId order by lid desc limit 6";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
