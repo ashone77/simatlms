@@ -4,13 +4,10 @@
 include('includes/config.php');
 include('vendor/autoload.php');
 
-$fromDate = $_GET['fromdate'];
-$toDate = $_GET['todate'];
-
 
 
 //get invoices data
-$sql ="SELECT * FROM tblemployees WHERE EmpId='SPT18CS010";
+$sql ="SELECT * FROM tblemployees WHERE EmpId='SPT18CS010'";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -36,7 +33,7 @@ table, th, td {
 $html .= '<table style="width:100%"';
 $html .= '<tr>';
 $html .= '<th rowspan="2" >SL. NO</th>
-<th rowspan="2">Name</th> 
+<th rowspan="2">'.$result->FirstName.'</th> 
 <th rowspan="2">Designation</th>
 <th rowspan="2">Department</th>
 <th colspan="6">No of leaves taken till date </th>
@@ -76,14 +73,14 @@ $html .= '<tr>
 <td>el</td>
 </tr>';
 
-$pdf = new FPDF('P','mm','A4');
-
-$pdf->AddPage();
 echo $html;
 
 
 }
 
+} else {
+  $html = "Not found";
+  echo $html;
 }
 
 ?>
