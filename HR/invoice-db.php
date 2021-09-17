@@ -14,6 +14,7 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {         
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -41,6 +42,7 @@ $html .= '<tr>
 //writable horizontal : 219-(10*2)=189mm
 >>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
 =======
+=======
 
 
 //A4 width : 219mm
@@ -50,6 +52,16 @@ $html .= '<tr>
 
 $pdf = new FPDF('P','mm','A4');
 
+<<<<<<< HEAD
+//A4 width : 219mm
+//default margin : 10mm each side
+//writable horizontal : 219-(10*2)=189mm
+>>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
+
+$pdf = new FPDF('P','mm','A4');
+
+=======
+>>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
 $pdf->AddPage();
 
 //set font to arial, bold, 14pt
