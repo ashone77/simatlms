@@ -10,7 +10,7 @@ $lname=$_POST["lastName"];
 $department=$_POST["Dept"];
 $quota=$_POST["Quota"];
 $admssnYear=$_POST["AdmssnYear"];
-$currYear=$_POST["CurrYear"];
+$currYear=$_POST["AcYear"];
 $loanYear=$_POST["LoanYear"];
 $admssnNo=$_POST["Ano"];
 $bankName=$_POST["BName"];
@@ -52,7 +52,7 @@ else
     <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
-        <title>SIMAT LMS</title>
+        <title>SIMAT e-GOVERNANCE</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -140,7 +140,7 @@ else
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
+                            <span class="chapter-title">SIMAT e-GOVERNANCE | STUDENT</span>
                         </div>
                         <div ><img class="sreeku"  style="
                         width: 55px;
@@ -166,12 +166,12 @@ else
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="./StudentModule/index.php"><i class="material-icons">account_box</i>Student login</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="./index.php"><i class="material-icons">account_box</i>Student login</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="./applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
              
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="simat.ac.in">SIMAT E-Governance</a>©</p>
+                    <p class="copyright"><a href="simat.ac.in">SIMAT e-GOVERNANCE</a>©</p>
                 
                 </div>
                 </div>

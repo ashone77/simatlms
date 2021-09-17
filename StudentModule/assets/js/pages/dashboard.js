@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     
-    setTimeout(function(){ Materialize.toast('Welcome to Simat LMS', 4000) }, 2000);
+    setTimeout(function(){ Materialize.toast('Welcome to SIMAT e-GOVERNANCE', 4000) }, 2000);
     
     
     
