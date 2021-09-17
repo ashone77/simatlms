@@ -3,7 +3,7 @@
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PASS','');
-define('DB_NAME','studentmodule');
+define('DB_NAME','elms');
 // Establish database connection.
 try
 {

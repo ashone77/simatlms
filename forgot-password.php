@@ -22,7 +22,7 @@ $msg="Your Password succesfully changed";
     <head>
         
         <!-- Title -->
-        <title>SIMAT e-GOVERNANCE - Password Recovery</title>
+        <title>Simat LMS - Password Recovery</title>
         
     <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
         
@@ -113,7 +113,7 @@ $msg="Your Password succesfully changed";
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT e-GOVERNANCE | Faculty </span>
+                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System</span>
                         </div>
                       
                            
@@ -136,7 +136,7 @@ $msg="Your Password succesfully changed";
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="http://simat.ac.in">Simat e-GOVERNANCE</a>©</p>
+                    <p class="copyright"><a href="http://simat.ac.in">Simat E-Governance</a>©</p>
                 
                 </div>
                 </div>

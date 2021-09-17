@@ -31,7 +31,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
     <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
-        <title>SIMAT e-GOVERNANCE | ADMIN</title>
+        <title>SIMAT LMS</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -116,7 +116,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT E-GOVERNANCE | ADMIN </span>
+                            <span class="chapter-title">SIMAT LMS | Faculty Leave Management System </span>
                         </div>
                       
                          
@@ -162,7 +162,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="simat.ac.in">SIMAT e-GOVERNANCE</a>©</p>
+                    <p class="copyright"><a href="simat.ac.in">SIMAT E-Governance</a>©</p>
                 
                 </div>
                 </div>
