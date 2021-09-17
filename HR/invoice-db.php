@@ -4,8 +4,13 @@
 include('includes/config.php');
 include('vendor/autoload.php');
 
+$fromDate = $_GET['fromdate'];
+$toDate = $_GET['todate'];
+
+
+
 //get invoices data
-$sql ="SELECT * FROM tblemployees WHERE EmpId='SPT18CS010'";
+$sql ="SELECT * FROM tblemployees WHERE ((datetime between $fromDate and $toDate))";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -69,6 +74,7 @@ $html .= '<tr>
 
 
 echo $html;
+
 
 
     

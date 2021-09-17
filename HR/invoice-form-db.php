@@ -9,7 +9,7 @@ include('includes/config.php');
 		<title>Consolidated Leave generator</title>
 	</head>
 	<body>
-		select invoice:
+		select dates:
 		<form method='get' action='invoice-db.php'>
 			<DIV>
 			<label for="fromdate"></label>
