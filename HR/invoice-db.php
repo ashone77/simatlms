@@ -13,6 +13,7 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {         
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -35,6 +36,13 @@ $html .= '<tr>
 <td>el</td>
 </tr>';
 =======
+//A4 width : 219mm
+//default margin : 10mm each side
+//writable horizontal : 219-(10*2)=189mm
+>>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
+=======
+
+
 //A4 width : 219mm
 //default margin : 10mm each side
 //writable horizontal : 219-(10*2)=189mm
