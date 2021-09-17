@@ -10,19 +10,17 @@ $toDate = $_GET['todate'];
 
 
 //get invoices data
-$sql ="SELECT * FROM tblemployees WHERE ((datetime between $fromDate and $toDate))";
+$sql ="SELECT * FROM tblemployees WHERE EmpId='SPT18CS010";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
-<<<<<<< HEAD
+
 {         
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-{     
+
+     
    
 $html = '<head>
 <style>
@@ -33,7 +31,7 @@ table, th, td {
 </style>
 </head>';
 
->>>>>>> parent of 1b0f2fb (Revert "Edit in Student Module")
+
 
 $html .= '<table style="width:100%"';
 $html .= '<tr>';
@@ -77,45 +75,11 @@ $html .= '<tr>
 <td>lop</td>
 <td>el</td>
 </tr>';
-<<<<<<< HEAD
-=======
-//A4 width : 219mm
-//default margin : 10mm each side
-//writable horizontal : 219-(10*2)=189mm
->>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
-=======
-=======
-
-
-//A4 width : 219mm
-//default margin : 10mm each side
-//writable horizontal : 219-(10*2)=189mm
->>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
-=======
->>>>>>> parent of 1b0f2fb (Revert "Edit in Student Module")
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-//A4 width : 219mm
-//default margin : 10mm each side
-//writable horizontal : 219-(10*2)=189mm
->>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
 
 $pdf = new FPDF('P','mm','A4');
 
-=======
->>>>>>> parent of 1748544 (Revert "Revert "Merge branch 'master' of https://github.com/ashone77/simatlms"")
 $pdf->AddPage();
-=======
 echo $html;
-
-
-
-    
-
->>>>>>> parent of 1b0f2fb (Revert "Edit in Student Module")
-
 
 
 }
