@@ -13,7 +13,7 @@ if(isset($_POST['change']))
 $password=md5($_POST['password']);
 $newpassword=md5($_POST['newpassword']);
 $username=$_SESSION['emplogin'];
-    $sql ="SELECT Password FROM tblemployees WHERE EmailId=:username and Password=:password";
+    $sql ="SELECT Password FROM tblemployees WHERE EmpId=:username and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':username', $username, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -21,7 +21,7 @@ $query-> execute();
 $results = $query -> fetchAll(PDO::FETCH_OBJ);
 if($query -> rowCount() > 0)
 {
-$con="update tblemployees set Password=:newpassword where EmailId=:username";
+$con="update tblemployees set Password=:newpassword where EmpId=:username";
 $chngpwd1 = $dbh->prepare($con);
 $chngpwd1-> bindParam(':username', $username, PDO::PARAM_STR);
 $chngpwd1-> bindParam(':newpassword', $newpassword, PDO::PARAM_STR);
