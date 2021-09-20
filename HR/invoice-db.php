@@ -1,16 +1,15 @@
 <?php
-
 //db connection
 include('includes/config.php');
 include('vendor/autoload.php');
 
-  $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by tblprincipal.FromDate asc";
-  $query = $dbh -> prepare($sql);
-  $query->execute();
-  $results=$query->fetchAll(PDO::FETCH_OBJ);
-  $cnt=1;
-  $finalData;
-  $html = '<head>
+$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by tblprincipal.FromDate asc";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+$finalData;
+$html = '<head>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -18,9 +17,6 @@ table, th, td {
 }
 </style>
 </head>';
-
-
-
 $html .= '<table style="width:100%"';
 $html .= '<tr>';
 $html .= '<th rowspan="2" >SL. NO</th>
@@ -40,47 +36,36 @@ $html .= '<tr align="center">
 <th>LOP</th>
 <th>EL</th>
 </tr>';
+if($query->rowCount() > 0){ 
+  foreach($results as $result){          
+    $html .= '<tr>
+    <td>'.$cnt.'</td>
+    <td>'.$result->FromDate.'</td>
+    <td>'.$result->ToDate.'</td>
+    <td>'.$result->FirstName.'</td>
+    <td>'.$result->LastName.'</td>
+    <td>'.$result->Designation.'</td>
+    <td>'.$result->Department.'</td>
+    <td>'.$result->lv_casual.'</td>
+    <td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
+    <td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
+    <td>  &nbsp&nbsp&nbsp&nbsp;- </td>
+    <td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
+    <td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
 
-
-
-  if($query->rowCount() > 0)
-  {
-       
-
-  foreach($results as $result)
-  {         
-        
-
-
-$html .= '<tr>
-<td>'.$cnt.'</td>
-<td>'.$result->FromDate.'</td>
-<td>'.$result->ToDate.'</td>
-<td>'.$result->FirstName.'</td>
-<td>'.$result->LastName.'</td>
-<td>'.$result->Designation.'</td>
-<td>'.$result->Department.'</td>
-<td>'.$result->lv_casual.'</td>
-<td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
-<td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
-<td>  &nbsp&nbsp&nbsp&nbsp;- </td>
-<td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
-<td>  &nbsp;&nbsp;&nbsp;&nbsp;- </td>
-
-</tr>';
-
-;
-$cnt++;
-
-}
-
-echo $html;
-
-} else {
-  $html = "Not found";
+    </tr>';
+    $cnt++;
+  }
   echo $html;
+} else {
+  echo "Not found";
 }
+try {
 $mpdf = new \Mpdf\Mpdf();
 $mpdf->WriteHTML($html);
 $file = time().'.pdf';
-$mpdf->output($file,'I');
+$mpdf->output($file,'I');  //I for viewing in browser, D for downloading locally
+
+} catch (\Mpdf\MpdfException $e){
+  echo $e->getMessage();
+}
