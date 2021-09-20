@@ -28,7 +28,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMAT</title>
-    <link rel="shortcut icon" href="./assets/images/logo.jpeg" type="image/ico" />
+    <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
         <title>SIMAT e-GOVERNANCE</title>
@@ -41,18 +41,18 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
         
         <!-- Styles -->
 
-        <link type="text/css" rel="stylesheet" href="./assets/plugins/materialize/css/materialize.min.css"/>
+        <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
 
-             <link href="./assets/css/materialdesign.css" rel="stylesheet">
-        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+             <link href="../assets/css/materialdesign.css" rel="stylesheet">
+        <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         	
         <!-- Theme Styles -->
 
-        <link href="./assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
 
-        <link href="./assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href=".//assets/css/custom.css" rel="stylesheet" type="text/css"/>
         
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -125,7 +125,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                         float:right; 
                          margin-top: 5px;
                          "
-                         src="./assets/images/half.png">
+                         src="../assets/images/half.png">
                         </div>
                         
                     </div>

@@ -342,6 +342,9 @@ function openFormsree() {
 </form>
 
 </div>
+<div>
+  <a href="./in.php">CLICK HERE</a>
+</div>
 
 
 
