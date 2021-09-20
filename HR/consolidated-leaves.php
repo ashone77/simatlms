@@ -312,7 +312,7 @@ function openFormsree() {
     <option value="Mechanical Engineering">
     <option value="Electronics And Communication Engineering">
   </datalist> <br>
-<input style="color:black;font-style:italic;border:2px solid black " type="submit">
+<input style="color:black;font-style:italic;border:2px solid black" type="submit">
 </form>
 
 </div>
@@ -331,12 +331,12 @@ function openFormsree() {
 
 
 
-<form action="faculty-det.php" method="post">
+<form action="consolidatedtable.php" method="GET">
     <h6 style="color: black ;font-style:italic;">SELECT START AND END DATE </h6><br>
     <h6 style="color: red;">SELECT START DATE</h6>
-    <input style="text-align: center;width:300px" type="date" placeholder="Select here" name="name">  <br>
+    <input style="text-align: center;width:300px" type="date" placeholder="Select here" name="from_date">  <br>
     <h6 style="color: red;">SELECT END DATE</h6>
-    <input style="text-align: center;width:300px" type="date" placeholder="Select here" name="name"> <br>
+    <input style="text-align: center;width:300px" type="date" placeholder="Select here" name="to_date"> <br>
     
 <input style="color:black;font-style:italic;border:2px solid black " type="submit">
 </form>

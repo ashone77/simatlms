@@ -1,13 +1,48 @@
 <?php
+include('./includes/config.php');
 use Mpdf\Tag\SetPageFooter;
-use Mpdf\Utils\Arrays;
+use Mpdf\Utils\Arrays;  
+$fromDate = strval($_GET['from_date']);
+$toDate = strval($_GET['to_date']);
+$dbh;
 
 function fetch_data(){
-    include('./includes/config.php');
+            $output = '';
+            $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 order by tblprincipal.FromDate asc";
+            $query = $GLOBALS['dbh'] -> prepare($sql);
+            $query->execute();
+            $results=$query->fetchAll(PDO::FETCH_OBJ);
+            $cnt = 1;
+            if($query->rowCount() > 0){ 
+                foreach($results as $result){ 
+                    $output .= '
+                <tr>
+                    <td>'.$cnt.'</td>
+                    <td>'.$result->FromDate.'</td>
+                    <td>'.$result->ToDate.'</td>
+                    <td>'.$result->FirstName.'</td>
+                    <td>'.$result->LastName.'</td>
+                    <td>'.$result->Designation.'</td>
+                    <td>'.$result->Department.'</td>
+                    <td>'.$result->lv_casual.'</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+                </tr>'; $cnt++;
+                }
+            }
+            return $output;
+            
+}
 
+function fetch_data_months12(){
+    $fromMonth = $_GET['from_date'];
+    $toMonth = $_GET['to_date'];
     $output = '';
-    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by tblprincipal.FromDate asc";
-    $query = $dbh -> prepare($sql);
+    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '$fromMonth' AND tblprincipal.ToDate <= '$toMonth' order by tblprincipal.FromDate asc";
+    $query = $GLOBALS['dbh'] -> prepare($sql);
     $query->execute();
     $results=$query->fetchAll(PDO::FETCH_OBJ);
     $cnt = 1;
@@ -32,8 +67,9 @@ function fetch_data(){
         }
     }
     return $output;
-
+    
 }
+
 
 if(isset($_POST["create_pdf"])){
     
@@ -87,6 +123,31 @@ if(isset($_POST["create_pdf"])){
 
     $content .= fetch_data();
 
+    $content .= '</table><br>
+    <br>
+    <br> 
+    <table width=100%>
+    <tr>
+        <th rowspan="2" >SL.NO</th>
+        <th rowspan="2">FromDate</th> 
+        <th rowspan="2">ToDate</th> 
+        <th rowspan="2">FirstName</th> 
+        <th rowspan="2">LastName</th>
+        <th rowspan="2">Designation</th>
+        <th rowspan="2">Department</th>
+        <th colspan="6">No of leaves taken from '.$fromDate.' to'.$toDate.'</th>
+    </tr>
+    <tr align="center">
+        <th>CL</th>
+        <th>COL</th>
+        <th>HPL</th>
+        <th>DL</th>
+        <th>LOP</th>
+        <th>EL</th>
+    </tr>
+    ';
+
+    $content .= fetch_data_months12();
     $content .= '</table>';
 
     $obj_pdf->writeHTML($content);
@@ -135,9 +196,32 @@ if(isset($_POST["create_pdf"])){
             </tr>
             <?php echo fetch_data();?>
         </table>
+        <br>
+        <br>
+        <table width=100%>
+            <tr>
+                <th rowspan="2" >SL. NO</th>
+                <th rowspan="2">From Date</th> 
+                <th rowspan="2">To Date</th> 
+                <th rowspan="2">First Name</th> 
+                <th rowspan="2">Last Name</th>
+                <th rowspan="2">Designation</th>
+                <th rowspan="2">Department</th>
+                <th colspan="6">No of leaves taken from <?php echo htmlentities($fromDate)?> to <?php echo htmlentities($toDate)?> </th>
+            </tr>
+            <tr align="center">
+                <th>CL</th>
+                <th>COL</th>
+                <th>HPL</th>
+                <th>DL</th>
+                <th>LOP</th>
+                <th>EL</th>
+            </tr>
+            <?php echo fetch_data_months12();?>
+        </table>
 
         <form method="post">
-            <input type="submit" name="create_pdf" id="create_pdf" value="submit">
+            <input type="submit"  name="create_pdf" id="create_pdf" value="Generate PDF"></input>
         </form>
 </body>
 </html>
