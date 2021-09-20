@@ -60,6 +60,23 @@ header('location:manageemployee.php');
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
 <style>
+  #myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: white;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+#myDIV2 {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: white;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
         .errorWrap {
     padding: 10px;
     margin: 0 0 20px 0;
@@ -232,13 +249,61 @@ if($stats){
  </tbody>
  
                                 </table> <br>
-                                <button style="background-color: black;color:blanchedalmond" type="button" class="btn btn-dark" onclick="openForm()">SORT WITH  DEPARTMENT</button>
-                              
-<div style="background-color: white;width:200px; text-align:center;margin-top:20px;" class="form-popup" id="myForm">
+                                <h4 style="text-align: left;"> 
+                                <button style="background-color: black;color:blanchedalmond" type="button" class="btn btn-dark" onclick="openFormsree()">SORT WITH  DEPARTMENT</button>
+                                
+                                <button style="background-color: black;color:blanchedalmond" type="button" class="btn btn-dark" onclick="myFunctionsree()">CONSOLIDATED LEAVES</button>
+                                </h4>
+
+
+<script>
+function myFunctionsree() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+// function openForm() {
+//   var x = document.getElementById("myForm");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
+function openFormsree() {
+  var x = document.getElementById("myDIV2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>  
+
+                    
+
+
+
+<div style="display:none" id="myDIV2">
+<div style="text-align: end;">
+<button id="ho" onclick=" openFormsree()"  style="color:red;border:1px solid black;margin-right:10px;">X</button>
+
+</div>
+<div>
+<h5 style="color: black;">
+  SORT WITH DEPARTMENT 
+</h5>
+
+</div>
+
+
 
 <form action="faculty-det.php" method="post">
-    <h6 style="color: black ;font-style:italic">SELECT DEPARTMENT</h6>
-    <input style="text-align: center;" placeholder="Select here" list="browsers" name="name">
+    <h6 style="color: black ;font-style:italic;">SELECT DEPARTMENT</h6>
+    <input style="text-align: center;width:300px" placeholder="Select here" list="browsers" name="name">
     <datalist id="browsers" >
     <option value="Civil Engineering">
     <option value="Computer Science Engineering">
@@ -246,20 +311,40 @@ if($stats){
     <option value="Electrical And Electronics Engineering">
     <option value="Mechanical Engineering">
     <option value="Electronics And Communication Engineering">
-  </datalist>
-<input style="background-color: black;color:blanchedalmond;font-style:italic;border:5px solid white " type="submit">
+  </datalist> <br>
+<input style="color:black;font-style:italic;border:2px solid black " type="submit">
 </form>
+
+</div>
+<div style="display:none" id="myDIV">
+<div style="text-align: end;">
+<button id="ho" onclick=" myFunctionsree()"  style="color:red;border:1px solid black;margin-right:10px;">X</button>
+
 </div>
 
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
+<div>
+<h5 style="color: black;">
+ SHOW CONSOLIDATED LEAVES
+</h5>
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+</div>
+
+
+
+<form action="faculty-det.php" method="post">
+    <h6 style="color: black ;font-style:italic;">SELECT START AND END DATE </h6><br>
+    <h6 style="color: red;">SELECT START DATE</h6>
+    <input style="text-align: center;width:300px" type="date" placeholder="Select here" name="name">  <br>
+    <h6 style="color: red;">SELECT END DATE</h6>
+    <input style="text-align: center;width:300px" type="date" placeholder="Select here" name="name"> <br>
+    
+<input style="color:black;font-style:italic;border:2px solid black " type="submit">
+</form>
+
+</div>
+
+
+
                             </div>
                         </div>
                     </div>
