@@ -366,7 +366,7 @@ let x = document.forms["addemp"]["fromdate"].value;
             branch.push(e)
             altf.push(f)
     
-            arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
+            arrangement.push("Date :"+a+"    "+"Subject :"+b+"    "+"Period :"+c+"    "+"Semester :"+d+"    "+"Branch :"+e+"    "+"Alternate Faculty :"+e+"")
             
             embedElements()
            myFunction2()
