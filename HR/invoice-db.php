@@ -19,7 +19,7 @@ include('vendor/autoload.php');
 
      
   <?php 
-  $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by lid desc where tblprincipal.Status = '1'";
+  $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by lid desc";
   $query = $dbh -> prepare($sql);
   $query->execute();
   $results=$query->fetchAll(PDO::FETCH_OBJ);

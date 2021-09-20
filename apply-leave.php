@@ -211,7 +211,7 @@ function show2s(){
 
 </div>
 <div  class="input-field col m6 s12">
-<input style="display: none;"  id="sree3" type="text">
+<input style="display: none;"  id="sree3" type="text" name="nofdays">
 </div>
 <script>
  
