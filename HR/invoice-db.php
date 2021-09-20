@@ -17,7 +17,7 @@ table, th, td {
 }
 </style>
 </head>';
-$html .= '<table style="width:100%"';
+$html .= '<table style="width:100%">';
 $html .= '<tr>';
 $html .= '<th rowspan="2" >SL. NO</th>
 <th rowspan="2">From Date</th> 
