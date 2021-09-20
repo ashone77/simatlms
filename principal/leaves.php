@@ -83,7 +83,8 @@ else{
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id order by lid desc";
+<?php 
+$sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by lid desc";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -94,23 +95,23 @@ foreach($results as $result)
 {         
       ?>  
 
-                                        <tr>
+<tr>
                                             <td> <b><?php echo htmlentities($cnt);?></b></td>
                                               <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
                                             <td><?php echo htmlentities($result->LeaveType);?></td>
                                             <td><?php echo htmlentities($result->PostingDate);?></td>
                                                                        <td><?php $stats=$result->Status;
-if($stats==1){
+                                                if($stats==1){
                                              ?>
                                                 <span style="color: green">Approved</span>
                                                 <?php } if($stats==2)  { ?>
                                                 <span style="color: red">Not Approved</span>
                                                 <?php } if($stats==4)  { ?>
                                                 <span style="color: orange">Application Returned</span>
-                                                <?php } if($stats==0)  { ?>
-                                                <span style="color: blue">Waiting for Approval</span>
-                                                <?php } if($stats==3)  { ?>
+                                                <?php }if($stats==3)  { ?>
                                                 <span style="color: chocolate">Forwarded by HOD</span>
+                                                <?php } if($stats==0)  { ?>
+                                                <span style="color: blue">Waiting for approval</span>
                                                 <?php } ?>
 
 

@@ -211,7 +211,7 @@ function show2s(){
 
 </div>
 <div  class="input-field col m6 s12">
-<input style="display: none;"  id="sree3" type="text">
+<input style="display: none;"  id="sree3" type="text" name="nofdays">
 </div>
 <script>
  
@@ -221,7 +221,7 @@ function show2s(){
     date1=new Date(date1)
     date2=new Date(date2)
     const diffTime = Math.abs(date2 - date1);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffDays = (Math.ceil(diffTime / (1000 * 60 * 60 * 24))) + 1;
    
     
 
@@ -279,7 +279,7 @@ var date=new Date;
 
 let x = document.forms["addemp"]["fromdate"].value;
   var date2=new Date(x)
-  if ((date2)<=date) {
+  if ((date2)<Date) {
     alert("Sorry, you cannot apply leaves for past dates.");
     return false;
   }
