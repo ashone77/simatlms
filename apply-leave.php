@@ -211,7 +211,11 @@ function show2s(){
 
 </div>
 <div  class="input-field col m6 s12">
+<<<<<<< HEAD
 <input style="display: none;"  id="sree3" name="nofdays">
+=======
+<input style="display: none;"  id="sree3" type="text" name="nofdays">
+>>>>>>> f18beb2969c7d827f3b799dc0e07e5fd3d70eb1d
 </div>
 <script>
  
@@ -366,7 +370,7 @@ let x = document.forms["addemp"]["fromdate"].value;
             branch.push(e)
             altf.push(f)
     
-            arrangement.push(a+"   "+b+"   "+c+"   "+d+"   "+e+"   "+f)
+            arrangement.push("Date :"+a+"    "+"Subject :"+b+"    "+"Period :"+c+"    "+"Semester :"+d+"    "+"Branch :"+e+"    "+"Alternate Faculty :"+e+"")
             
             embedElements()
            myFunction2()

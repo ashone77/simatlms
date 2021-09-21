@@ -120,7 +120,7 @@ $leavtypcount=$query->rowCount();
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.id order by lid desc limit 6";
+<?php $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by lid desc limit 6";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
