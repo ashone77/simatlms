@@ -210,12 +210,9 @@ function show2s(){
 <input  id="sree2" onchange="adddate()" name="todate" type="date" class='input-group date'  autocomplete="off" required>
 
 </div>
+<?php $max=12-$_SESSION['lvcasualcount']; ?>
 <div  class="input-field col m6 s12">
-<<<<<<< HEAD
-<input style="display: none;"  id="sree3" name="nofdays">
-=======
-<input style="display: none;"  id="sree3" type="text" name="nofdays">
->>>>>>> f18beb2969c7d827f3b799dc0e07e5fd3d70eb1d
+<input style="display: none;" id="sree3" name="nofdays" min="1" max ="<?php echo htmlentities($max);?>">
 </div>
 <script>
  
@@ -251,14 +248,6 @@ function show2s(){
 
 </script>
 
-
-
-<!-- 
-<?php $max=12-$_SESSION['lvcasualcount']; ?>
-<div class="input-field col m6 s12">
-    <label for="days">No of days:</label>
-    <input type="number" id="nofdays" name="nofdays" min="1" max ="<?php echo htmlentities($max);?>"> 
-</div> -->
 
 <div class="input-field col m12 s12">
     <label for="birthdate">Description</label>    
