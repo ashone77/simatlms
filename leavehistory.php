@@ -155,13 +155,15 @@ echo htmlentities('waiting for approval');
                                                 <?php } ?>
 
                                              </td>
-                                             <td><?php $stats=$result->Status;
+                                             <td>
+                                             <a href="./leave-details.php?leaveid=<?php echo htmlentities($result->id);?>">&nbsp; <i  class="fas fa-info"></i></a>
+                                             <?php $stats=$result->Status;
                                            if($stats==4){
                                             ?>
 
 
-                                              <a href="./apply-leave-update.php?leaveid=<?php echo htmlentities($result->id);?>">  <i  class="fas fa-edit"></i></a>&nbsp;
-                                              <a href="./leave-details.php?leaveid=<?php echo htmlentities($result->id);?>">&nbsp; <i  class="fas fa-info"></i></a>
+                                              <a style="margin-left: 20px;" href="./apply-leave-update.php?leaveid=<?php echo htmlentities($result->id);?>">  <i  class="fas fa-edit"></i></a>&nbsp;
+                                             
                                               
                                                      <?php } ?>  
 
