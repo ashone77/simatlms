@@ -52,7 +52,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 
         <link href="../assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
 
-        <link href=".//assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/custom.css" rel="stylesheet" type="text/css"/>
         
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -119,7 +119,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                         </div>
                       
                          
-                        <div ><img class="sreeku"  style="
+                        <div><img class="sreeku"  style="
                         width: 55px;
                         height:50px;
                         float:right; 
@@ -167,10 +167,32 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                           <div class="col s12 m6 l8 offset-l2 offset-m3">
                               <div class="card white darken-1">
 
-                                  <div class="card-content ">
-                                      <span class="card-title" style="font-size:20px;">Sorry!!! This Section is under maintetance..</span></span>
+                                  
+                                      <div class="row">
+                                           <form class="col s12" name="signin" method="post">
+                                               <div class="input-field col s12">
+                                                   <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
+                                                   <label for="email">Username</label>
+                                               </div>
+                                               <div class="input-field col s12">
+                                                   <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
+                                                   <label for="password">Password</label>
+                                               </div>
+                                               <div class="col s12 right-align m-t-sm">
+                                               
+                                                
+                                                   <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
+                                                  
+                                               
+                                                   <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword.php'">
+                                            Forgot Password
+                                          </button>
+                                           </form>
+                                           
                                          
-                                     
+                                           </div>
+                                           
+                                           
                                            
                                            
                                            
