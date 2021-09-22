@@ -1,14 +1,16 @@
 <?php
 include('./includes/config.php');
-use Mpdf\Tag\SetPageFooter;
-use Mpdf\Utils\Arrays;  
+// use Mpdf\Tag\SetPageFooter;
+// use Mpdf\Utils\Arrays;  
 $fromDate = strval($_GET['from_date']);
 $toDate = strval($_GET['to_date']);
 $dbh;
-
 function fetch_data(){
+            
+            $currYear = date("Y");
+            $currYear .= '-01-01';
             $output = '';
-            $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 order by tblprincipal.FromDate asc";
+            $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department, SUM(tblprincipal.DayCount) as DayCount ,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '2021-01-01' GROUP BY tblemployees.FirstName,tblemployees.LastName order by tblemployees.FirstName asc";
             $query = $GLOBALS['dbh'] -> prepare($sql);
             $query->execute();
             $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -18,13 +20,11 @@ function fetch_data(){
                     $output .= '
                 <tr>
                     <td>'.$cnt.'</td>
-                    <td>'.$result->FromDate.'</td>
-                    <td>'.$result->ToDate.'</td>
                     <td>'.$result->FirstName.'</td>
                     <td>'.$result->LastName.'</td>
                     <td>'.$result->Designation.'</td>
                     <td>'.$result->Department.'</td>
-                    <td>'.$result->lv_casual.'</td>
+                    <td>'.$result->DayCount.'</td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
@@ -41,7 +41,7 @@ function fetch_data_months12(){
     $fromMonth = $_GET['from_date'];
     $toMonth = $_GET['to_date'];
     $output = '';
-    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,tblemployees.lv_casual,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '$fromMonth' AND tblprincipal.ToDate <= '$toMonth' order by tblprincipal.FromDate asc";
+    $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,SUM(tblprincipal.DayCount) as DayCount,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '$fromMonth' AND tblprincipal.ToDate <= '$toMonth' GROUP BY tblemployees.FirstName,tblemployees.LastName order by tblprincipal.FromDate asc";
     $query = $GLOBALS['dbh'] -> prepare($sql);
     $query->execute();
     $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -51,13 +51,11 @@ function fetch_data_months12(){
             $output .= '
         <tr>
             <td>'.$cnt.'</td>
-            <td>'.$result->FromDate.'</td>
-            <td>'.$result->ToDate.'</td>
             <td>'.$result->FirstName.'</td>
             <td>'.$result->LastName.'</td>
             <td>'.$result->Designation.'</td>
             <td>'.$result->Department.'</td>
-            <td>'.$result->lv_casual.'</td>
+            <td>'.$result->DayCount.'</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
@@ -103,8 +101,6 @@ if(isset($_POST["create_pdf"])){
     <table width=100%>
     <tr>
         <th rowspan="2" >SL.NO</th>
-        <th rowspan="2">FromDate</th> 
-        <th rowspan="2">ToDate</th> 
         <th rowspan="2">FirstName</th> 
         <th rowspan="2">LastName</th>
         <th rowspan="2">Designation</th>
@@ -128,9 +124,7 @@ if(isset($_POST["create_pdf"])){
     <br> 
     <table width=100%>
     <tr>
-        <th rowspan="2" >SL.NO</th>
-        <th rowspan="2">FromDate</th> 
-        <th rowspan="2">ToDate</th> 
+        <th rowspan="2" >SL.NO</th> 
         <th rowspan="2">FirstName</th> 
         <th rowspan="2">LastName</th>
         <th rowspan="2">Designation</th>
@@ -178,8 +172,6 @@ if(isset($_POST["create_pdf"])){
         <table width=100%>
             <tr>
                 <th rowspan="2" >SL. NO</th>
-                <th rowspan="2">From Date</th> 
-                <th rowspan="2">To Date</th> 
                 <th rowspan="2">First Name</th> 
                 <th rowspan="2">Last Name</th>
                 <th rowspan="2">Designation</th>
@@ -200,9 +192,7 @@ if(isset($_POST["create_pdf"])){
         <br>
         <table width=100%>
             <tr>
-                <th rowspan="2" >SL. NO</th>
-                <th rowspan="2">From Date</th> 
-                <th rowspan="2">To Date</th> 
+                <th rowspan="2" >SL. No</th>
                 <th rowspan="2">First Name</th> 
                 <th rowspan="2">Last Name</th>
                 <th rowspan="2">Designation</th>
