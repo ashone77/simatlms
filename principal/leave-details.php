@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+include('./mailtest.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -99,6 +100,21 @@ $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':admremarkdate',$admremarkdate,PDO::PARAM_STR);
 $query->bindParam(':did',$did,PDO::PARAM_STR);
 $query->execute();
+
+$mailid = $_SESSION['email_id'];
+$name = $_SESSION['Emp_Name'];
+
+switch($status){
+    case '1' :
+        smtp_mailer($mailid,'Your Leave Application has been Approved.',$name,$description);
+        break;
+    case '2' :
+        smtp_mailer($mailid,'Your Leave Application has been Rejected.',$name,$description);
+        break;
+    default :
+        echo "Mail not send, please try again.";
+
+}
 
 
 
@@ -232,7 +248,7 @@ $msg="Leave updated Successfully";
 <tr>
     <td style="font-size:16px;"> <b>Faculty Name :</b></td>
         <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
-        <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
+        <?php echo htmlentities($result->FirstName." ".$result->LastName);$_SESSION['Emp_Name']=($result->FirstName." ".$result->LastName)?></a></td>
         <td style="font-size:16px;"><b>Faculty Code :</b></td>
         <td><?php echo htmlentities($result->EmpId);?></td>
         <td style="font-size:16px;"><b>Gender :</b></td>
@@ -249,7 +265,7 @@ $msg="Leave updated Successfully";
     <?php $facultyid = $result->EmailId ?>
 
         <td style="font-size:16px;"><b>Email id :</b></td>
-    <td><?php echo htmlentities($result->EmailId);?></td>
+    <td><?php echo htmlentities($result->EmailId);$_SESSION['email_id']=$result->EmailId;?></td>
         <td style="font-size:16px;"><b>Contact No. :</b></td>
     <td><?php echo htmlentities($result->Phonenumber);?></td>
     <td>&nbsp;</td>
