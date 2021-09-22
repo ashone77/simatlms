@@ -41,7 +41,7 @@ else
 
 }
 
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -115,7 +115,6 @@ else
                         <div class="circle"></div>
                     </div><div class="gap-patch">
                     <div class="circle"></div>
-                    </div><div class="circle-clipper right">
                     <div class="circle"></div>
                     </div>
                 </div>
@@ -308,7 +307,7 @@ else
                                                         
 <div class="input-field col s12">
 
-<a href=""><button type="submit" name="update"  id="update" class="waves-effect waves-light btn indigo m-b-xs">APPLY</button></a>
+<button type="submit" name="update"  id="update" class="waves-effect waves-light btn indigo m-b-xs">APPLY</button>
 <!-- <button type="submit" name="update"  id="update" class="waves-effect waves-light btn indigo m-b-xs">APPLY</button> -->
 
 </div>
