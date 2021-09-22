@@ -93,6 +93,7 @@ if(isset($_POST["create_pdf"])){
     <head>
     <style>
     table, th, td {
+        padding: 5px;
     border: 1px solid black;
     border-collapse: collapse;
     }
@@ -129,7 +130,7 @@ if(isset($_POST["create_pdf"])){
         <th rowspan="2">LastName</th>
         <th rowspan="2">Designation</th>
         <th rowspan="2">Department</th>
-        <th colspan="6">No of leaves taken from '.$fromDate.' to'.$toDate.'</th>
+        <th colspan="6">No of leaves taken from '.$fromDate.' to '.$toDate.'</th>
     </tr>
     <tr align="center">
         <th>CL</th>
@@ -163,12 +164,14 @@ if(isset($_POST["create_pdf"])){
     <title>Consolidated Table</title>
     <style>
         table, th, td {
+            padding: 5px;
         border: 1px solid black;
         border-collapse: collapse;
         }
     </style>
 </head>
 <body>
+        <img src="images/header.jpeg" alt="Header" style="height:50px; width: 50px;">
         <table width=100%>
             <tr>
                 <th rowspan="2" >SL. NO</th>

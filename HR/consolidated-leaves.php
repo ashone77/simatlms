@@ -40,7 +40,7 @@ header('location:manageemployee.php');
     <head>
         
         <!-- Title -->
-        <title>Manage Faculty</title>
+        <title>Consolidated Leave</title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -50,6 +50,7 @@ header('location:manageemployee.php');
         <meta name="author" content="Steelcoders" />
         
         <!-- Styles -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="../assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
@@ -167,90 +168,25 @@ open-button {
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Manage Faculties</div>
+                        <div class="page-title">Consolidated Leave</div>
                     </div>
                    
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Faculty Info</span>
-                                <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
-                                <table id="example" class="display responsive-table ">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Faculty Id</th>
-                                            <th>name</th>
-                                            <th>Depart</th>
-                                             <th>Status</th>
-                                             <th>Reg Date</th>
-                                            <th>Details</th>
-                                        </tr>
-                                    </thead>
-                                    
-                                    <tbody>
+                               
                                     
 
                                     
 
-<?php
-
-$dept=$_POST["name"];
-if ($dept=="Civil Engineering") {
-    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department='Civil Engineering'";
-  }elseif($dept=="Computer Science Engineering"){
-    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Computer Science Engineering' ";   
-  }elseif($dept=="Applied Science & Humanities"){
-    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Applied Science & Humanities' ";   
-  }elseif($dept=="Electrical And Electronics Engineering"){
-    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Electrical And Electronics Engineering' ";   
-  }elseif($dept=="Mechanical Engineering"){
-    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Mechanical Engineering' ";   
-  }else if($dept=="Electronics And Communication Engineering"){
-    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees where Department= 'Electronics And Communication Engineering' ";   
-  }else{
-    $sql = "SELECT EmpId,FirstName,LastName,Department,Status,RegDate,id from  tblemployees  ";  
-  }
-
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{               ?>  
-                                        <tr>
-                                            <td> <?php echo htmlentities($cnt);?></td>
-                                            <td><?php echo htmlentities($result->EmpId);?></td>
-                                            <td><?php echo htmlentities($result->FirstName);?>&nbsp;<?php echo htmlentities($result->LastName);?></td>
-                                            <td><?php echo htmlentities($result->Department);?></td>
-                                             <td><?php $stats=$result->Status;
-if($stats){
-                                             ?>
-                                                 <a class="waves-effect waves-green btn-flat m-b-xs">Active</a>
-                                                 <?php } else { ?>
-                                                 <a class="waves-effect waves-red btn-flat m-b-xs">Inactive</a>
-                                                 <?php } ?>
 
 
-                                             </td>
-                                              <td><?php echo htmlentities($result->RegDate);?></td>
-                                            <td><a href="../HR/fac.indi.php?facultyid=<?php echo htmlentities($result->id);?>">VIEW</a>
-                                        <?php if($result->Status==1)
- {?>
-
-<?php } else {?>
-
-                                            <a href="manageemployee.php?id=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to active this employee?');""> title="Active">done</i>
-                                            <?php } ?> </td>
-                                        </tr>
-                                         <?php $cnt++;} }?>
- </tbody>
  
-                                </table> <br>
+
+ 
+                         
                                 <h4 style="text-align: left;"> 
-                                <button style="background-color: black;color:blanchedalmond" type="button" class="btn btn-dark" onclick="openFormsree()">SORT WITH  DEPARTMENT</button>
+                                <button style="background-color: black;color:blanchedalmond" type="button" class="btn btn-dark" onclick="openFormsree()">SORT WITH DEPARTMENT</button>
                                 
                                 <button style="background-color: black;color:blanchedalmond" type="button" class="btn btn-dark" onclick="myFunctionsree()">CONSOLIDATED LEAVES</button>
                                 </h4>
@@ -289,7 +225,8 @@ function openFormsree() {
 
 <div style="display:none" id="myDIV2">
 <div style="text-align: end;">
-<button id="ho" onclick=" openFormsree()"  style="color:red;border:1px solid black;margin-right:10px;">X</button>
+<button id="ho" onclick=" openFormsree()"  style="color:red;border:1px solid black;margin-right:10px;">x</button>
+
 
 </div>
 <div>
@@ -332,7 +269,6 @@ function openFormsree() {
 
 
 <form action="consolidatedtable.php" method="GET">
-    <h6 style="color: black ;font-style:italic;">SELECT START AND END DATE </h6><br>
     <h6 style="color: red;">SELECT START DATE</h6>
     <input style="text-align: center;width:300px" type="date" placeholder="Select here" name="from_date">  <br>
     <h6 style="color: red;">SELECT END DATE</h6>
@@ -343,7 +279,6 @@ function openFormsree() {
 
 </div>
 <div>
-  <a href="./in.php">CLICK HERE</a>
 </div>
 
 
