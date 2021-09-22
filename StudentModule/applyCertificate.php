@@ -253,17 +253,22 @@ else
 
 
 <h6>Current Academic Year</h6>
-<input class="date-own form-control" name="AcYear" required placeholder="Academic Year"  type="text">
+<select id="Ayear" name="LoanYear" required>
+  <option value="1">I</option>
+  <option value="2">II</option>
+  <option value="3">III</option>
+  <option value="4">IV</option>
+</select>
 
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
       $('.date-own').datepicker({
          minViewMode: 2,
          format: 'yyyy',
          startdate:new Date(2018),
       
        });
-  </script>
+  </script> -->
 
   <br>
 
