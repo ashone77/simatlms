@@ -307,9 +307,14 @@ else
 
                                                         
 <div class="input-field col s12">
-<button type="submit" name="update"  id="update" class="waves-effect waves-light btn indigo m-b-xs">APPLY</button>
+
+<a href=""><button type="submit" name="update"  id="update" class="waves-effect waves-light btn indigo m-b-xs">APPLY</button></a>
+<!-- <button type="submit" name="update"  id="update" class="waves-effect waves-light btn indigo m-b-xs">APPLY</button> -->
 
 </div>
+
+
+
 
                                                         </div>
                                                     </div>
