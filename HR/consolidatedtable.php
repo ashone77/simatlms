@@ -47,7 +47,11 @@ function fetch_data_months12(){
     $results=$query->fetchAll(PDO::FETCH_OBJ);
     $cnt = 1;
     if($query->rowCount() > 0){ 
+
+
+
         foreach($results as $result){ 
+             
             $output .= '
         <tr>
             <td>'.$cnt.'</td>
@@ -64,6 +68,7 @@ function fetch_data_months12(){
         </tr>'; $cnt++;
         }
     }
+
     return $output;
     
 }
@@ -72,7 +77,7 @@ function fetch_data_months12(){
 if(isset($_POST["create_pdf"])){
     
     require_once('tcpdf/tcpdf.php');
-    $obj_pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $obj_pdf->AddPage();
     // $obj_pdf->SetCreator(PDF_CREATOR);
     // $obj_pdf->SetTitle("Consolidated Leaves");
@@ -85,7 +90,7 @@ if(isset($_POST["create_pdf"])){
     // $obj_pdf->setPrintHeader(false);
     // $obj_pdf->setPrintFooter(false);
     // $obj_pdf->SetAutoPageBreak(True, 10);
-    $obj_pdf->SetFont('helvetica', '', 8);
+    $obj_pdf->SetFont('helvetica', '', 7);
 
     $content = '';
 
@@ -93,12 +98,23 @@ if(isset($_POST["create_pdf"])){
     <head>
     <style>
     table, th, td {
-        padding: 5px;
+    padding: 3px;
     border: 1px solid black;
+    font-size : 8px;
     border-collapse: collapse;
     }
+
+    h3  {
+        text-align : center;
+    }
+
+  
 </style>
 </head>
+    <img src="images/header.jpeg" alt="Header" style="height:125x; width:842;">
+    <br>
+
+    <h3><u> Leave Consolidation Report </u></h3> 
     <table width=100%>
     <tr>
         <th rowspan="2" >SL.NO</th>
@@ -143,7 +159,12 @@ if(isset($_POST["create_pdf"])){
     ';
 
     $content .= fetch_data_months12();
-    $content .= '</table>';
+    $content .= '</table>
+    <br>
+    <br>
+    
+    <img class="footer" src="images/footer.jpeg" alt="Header" style="height:125x; width:842;">
+    ';
 
     $obj_pdf->writeHTML($content);
     $obj_pdf->Output("Consolidated_Leave.pdf", "I");
@@ -171,7 +192,7 @@ if(isset($_POST["create_pdf"])){
     </style>
 </head>
 <body>
-        <img src="images/header.jpeg" alt="Header" style="height:50px; width: 50px;">
+        
         <table width=100%>
             <tr>
                 <th rowspan="2" >SL. NO</th>
@@ -210,7 +231,7 @@ if(isset($_POST["create_pdf"])){
                 <th>LOP</th>
                 <th>EL</th>
             </tr>
-            <?php echo fetch_data_months12();?>
+             <?php echo fetch_data_months12();?> 
         </table>
 
         <form method="post">
