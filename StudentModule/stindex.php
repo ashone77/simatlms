@@ -7,9 +7,9 @@ if(isset($_POST['signin']))
 {
 $uname=$_POST['username'];
 $password=md5($_POST['password']);
-$sql ="SELECT EmpId,Password,Status,dept_code,lv_casual FROM tblemployees WHERE EmpId=:uname and Password=:password";
+$sql ="SELECT email,Password,Status,dept_code,lv_casual FROM stlogin WHERE email=:email and Password=:password";
 $query= $dbh -> prepare($sql);
-$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
+$query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
 $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -17,8 +17,8 @@ if($query->rowCount() > 0)
 {
  foreach ($results as $result) {
     $status=$result->Status;
-    $_SESSION['eid']=$result->EmpId;
-    $_SESSION['deptcode']=$result->dept_code;
+    $_SESSION['email']=$result->email;
+   // $_SESSION['deptcode']=$result->dept_code;
     $_SESSION['lvcasualcount']=$result->lv_casual;
     
   } 
@@ -185,8 +185,8 @@ else{
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">
                                                <div class="input-field col s12">
-                                                   <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Student Code</label>
+                                                   <input id="email" type="text" name="email" class="validate" autocomplete="off" required >
+                                                   <label for="email">email</label>
                                                </div>
                                                <div class="input-field col s12">
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
@@ -198,7 +198,8 @@ else{
                                                    <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
                                                   
                                                .
-                                           </form>
+                                           </form> <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="signup.php">Need an account? Sign up!</a></div>
                                            <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='forgot-password.php'">
                                             Forgot Password
                                           </button>

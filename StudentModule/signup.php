@@ -5,11 +5,11 @@ error_reporting(0);
 include('includes/config.php');
 if(isset($_POST['signin']))
 {
-$uname=$_POST['username'];
+$uname=$_POST['email'];
 $password=md5($_POST['password']);
-$sql ="SELECT EmpId,Password,Status,dept_code,lv_casual FROM tblemployees WHERE EmpId=:uname and Password=:password";
+$sql ="SELECT Email,Password,Status,dept_code,lv_casual FROM stlogin WHERE Email=:email and Password=:password";
 $query= $dbh -> prepare($sql);
-$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
+$query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
 $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -17,8 +17,8 @@ if($query->rowCount() > 0)
 {
  foreach ($results as $result) {
     $status=$result->Status;
-    $_SESSION['eid']=$result->EmpId;
-    $_SESSION['deptcode']=$result->dept_code;
+    $_SESSION['stid']=$result->stId;
+    $_SESSION['scode']=$result->dept_code;
     $_SESSION['lvcasualcount']=$result->lv_casual;
     
   } 
@@ -26,7 +26,7 @@ if($status==0)
 {
 $msg="Your account is Inactive. Please contact admin";
 } else{
-$_SESSION['emplogin']=$_POST['username'];
+$_SESSION['emplogin']=$_POST['name'];
 
 echo "<script type='text/javascript'> document.location = 'myprofile.php'; </script>";
 } }
@@ -206,11 +206,15 @@ else{
 
             <label for="password"><b>Password</b></label> 
             <input class="form-control" id="password" type="password" name="password" required><br>
-            <!-- <hr class="mb-3"> -->
-            <hr class="line">
+          <!--   <hr class="mb-3">
+            <hr class="line">-->
             <div class="button-container">
                
-            <a  href="login.php" style="font-weight:bold; width:100%;" type="submit" id="registered" name="create" value="Sign Up">SignUp</a>
+            <a  href="signup.php" style="font-weight:bold; width:100%;" type="submit" id="registered" name="create" value="Sign Up">SignUp</a>
+            
+            <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='stindex.php'">
+                                            Signin
+                                          </button>
                 </form>
 
 
