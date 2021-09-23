@@ -32,8 +32,8 @@ require_once('tcpdf/tcpdf.php');
     // $obj_pdf->SetDefaultMonospacedFont('helvetica');
     // $obj_pdf->setFooterMargin(PDF_MARGIN_FOOTER);
     // $obj_pdf->SetMargins(PDF_MARGIN_LEFT,'', PDF_MARGIN_RIGHT);
-    $obj_pdf->setPrintHeader(false);
-    $obj_pdf->setPrintFooter(false);
+    // $obj_pdf->setPrintHeader(false);
+    // $obj_pdf->setPrintFooter(false);
     // $obj_pdf->SetAutoPageBreak(True, 10);
     // $obj_pdf->SetFont('helvetica', '', 7);
         $Cert='';
@@ -46,10 +46,98 @@ require_once('tcpdf/tcpdf.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cert.css">
     <title>Document</title>
 </head>
 <body>
-    <p>hello<p>
+<header>
+<img   class="header" src="header.jpeg" alt="header">
+</header>
+<section class="content">
+
+      <h4>No. SIMAT/ACAD/103/2021-22/..... (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
+    <h4>
+    To<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Bank Manager<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Name …...….<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Branch ….......<br>
+    Sir,<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub: Availing of Bank Loan in respect of Mr/Ms ........</h4>
+              <p class="s">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to Certify that <b>Mr/Ms ........</b> is a bonafide <b>(I/II/III/IV)….</b>year student of this institution in the 4 year <b>B. Tech Degree Course(…… Branch)</b> admitted in merit based selection process for the academic year <b>(Yr.of Admn)…..</b> bearing <b>Admission No:…….</b>. This certificate is issued to the candidate to get the bank loan sanctioned from <b>(Bank Name & Branch) .....</b> The fee structure pertaining to the period of study is given below.
+                 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Institution is approved by AICTE, New-Delhi vide letter F. No. South-West/1-9317992659/2021/EOA dt. 15/07/2021, affiliated to APJ Abdul Kalam Technological University, Thiruvananthapuram vide No.KTU/A/456/2015 Dated, Thiruvananthapuram,10/08/2021 and also approved by Govt. of Kerala vide G.O.(MS) No.82/09/H.Edn dt 04/07/09.
+                </p>         
+    <table cellspacing="0" cellpadding="3" border="1">
+    <tr style="text-align: center; font-weight:bold">
+    <th style="padding:50rem;">Particulars</th>
+    <th>Ist year(Rs.)</th>
+    <th>2nd year(Rs.)</th>
+    <th>3rd year(Rs.)</th>
+    <th>4th year(Rs.)</th>
+        </tr>
+        <tr style="text-align:center;">
+        <td>Tuition Fee.</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+    </tr>
+    <tr style="text-align: center;">
+    <td>Caution Deposit</td>
+    <td class="data">10,000</td>
+    <td class="data">NIL</td>
+    <td class="data">NIL</td>
+    <td class="data">NIL</td>
+</tr>
+<tr style="text-align: center;">
+    <td>Special Fee</td>
+    <td class="data">10,000</td>
+    <td class="data">10,000</td>
+    <td class="data">10,000</td>
+    <td class="data">10,000</td>
+</tr>
+<tr style="text-align: center;">
+    <td>Placement & Training Fee.</td>
+    <td class="data">NIL</td>
+    <td class="data">500</td>
+    <td class="data">750</td>
+    <td class="data">1250</td>
+</tr>
+<tr style="text-align: center;">
+    <td>Hostel Fee</td>
+    <td class="data">...</td>
+    <td class="data">...</td>
+    <td class="data">...</td>
+    <td class="data">...</td>
+</tr>
+<tr style="text-align: center;">
+    <td>Transportation Fee</td>
+    <td class="data">...</td>
+    <td class="data">...</td>
+    <td class="data">...</td>
+    <td class="data">...</td>
+</tr>
+<tr style="text-align: center; font-weight:bold">
+    <td>Total</td>
+    <td class="data"></td>
+    <td class="data"></td>
+    <td class="data"></td>
+    <td class="data"></td>
+</tr> 
+</table>
+            <p class="s-container"><b>
+                It is requested that the payment may please be released to us by DD/Online Transfer (Bank Account No: 31042301293 & IFSC: SBIN0013222, SBI Koottanad) under intimation to this office.
+            </p>
+            <h4 class="principal" style="text-align:right;">Principal</b></h4>
+            
+</section>
+
+
+<footer>
+        <img   class="footer" src="footer.jpeg" alt="header">
+    </footer>
+</div>
+
 </body>
 </html>
 

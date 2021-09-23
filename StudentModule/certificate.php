@@ -45,10 +45,10 @@ $cert.='
     </tr>
     <tr>
         <td>Tuition Fee.</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
         
     </tr>
     <tr>
@@ -74,21 +74,21 @@ $cert.='
     </tr>
     <tr>
         <td>Hostel Fee</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
     </tr>
     <tr>
         <td>Transportation Fee</td>
-        <td class="data">..'.$row['AdmssnYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
-        <td class="data">..'.$row['CurrYear'].'..</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
+        <td class="data">...</td>
     </tr>
     <tr>
         <td><b>Total<b></td>
-        <td class="data">'.$tot.'</td>
+        <td class="data"></td>
         <td class="data"></td>
         <td class="data"></td>
         <td class="data"></td>
