@@ -37,7 +37,29 @@ require_once('tcpdf/tcpdf.php');
     // $obj_pdf->SetAutoPageBreak(True, 10);
     $obj_pdf->SetFont('helvetica', '', 7);
 
-    $Cert = '<p>Hello </p>'.$result->FirstName.'';
+    $Cert = '
+    
+    //add code here!!!!!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ';
 
 
     $obj_pdf->writeHTML($Cert);
