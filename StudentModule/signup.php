@@ -1,40 +1,27 @@
-
 <?php
 session_start();
-error_reporting(0);
 include('includes/config.php');
-if(isset($_POST['signin']))
+if(isset($_POST['create']))
 {
-$uname=$_POST['email'];
+$fname = $_POST['firstname'];
+$lname = $_POST['lastname'];
+$email=$_POST['email'];
 $password=md5($_POST['password']);
-$sql ="SELECT Email,Password,Status,dept_code,lv_casual FROM stlogin WHERE Email=:email and Password=:password";
+$sql ="INSERT INTO stlogin(FirstName,LastName,email,password) VALUES(:fname,:lname,:email,:password)";
 $query= $dbh -> prepare($sql);
+$query-> bindParam(':fname', $fname, PDO::PARAM_STR);
+$query-> bindParam(':lname', $lname, PDO::PARAM_STR);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
 $query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
 {
- foreach ($results as $result) {
-    $status=$result->Status;
-    $_SESSION['stid']=$result->stId;
-    $_SESSION['scode']=$result->dept_code;
-    $_SESSION['lvcasualcount']=$result->lv_casual;
-    
-  } 
-if($status==0)
+ echo "Employee record added Successfully";
+}
+else 
 {
-$msg="Your account is Inactive. Please contact admin";
-} else{
-$_SESSION['emplogin']=$_POST['name'];
-
-echo "<script type='text/javascript'> document.location = 'myprofile.php'; </script>";
-} }
-
-else{
-  echo "<script>alert('Invalid Details');</script>";
-  
-
+echo "Something went wrong. Please try again";
 }
 
 }
@@ -181,9 +168,9 @@ else{
 
                                   <div class="card-content ">
                                       <span class="card-title" style="font-size:20px;">Student Login</span>
-                                         <?php if($msg){?><div class="errorWrap"><strong>Error</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
+                                         
                                        <div class="row">
-                                           <form class="col s12" name="signin" method="post">
+                                           <form class="col s12" name="signup" method="post">
                                             <!--<div class="input-field col s12">-->
                                                <div class="row">
                 <div class="col">
@@ -210,11 +197,7 @@ else{
             <hr class="line">-->
             <div class="button-container">
                
-            <a  href="signup.php" style="font-weight:bold; width:100%;" type="submit" id="registered" name="create" value="Sign Up">SignUp</a>
-            
-            <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='stindex.php'">
-                                            Signin
-                                          </button>
+            <button type="submit" name="create"  id="add" class="waves-effect waves-light btn indigo m-b-xs">Create Account</button>
                 </form>
 
 
