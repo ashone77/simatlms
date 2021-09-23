@@ -41,13 +41,8 @@ function fetch_data_months12(){
     $fromMonth = $_GET['from_date'];
     $toMonth = $_GET['to_date'];
     $output = '';
-    $sql2 = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,
-    CASE WHEN tblprincipal.ToDate > '2021-09-30' THEN tblprincipal.DayCount - DATEDIFF(tblprincipal.ToDate,'2021-09-30') 
-    ELSE SUM(tblprincipal.DayCount) END as DayCount, SUM(DayCount) as DayTotal, tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '2021-09-01' AND tblprincipal.ToDate <= '2021-10-02' GROUP BY tblemployees.FirstName,tblemployees.LastName order by tblprincipal.FromDate asc";
-
-
     $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,SUM(tblprincipal.DayCount) as DayCount,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '$fromMonth' AND tblprincipal.ToDate <= '$toMonth' GROUP BY tblemployees.FirstName,tblemployees.LastName order by tblprincipal.FromDate asc";
-    $query = $GLOBALS['dbh'] -> prepare($sql2);
+    $query = $GLOBALS['dbh'] -> prepare($sql);
     $query->execute();
     $results=$query->fetchAll(PDO::FETCH_OBJ);
     $cnt = 1;
@@ -64,7 +59,7 @@ function fetch_data_months12(){
             <td>'.$result->LastName.'</td>
             <td>'.$result->Designation.'</td>
             <td>'.$result->Department.'</td>
-            <td>'.intval($result->DayTotal).'</td>
+            <td>'.$result->DayCount.'</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
@@ -141,29 +136,29 @@ if(isset($_POST["create_pdf"])){
 
     $content .= fetch_data();
 
-    // $content .= '</table><br>
-    // <br>
-    // <br> 
-    // <table width=100%>
-    // <tr>
-    //     <th rowspan="2" >SL.NO</th> 
-    //     <th rowspan="2">FirstName</th> 
-    //     <th rowspan="2">LastName</th>
-    //     <th rowspan="2">Designation</th>
-    //     <th rowspan="2">Department</th>
-    //     <th colspan="6">No of leaves taken from '.$fromDate.' to '.$toDate.'</th>
-    // </tr>
-    // <tr align="center">
-    //     <th>CL</th>
-    //     <th>COL</th>
-    //     <th>HPL</th>
-    //     <th>DL</th>
-    //     <th>LOP</th>
-    //     <th>EL</th>
-    // </tr>
-    // ';
+    $content .= '</table><br>
+    <br>
+    <br> 
+    <table width=100%>
+    <tr>
+        <th rowspan="2" >SL.NO</th> 
+        <th rowspan="2">FirstName</th> 
+        <th rowspan="2">LastName</th>
+        <th rowspan="2">Designation</th>
+        <th rowspan="2">Department</th>
+        <th colspan="6">No of leaves taken from '.$fromDate.' to '.$toDate.'</th>
+    </tr>
+    <tr align="center">
+        <th>CL</th>
+        <th>COL</th>
+        <th>HPL</th>
+        <th>DL</th>
+        <th>LOP</th>
+        <th>EL</th>
+    </tr>
+    ';
 
-    // $content .= fetch_data_months12();
+    $content .= fetch_data_months12();
     $content .= '</table>
     <br>
     <br>
@@ -219,7 +214,7 @@ if(isset($_POST["create_pdf"])){
         </table>
         <br>
         <br>
-        <!-- <table width=100%>
+        <table width=100%>
             <tr>
                 <th rowspan="2" >SL. No</th>
                 <th rowspan="2">First Name</th> 
@@ -235,8 +230,8 @@ if(isset($_POST["create_pdf"])){
                 <th>DL</th>
                 <th>LOP</th>
                 <th>EL</th>
-            </tr> -->
-            <!-- <?php //echo fetch_data_months12();?>  -->
+            </tr>
+             <?php echo fetch_data_months12();?> 
         </table>
 
         <form method="post">

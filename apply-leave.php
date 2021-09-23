@@ -210,6 +210,7 @@ function show2s(){
 <input  id="sree2" onchange="adddate()" name="todate" type="date" class='input-group date'  autocomplete="off" required>
 
 </div>
+<p>Note : If your leave dates contains two different months, kindly apply the leaves seperately for each month.</p>
 <?php $max=12-$_SESSION['lvcasualcount']; ?>
 <div  class="input-field col m6 s12">
 <input style="display: none;" id="sree3" name="nofdays" min="1" max ="<?php echo htmlentities($max);?>">
