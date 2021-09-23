@@ -32,38 +32,36 @@ require_once('tcpdf/tcpdf.php');
     // $obj_pdf->SetDefaultMonospacedFont('helvetica');
     // $obj_pdf->setFooterMargin(PDF_MARGIN_FOOTER);
     // $obj_pdf->SetMargins(PDF_MARGIN_LEFT,'', PDF_MARGIN_RIGHT);
-    // $obj_pdf->setPrintHeader(false);
-    // $obj_pdf->setPrintFooter(false);
+    $obj_pdf->setPrintHeader(false);
+    $obj_pdf->setPrintFooter(false);
     // $obj_pdf->SetAutoPageBreak(True, 10);
-    $obj_pdf->SetFont('helvetica', '', 7);
+    // $obj_pdf->SetFont('helvetica', '', 7);
+        $Cert='';
+    $Cert.= '
+    
 
-    $Cert = '
-    
-    //add code here!!!!!
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    ';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>hello<p>
+</body>
+</html>
+
+
+
+
+
+';
 
 
     $obj_pdf->writeHTML($Cert);
-    $obj_pdf->Output("cert.pdf", "I");
+    $obj_pdf->Output("certificate.pdf", "I");
     }
     }
 ?>
