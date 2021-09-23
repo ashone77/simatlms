@@ -17,7 +17,7 @@ $bankName=$_POST["BName"];
 $bankBranch=$_POST["Branch"];
 
 
-$sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch,DocumentNumber) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
+$sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':fname', $fname, PDO::PARAM_STR);
 $query-> bindParam(':lname', $lname, PDO::PARAM_STR);
