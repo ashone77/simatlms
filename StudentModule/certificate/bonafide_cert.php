@@ -22,15 +22,16 @@ $res=mysqli_query($con,"select * from bonafide_cert");
 
 
 require_once('tcpdf/tcpdf.php');
-    $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-    $obj_pdf->setPrintHeader(false);
-    $obj_pdf->setPrintFooter(false);
-    $obj_pdf->AddPage();
     
    
+   
+
+
+    
+    
+    
         
-    // $obj_pdf->SetHeaderData('<img src="header.jpeg>');
-    // $obj_pdf->SetHeaderData('<img src="footer.jpeg>');
+    
     // $obj_pdf->SetCreator(PDF_CREATOR);
     // $obj_pdf->SetTitle("Consolidated Leaves");
     // $obj_pdf->SetHeaderData('','', PDF_HEADER_TITLE, PDF_HEADER_STRING);
@@ -52,18 +53,12 @@ require_once('tcpdf/tcpdf.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cert.css">
+    <link href="cert.css">
     <title>Document</title>
     <style>
     .s-container{
         text-align:justify;
-        font-size:11rem;
-    }
-
-
-body {
-        margin: 0px;
-        padding: 0px;
+        font-size:11.6rem; 
     }
     
     </style>
@@ -71,11 +66,11 @@ body {
 </head>
 <body>
 <header>
-<img   class="header" src="header.jpeg" alt="header">
+<img  class="header" src="header.jpeg" alt="header">
 </header>
-<section class="content">
+<section class="container">
 
-      <h4>No. SIMAT/ACAD/103/2021-22/...'.$result->DocumentNumber.'. (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
+      <h4>&nbsp;&nbsp;&nbsp;No. SIMAT/ACAD/103/2021-22/...'.$result->DocumentNumber.'. (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
     <h4>
     To<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Bank Manager<br>
@@ -152,10 +147,10 @@ body {
             
 </section>
 
-
 <footer>
-        <img   class="footer" src="footer.jpeg" alt="footer">
+        <img class="footer" src="footer.jpeg" alt="footer">
     </footer>
+
 </div>
 
 </body>
@@ -166,8 +161,13 @@ body {
 
 
 ';
-
-
+$obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $obj_pdf->setPrintHeader(false);
+    $obj_pdf->setPrintFooter(false);
+    $obj_pdf->SetHeaderData('<img src="header.jpeg>');
+    $obj_pdf->SetHeaderData('<img src="footer.jpeg>');
+    $obj_pdf->SetMargins(0, 0, 0,0);
+    $obj_pdf->AddPage();
     $obj_pdf->writeHTML($Cert);
     $obj_pdf->Output("certificate.pdf", "I");
     }
