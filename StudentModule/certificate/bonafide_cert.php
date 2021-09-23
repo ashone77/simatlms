@@ -23,7 +23,14 @@ $res=mysqli_query($con,"select * from bonafide_cert");
 
 require_once('tcpdf/tcpdf.php');
     $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $obj_pdf->setPrintHeader(false);
+    $obj_pdf->setPrintFooter(false);
     $obj_pdf->AddPage();
+    
+   
+        
+    // $obj_pdf->SetHeaderData('<img src="header.jpeg>');
+    // $obj_pdf->SetHeaderData('<img src="footer.jpeg>');
     // $obj_pdf->SetCreator(PDF_CREATOR);
     // $obj_pdf->SetTitle("Consolidated Leaves");
     // $obj_pdf->SetHeaderData('','', PDF_HEADER_TITLE, PDF_HEADER_STRING);
@@ -32,8 +39,7 @@ require_once('tcpdf/tcpdf.php');
     // $obj_pdf->SetDefaultMonospacedFont('helvetica');
     // $obj_pdf->setFooterMargin(PDF_MARGIN_FOOTER);
     // $obj_pdf->SetMargins(PDF_MARGIN_LEFT,'', PDF_MARGIN_RIGHT);
-    // $obj_pdf->setPrintHeader(false);
-    // $obj_pdf->setPrintFooter(false);
+   
     // $obj_pdf->SetAutoPageBreak(True, 10);
     // $obj_pdf->SetFont('helvetica', '', 7);
         $Cert='';
@@ -48,6 +54,20 @@ require_once('tcpdf/tcpdf.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cert.css">
     <title>Document</title>
+    <style>
+    .s-container{
+        text-align:justify;
+        font-size:11rem;
+    }
+
+
+body {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    </style>
+
 </head>
 <body>
 <header>
@@ -55,17 +75,17 @@ require_once('tcpdf/tcpdf.php');
 </header>
 <section class="content">
 
-      <h4>No. SIMAT/ACAD/103/2021-22/..... (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
+      <h4>No. SIMAT/ACAD/103/2021-22/...'.$result->DocumentNumber.'. (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
     <h4>
     To<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Bank Manager<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Name …...….<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Branch ….......<br>
-    Sir,<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub: Availing of Bank Loan in respect of Mr/Ms ........</h4>
-              <p class="s">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to Certify that <b>Mr/Ms ........</b> is a bonafide <b>(I/II/III/IV)….</b>year student of this institution in the 4 year <b>B. Tech Degree Course(…… Branch)</b> admitted in merit based selection process for the academic year <b>(Yr.of Admn)…..</b> bearing <b>Admission No:…….</b>. This certificate is issued to the candidate to get the bank loan sanctioned from <b>(Bank Name & Branch) .....</b> The fee structure pertaining to the period of study is given below.
-                 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Institution is approved by AICTE, New-Delhi vide letter F. No. South-West/1-9317992659/2021/EOA dt. 15/07/2021, affiliated to APJ Abdul Kalam Technological University, Thiruvananthapuram vide No.KTU/A/456/2015 Dated, Thiruvananthapuram,10/08/2021 and also approved by Govt. of Kerala vide G.O.(MS) No.82/09/H.Edn dt 04/07/09.
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Name …..'.$result->BankName.'.….<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Branch …...'.$result->BankBranch.'...<br>
+    Sir,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub: Availing of Bank Loan in respect of Mr/Ms ...'.$result->FirstName.'..'.$result->LastName.'...</h4>
+              <p class="s-container">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to Certify that <b>Mr/Ms ..'.$result->FirstName.'..'.$result->LastName.'...</b> is a bonafide <b>(I/II/III/IV)…'.$result->CurrYear.'.</b>year student of this institution in the 4 year <b>B. Tech Degree Course(…'.$result->Department.'… Branch)</b> admitted in merit based selection process for the academic year <b>(Yr.of Admn)…'.$result->AdmssnYear.'..</b> bearing <b>Admission No:…'.$result->AdmssnNo.'….</b>. This certificate is issued to the candidate to get the bank loan sanctioned from <b>(Bank Name & Branch) ...'.$result->BankName.'...'.$result->BankBranch.'..</b> The fee structure pertaining to the period of study is given below.
+                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Institution is approved by AICTE, New-Delhi vide letter F. No. South-West/1-9317992659/2021/EOA dt. 15/07/2021, affiliated to APJ Abdul Kalam Technological University, Thiruvananthapuram vide No.KTU/A/456/2015 Dated, Thiruvananthapuram,10/08/2021 and also approved by Govt. of Kerala vide G.O.(MS) No.82/09/H.Edn dt 04/07/09.
                 </p>         
     <table cellspacing="0" cellpadding="3" border="1">
     <tr style="text-align: center; font-weight:bold">
@@ -134,7 +154,7 @@ require_once('tcpdf/tcpdf.php');
 
 
 <footer>
-        <img   class="footer" src="footer.jpeg" alt="header">
+        <img   class="footer" src="footer.jpeg" alt="footer">
     </footer>
 </div>
 
