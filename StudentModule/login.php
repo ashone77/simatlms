@@ -1,6 +1,6 @@
-?php 
+<?php 
 session_start(); 
-include "db_conn.php";
+include "config.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
@@ -35,7 +35,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['id'];
-            	header("Location: home.php");
+            	header("Location: login.php");
 		        exit();
             }else{
 				header("Location: index.php?error=Incorect User name or password");
@@ -48,6 +48,6 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	}
 	
 }else{
-	header("Location: index.php");
+	header("Location: index1.php");
 	exit();
 }

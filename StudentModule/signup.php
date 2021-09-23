@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-	include("connection.php");
+	include("config.php");
 	include("functions.php");
 
 
@@ -83,7 +83,7 @@ session_start();
 			<a href="login.php">Click to Login</a><br><br>
 		</form>-->
 
-		<form action="registration.php" method="post" class="form">
+		<form action="signup.php" method="post" class="form">
         <div class="container">
        <!-- <div class="container">-->
             <!-- <div class="row">
