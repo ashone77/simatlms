@@ -41,13 +41,22 @@ function fetch_data_months12(){
     $fromMonth = $_GET['from_date'];
     $toMonth = $_GET['to_date'];
     $output = '';
+    $sql2 = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,
+    CASE WHEN tblprincipal.ToDate > '2021-09-30' THEN tblprincipal.DayCount - DATEDIFF(tblprincipal.ToDate,'2021-09-30') 
+    ELSE SUM(tblprincipal.DayCount) END as DayCount, SUM(DayCount) as DayTotal, tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '2021-09-01' AND tblprincipal.ToDate <= '2021-10-02' GROUP BY tblemployees.FirstName,tblemployees.LastName order by tblprincipal.FromDate asc";
+
+
     $sql = "SELECT tblprincipal.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Designation,tblemployees.Department,SUM(tblprincipal.DayCount) as DayCount,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.ToDate,tblprincipal.FromDate from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId WHERE tblprincipal.Status=1 AND tblprincipal.FromDate >= '$fromMonth' AND tblprincipal.ToDate <= '$toMonth' GROUP BY tblemployees.FirstName,tblemployees.LastName order by tblprincipal.FromDate asc";
-    $query = $GLOBALS['dbh'] -> prepare($sql);
+    $query = $GLOBALS['dbh'] -> prepare($sql2);
     $query->execute();
     $results=$query->fetchAll(PDO::FETCH_OBJ);
     $cnt = 1;
     if($query->rowCount() > 0){ 
+
+
+
         foreach($results as $result){ 
+             
             $output .= '
         <tr>
             <td>'.$cnt.'</td>
@@ -55,7 +64,7 @@ function fetch_data_months12(){
             <td>'.$result->LastName.'</td>
             <td>'.$result->Designation.'</td>
             <td>'.$result->Department.'</td>
-            <td>'.$result->DayCount.'</td>
+            <td>'.intval($result->DayTotal).'</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;-</td>
@@ -64,6 +73,7 @@ function fetch_data_months12(){
         </tr>'; $cnt++;
         }
     }
+
     return $output;
     
 }
@@ -72,7 +82,7 @@ function fetch_data_months12(){
 if(isset($_POST["create_pdf"])){
     
     require_once('tcpdf/tcpdf.php');
-    $obj_pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $obj_pdf->AddPage();
     // $obj_pdf->SetCreator(PDF_CREATOR);
     // $obj_pdf->SetTitle("Consolidated Leaves");
@@ -85,7 +95,7 @@ if(isset($_POST["create_pdf"])){
     // $obj_pdf->setPrintHeader(false);
     // $obj_pdf->setPrintFooter(false);
     // $obj_pdf->SetAutoPageBreak(True, 10);
-    $obj_pdf->SetFont('helvetica', '', 8);
+    $obj_pdf->SetFont('helvetica', '', 7);
 
     $content = '';
 
@@ -93,12 +103,23 @@ if(isset($_POST["create_pdf"])){
     <head>
     <style>
     table, th, td {
-        padding: 5px;
+    padding: 3px;
     border: 1px solid black;
+    font-size : 8px;
     border-collapse: collapse;
     }
+
+    h3  {
+        text-align : center;
+    }
+
+  
 </style>
 </head>
+    <img src="images/header.jpeg" alt="Header" style="height:125x; width:842;">
+    <br>
+
+    <h3><u> Leave Consolidation Report </u></h3> 
     <table width=100%>
     <tr>
         <th rowspan="2" >SL.NO</th>
@@ -120,30 +141,35 @@ if(isset($_POST["create_pdf"])){
 
     $content .= fetch_data();
 
-    $content .= '</table><br>
-    <br>
-    <br> 
-    <table width=100%>
-    <tr>
-        <th rowspan="2" >SL.NO</th> 
-        <th rowspan="2">FirstName</th> 
-        <th rowspan="2">LastName</th>
-        <th rowspan="2">Designation</th>
-        <th rowspan="2">Department</th>
-        <th colspan="6">No of leaves taken from '.$fromDate.' to '.$toDate.'</th>
-    </tr>
-    <tr align="center">
-        <th>CL</th>
-        <th>COL</th>
-        <th>HPL</th>
-        <th>DL</th>
-        <th>LOP</th>
-        <th>EL</th>
-    </tr>
-    ';
+    // $content .= '</table><br>
+    // <br>
+    // <br> 
+    // <table width=100%>
+    // <tr>
+    //     <th rowspan="2" >SL.NO</th> 
+    //     <th rowspan="2">FirstName</th> 
+    //     <th rowspan="2">LastName</th>
+    //     <th rowspan="2">Designation</th>
+    //     <th rowspan="2">Department</th>
+    //     <th colspan="6">No of leaves taken from '.$fromDate.' to '.$toDate.'</th>
+    // </tr>
+    // <tr align="center">
+    //     <th>CL</th>
+    //     <th>COL</th>
+    //     <th>HPL</th>
+    //     <th>DL</th>
+    //     <th>LOP</th>
+    //     <th>EL</th>
+    // </tr>
+    // ';
 
-    $content .= fetch_data_months12();
-    $content .= '</table>';
+    // $content .= fetch_data_months12();
+    $content .= '</table>
+    <br>
+    <br>
+    
+    <img class="footer" src="images/footer.jpeg" alt="Header" style="height:125x; width:842;">
+    ';
 
     $obj_pdf->writeHTML($content);
     $obj_pdf->Output("Consolidated_Leave.pdf", "I");
@@ -171,7 +197,7 @@ if(isset($_POST["create_pdf"])){
     </style>
 </head>
 <body>
-        <img src="images/header.jpeg" alt="Header" style="height:50px; width: 50px;">
+        
         <table width=100%>
             <tr>
                 <th rowspan="2" >SL. NO</th>
@@ -193,7 +219,7 @@ if(isset($_POST["create_pdf"])){
         </table>
         <br>
         <br>
-        <table width=100%>
+        <!-- <table width=100%>
             <tr>
                 <th rowspan="2" >SL. No</th>
                 <th rowspan="2">First Name</th> 
@@ -209,8 +235,8 @@ if(isset($_POST["create_pdf"])){
                 <th>DL</th>
                 <th>LOP</th>
                 <th>EL</th>
-            </tr>
-            <?php echo fetch_data_months12();?>
+            </tr> -->
+            <!-- <?php //echo fetch_data_months12();?>  -->
         </table>
 
         <form method="post">
