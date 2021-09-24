@@ -216,11 +216,11 @@ else
 <div class="input-field col s12">
 <h6>Select Department</h6>
 <select  id="Dept" name="Dept" required>
-  <option value="cse">Computer Science and Engineering</option>
-  <option value="mech">Mechanical Engineering</option>
-  <option value="civil">Civil Engineering</option>
-  <option value="eee">Electrical and Electronics Engineering</option>
-  <option value="ec">Electronics and Communication Engineering</option>
+  <option value="cse">CSE</option>
+  <option value="mech">ME</option>
+  <option value="civil">CIVIL</option>
+  <option value="eee">EEE</option>
+  <option value="ec">ECE</option>
 </select>
 
   <br>
