@@ -254,10 +254,10 @@ else
 
 <h6>Current Academic Year</h6>
 <select id="Ayear" name="AcYear" required>
-  <option value="1">I</option>
-  <option value="2">II</option>
-  <option value="3">III</option>
-  <option value="4">IV</option>
+  <option value="I">I</option>
+  <option value="II">II</option>
+  <option value="III">III</option>
+  <option value="IV">IV</option>
 </select>
 
 
