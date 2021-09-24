@@ -154,7 +154,7 @@ $obj_pdf->SetFooterMargin(0);
 </table>
             <p class="s-container"><b>
                 It is requested that the payment may please be released to us by DD/Online Transfer (Bank Account No: 31042301293 & IFSC: SBIN0013222, SBI Koottanad) under intimation to this office.
-            </p>
+            </p><br>
             <h4 class="principal" style="text-align:right;">Principal</b></h4>
             
 </section>
