@@ -6,7 +6,7 @@ include('./includes/config.php');
 $dbh;
 $con=mysqli_connect('localhost','root','','studentmodule');
 $res=mysqli_query($con,"select * from bonafide_cert");
-// $did = $_GET['documentnumber'];
+// $did = $_GET['DocumentNumber'];
 
     $sql = "select * from bonafide_cert where DocumentNumber=1";
     $query = $GLOBALS['dbh'] -> prepare($sql);
@@ -27,7 +27,16 @@ require_once('tcpdf/tcpdf.php');
    
 
 
-    
+$obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+$obj_pdf->SetFooterMargin(0);
+    $obj_pdf->setPrintHeader(false);
+    $obj_pdf->setPrintFooter(false);
+    $obj_pdf->SetAutoPageBreak(TRUE, 0);
+    // $obj_pdf->SetHeaderData('<img src="header.jpeg>');
+    // $obj_pdf->SetHeaderData('<img src="footer.jpeg>');
+    $obj_pdf->SetMargins(5,0,5);
+    $obj_pdf->AddPage();
     
     
         
@@ -73,7 +82,7 @@ require_once('tcpdf/tcpdf.php');
 </header>
 <section class="container">
 
-      <h4>&nbsp;&nbsp;&nbsp;No. SIMAT/ACAD/103/2021-22/...'.$result->DocumentNumber.'. (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
+      <h4>&nbsp;&nbsp;&nbsp;No. SIMAT/ACAD/103/2021-22/.... (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
     <h4 style="width:10rem;">
     To<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Bank Manager<br>
@@ -173,15 +182,7 @@ require_once('tcpdf/tcpdf.php');
 //     } 
 // } 
 
-$obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-$obj_pdf->SetFooterMargin(0);
-    $obj_pdf->setPrintHeader(false);
-    $obj_pdf->setPrintFooter(false);
-    // $obj_pdf->SetHeaderData('<img src="header.jpeg>');
-    // $obj_pdf->SetHeaderData('<img src="footer.jpeg>');
-    $obj_pdf->SetMargins(5,0,5,0);
-    $obj_pdf->AddPage();
     $obj_pdf->writeHTML($Cert);
     $obj_pdf->Output("certificate.pdf", "I");
     }
