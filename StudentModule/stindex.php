@@ -199,7 +199,7 @@ else{
                                                   
                                                .
                                            </form> <div class="card-footer text-center py-3">
-                                           <input style="color: white; margin-right:1rem; border-radius:7px; background-color:#26a69a; border-style:none; padding:0.9rem;"  type="submit" name="signin" value="Sign in" >
+                                           <input style=" margin-bottom:10px; color: white; margin-right:1rem; border-radius:7px; background-color:#26a69a; border-style:none; padding:0.9rem;"  type="submit" name="signin" value="Sign in" >
                                            <button style="color: white; background-color:blue; border-style:none; padding:0.8rem; border-radius:7px;" onclick="window.location.href='forgot-password.php'">
                                             Forgot Password ?
                                           </button>
