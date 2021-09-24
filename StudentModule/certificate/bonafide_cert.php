@@ -4,11 +4,11 @@ use Mpdf\Tag\P;
 
 include('./includes/config.php');
 $dbh;
-$con=mysqli_connect('localhost','root','','studentmodule');
-$res=mysqli_query($con,"select * from bonafide_cert");
+// $con=mysqli_connect('localhost','root','','studentmodule');
+// $res=mysqli_query($con,"select * from bonafide_cert");
 // $did = $_GET['DocumentNumber'];
 
-    $sql = "select * from bonafide_cert where DocumentNumber=4";
+    $sql = "select * from bonafide_cert where DocumentNumber=2";
     $query = $GLOBALS['dbh'] -> prepare($sql);
     $query->execute();
     $results=$query->fetchAll(PDO::FETCH_OBJ);
