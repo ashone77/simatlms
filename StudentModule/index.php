@@ -182,10 +182,10 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                                <div class="col s12 right-align m-t-sm">
                                                
                                                 
-                                                   <input style="border-radius:7px;color: white; margin-right:1rem; background-color:#26a69a; border-style:none; padding:0.9rem;"  type="submit" name="signin" value="Sign in" >
+                                                   <input style="color: white; margin-right:1rem; background-color: #006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
                                                   
                                                
-                                                   <button style="margin-bottom:2rem; border-radius:7px; color: white; background-color:blue; border-style:none; padding:0.8rem;" onclick="window.location.href='forgot-password.php'">
+                                                   <button style="margin-bottom:2rem; color: white; background-color:#005b6e; border-style:none; padding:6px;" onclick="window.location.href='forgot-password.php'">
                                             Forgot Password ?
                                           </button>
                                            </form>
