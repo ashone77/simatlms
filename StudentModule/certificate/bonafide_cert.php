@@ -53,25 +53,28 @@ require_once('tcpdf/tcpdf.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="cert.css">
     <title>Document</title>
     <style>
     .s-container{
+        
         text-align:justify;
         font-size:11.6rem; 
+       
+
     }
+   
     
     </style>
 
 </head>
 <body>
 <header>
-<img  class="header" src="header.jpeg" alt="header">
+<img  class="header"  src="header.jpeg" alt="header">
 </header>
 <section class="container">
 
       <h4>&nbsp;&nbsp;&nbsp;No. SIMAT/ACAD/103/2021-22/...'.$result->DocumentNumber.'. (Doc.No)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : '. date("Y/m/d").'</h4>
-    <h4>
+    <h4 style="width:10rem;">
     To<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Bank Manager<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Name …..'.$result->BankName.'.….<br>
@@ -161,12 +164,23 @@ require_once('tcpdf/tcpdf.php');
 
 
 ';
+// class PDF extends TCPDF { 
+//     public function Header() { 
+//     // No Header 
+//     } 
+//     public function Footer() { 
+//     // No Footer 
+//     } 
+// } 
+
 $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+$obj_pdf->SetFooterMargin(0);
     $obj_pdf->setPrintHeader(false);
     $obj_pdf->setPrintFooter(false);
-    $obj_pdf->SetHeaderData('<img src="header.jpeg>');
-    $obj_pdf->SetHeaderData('<img src="footer.jpeg>');
-    $obj_pdf->SetMargins(0, 0, 0,0);
+    // $obj_pdf->SetHeaderData('<img src="header.jpeg>');
+    // $obj_pdf->SetHeaderData('<img src="footer.jpeg>');
+    $obj_pdf->SetMargins(5,0,5,0);
     $obj_pdf->AddPage();
     $obj_pdf->writeHTML($Cert);
     $obj_pdf->Output("certificate.pdf", "I");
@@ -174,15 +188,3 @@ $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
