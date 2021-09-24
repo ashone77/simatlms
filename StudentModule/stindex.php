@@ -195,15 +195,16 @@ else{
                                                <div class="col s12 right-align m-t-sm">
                                                
                                                 
-                                                   <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
+                                                   
                                                   
                                                .
                                            </form> <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="signup.php">Need an account? Sign up!</a></div>
-                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='forgot-password.php'">
-                                            Forgot Password
+                                           <input style="color: white; margin-right:1rem; border-radius:7px; background-color:#26a69a; border-style:none; padding:0.9rem;"  type="submit" name="signin" value="Sign in" >
+                                           <button style="color: white; background-color:blue; border-style:none; padding:0.8rem; border-radius:7px;" onclick="window.location.href='forgot-password.php'">
+                                            Forgot Password ?
                                           </button>
-                                           </div>
+                                          <div style="margin-top:1rem;" class="small"><a href="signup.php">Need an account ? Sign up!!</a></div>  
+                                        </div>
                                            
                                           
                                            

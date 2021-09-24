@@ -170,6 +170,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                   
                                       <div class="row">
                                            <form class="col s12" name="signin" method="post">
+                                           <div style="margin-top:2rem; margin-left:1rem; margin-bottom:1rem; font-size:20px; color: rgba(0, 0, 0, 0.54); font-weight: 700;">Student Login</div>
                                                <div class="input-field col s12">
                                                    <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
                                                    <label for="email">Username</label>
@@ -181,11 +182,11 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                                <div class="col s12 right-align m-t-sm">
                                                
                                                 
-                                                   <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
+                                                   <input style="border-radius:7px;color: white; margin-right:1rem; background-color:#26a69a; border-style:none; padding:0.9rem;"  type="submit" name="signin" value="Sign in" >
                                                   
                                                
-                                                   <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword.php'">
-                                            Forgot Password
+                                                   <button style="margin-bottom:2rem; border-radius:7px; color: white; background-color:blue; border-style:none; padding:0.8rem;" onclick="window.location.href='forgot-password.php'">
+                                            Forgot Password ?
                                           </button>
                                            </form>
                                            

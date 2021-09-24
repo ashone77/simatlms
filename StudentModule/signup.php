@@ -167,7 +167,7 @@ echo "Something went wrong. Please try again";
                               <div class="card white darken-1">
 
                                   <div class="card-content ">
-                                      <span class="card-title" style="font-size:20px;">Student Login</span>
+                                      <span class="card-title" style="font-size:20px;">Student SignUp</span>
                                          
                                        <div class="row">
                                            <form class="col s12" name="signup" method="post">
