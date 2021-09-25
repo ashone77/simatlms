@@ -150,21 +150,22 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                    
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
-                    <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Home</a></li>
+                <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Home</a></li>
+                   
+                   <li class="no-padding"><a class="waves-effect waves-grey" href="../facindex.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                   
+               
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../facindex.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
-                    
-                
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../off_staff/index.php"><i class="material-icons">account_box</i>Office Staff login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
+                       
                 </ul>
           <div class="footer">
                     <p class="copyright"><a href="simat.ac.in">SIMAT e-GOVERNANCE </a>©</p>

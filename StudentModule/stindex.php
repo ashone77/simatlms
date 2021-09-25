@@ -28,7 +28,7 @@ $msg="Your account is Inactive. Please contact admin";
 } else{
 $_SESSION['emplogin']=$_POST['username'];
 
-echo "<script type='text/javascript'> document.location = 'myprofile.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'stprofile.php'; </script>";
 } }
 
 else{

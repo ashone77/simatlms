@@ -166,8 +166,9 @@ else
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="./index.php"><i class="material-icons">account_box</i>Home</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="./index.php"><i class="material-icons">account_box</i>Student login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="./applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="download.php"><i class="material-icons">account_box</i>Download Certificate</a></li>
              
                 </ul>
           <div class="footer">
@@ -183,7 +184,7 @@ else
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <form  method="post">
+                                <form  method="post" action="./certificate/bonafide_cert.php">
                                     <div>
                                         <h3>APPLY FOR CERTIFICATE</h3>
                                         <?php if($error){?><div class="errorWrap"><strong>Note </strong>:<?php echo htmlentities($error); ?> </div><?php } 
@@ -210,7 +211,6 @@ else
 <div class="input-field col s12">
 <label for="Ano">Admision Number</label>
 <input  name="Ano" type="text" id="text"  autocomplete="off" required>
-
 </div>
 
 <div class="input-field col s12">

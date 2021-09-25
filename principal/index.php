@@ -3,6 +3,7 @@ session_start();
 include('includes/config.php');
 if(isset($_POST['signin']))
 {
+$palogin=$_POST['PA'];
 $uname=$_POST['username'];
 $password=md5($_POST['password']);
 $sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
@@ -14,7 +15,15 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 $_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+if($palogin=='PA'){
+    echo "<script type='text/javascript'> document.location = '../principle_pa/dashboard.php'; </script>";
+
+
+}else {
+    echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+    
+}
+
 } else{
   
   echo "<script>alert('Invalid Details');</script>";
@@ -144,21 +153,20 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                    
                 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
-                    <li>&nbsp;</li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Home</a></li>
+                <li class="no-padding"><a class="waves-effect waves-grey" href="../index.php"><i class="material-icons">account_box</i>Home</a></li>
+                   
+                   <li class="no-padding"><a class="waves-effect waves-grey" href="../facindex.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
+                   
+               
 
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="../facindex.php"><i class="material-icons">account_box</i>Faculty Login</a></li>
-                    
-                
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../admin/index.php"><i class="material-icons">account_box</i>Admin Login</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../hod/index.php"><i class="material-icons">account_box</i>HOD Login</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
 
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../principal/index.php"><i class="material-icons">account_box</i>Principal Login</a></li>
-
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
-                       <li class="no-padding"><a class="waves-effect waves-grey" href="../applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
+                      <li class="no-padding"><a class="waves-effect waves-grey" href="../off_staff/index.php"><i class="material-icons">account_box</i>Office Staff login</a></li>
                 </ul>
           <div class="footer">
                     <p class="copyright"><a href="simat.ac.in">SIMAT e-GOVERNANCE </a>©</p>
@@ -186,6 +194,11 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                                <div class="input-field col s12">
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
                                                    <label for="password">Password</label>
+                                               </div>
+                                               <div class="input-field col s12">
+                                               <input type="checkbox" id="PA" name="PA" value="PA">
+                                               <label style="color: black;" for="PA"> Login as PA</label><br>
+
                                                </div>
                                                <div class="col s12 right-align m-t-sm">
                                                
