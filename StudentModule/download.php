@@ -146,9 +146,9 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion" >
                     <li>&nbsp;</li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="./index.php"><i class="material-icons">account_box</i>Home</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="./signup.php"><i class="material-icons">account_box</i>Create Account</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="./index.php"><i class="material-icons">account_box</i>Student login</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="applyCertificate.php"><i class="material-icons">account_box</i>Apply Certificate</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="download.php"><i class="material-icons">account_box</i>Downlaod Certificate</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="applyCertificate.php"><i class="material-icons">account_box</i>Downlaod Certificate</a></li>
                     
                 
 
@@ -171,23 +171,26 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                   
                                       <div class="row">
                                            <form class="col s12" name="signin" method="post">
-                                           <div style="margin-top:2rem; margin-left:1rem; margin-bottom:1rem; font-size:20px; color: rgba(0, 0, 0, 0.54); font-weight: 700;">Student Login</div>
+                                           <div style="margin-top:2rem; margin-left:1rem; margin-bottom:1rem; font-size:20px; color: rgba(0, 0, 0, 0.54); font-weight: 700;">Enter Your Details</div>
                                                <div class="input-field col s12">
-                                                   <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Username</label>
+                                                   <h5 style="font-size: 15px;color:black">Enter your name:</h5>
+                                                   <input  type="text" name="name"  required >
+                                                   
                                                </div>
                                                <div class="input-field col s12">
-                                                   <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
-                                                   <label for="password">Password</label>
+                                                   <h5 style="font-size: 15px;color:black">Enter your Register Number:</h5>
+                                                   <input  type="text" name="reg"  required >
+                                                   
                                                </div>
+                                               
                                                <div class="col s12 right-align m-t-sm">
                                                
                                                 
-                                                   <input style="color: white; margin-right:1rem; background-color: #006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
+                                                  
                                                   
                                                
-                                                   <button style="margin-bottom:2rem; color: white; background-color:#005b6e; border-style:none; padding:6px;" onclick="window.location.href='forgot-password.php'">
-                                            Forgot Password ?
+                                                   <button style="margin-bottom:2rem; color: white; background-color:#005b6e; border-style:none; padding:6px;float:left">
+                                                Download Certificate
                                           </button>
                                            </form>
                                            
