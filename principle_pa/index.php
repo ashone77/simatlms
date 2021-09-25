@@ -3,10 +3,9 @@ session_start();
 include('includes/config.php');
 if(isset($_POST['signin']))
 {
-$palogin=$_POST['PA'];
 $uname=$_POST['username'];
 $password=md5($_POST['password']);
-$sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+$sql ="SELECT UserName,Password,dept_code,EmpId FROM admin WHERE UserName=:uname and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -15,15 +14,12 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 $_SESSION['alogin']=$_POST['username'];
-if($palogin=='PA'){
-    echo "<script type='text/javascript'> document.location = '../principle_pa/dashboard.php'; </script>";
-
-
-}else {
-    echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+foreach ($results as $result) {
+    $_SESSION['dept_code']=$result->dept_code;
+    $_SESSION['empid']=$result->EmpId;
     
-}
-
+  } 
+echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 } else{
   
   echo "<script>alert('Invalid Details');</script>";
@@ -40,7 +36,7 @@ if($palogin=='PA'){
     <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <!-- Title -->
-        <title>SIMAT e-GOVERNANCE | PRINCIPAL</title>
+        <title>SIMAT e-GOVERNANCE | HOD</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -52,9 +48,10 @@ if($palogin=='PA'){
 
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
 
-             <link href="../assets/css/materialdesign.css" rel="stylesheet">
-        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">        
+        <link href="../assets/css/materialdesign.css" rel="stylesheet">
+        <link href="./assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       
 
         	
         <!-- Theme Styles -->
@@ -124,7 +121,7 @@ if($palogin=='PA'){
                             </a>
                         </section>
                         <div class="header-title col s4">      
-                            <span class="chapter-title">SIMAT E-GOVERNANCE | PRINCIPAL </span>
+                            <span class="chapter-title">SIMAT e-GOVERNANCE SYSTEM</span>
                         </div>
                       
                          
@@ -167,6 +164,8 @@ if($palogin=='PA'){
 
                       <li class="no-padding"><a class="waves-effect waves-grey" href="../HR/index.php"><i class="material-icons">account_box</i>HR Login</a></li>
                       <li class="no-padding"><a class="waves-effect waves-grey" href="../off_staff/index.php"><i class="material-icons">account_box</i>Office Staff login</a></li>
+
+                       
                 </ul>
           <div class="footer">
                     <p class="copyright"><a href="simat.ac.in">SIMAT e-GOVERNANCE </a>©</p>
@@ -183,7 +182,7 @@ if($palogin=='PA'){
                               <div class="card white darken-1">
 
                                   <div class="card-content ">
-                                      <span class="card-title" style="font-size:20px;">PRINCIPAL LOGIN</span></span>
+                                      <span class="card-title" style="font-size:20px;">HOD LOGIN</span></span>
                                          
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">
@@ -195,13 +194,8 @@ if($palogin=='PA'){
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>
                                                    <label for="password">Password</label>
                                                </div>
-                                               <div class="input-field col s12">
-                                               <input type="checkbox" id="PA" name="PA" value="PA">
-                                               <label style="color: black;" for="PA"> Login as PA</label><br>
-
-                                               </div>
                                                <div class="col s12 right-align m-t-sm">
-                                               
+                                              
                                                 
                                                    <input style="color: white; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
                                                   
@@ -211,7 +205,7 @@ if($palogin=='PA'){
                                            <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;" onclick="window.location.href='changepassword.php'">
                                             Forgot Password
                                           </button>
-                                        
+                                         
                                            </div>
                                            
                                            

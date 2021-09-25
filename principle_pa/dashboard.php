@@ -7,6 +7,7 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
+    
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +15,8 @@ else{
     <head>
         
         <!-- Title -->
+        <title>HOD | Dashboard</title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
-        <title>Principal PR | Dashboard</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -50,7 +51,7 @@ else{
                                 <span class="card-title">Total Registered Employee</span>
                                 <span class="stats-counter">
 <?php
-$sql = "SELECT id from tblemployees";
+$sql = "SELECT EmpId from tblemployees";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -110,7 +111,7 @@ $leavtypcount=$query->rowCount();
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th width="200">Employee Name</th>
+                                            <th width="200">Employe Name</th>
                                             <th width="120">Leave Type</th>
 
                                              <th width="180">Posting Date</th>                 
@@ -120,7 +121,34 @@ $leavtypcount=$query->rowCount();
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT tblprincipal.EmpId as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblprincipal.LeaveType,tblprincipal.PostingDate,tblprincipal.Status,tblprincipal.FacultyCode,tblprincipal.id as leaveid from tblprincipal join tblemployees on tblprincipal.empid=tblemployees.EmpId order by lid desc limit 6";
+<?php 
+
+switch ($_SESSION['alogin']){
+    case "hodcse":
+        $selectTable = "tblleaves_cse";
+        break;
+    case "hodcivil":
+        $selectTable = "tblleaves_civil";
+        break;
+    case "hodeee":
+        $selectTable = "tblleaves_eee";
+        break;
+    case "hodme":
+        $selectTable = "tblleaves_me";
+        break; 
+    case "hodec":
+        $selectTable = "tblleaves_ece";
+        break;
+    case "hodash":
+        $selectTable = "tblleaves_ash";
+        break;
+    default:
+        $selectTable = "tblleaves";
+    
+
+}
+
+$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,$selectTable.LeaveType,$selectTable.PostingDate,$selectTable.Status,$selectTable.id as leaveid from $selectTable join tblemployees on $selectTable.empid=tblemployees.EmpId order by lid desc limit 6";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -137,18 +165,19 @@ foreach($results as $result)
                                             <td><?php echo htmlentities($result->LeaveType);?></td>
                                             <td><?php echo htmlentities($result->PostingDate);?></td>
                                                                        <td><?php $stats=$result->Status;
-                                                if($stats==1){
+if($stats==3){
+    ?>
+        <span style="color: chocolate">Forwarded to Principal</span>
+        <?php }if($stats==1){
                                              ?>
                                                 <span style="color: green">Approved</span>
-                                                <?php } if($stats==2)  { ?>
-                                                <span style="color: red">Not Approved</span>
                                                 <?php } if($stats==4)  { ?>
                                                 <span style="color: orange">Application Returned</span>
-                                                <?php }if($stats==3)  { ?>
-                                                <span style="color: chocolate">Forwarded by HOD</span>
-                                                <?php } if($stats==0)  { ?>
-                                                <span style="color: blue">Waiting for approval</span>
-                                                <?php } ?>
+                                                <?php } if($stats==2)  { ?>
+                                                <span style="color: red">Not Approved</span>
+                                                 <?php } if($stats==0)  { ?>
+ <span style="color: blue">Waiting for approval</span>
+ <?php } ?>
 
 
                                              </td>
