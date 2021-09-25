@@ -129,20 +129,26 @@ foreach($results as $result)
                                             <td>Bonafide Certificate</td>
                                             <td style="font-size:16px;"><b>Document Number :</b></td>
                                             <td><?php echo htmlentities($result->DocumentNumber);?></td>
+                                        </tr>
+                                        <tr>
                                             <td style="font-size:16px;"><b>Admission Year</b></td>
                                             <td><?php echo htmlentities($result->AdmssnYear);?></td>
                                             <td style="font-size:16px;"><b>Current Year</b></td>
                                             <td><?php echo htmlentities($result->CurrYear);?></td>
-                                            <td style="font-size:16px;"><b>Loan Year</b></td>
-                                            <td><?php echo htmlentities($result->LoanYear);?></td>
+                                          
                                         </tr>
 
                                         <tr>
                                             <td style="font-size:16px;"><b>Bank Name : </b></td>
-                                            <td colspan="5"><?php echo htmlentities($result->BankName);?></td>
+                                            <td colspan="5"><?php echo htmlentities($result->BankName);?></td></tr><tr>
                                             <td style="font-size:16px;"><b>Bank Branch Name : </b></td>
                                             <td colspan="5"><?php echo htmlentities($result->BranchName);?></td>
                                         </tr>
+                                        <tr>
+                                        <td style="font-size:16px;"><b>Loan Year</b></td>
+                                            <td><?php echo htmlentities($result->LoanYear);?></td>
+                                        </tr>
+                                        <h5></h5>
 
 <tr>
 <td style="font-size:16px;"><b>Certificate Status :</b></td>
@@ -165,7 +171,7 @@ if($stats==0)
 ?>
 <tr>
  <td colspan="5">
-  <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Take&nbsp;Action</a>
+  
 <form name="adminaction" method="post">
 <div id="modal1" class="modal modal-fixed-footer" style="height: 60%">
     <div class="modal-content" style="width:90%">
@@ -194,8 +200,39 @@ if($stats==0)
                         </div>
                     </div>
                 </div>
+                <form action="">
+                <div style="background:white" > 
+                <h5 style="text-align: center; font-weight: bold;padding-top:10px">Enter Details</h5>
+                <br><h6 style="text-align: center;font-weight: bold;">Tution Fee</h6>
+                <h5 style="text-align: center;margin:5px">
+                <input placeholder="First Year"  style="width: 150px;margin:25px" type="text">
+                <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text">
+                <input style="width: 150px;margin:25px" placeholder="third Year" type="text">
+                <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text"></h5>
+               
+              
+                
+                <h6 style="text-align: center;font-weight: bold;">Hostel Fee</h6>
+                <h5 style="text-align: center;margin:5px">
+                <input placeholder="First Year"  style="width: 150px;margin:25px" type="text">
+                <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text">
+                <input style="width: 150px;margin:25px" placeholder="third Year" type="text">
+                <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text"></h5>
+                 
+                <h6 style="text-align: center;font-weight: bold;">Transportaion Fee</h6>
+                <h5 style="text-align: center;margin:5px">
+                <input placeholder="First Year"  style="width: 150px;margin:25px" type="text">
+                <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text">
+                <input style="width: 150px;margin:25px" placeholder="third Year" type="text">
+                <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text"></h5>
+                <h6 style="text-align: center;font-weight: bold;"> <button  type="button" class="btn btn-primary">Submit</button</h6>
+                </div>
+                </form>
             </main>
          
+        </div>
+        <div>
+            
         </div>
         <div class="left-sidebar-hover"></div>
         
