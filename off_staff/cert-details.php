@@ -1,28 +1,18 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/studentconfig.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
 }
 else{
 
-// code for update the read notification status
-$isread=1;
-$did=intval($_GET['leaveid']);  
-date_default_timezone_set('Asia/Kolkata');
-$admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
-$sql="update tblleaves set IsRead=:isread where id=:did";
-$query = $dbh->prepare($sql);
-$query->bindParam(':isread',$isread,PDO::PARAM_STR);
-$query->bindParam(':did',$did,PDO::PARAM_STR);
-$query->execute();
 
 // code for action taken on leave
 if(isset($_POST['update']))
 { 
-$did=intval($_GET['leaveid']);
+$documentno=intval($_GET['documentnumber']);
 $description=$_POST['description'];
 $status=$_POST['status'];   
 date_default_timezone_set('Asia/Kolkata');
@@ -103,10 +93,10 @@ $msg="Leave updated Successfully";
                                  
                                     <tbody>
 <?php 
-$lid=intval($_GET['leaveid']);
-$sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblemployees.Gender,tblemployees.Phonenumber,tblemployees.EmailId,tblleaves.LeaveType,tblleaves.ToDate,tblleaves.FromDate,tblleaves.Description,tblleaves.PostingDate,tblleaves.Status,tblleaves.AdminRemark,tblleaves.AdminRemarkDate from tblleaves join tblemployees on tblleaves.empid=tblemployees.id where tblleaves.id=:lid";
+$documentno=intval($_GET['documentnumber']);
+$sql = "SELECT * FROM bonafide_cert where DocumentNumber=:documentnumber";
 $query = $dbh -> prepare($sql);
-$query->bindParam(':lid',$lid,PDO::PARAM_STR);
+$query->bindParam(':documentnumber',$documentno,PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
@@ -117,41 +107,45 @@ foreach($results as $result)
       ?>  
 
                                         <tr>
-                                            <td style="font-size:16px;"> <b>Employe Name :</b></td>
-                                              <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
+                                            <td style="font-size:16px;"> <b>Student Name :</b></td>
+                                              <td>
                                                 <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
-                                              <td style="font-size:16px;"><b>Emp Id :</b></td>
-                                              <td><?php echo htmlentities($result->EmpId);?></td>
-                                              <td style="font-size:16px;"><b>Gender :</b></td>
-                                              <td><?php echo htmlentities($result->Gender);?></td>
+                                              <td style="font-size:16px;"><b>Admission No :</b></td>
+                                              <td><?php echo htmlentities($result->AdmssnNo);?></td>
+                                              
                                           </tr>
 
                                           <tr>
-                                             <td style="font-size:16px;"><b>Emp Email id :</b></td>
-                                            <td><?php echo htmlentities($result->EmailId);?></td>
-                                             <td style="font-size:16px;"><b>Emp Contact No. :</b></td>
-                                            <td><?php echo htmlentities($result->Phonenumber);?></td>
+                                            <td style="font-size:16px;"><b>Department:</b></td>
+                                            <td><?php echo htmlentities($result->Department);?></td>
+                                            <td style="font-size:16px;"><b>Quota :</b></td>
+                                            <td><?php echo htmlentities($result->Quota);?></td>
                                             <td>&nbsp;</td>
-                                             <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
                                         </tr>
 
-  <tr>
-                                             <td style="font-size:16px;"><b>Leave Type :</b></td>
-                                            <td><?php echo htmlentities($result->LeaveType);?></td>
-                                             <td style="font-size:16px;"><b>Leave Date . :</b></td>
-                                            <td>From <?php echo htmlentities($result->FromDate);?> to <?php echo htmlentities($result->ToDate);?></td>
-                                            <td style="font-size:16px;"><b>Posting Date</b></td>
-                                           <td><?php echo htmlentities($result->PostingDate);?></td>
+                                        <tr>
+                                            <td style="font-size:16px;"><b>Certificate Type :</b></td>
+                                            <td>Bonafide Certificate</td>
+                                            <td style="font-size:16px;"><b>Document Number :</b></td>
+                                            <td><?php echo htmlentities($result->DocumentNumber);?></td>
+                                            <td style="font-size:16px;"><b>Admission Year</b></td>
+                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Current Year</b></td>
+                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                            <td style="font-size:16px;"><b>Loan Year</b></td>
+                                            <td><?php echo htmlentities($result->LoanYear);?></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="font-size:16px;"><b>Bank Name : </b></td>
+                                            <td colspan="5"><?php echo htmlentities($result->BankName);?></td>
+                                            <td style="font-size:16px;"><b>Bank Branch Name : </b></td>
+                                            <td colspan="5"><?php echo htmlentities($result->BranchName);?></td>
                                         </tr>
 
 <tr>
-                                             <td style="font-size:16px;"><b>Employe Leave Description : </b></td>
-                                            <td colspan="5"><?php echo htmlentities($result->Description);?></td>
-                                          
-                                        </tr>
-
-<tr>
-<td style="font-size:16px;"><b>leave Status :</b></td>
+<td style="font-size:16px;"><b>Certificate Status :</b></td>
 <td colspan="5"><?php $stats=$result->Status;
 if($stats==1){
 ?>
@@ -164,29 +158,6 @@ if($stats==1){
 </td>
 </tr>
 
-<tr>
-<td style="font-size:16px;"><b>Admin Remark: </b></td>
-<td colspan="5"><?php
-if($result->AdminRemark==""){
-  echo "waiting for Approval";  
-}
-else{
-echo htmlentities($result->AdminRemark);
-}
-?></td>
- </tr>
-
- <tr>
-<td style="font-size:16px;"><b>Admin Action taken date : </b></td>
-<td colspan="5"><?php
-if($result->AdminRemarkDate==""){
-  echo "NA";  
-}
-else{
-echo htmlentities($result->AdminRemarkDate);
-}
-?></td>
- </tr>
 <?php 
 if($stats==0)
 {

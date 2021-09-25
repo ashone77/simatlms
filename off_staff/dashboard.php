@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/studentconfig.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
@@ -44,56 +44,13 @@ else{
                 <div class="middle-content">
                     <div class="row no-m-t no-m-b">
                     <div class="col s12 m12 l4">
-                        <div class="card stats-card">
-                            <div class="card-content">
-                            
-                                <span class="card-title">Totle Regd Employee</span>
-                                <span class="stats-counter">
-<?php
-$sql = "SELECT id from tblemployees";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$empcount=$query->rowCount();
-?>
-
-                                    <span class="counter"><?php echo htmlentities($empcount);?></span></span>
-                            </div>
-                            <div id="sparkline-bar"></div>
-                        </div>
+                        
                     </div>
                         <div class="col s12 m12 l4">
-                        <div class="card stats-card">
-                            <div class="card-content">
-                            
-                                <span class="card-title">Listed Departments </span>
-    <?php
-$sql = "SELECT id from tbldepartments";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$dptcount=$query->rowCount();
-?>                            
-                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($dptcount);?></span></span>
-                            </div>
-                            <div id="sparkline-line"></div>
-                        </div>
-                    </div>
+                        
                     <div class="col s12 m12 l4">
                         <div class="card stats-card">
-                            <div class="card-content">
-                                <span class="card-title">Listed leave Type</span>
-                                    <?php
-$sql = "SELECT id from  tblleavetype";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$leavtypcount=$query->rowCount();
-?>   
-                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($leavtypcount);?></span></span>
-                      
-                            </div>
-                            <div class="progress stats-card-progress">
+                            
                                 <div class="determinate" style="width: 70%"></div>
                             </div>
                         </div>
@@ -105,22 +62,20 @@ $leavtypcount=$query->rowCount();
                             <div class="card invoices-card">
                                 <div class="card-content">
                                  
-                                    <span class="card-title">Latest Leave Applications</span>
+                                    <span class="card-title">Latest Certificate Applications</span>
                              <table id="example" class="display responsive-table ">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th width="200">Employe Name</th>
-                                            <th width="120">Leave Type</th>
-
-                                             <th width="180">Posting Date</th>                 
+                                            <th width="200">Student Name</th>
+                                            <th width="120">Department</th> 
                                             <th>Status</th>
                                             <th align="center">Action</th>
                                         </tr>
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT tblleaves.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,tblleaves.LeaveType,tblleaves.PostingDate,tblleaves.Status from tblleaves join tblemployees on tblleaves.empid=tblemployees.id order by lid desc limit 6";
+<?php $sql = "SELECT FirstName,LastName,Department,DocumentNumber FROM bonafide_cert";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -133,9 +88,8 @@ foreach($results as $result)
 
                                         <tr>
                                             <td> <b><?php echo htmlentities($cnt);?></b></td>
-                                              <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
-                                            <td><?php echo htmlentities($result->LeaveType);?></td>
-                                            <td><?php echo htmlentities($result->PostingDate);?></td>
+                                              <td><?php echo htmlentities($result->FirstName." ".$result->LastName);?></td>
+                                            <td><?php echo htmlentities($result->Department);?></td>
                                                                        <td><?php $stats=$result->Status;
 if($stats==1){
                                              ?>
@@ -150,7 +104,7 @@ if($stats==1){
                                              </td>
 
           <td>
-           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
+           <td><a href="cert-details.php?documentnumber=<?php echo htmlentities($result->DocumentNumber);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>
