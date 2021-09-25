@@ -222,7 +222,9 @@ if($stats==0)
                 <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text">
                 <input style="width: 150px;margin:25px" placeholder="third Year" type="text">
                 <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text"></h5>
-                <h6 style="text-align: center;font-weight: bold;"> <button  type="button" class="btn btn-primary">Submit</button</h6>
+                <h6 style="margin-bottom: 20px;text-align: center;font-weight: bold;"> <button  type="button" class="btn btn-primary">Submit</button><br>
+            </h6> <br>
+                
                 </div>
                 </form>
                         </div>
