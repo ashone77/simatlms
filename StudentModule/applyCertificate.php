@@ -168,7 +168,7 @@ else
                     <li>&nbsp;</li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="./index.php"><i class="material-icons">account_box</i>Home</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="./index.php"><i class="material-icons">account_box</i>Student login</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="download.php"><i class="material-icons">account_box</i>Downlaod Certificate</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="download.php"><i class="material-icons">account_box</i>Download Certificate</a></li>
              
                 </ul>
           <div class="footer">
