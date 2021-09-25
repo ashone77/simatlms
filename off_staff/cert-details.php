@@ -197,13 +197,10 @@ if($stats==0)
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <form action="">
+                            <form action="">
                 <div style="background:white" > 
-                <h5 style="text-align: center; font-weight: bold;padding-top:10px">Enter Details</h5>
-                <br><h6 style="text-align: center;font-weight: bold;">Tution Fee</h6>
+                <h5 style="text-align: center; font-weight: bold;padding-top:10px">ENTER DETAILS</h5>
+                <br><h6 style="text-align: center;font-weight: bold;font-size:16px">Tution Fee</h6>
                 <h5 style="text-align: center;margin:5px">
                 <input placeholder="First Year"  style="width: 150px;margin:25px" type="text">
                 <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text">
@@ -212,14 +209,14 @@ if($stats==0)
                
               
                 
-                <h6 style="text-align: center;font-weight: bold;">Hostel Fee</h6>
+                <h6  style="text-align: center;font-weight: bold;font-size:16px">Hostel Fee</h6>
                 <h5 style="text-align: center;margin:5px">
                 <input placeholder="First Year"  style="width: 150px;margin:25px" type="text">
                 <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text">
                 <input style="width: 150px;margin:25px" placeholder="third Year" type="text">
                 <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text"></h5>
                  
-                <h6 style="text-align: center;font-weight: bold;">Transportaion Fee</h6>
+                <h6 style="text-align: center;font-weight: bold;font-size:16px;">Transportaion Fee</h6>
                 <h5 style="text-align: center;margin:5px">
                 <input placeholder="First Year"  style="width: 150px;margin:25px" type="text">
                 <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text">
@@ -228,6 +225,10 @@ if($stats==0)
                 <h6 style="text-align: center;font-weight: bold;"> <button  type="button" class="btn btn-primary">Submit</button</h6>
                 </div>
                 </form>
+                        </div>
+                    </div>
+                </div>
+               
             </main>
          
         </div>
