@@ -5,35 +5,21 @@ error_reporting(0);
 include('includes/config.php');
 if(isset($_POST['signin']))
 {
-$uname=$_POST['username'];
+$uname=$_POST['email'];
 $password=md5($_POST['password']);
-$sql ="SELECT email,Password, FROM stlogin WHERE email=:email and Password=:password";
+$sql ="SELECT email, password FROM stlogin WHERE email=:uname and password=:password";
 $query= $dbh -> prepare($sql);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
+$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
 $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
- foreach ($results as $result) {
-    //$status=$result->Status;
-    $_SESSION['email']=$result->email;
-   // $_SESSION['deptcode']=$result->dept_code;
-    //$_SESSION['lvcasualcount']=$result->lv_casual;
-    
-  } 
-if($status==0)
-{
-$msg="Your account is Inactive. Please contact admin";
-} else{
-$_SESSION['stlogin']=$_POST['username'];
-
+$_SESSION['stlogin']=$_POST['email'];
 echo "<script type='text/javascript'> document.location = 'stprofile.php'; </script>";
-} }
-
-else{
+} else{
+  
   echo "<script>alert('Invalid Details');</script>";
- 
 
 }
 

@@ -2,12 +2,12 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['signin'])==0)
+if(strlen($_SESSION['stlogin'])==0)
     {   
 header('location:index.php');
 }
 else{
-$uname=$_SESSION['signin'];
+$uname=$_SESSION['stlogin'];
 if(isset($_POST['update']))
 {
 
