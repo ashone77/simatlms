@@ -14,7 +14,11 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 $_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+if($_SESSION['alogin'] == 'officestaffcert'){
+    echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+} else {
+    echo "<script type='text/javascript'> document.location = '../off_staff_leave/dashboard.php'; </script>";
+}
 } else{
   
   echo "<script>alert('Invalid Details');</script>";

@@ -1,13 +1,12 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/studentconfig.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
 }
 else{
-    
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +14,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>HOD | Dashboard</title>
+        <title>Admin | Dashboard</title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -45,56 +44,13 @@ else{
                 <div class="middle-content">
                     <div class="row no-m-t no-m-b">
                     <div class="col s12 m12 l4">
-                        <div class="card stats-card">
-                            <div class="card-content">
-                            
-                                <span class="card-title">Total Registered Employee</span>
-                                <span class="stats-counter">
-<?php
-$sql = "SELECT EmpId from tblemployees";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$empcount=$query->rowCount();
-?>
-
-                                    <span class="counter"><?php echo htmlentities($empcount);?></span></span>
-                            </div>
-                            <div id="sparkline-bar"></div>
-                        </div>
+                        
                     </div>
                         <div class="col s12 m12 l4">
-                        <div class="card stats-card">
-                            <div class="card-content">
-                            
-                                <span class="card-title">Listed Departments </span>
-    <?php
-$sql = "SELECT id from tbldepartments";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$dptcount=$query->rowCount();
-?>                            
-                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($dptcount);?></span></span>
-                            </div>
-                            <div id="sparkline-line"></div>
-                        </div>
-                    </div>
+                        
                     <div class="col s12 m12 l4">
                         <div class="card stats-card">
-                            <div class="card-content">
-                                <span class="card-title">Listed leave Type</span>
-                                    <?php
-$sql = "SELECT id from  tblleavetype";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$leavtypcount=$query->rowCount();
-?>   
-                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($leavtypcount);?></span></span>
-                      
-                            </div>
-                            <div class="progress stats-card-progress">
+                            
                                 <div class="determinate" style="width: 70%"></div>
                             </div>
                         </div>
@@ -106,49 +62,20 @@ $leavtypcount=$query->rowCount();
                             <div class="card invoices-card">
                                 <div class="card-content">
                                  
-                                    <span class="card-title">Latest Leave Applications</span>
+                                    <span class="card-title">Latest Certificate Applications</span>
                              <table id="example" class="display responsive-table ">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th width="200">Employe Name</th>
-                                            <th width="120">Leave Type</th>
-
-                                             <th width="180">Posting Date</th>                 
+                                            <th width="200">Student Name</th>
+                                            <th width="120">Department</th> 
                                             <th>Status</th>
                                             <th align="center">Action</th>
                                         </tr>
                                     </thead>
                                  
                                     <tbody>
-<?php 
-
-switch ($_SESSION['alogin']){
-    case "hodcse":
-        $selectTable = "tblleaves_cse";
-        break;
-    case "hodcivil":
-        $selectTable = "tblleaves_civil";
-        break;
-    case "hodeee":
-        $selectTable = "tblleaves_eee";
-        break;
-    case "hodme":
-        $selectTable = "tblleaves_me";
-        break; 
-    case "hodec":
-        $selectTable = "tblleaves_ece";
-        break;
-    case "hodash":
-        $selectTable = "tblleaves_ash";
-        break;
-    default:
-        $selectTable = "tblleaves";
-    
-
-}
-
-$sql = "SELECT $selectTable.id as lid,tblemployees.FirstName,tblemployees.LastName,tblemployees.EmpId,tblemployees.id,$selectTable.LeaveType,$selectTable.PostingDate,$selectTable.Status,$selectTable.id as leaveid from $selectTable join tblemployees on $selectTable.empid=tblemployees.EmpId order by lid desc limit 6";
+<?php $sql = "SELECT FirstName,LastName,Department,DocumentNumber FROM bonafide_cert";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -161,29 +88,23 @@ foreach($results as $result)
 
                                         <tr>
                                             <td> <b><?php echo htmlentities($cnt);?></b></td>
-                                              <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
-                                            <td><?php echo htmlentities($result->LeaveType);?></td>
-                                            <td><?php echo htmlentities($result->PostingDate);?></td>
+                                              <td><?php echo htmlentities($result->FirstName." ".$result->LastName);?></td>
+                                            <td><?php echo htmlentities($result->Department);?></td>
                                                                        <td><?php $stats=$result->Status;
-if($stats==3){
-    ?>
-        <span style="color: chocolate">Forwarded to Principal</span>
-        <?php }if($stats==1){
+if($stats==1){
                                              ?>
-                                                <span style="color: green">Approved</span>
-                                                <?php } if($stats==4)  { ?>
-                                                <span style="color: orange">Application Returned</span>
-                                                <?php } if($stats==2)  { ?>
+                                                 <span style="color: green">Approved</span>
+                                                 <?php } if($stats==2)  { ?>
                                                 <span style="color: red">Not Approved</span>
                                                  <?php } if($stats==0)  { ?>
- <span style="color: blue">Waiting for approval</span>
+ <span style="color: blue">Waiting for Approval</span>
  <?php } ?>
 
 
                                              </td>
 
           <td>
-           <td><a href="leave-details.php?leaveid=<?php echo htmlentities($result->leaveid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
+           <td><a href="cert-details.php?documentnumber=<?php echo htmlentities($result->DocumentNumber);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>
