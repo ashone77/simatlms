@@ -7,7 +7,7 @@ if(isset($_POST['signin']))
 {
 $uname=$_POST['username'];
 $password=md5($_POST['password']);
-$sql ="SELECT email,Password,Status,dept_code,lv_casual FROM stlogin WHERE email=:email and Password=:password";
+$sql ="SELECT email,Password, FROM stlogin WHERE email=:email and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -16,24 +16,24 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
  foreach ($results as $result) {
-    $status=$result->Status;
+    //$status=$result->Status;
     $_SESSION['email']=$result->email;
    // $_SESSION['deptcode']=$result->dept_code;
-    $_SESSION['lvcasualcount']=$result->lv_casual;
+    //$_SESSION['lvcasualcount']=$result->lv_casual;
     
   } 
 if($status==0)
 {
 $msg="Your account is Inactive. Please contact admin";
 } else{
-$_SESSION['emplogin']=$_POST['username'];
+$_SESSION['stlogin']=$_POST['username'];
 
 echo "<script type='text/javascript'> document.location = 'stprofile.php'; </script>";
 } }
 
 else{
   echo "<script>alert('Invalid Details');</script>";
-  
+ 
 
 }
 
@@ -194,10 +194,6 @@ else{
                                                </div>
                                                <div class="col s12 right-align m-t-sm">
                                                
-                                                
-                                                   
-                                                  
-                                               .
                                            </form> <div class="card-footer text-center py-3">
                                            <input style=" margin-bottom:10px; color: white; margin-right:1rem; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
                                            <button style="color: white; background-color:#005b6e; border-style:none; padding:6px;" onclick="window.location.href='forgot-password.php'">
