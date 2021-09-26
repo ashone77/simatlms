@@ -184,7 +184,7 @@ else
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <form  method="post" action="./certificate/bonafide_cert.php">
+                                <form  method="post" action="">
                                     <div>
                                         <h3>APPLY FOR CERTIFICATE</h3>
                                         <?php if($error){?><div class="errorWrap"><strong>Note </strong>:<?php echo htmlentities($error); ?> </div><?php } 
@@ -216,11 +216,11 @@ else
 <div class="input-field col s12">
 <h6>Select Department</h6>
 <select  id="Dept" name="Dept" required>
-  <option value="cse">CSE</option>
-  <option value="mech">ME</option>
-  <option value="civil">CIVIL</option>
-  <option value="eee">EEE</option>
-  <option value="ec">ECE</option>
+  <option value="CSE">CSE</option>
+  <option value="MECH">ME</option>
+  <option value="CIVIL">CIVIL</option>
+  <option value="EEE">EEE</option>
+  <option value="EC">ECE</option>
 </select>
 
   <br>

@@ -169,6 +169,13 @@ foreach($results as $result)
                                         <td style="font-size:16px;"><b>Loan Year</b></td>
                                             <td><?php echo htmlentities($result->LoanYear);?></td>
                                         </tr>
+                                        <tr>
+                                            <td style="font-size:16px;"><b>Tuition Fee</b></td>
+                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Current Year</b></td>
+                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                          
+                                        </tr>
                                         <h5></h5>
 
 <tr>
@@ -180,7 +187,7 @@ if($stats==1){
  <?php } if($stats==2)  { ?>
 <span style="color: red">Not Approved</span>
 <?php } if($stats==0)  { ?>
- <span style="color: blue">waiting for approval</span>
+ <span style="color: blue">Waiting for approval</span>
  <?php } ?>
 </td>
 </tr>
@@ -189,7 +196,7 @@ if($stats==1){
                                     </tbody>
                                 </table>
                             </div>
-                            <form action="" method="post">
+                            <form action="../StudentModule/certificate/bonafide_cert.php?documentno=<?php echo htmlentities($result->DocumentNumber);?>" method="post">
                 <div style="background:white" > 
                 <h5 style="text-align: center; font-weight: bold;padding-top:10px">Fee Structure</h5>
                 <br><h6 style="text-align: center;font-weight: bold;font-size:16px">Tution Fee</h6>

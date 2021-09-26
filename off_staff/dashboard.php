@@ -14,7 +14,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>Admin | Dashboard</title>
+        <title>Office SIMAT | Dashboard</title>
         <link rel="shortcut icon" href="../assets/images/logo.jpeg" type="image/ico" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -70,12 +70,13 @@ else{
                                             <th width="200">Student Name</th>
                                             <th width="120">Department</th> 
                                             <th>Status</th>
+                                            <th>Posting Date</th>
                                             <th align="center">Action</th>
                                         </tr>
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT FirstName,LastName,Department,DocumentNumber FROM bonafide_cert";
+<?php $sql = "SELECT * FROM bonafide_cert ORDER BY DocumentNumber desc ";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -102,6 +103,7 @@ if($stats==1){
 
 
                                              </td>
+                                             <td><?php echo htmlentities($result->PostingDate);?></td>
 
           <td>
            <td><a href="cert-details.php?documentnumber=<?php echo htmlentities($result->DocumentNumber);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>

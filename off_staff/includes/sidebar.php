@@ -7,6 +7,7 @@
                         <div class="sidebar-profile-info">
                        
                                 <p>OFFICE LOGIN</p>
+                                <p><?php echo $_SESSION['alogin'];?></p>
 
                          
                         </div>
