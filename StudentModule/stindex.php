@@ -183,10 +183,6 @@ echo "<script type='text/javascript'> document.location = 'stprofile.php'; </scr
                                                </div>
                                                <div class="col s12 right-align m-t-sm">
                                                
-                                                
-                                                   
-                                                  
-                                               .
                                            </form> <div class="card-footer text-center py-3">
                                            <input style=" margin-bottom:10px; color: white; margin-right:1rem; background-color:#006e12; border-style:none; padding:7px;"  type="submit" name="signin" value="Sign in" >
                                            <button style="color: white; background-color:#005b6e; border-style:none; padding:6px;" onclick="window.location.href='forgot-password.php'">
