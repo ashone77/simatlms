@@ -16,10 +16,12 @@ if(isset($_POST['submit'])){
     $docno = $_POST['docno'];
     $name=$_FILES['myfile']['name'];
     $type=$_FILES['myfile']['type'];
-    $data=fopen($_FILES['myfile']['tmp_name'],'rb');
-    $sql = "UPDATE bonafide_cert SET pdf_file =:pdfdoc WHERE DocumentNumber = 2";
+    $data=file_get_contents($_FILES['myfile']['tmp_name'],'rb');
+    $sql = "UPDATE bonafide_cert SET pdf_file =:pdfdoc, mime=:filetype WHERE DocumentNumber =:docno";
     $query = $dbh->prepare($sql);
     $query->bindParam(':pdfdoc',$data,PDO::PARAM_LOB);
+    $query->bindParam(':filetype',$type,PDO::PARAM_STR);
+    $query->bindParam(':docno',$docno,PDO::PARAM_STR);
     $query->execute();
 
     

@@ -1,26 +1,26 @@
 <?php
 session_start();
 include('includes/config.php');
-if(isset($_POST['login']))
-{
-$uname=$_POST['username'];
-$password=md5($_POST['password']);
-$sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
-$query-> bindParam(':password', $password, PDO::PARAM_STR);
-$query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
-{
-$_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
-} else{
-  
-  echo "<script>alert('Invalid Details');</script>";
-
+if(isset($_POST['submit'])){
+    $docno = $_POST['docno'];
+    $admno = $_POST['admno'];
+    $sql = "SELECT * FROM bonafide_cert WHERE DocumentNumber=:docno AND AdmssnNo=:admno";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':admno',$admno,PDO::PARAM_STR);
+    $query->bindParam(':docno',$docno,PDO::PARAM_STR);
+    $query->execute();  
+    $results=$query->fetchAll(PDO::FETCH_OBJ);
+    if($query->rowCount() > 0)
+    {
+        foreach($results as $result)
+        {
+             header('Content-Type:'.$result->mime);
+             echo $result->pdf_file;
+        }
+    }
 }
-}?>
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -170,28 +170,32 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 
                                   
                                       <div class="row">
-                                           <form class="col s12" name="signin" method="post">
+                                           <form class="col s12" name="submit" method="post">
                                            <div style="margin-top:2rem; margin-left:1rem; margin-bottom:1rem; font-size:20px; color: rgba(0, 0, 0, 0.54); font-weight: 700;">Enter Your Details</div>
                                                <div class="input-field col s12">
                                                    <h5 style="font-size: 15px;color:black">Enter your name:</h5>
                                                    <input  type="text" name="name"  required >
                                                    
                                                </div>
-                                               <div class="input-field col s12">
-                                                   <h5 style="font-size: 15px;color:black">Enter your Register Number:</h5>
-                                                   <input  type="text" name="reg"  required >
-                                                   
-                                               </div>
+                                                <div class="input-field col s12">
+                                                    <h5 style="font-size: 15px;color:black">Enter your Admission Number:</h5>
+                                                    <input  type="text" name="admno"  required >
+                                                    
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h5 style="font-size: 15px;color:black">Enter your Document Number:</h5>
+                                                    <input  type="text" name="docno"  required >
+                                                    
+                                                </div>
                                                
-                                               <div class="col s12 right-align m-t-sm">
+                                               <div class="col s12  m-t-sm">
                                                
                                                 
                                                   
                                                   
                                                
-                                                   <button style="margin-bottom:2rem; color: white; background-color:#005b6e; border-style:none; padding:6px;float:left">
-                                                Download Certificate
-                                          </button>
+                                               <input type="submit" name="submit" class="waves-effect waves-light btn blue m-b-xs" value="Submit" >
+                                                
                                            </form>
                                            
                                          
