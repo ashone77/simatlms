@@ -76,7 +76,7 @@ else{
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT FirstName,LastName,Department,DocumentNumber,PostingDate FROM bonafide_cert ORDER BY DocumentNumber desc";
+<?php $sql = "SELECT FirstName,LastName,Department,DocumentNumber,PostingDate,Status FROM bonafide_cert ORDER BY DocumentNumber desc";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -96,9 +96,9 @@ if($stats==1){
                                              ?>
                                                  <span style="color: green">Approved</span>
                                                  <?php } if($stats==2)  { ?>
-                                                <span style="color: red">Not Approved</span>
+                                                <span style="color: darkorange">Office Staff Updated</span>
                                                  <?php } if($stats==0)  { ?>
- <span style="color: blue">Waiting for Approval</span>
+ <span style="color: blue">Awaiting Verification</span>
  <?php } ?>
 
 

@@ -1,7 +1,13 @@
 <?php
 session_start();
 include('includes/studentconfig.php');
+include('./mail.php');
 if(isset($_POST['submit'])){
+    $docno = $_POST['docno'];
+    $name=$_FILES['myfile']['name'];
+    $type=$_FILES['myfile']['type'];
+    $data=file_get_contents($_FILES['myfile']['tmp_name'],'rb');
+    
     // $docno = $_POST['docno'];
     // $allowedExts = array("pdf");
     // $temp = explode(".", $_FILES["pdf_file"]["name"]);
@@ -13,17 +19,31 @@ if(isset($_POST['submit'])){
     // $query->bindParam(':uploadpdf',$upload_pdf,PDO::PARAM_STR);
     // $query->bindParam(':docno',$docno,PDO::PARAM_STR);
     // $query->execute();
-    $docno = $_POST['docno'];
-    $name=$_FILES['myfile']['name'];
-    $type=$_FILES['myfile']['type'];
-    $data=file_get_contents($_FILES['myfile']['tmp_name'],'rb');
-    $sql = "UPDATE bonafide_cert SET pdf_file =:pdfdoc, mime=:filetype WHERE DocumentNumber =:docno";
+    
+    
+    $sql = "UPDATE bonafide_cert SET Status=1, pdf_file =:pdfdoc, mime=:filetype WHERE DocumentNumber =:docno";
     $query = $dbh->prepare($sql);
     $query->bindParam(':pdfdoc',$data,PDO::PARAM_LOB);
     $query->bindParam(':filetype',$type,PDO::PARAM_STR);
     $query->bindParam(':docno',$docno,PDO::PARAM_STR);
     $query->execute();
 
+    $sql1 = "SELECT MailId,FirstName,LastName FROM bonafide_cert WHERE DocumentNumber=:docno";
+    $query = $dbh->prepare($sql1);
+    $query->bindParam(':docno',$docno,PDO::PARAM_STR);
+    $query->execute();
+    $results=$query->fetchAll(PDO::FETCH_OBJ);
+    if($query->rowCount() > 0)
+    {
+        foreach($results as $result)
+        {
+            $mailid = strval($result->EmailId); 
+            $name = $result->FirstName.' '.$result->LastName; 
+            smtp_mailer($mailid,'Your Certificate Application has been Approved.',$name,''); 
+        }
+    }
+    
+    
     
     
     

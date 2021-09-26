@@ -28,7 +28,7 @@ $trfee4 = $_POST['trfee4'];
 
 date_default_timezone_set('Asia/Kolkata');
 $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
-$sql="UPDATE bonafide_cert set TuitionFirst=:tutfee1, TuitionSecond=:tutfee2, TuitionThird=:tutfee3, TuitionFourth=:tutfee4, HstlFirst=:hsfee1, HstlSecond=:hsfee2, HstlThird=:hsfee3,HstlFourth=:hsfee4, TrFirst=:trfee1, TrSecond=:trfee2, TrThird=:trfee3, TrFourth=:trfee4 where DocumentNumber=:documentnumber";
+$sql="UPDATE bonafide_cert set TuitionFirst=:tutfee1, TuitionSecond=:tutfee2, TuitionThird=:tutfee3, TuitionFourth=:tutfee4, HstlFirst=:hsfee1, HstlSecond=:hsfee2, HstlThird=:hsfee3,HstlFourth=:hsfee4, TrFirst=:trfee1, TrSecond=:trfee2, TrThird=:trfee3, TrFourth=:trfee4, Status = 2 where DocumentNumber=:documentnumber";
 $query = $dbh->prepare($sql);
 $query->bindParam(':tutfee1',$tutfee1,PDO::PARAM_STR);
 $query->bindParam(':tutfee2',$tutfee2,PDO::PARAM_STR);
@@ -178,9 +178,9 @@ if($stats==1){
 ?>
 <span style="color: green">Approved</span>
  <?php } if($stats==2)  { ?>
-<span style="color: red">Not Approved</span>
+<span style="color: darkorange">Office Staff Updated</span>
 <?php } if($stats==0)  { ?>
- <span style="color: blue">waiting for approval</span>
+ <span style="color: blue">Awaiting Verification</span>
  <?php } ?>
 </td>
 </tr>

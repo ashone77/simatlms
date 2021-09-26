@@ -186,13 +186,13 @@ if($stats==1){
 ?>
 <span style="color: green">Approved</span>
  <?php } if($stats==2)  { ?>
-<span style="color: red">Not Approved</span>
+<span style="color: darkorange">Office Staff Updated</span>
 <?php } if($stats==0)  { ?>
- <span style="color: blue">Waiting for approval</span>
+ <span style="color: blue">Awaiting Verification</span>
  <?php } ?>
 </td>
 </tr>
-<form action="../StudentModule/certificate/bonafide_cert.php?documentno=<?php echo htmlentities($result->DocumentNumber);?>" method="post">
+<form target="_blank" action="../StudentModule/certificate/bonafide_cert.php?documentno=<?php echo htmlentities($result->DocumentNumber);?>" method="post">
 <tr>
     <td><h5 style="font-weight:bold;color:#434544">Tution Fee</h5> </td></tr><tr>
 
