@@ -1,21 +1,29 @@
 <?php
 session_start();
-include('includes/studentconfig.php');
+// include('./includes/studentconfig.php');
+$dbh=new PDO("mysql:host=localhost; dbname=studentmodule","root",'');
 if(isset($_POST['submit'])){
+    // $docno = $_POST['docno'];
+    // $allowedExts = array("pdf");
+    // $temp = explode(".", $_FILES["pdf_file"]["name"]);
+    // $extension = end($temp);
+    // $upload_pdf=$_FILES["pdf_file"]["name"];
+    // move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
+    // $sql = "INSERT INTO bonafide_cert(pdf_file) VALUES (:uploadpdf) WHERE DocumentNumber=:docno";
+    // $query = $dbh->prepare($sql);
+    // $query->bindParam(':uploadpdf',$upload_pdf,PDO::PARAM_STR);
+    // $query->bindParam(':docno',$docno,PDO::PARAM_STR);
+    // $query->execute();
     $docno = $_POST['docno'];
-    $allowedExts = array("pdf");
-    $temp = explode(".", $_FILES["pdf_file"]["name"]);
-    $extension = end($temp);
-    $upload_pdf=$_FILES["pdf_file"]["name"];
-    move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
-    $sql = "INSERT INTO bonafide_cert(pdf_file) VALUES (:uploadpdf) WHERE DocumentNumber=:docno";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':uploadpdf',$upload_pdf,PDO::PARAM_STR);
-    $query->bindParam(':docno',$docno,PDO::PARAM_STR);
-    $query->execute();
- 
-     
-
+    $name=$_FILES['pdf_file']['name'];
+    $type=$_FILES['pdf_file']['type'];
+    $data=file_get_contents($_FILES['pdf_file']['tmp_name']);
+    $stmt=$dbh->prepare("INSERT into myblob values('',?,?,?)");
+    $stmt->bindParam(1,$name);
+    $stmt->bindParam(2,$type);
+    $stmt->bindParam(3,$data);
+    $stmt->execute();
+    
 }
 
 
