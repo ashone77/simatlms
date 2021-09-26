@@ -44,7 +44,7 @@ $msg="student record updated Successfully";
         
         <!-- Title -->
         <link rel="shortcut icon" href="assets/images/logo.jpeg" type="image/ico" />
-        <title>Faculty | My Profile</title>
+        <title>Student | My Profile</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -89,7 +89,7 @@ $msg="student record updated Successfully";
    <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Faculty Info</div>
+                        <div class="page-title">STUDENT Info</div>
                     </div>
                     <div class="col s12 m12 l12">
                         <div class="card">
@@ -105,8 +105,8 @@ $msg="student record updated Successfully";
                                                     <div class="col m6">
                                                         <div class="row">
 <?php 
-$eid=$_SESSION['emplogin'];
-$sql = "SELECT * from  tblemployees where EmpId=:eid";
+$eid=$_SESSION['stlogin'];
+$sql = "SELECT * from  stlogin where Id=:eid";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':eid',$eid, PDO::PARAM_STR);
 $query->execute();

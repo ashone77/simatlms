@@ -1,11 +1,36 @@
 <?php
+// session_start();
+// include('includes/config.php');
+// if(isset($_POST['login']))
+// {
+// $uname=$_POST['username'];
+// $password=md5($_POST['password']);
+// $sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+// $query= $dbh -> prepare($sql);
+// $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
+// $query-> bindParam(':password', $password, PDO::PARAM_STR);
+// $query-> execute();
+// $results=$query->fetchAll(PDO::FETCH_OBJ);
+// if($query->rowCount() > 0)
+// {
+// $_SESSION['alogin']=$_POST['username'];
+// echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+// } else{
+  
+//   echo "<script>alert('Invalid Details');</script>";
+
+// }
+// }
+
+
 session_start();
+error_reporting(0);
 include('includes/config.php');
-if(isset($_POST['login']))
+if(isset($_POST['signin']))
 {
-$uname=$_POST['username'];
+$uname=$_POST['email'];
 $password=md5($_POST['password']);
-$sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+$sql ="SELECT email, password FROM stlogin WHERE email=:uname and password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -13,14 +38,22 @@ $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
-$_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+$_SESSION['stlogin']=$_POST['email'];
+// $_SESSION['id']=$result->Id;
+// $_SESSION['FirstName']=$result->FirstName;
+// $_SESSION['LastName']=$result->LastName;
+echo "<script type='text/javascript'> document.location = 'stprofile.php'; </script>";
 } else{
   
   echo "<script>alert('Invalid Details');</script>";
 
 }
-}?>
+
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -173,8 +206,8 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                            <form class="col s12" name="signin" method="post">
                                            <div style="margin-top:2rem; margin-left:1rem; margin-bottom:1rem; font-size:20px; color: rgba(0, 0, 0, 0.54); font-weight: 700;">Student Login</div>
                                                <div class="input-field col s12">
-                                                   <input id="username" type="text" name="username" class="validate" autocomplete="off" required >
-                                                   <label for="email">Username</label>
+                                                   <input id="username" type="text" name="email" class="validate" autocomplete="off" required >
+                                                   <label for="email">Email ID</label>
                                                </div>
                                                <div class="input-field col s12">
                                                    <input id="password" type="password" class="validate" name="password" autocomplete="off" required>

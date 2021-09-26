@@ -16,6 +16,9 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 $_SESSION['stlogin']=$_POST['email'];
+// $_SESSION['id']=$result->Id;
+// $_SESSION['FirstName']=$result->FirstName;
+// $_SESSION['LastName']=$result->LastName;
 echo "<script type='text/javascript'> document.location = 'stprofile.php'; </script>";
 } else{
   
