@@ -70,12 +70,13 @@ else{
                                             <th width="200">Student Name</th>
                                             <th width="120">Department</th> 
                                             <th>Status</th>
+                                            <th>Posting Date</th>
                                             <th align="center">Action</th>
                                         </tr>
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT FirstName,LastName,Department,DocumentNumber FROM bonafide_cert";
+<?php $sql = "SELECT FirstName,LastName,Department,DocumentNumber,PostingDate FROM bonafide_cert ORDER BY DocumentNumber desc";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -103,7 +104,8 @@ if($stats==1){
 
                                              </td>
 
-          <td>
+          
+              <td><?php echo htmlentities($result->PostingDate);?></td>
            <td><a href="cert-details.php?documentnumber=<?php echo htmlentities($result->DocumentNumber);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
