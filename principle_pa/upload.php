@@ -1,7 +1,6 @@
 <?php
 session_start();
-// include('./includes/studentconfig.php');
-$dbh=new PDO("mysql:host=localhost; dbname=studentmodule","root",'');
+include('includes/studentconfig.php');
 if(isset($_POST['submit'])){
     // $docno = $_POST['docno'];
     // $allowedExts = array("pdf");
@@ -15,14 +14,16 @@ if(isset($_POST['submit'])){
     // $query->bindParam(':docno',$docno,PDO::PARAM_STR);
     // $query->execute();
     $docno = $_POST['docno'];
-    $name=$_FILES['pdf_file']['name'];
-    $type=$_FILES['pdf_file']['type'];
-    $data=file_get_contents($_FILES['pdf_file']['tmp_name']);
-    $stmt=$dbh->prepare("INSERT into myblob values('',?,?,?)");
-    $stmt->bindParam(1,$name);
-    $stmt->bindParam(2,$type);
-    $stmt->bindParam(3,$data);
-    $stmt->execute();
+    $name=$_FILES['myfile']['name'];
+    $type=$_FILES['myfile']['type'];
+    $data=fopen($_FILES['myfile']['tmp_name'],'rb');
+    $sql = "UPDATE bonafide_cert SET pdf_file =:pdfdoc WHERE DocumentNumber = 2";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':pdfdoc',$data,PDO::PARAM_LOB);
+    $query->execute();
+
+    
+    
     
 }
 
@@ -87,18 +88,18 @@ if(isset($_POST['submit'])){
                                       <span class="card-title" style="font-size:20px;">UPLOAD CERTIFICATE</span></span>
                                          
                                        <div class="row">
-                                           <form class="col s12" name="upload-cert" method="post" enctype="multipart/form-data">
+                                           <form class="col s12" name="submit" method="post" enctype="multipart/form-data">
                                            <div class="input-field col s12"> 
                                                  <h5 style="font-size: 16px;font-weight:bold">Enter Document Number:</h5> 
                                            </div>
 
                                            <div class="input-field col s12">
                                             
-                                                   <input id="email" type="text" name="docno" class="validate" autocomplete="off" required >
-                                                   <label for="email">Document Number</label>
+                                                   <input id="docno" type="text" name="docno" class="validate" autocomplete="off" required >
+                                                   <label for="docno" >Document Number</label>
                                                </div>
                                                <div class="input-field col s12">
-                                                   <input  type="file" accept=".pdf" class="validate" autocomplete="off" required name="pdf_file">
+                                                   <input  type="file"  name="myfile" required>
                                                    
                                                </div>
                                                
