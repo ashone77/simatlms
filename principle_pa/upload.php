@@ -86,6 +86,15 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                          
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">
+                                           <div class="input-field col s12"> 
+                                                 <h5 style="font-size: 16px;font-weight:bold">Enter Register Number:</h5> 
+                                           </div>
+
+                                           <div class="input-field col s12">
+                                            
+                                                   <input id="email" type="text" name="email" class="validate" autocomplete="off" required >
+                                                   <label for="email">Register Number</label>
+                                               </div>
                                                <div class="input-field col s12">
                                                    <input  type="file"  class="validate" autocomplete="off" required >
                                                    
@@ -99,6 +108,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                                
 
                                            </form>
+                                           
                                            <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;float:left" >
                                            Upload
                                           </button>

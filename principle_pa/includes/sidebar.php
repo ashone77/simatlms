@@ -89,6 +89,7 @@
         </ul>
     </div>
 </li> -->
+<li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php"><i class="material-icons">account_box</i>Home</a></li> 
 <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">apps</i>Certificate Management<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">

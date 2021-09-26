@@ -10,6 +10,6 @@ if (ini_get("session.use_cookies")) {
 }
 unset($_SESSION['alogin']);
 session_destroy(); // destroy session
-header("location:../admin/index.php"); 
+header("location:../off_staff/index.php"); 
 ?>
 

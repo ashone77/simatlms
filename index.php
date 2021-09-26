@@ -138,8 +138,8 @@ else{
                                       <h4 style="text-align: center;color:#002d75;font-family: 'Rubik', sans-serif;" >WELCOME</h4> 
                                       <h5 style="text-align: center;color:#002d75;font-family: 'Rubik', sans-serif;" >SREEPATHY e-GOVERNANCE SYSTEM</h5> <br> 
                                         
-                                         <h4 style="text-align: center;"><button   onclick="window.location.href = './facindex.php';" type="button" class="btn btn-primary">Department Login</button></h4>  
-                                         <h4 style="text-align: center; "><button   onclick="window.location.href = './studentModule/index.php';" style="padding-left:45px;padding-right:45px" type="button" class="btn btn-primary">  Student Login<h4>........</h4>   </button></h4>
+                                         <h4 style="text-align: center;"><button   onclick="window.location.href = './facindex.php';" type="button" style="padding-left: 29px;padding-right: 29px;" class="btn btn-primary">Faculty Login</button></h4>  
+                                         <h4 style="text-align: center; "><button   onclick="window.location.href = './studentModule/index.php';"  type="button" class="btn btn-primary">  Student Login<h4>........</h4>   </button></h4>
 
                                           
                                            
