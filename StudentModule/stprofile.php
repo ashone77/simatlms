@@ -11,26 +11,15 @@ $uname=$_SESSION['stlogin'];
 if(isset($_POST['update']))
 {
 
-$fname=$_POST['firstName'];
-$lname=$_POST['lastName'];   
-$gender=$_POST['gender']; 
-$dob=$_POST['dob']; 
-$department=$_POST['department']; 
-$address=$_POST['address']; 
-$city=$_POST['city']; 
-$country=$_POST['country']; 
-$mobileno=$_POST['mobileno']; 
-$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where EmpId=:eid";
+$fname=$_POST['FirstName'];
+$lname=$_POST['LastName'];    
+$email=$_POST['email']; 
+$eid=$_POST['eid'];  
+$sql="UPDATE stlogin set FirstName=:fname,LastName=:lname,email=:email where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
-$query->bindParam(':gender',$gender,PDO::PARAM_STR);
-$query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':department',$department,PDO::PARAM_STR);
-$query->bindParam(':address',$address,PDO::PARAM_STR);
-$query->bindParam(':city',$city,PDO::PARAM_STR);
-$query->bindParam(':country',$country,PDO::PARAM_STR);
-$query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
+$query->bindParam(':email',$email,PDO::PARAM_STR);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();
 $msg="student record updated Successfully";
@@ -106,7 +95,7 @@ $msg="student record updated Successfully";
                                                         <div class="row">
 <?php 
 $eid=$_SESSION['stlogin'];
-$sql = "SELECT * from  stlogin where Id=:eid";
+$sql = "SELECT * from  stlogin where email=:eid";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':eid',$eid, PDO::PARAM_STR);
 $query->execute();
@@ -117,39 +106,39 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {               ?> 
  <div class="input-field col  s12">
-<label for="empcode">Faculty Code</label>
-<input  name="empcode" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
+<label for="empcode">Student ID</label>
+<input  name="eid" id="empcode" value="<?php echo htmlentities($result->id);?>" type="text" autocomplete="off" readonly required>
 <span id="empid-availability" style="font-size:12px;"></span> 
 </div>
 
 
 <div class="input-field col m6 s12">
 <label for="firstName">First Name</label>
-<input id="firstName" name="firstName" value="<?php echo htmlentities($result->FirstName);?>"  type="text" required>
+<input id="firstName" name="FirstName" value="<?php echo htmlentities($result->FirstName);?>"  type="text" required>
 </div>
 
 <div class="input-field col m6 s12">
 <label for="lastName">Last Name </label>
-<input id="lastName" name="lastName" value="<?php echo htmlentities($result->LastName);?>" type="text" autocomplete="off" required>
+<input id="lastName" name="LastName" value="<?php echo htmlentities($result->LastName);?>" type="text" autocomplete="off" required>
 </div>
 
 <div class="input-field col s12">
 <label for="email">Email</label>
-<input  name="email" type="email" id="email" value="<?php echo htmlentities($result->EmailId);?>" readonly autocomplete="off" required>
-<span id="emailid-availability" style="font-size:12px;"></span> 
+<input  name="email" type="email" id="email" value="<?php echo htmlentities($result->email);?>" readonly autocomplete="off" required>
+</span> 
 </div>
 
-<div class="input-field col s12">
-<label for="phone">Mobile Number</label>
-<input id="phone" name="mobileno" type="tel" value="<?php echo htmlentities($result->Phonenumber);?>" maxlength="10" autocomplete="off" required>
- </div>
+<!-- <div class="input-field col s12">
+<label for="phone">Admission Number</label>
+<input id="phone" name="AdmssnNo" type="tel" value="<?php echo htmlentities($result->Phonenumber);?>" maxlength="10" autocomplete="off" required>
+ </div> -->
 
 </div>
 </div>
                                                     
 <div class="col m6">
 <div class="row">
-<div class="input-field col m6 s12">
+<!-- <div class="input-field col m6 s12">
 <label for="gender">Gender</label> <br>
 <select  name="gender" autocomplete="off">
 <option value="<?php echo htmlentities($result->Gender);?>"><?php echo htmlentities($result->Gender);?></option>                                          
@@ -157,20 +146,20 @@ foreach($results as $result)
 <option value="Female">Female</option>
 <option value="Other">Other</option>
 </select>
-</div>
-<label for="birthdate">Date of Birth</label>
+</div> -->
+<!-- <label for="birthdate">Date of Birth</label>
 <div class="input-field col m6 s12">
 
 <input id="birthdate" name="dob"  class="datepicker" value="<?php echo htmlentities($result->Dob);?>" >
-</div>
+</div> -->
 
                                                     
 
-<div class="input-field col m6 s12">
+<!-- <div class="input-field col m6 s12">
 <label for="department">Department</label> <br>
 <select  name="department" autocomplete="off">
-<option value="<?php echo htmlentities($result->Department);?>"><?php echo htmlentities($result->Department);?></option>
-<?php $sql = "SELECT DepartmentName from tbldepartments";
+<option value="<?php echo htmlentities($result->Department);?>"><?php echo htmlentities($result->Department);?></option> -->
+<!-- <?php $sql = "SELECT DepartmentName from tbldepartments";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -182,14 +171,14 @@ foreach($results as $resultt)
 <option value="<?php echo htmlentities($resultt->DepartmentName);?>"><?php echo htmlentities($resultt->DepartmentName);?></option>
 <?php }} ?>
 </select>
-</div>
+</div> -->
 
-<div class="input-field col m6 s12">
+<!-- <div class="input-field col m6 s12">
 <label for="address">Address</label>
 <input id="address" name="address" type="text"  value="<?php echo htmlentities($result->Address);?>" autocomplete="off" required>
-</div>
+</div> -->
 
-<div class="input-field col m6 s12">
+<!-- <div class="input-field col m6 s12">
 <label for="city">City/Town</label>
 <input id="city" name="city" type="text"  value="<?php echo htmlentities($result->City);?>" autocomplete="off" required>
  </div>
@@ -197,7 +186,7 @@ foreach($results as $resultt)
 <div class="input-field col m6 s12">
 <label for="country">Country</label>
 <input id="country" name="country" type="text"  value="<?php echo htmlentities($result->Country);?>" autocomplete="off" required>
-</div>
+</div> -->
 
 
 <?php }}?>

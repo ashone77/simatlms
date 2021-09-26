@@ -7,15 +7,17 @@ if(isset($_POST['signin']))
 {
 $uname=$_POST['email'];
 $password=md5($_POST['password']);
-$sql ="SELECT email, password FROM stlogin WHERE email=:uname and password=:password";
+$id=$_POST['id'];
+$sql ="SELECT email, password,id FROM stlogin WHERE email=:uname and password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
+$query-> bindParam(':id', $id, PDO::PARAM_STR);
 $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
-$_SESSION['stlogin']=$_POST['email'];
+$_SESSION['stlogin']=$_POST['id'];
 // $_SESSION['id']=$result->Id;
 // $_SESSION['FirstName']=$result->FirstName;
 // $_SESSION['LastName']=$result->LastName;
