@@ -94,6 +94,7 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="">Bonafide Certificate</a></li>
+                                <li><a href="upload.php">Upload Certificate</a></li>
                                
                             </ul>
                         </div>

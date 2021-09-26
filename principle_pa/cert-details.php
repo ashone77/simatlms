@@ -176,6 +176,7 @@ foreach($results as $result)
                                             <td><?php echo htmlentities($result->CurrYear);?></td>
                                           
                                         </tr>
+                                        
                                         <h5></h5>
 
 <tr>
@@ -191,41 +192,55 @@ if($stats==1){
  <?php } ?>
 </td>
 </tr>
+
+<tr>
+    <td><h5 style="font-weight:bold;color:#434544">Tution Feeses</h5> </td></tr><tr>
+
+                                            <td style="font-size:16px;"><b>Tuition Fee-First Year:</b></td>
+                                            <td style=""><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Tution Fee-Second Year:</b></td> 
+                                            <td><?php echo htmlentities($result->CurrYear);?></td> </tr><tr>
+                                            <td style="font-size:16px;"><b>Tution Fee-Third Year:</b></td>
+                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Tution Fee-Forth Year:</b></td>
+                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                          
+                                        </tr>
+                                       
+    <td><h5 style="font-weight:bold;color:#434544">Hostel Feeses</h5> </td></tr><tr>
+                                        <tr>
+                                            <td style="font-size:16px;"><b>Hostel Fee-First Year:</b></td>
+                                            <td style=""><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Hostel Fee-Second Year:</b></td> 
+                                            <td><?php echo htmlentities($result->CurrYear);?></td> </tr><tr>
+                                            <td style="font-size:16px;"><b>Hostel Fee-Third Year:</b></td>
+                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Hostel Fee-Forth Year:</b></td>
+                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                          
+                                        </tr>
+                                        <tr>
+    <td><h5 style="font-weight:bold;color:#434544">Transporation Feeses</h5> </td></tr><tr>
+                                        <tr>
+                                            <td style="font-size:16px;"><b>Transporation Fee-First Year:</b></td>
+                                            <td style=""><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Transporation Fee-Second Year:</b></td> 
+                                            <td><?php echo htmlentities($result->CurrYear);?></td> </tr><tr>
+                                            <td style="font-size:16px;"><b>Transporation Fee-Third Year:</b></td>
+                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style="font-size:16px;"><b>Transporation Fee-Forth Year:</b></td>
+                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                          
+                                        </tr>
+                                        <tr>
+                                        
+                                        
    </form>                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>
                                 </table>
                             </div>
-                            <form action="../StudentModule/certificate/bonafide_cert.php?documentno=<?php echo htmlentities($result->DocumentNumber);?>" method="post">
-                <div style="background:white" > 
-                <h5 style="text-align: center; font-weight: bold;padding-top:10px">Fee Structure</h5>
-                <br><h6 style="text-align: center;font-weight: bold;font-size:16px">Tution Fee</h6>
-                <h5 style="text-align: center;margin:5px">
-                <input placeholder="First Year"  style="width: 150px;margin:25px" type="text" name="tutfee1">
-                <input placeholder="Second Year" style="width: 150px;margin:25px" type="text" name="tutfee2">
-                <input style="width: 150px;margin:25px" placeholder="Third Year" type="text" name="tutfee3">
-                <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text" name="tutfee4"></h5>
-               
-              
-                
-                <h6  style="text-align: center;font-weight: bold;font-size:16px">Hostel Fee</h6>
-                <h5 style="text-align: center;margin:5px">
-                <input placeholder="First Year"  style="width: 150px;margin:25px" type="text" name="hsfee1">
-                <input placeholder="Second Year" style="width: 150px;margin:25px" type="text" name="hsfee2">
-                <input style="width: 150px;margin:25px" placeholder="Third Year" type="text" name="hsfee3">
-                <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text" name="hsfee4"></h5>
-                 
-                <h6 style="text-align: center;font-weight: bold;font-size:16px;">Transportaion Fee</h6>
-                <h5 style="text-align: center;margin:5px">
-                <input placeholder="First Year"  style="width: 150px;margin:25px" type="text" name="trfee1">
-                <input placeholder="Second  Year" style="width: 150px;margin:25px" type="text" name="trfee2">
-                <input style="width: 150px;margin:25px" placeholder="Third Year" type="text" name="trfee3">
-                <input style="width: 150px;margin:25px" placeholder="Fourth Year"  type="text" name="trfee4"></h5>
-                <h6 style="margin-bottom: 20px;text-align: center;font-weight: bold;"> <input type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit"><br>
-            </h6> <br>
-                
-                </div>
-                </form>
+                           
                         </div>
                     </div>
                 </div>
