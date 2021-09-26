@@ -1,31 +1,25 @@
 <?php
 session_start();
-include('includes/config.php');
-if(isset($_POST['signin']))
-{
-$uname=$_POST['username'];
-$password=md5($_POST['password']);
-$sql ="SELECT UserName,Password,dept_code,EmpId FROM admin WHERE UserName=:uname and Password=:password";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
-$query-> bindParam(':password', $password, PDO::PARAM_STR);
-$query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-if($query->rowCount() > 0)
-{
-$_SESSION['alogin']=$_POST['username'];
-foreach ($results as $result) {
-    $_SESSION['dept_code']=$result->dept_code;
-    $_SESSION['empid']=$result->EmpId;
-    
-  } 
-echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
-} else{
-  
-  echo "<script>alert('Invalid Details');</script>";
+include('includes/studentconfig.php');
+if(isset($_POST['submit'])){
+    $docno = $_POST['docno'];
+    $allowedExts = array("pdf");
+    $temp = explode(".", $_FILES["pdf_file"]["name"]);
+    $extension = end($temp);
+    $upload_pdf=$_FILES["pdf_file"]["name"];
+    move_uploaded_file($_FILES["pdf_file"]["tmp_name"],"uploads/pdf/" . $_FILES["pdf_file"]["name"]);
+    $sql = "INSERT INTO bonafide_cert(pdf_file) VALUES (:uploadpdf) WHERE DocumentNumber=:docno";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':uploadpdf',$upload_pdf,PDO::PARAM_STR);
+    $query->bindParam(':docno',$docno,PDO::PARAM_STR);
+    $query->execute();
+ 
+     
 
 }
-}?>
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -85,33 +79,31 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
                                       <span class="card-title" style="font-size:20px;">UPLOAD CERTIFICATE</span></span>
                                          
                                        <div class="row">
-                                           <form class="col s12" name="signin" method="post">
+                                           <form class="col s12" name="upload-cert" method="post" enctype="multipart/form-data">
                                            <div class="input-field col s12"> 
-                                                 <h5 style="font-size: 16px;font-weight:bold">Enter Register Number:</h5> 
+                                                 <h5 style="font-size: 16px;font-weight:bold">Enter Document Number:</h5> 
                                            </div>
 
                                            <div class="input-field col s12">
                                             
-                                                   <input id="email" type="text" name="email" class="validate" autocomplete="off" required >
-                                                   <label for="email">Register Number</label>
+                                                   <input id="email" type="text" name="docno" class="validate" autocomplete="off" required >
+                                                   <label for="email">Document Number</label>
                                                </div>
                                                <div class="input-field col s12">
-                                                   <input  type="file"  class="validate" autocomplete="off" required >
+                                                   <input  type="file" accept=".pdf" class="validate" autocomplete="off" required name="pdf_file">
                                                    
                                                </div>
                                                
-                                               <div class="col s12 right-align m-t-sm">
+                                               <div class="col s12 m-t-sm">
                                               
-                                                
+                                                <input type="submit" name="submit" class="waves-effect waves-light btn blue m-b-xs" value="Upload" >
                                           
                                                   
                                                
 
                                            </form>
                                            
-                                           <button style="color: white; background-color:#005b6e; border-style:none; padding:5px;float:left" >
-                                           Upload
-                                          </button>
+                                        
                                          
                                            </div>
                                            

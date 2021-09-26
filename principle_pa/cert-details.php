@@ -192,53 +192,52 @@ if($stats==1){
  <?php } ?>
 </td>
 </tr>
-
+<form action="../StudentModule/certificate/bonafide_cert.php?documentno=<?php echo htmlentities($result->DocumentNumber);?>" method="post">
 <tr>
-    <td><h5 style="font-weight:bold;color:#434544">Tution Feeses</h5> </td></tr><tr>
+    <td><h5 style="font-weight:bold;color:#434544">Tution Fee</h5> </td></tr><tr>
 
                                             <td style="font-size:16px;"><b>Tuition Fee-First Year:</b></td>
-                                            <td style=""><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style=""><?php echo htmlentities($result->TuitionFirst);?></td>
                                             <td style="font-size:16px;"><b>Tution Fee-Second Year:</b></td> 
-                                            <td><?php echo htmlentities($result->CurrYear);?></td> </tr><tr>
+                                            <td><?php echo htmlentities($result->TuitionSecond);?></td> </tr><tr>
                                             <td style="font-size:16px;"><b>Tution Fee-Third Year:</b></td>
-                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td><?php echo htmlentities($result->TuitionThird);?></td>
                                             <td style="font-size:16px;"><b>Tution Fee-Forth Year:</b></td>
-                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                            <td><?php echo htmlentities($result->TuitionFourth);?></td>
                                           
                                         </tr>
                                        
     <td><h5 style="font-weight:bold;color:#434544">Hostel Feeses</h5> </td></tr><tr>
                                         <tr>
                                             <td style="font-size:16px;"><b>Hostel Fee-First Year:</b></td>
-                                            <td style=""><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style=""><?php echo htmlentities($result->HstlFirst);?></td>
                                             <td style="font-size:16px;"><b>Hostel Fee-Second Year:</b></td> 
-                                            <td><?php echo htmlentities($result->CurrYear);?></td> </tr><tr>
+                                            <td><?php echo htmlentities($result->HstlSecond);?></td> </tr><tr>
                                             <td style="font-size:16px;"><b>Hostel Fee-Third Year:</b></td>
-                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td><?php echo htmlentities($result->HstlThird);?></td>
                                             <td style="font-size:16px;"><b>Hostel Fee-Forth Year:</b></td>
-                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                            <td><?php echo htmlentities($result->HstlFourth);?></td>
                                           
                                         </tr>
                                         <tr>
     <td><h5 style="font-weight:bold;color:#434544">Transporation Feeses</h5> </td></tr><tr>
                                         <tr>
                                             <td style="font-size:16px;"><b>Transporation Fee-First Year:</b></td>
-                                            <td style=""><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td style=""><?php echo htmlentities($result->TrFirst);?></td>
                                             <td style="font-size:16px;"><b>Transporation Fee-Second Year:</b></td> 
-                                            <td><?php echo htmlentities($result->CurrYear);?></td> </tr><tr>
+                                            <td><?php echo htmlentities($result->TrSecond);?></td> </tr><tr>
                                             <td style="font-size:16px;"><b>Transporation Fee-Third Year:</b></td>
-                                            <td><?php echo htmlentities($result->AdmssnYear);?></td>
+                                            <td><?php echo htmlentities($result->TrThird);?></td>
                                             <td style="font-size:16px;"><b>Transporation Fee-Forth Year:</b></td>
-                                            <td><?php echo htmlentities($result->CurrYear);?></td>
+                                            <td><?php echo htmlentities($result->TrFourth);?></td>
                                           
                                         </tr>
-                                        <tr>
                                         
-                                        
-   </form>                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>
                                 </table>
+                                <button type="submit" class="waves-effect waves-light btn blue m-b-xs" name="update" value="Submit">Generate Certificate</button>
+                                </form>
                             </div>
                            
                         </div>
