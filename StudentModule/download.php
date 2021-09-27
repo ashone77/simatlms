@@ -172,11 +172,7 @@ if(isset($_POST['submit'])){
                                       <div class="row">
                                            <form class="col s12" name="submit" method="post">
                                            <div style="margin-top:2rem; margin-left:1rem; margin-bottom:1rem; font-size:20px; color: rgba(0, 0, 0, 0.54); font-weight: 700;">Enter Your Details</div>
-                                               <div class="input-field col s12">
-                                                   <h5 style="font-size: 15px;color:black">Enter your name:</h5>
-                                                   <input  type="text" name="name"  required >
-                                                   
-                                               </div>
+                                               
                                                 <div class="input-field col s12">
                                                     <h5 style="font-size: 15px;color:black">Enter your Admission Number:</h5>
                                                     <input  type="text" name="admno"  required >

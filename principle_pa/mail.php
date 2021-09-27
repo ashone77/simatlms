@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 include('../principal/vendor/autoload.php');
 
-function smtp_mailer($to,$subject,$name,$remarks){
+function smtp_mailer($to,$subject,$name,$docno){
 $mail = new PHPMailer(true);
 
 try {
@@ -30,9 +30,9 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = $subject;
-    $mail->Body    = 'Your Certificate application has been Approved. Please loging to E-Governance portal to download the certificate.<br><hr><b>Leave Remarks  : </b>';
-    $mail->Body .= $remarks;
-    $mail->Body .= '<br><br><br> This is an auto-generated message hence there is no need to reply.';
+    $mail->Body    = 'Your Certificate application has been Approved. Please loging to E-Governance portal to download the certificate using your <b>Document Number  : ';
+    $mail->Body .= $docno;
+    $mail->Body .= '</b> and <b>Admission Number</b>.<br><br><br> This is an auto-generated message hence there is no need to reply.';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();

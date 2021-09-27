@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
     $query->bindParam(':docno',$docno,PDO::PARAM_STR);
     $query->execute();
 
-    $sql1 = "SELECT MailId,FirstName,LastName FROM bonafide_cert WHERE DocumentNumber=:docno";
+    $sql1 = "SELECT EmailId,FirstName,LastName FROM bonafide_cert WHERE DocumentNumber=:docno";
     $query = $dbh->prepare($sql1);
     $query->bindParam(':docno',$docno,PDO::PARAM_STR);
     $query->execute();
@@ -37,9 +37,10 @@ if(isset($_POST['submit'])){
     {
         foreach($results as $result)
         {
+            
             $mailid = strval($result->EmailId); 
             $name = $result->FirstName.' '.$result->LastName; 
-            smtp_mailer($mailid,'Your Certificate Application has been Approved.',$name,''); 
+            smtp_mailer($mailid,'Your Certificate Application has been Approved.',$name,$docno); 
         }
     }
     
