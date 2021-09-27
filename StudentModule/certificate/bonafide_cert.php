@@ -97,9 +97,9 @@ $obj_pdf->SetFooterMargin(0);
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$result->BankName.'<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$result->BankBranch.'<br>
     Sir,<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub: Availing of Bank Loan in respect of Mr/Ms...'.$result->FirstName.'..'.$result->LastName.'...</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub: Availing of Bank Loan in respect of Mr/Ms '.$result->FirstName.' '.$result->LastName.'</h4>
               <p class="s-container">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to Certify that <b>Mr/Ms ...'.$result->FirstName.'..'.$result->LastName.'...</b> is a bonafide <b>(I/II/III/IV)…'.$result->CurrYear.'...</b>year student of this institution in the 4 year <b>B. Tech Degree Course(…'.$result->Department.'… Branch)</b> admitted in merit based selection process for the academic year <b>(Yr.of Admn)…'.$result->AdmssnYear.'..</b> bearing <b>Admission No:…'.$result->AdmssnNo.'….</b>. This certificate is issued to the candidate to get the bank loan sanctioned from <b>(Bank Name & Branch)...'.$result->BankName.'...'.$result->BankBranch.'..</b> The fee structure pertaining to the period of study is given below.
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to Certify that <b>Mr/Ms &nbsp;'.$result->FirstName.' '.$result->LastName.' </b> is a bonafide <b>(I/II/III/IV)&nbsp;&nbsp;'.$result->CurrYear.'&nbsp;&nbsp;</b>year student of this institution in the 4 year <b>B. Tech Degree Course ('.$result->Department.'  Branch)</b> admitted in merit based selection process for the academic year <b>(Yr.of Admn) '.$result->AdmssnYear.'</b> bearing <b>Admission No: '.$result->AdmssnNo.'</b>. This certificate is issued to the candidate to get the bank loan sanctioned from <b>(Bank Name & Branch) '.$result->BankName.'  '.$result->BankBranch.'</b>. The fee structure pertaining to the period of study is given below.
                  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Institution is approved by AICTE, New-Delhi vide letter F. No. South-West/1-9317992659/2021/EOA dt. 15/07/2021, affiliated to APJ Abdul Kalam Technological University, Thiruvananthapuram vide No.KTU/A/456/2015 Dated, Thiruvananthapuram,10/08/2021 and also approved by Govt. of Kerala vide G.O.(MS) No.82/09/H.Edn dt 04/07/09.
                 </p>         
     <table cellspacing="0" cellpadding="3" border="1">
@@ -155,9 +155,9 @@ $obj_pdf->SetFooterMargin(0);
 <tr style="text-align: center; font-weight:bold">
     <td>Total</td>
     <td class="data">'.intval($result->TuitionFirst+$result->HstlFirst+$result->TrFirst+10000+10000).'</td>
-    <td class="data"></td>
-    <td class="data"></td>
-    <td class="data"></td>
+    <td class="data">'.intval($result->TuitionSecond+$result->HstlSecond+$result->TrSecond+10000+500).'</td>
+    <td class="data">'.intval($result->TuitionThird+$result->HstlThird+$result->TrThird+10000+750).'</td>
+    <td class="data">'.intval($result->TuitionFourth+$result->HstlFourth+$result->TrFourth+10000+1250).'</td>
 </tr> 
 </table>
             <p class="s-container"><b>
