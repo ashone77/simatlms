@@ -1,38 +1,13 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/studentconfig.php');
 if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
 }
 else{
-    $dept=$_SESSION['deptcode'];
-    switch($dept){
 
-        case "2":
-            $selectTable = "tblleaves_cse";
-            break;
-        case "3":
-            $selectTable = "tblleaves_ash";
-            break;
-        case "1":
-            $selectTable = "tblleaves_civil";
-            break;
-        case "4":
-            $selectTable = "tblleaves_eee";
-            break;
-        case "5":
-            $selectTable = "tblleaves_me";
-            break;
-        case "6":
-            $selectTable = "tblleaves_ece";
-            break;
-
-        default:
-            $selectTable = "tblleaves";
-
-    }
 
  ?>
 <!DOCTYPE html>
@@ -86,90 +61,71 @@ else{
             <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Leave History</div>
+                        <div class="page-title">Certificate History</div>
                     </div>
                    
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Leave History</span>
+                                <span class="card-title">Certificate History</span>
                                 <?php if($msg){?><div class="succWrap"><strong>SUCCESS</strong> : <?php echo htmlentities($msg); ?> </div><?php }?>
                                 <table id="example" class="display responsive-table ">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th width="120">Leave Type</th>
-                                            <th>From</th>
-                                            <th>To</th>
-                                             <th>Description</th>
-                                             <th width="120">Posting Date</th>
-                                            <th width="200">Admin Remak</th>
-                                            <th>Status</th>
-                                            <th>Action</th
+                                            <th width="200">Student Name</th>
+                                            <th width="200">Department</th>
+                                            <!-- <th>Admission Number</th> -->
+                                             <th>Posting Date</th>
+                                             <th width="200">Status</th>
+                                             <th></th>
+                                             <th align="center">Action</th>
                                         </tr>
                                     </thead>
                                  
                                     <tbody>
+
+
+
+
+
+
+
+
+
+
 <?php 
-$eid=$_SESSION['eid'];
-$sql = "SELECT LeaveType,ToDate,FromDate,Description,PostingDate,AdminRemarkDate,AdminRemark,Status,id from $selectTable where empid=:eid";
+$sql = "SELECT * FROM bonafide_cert ORDER BY DocumentNumber desc ";
 $query = $dbh -> prepare($sql);
-$query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
-{               ?>  
+{         
+      ?>  
+
                                         <tr>
-                                            <td> <?php echo htmlentities($cnt);?></td>
-                                            <td><?php echo htmlentities($result->LeaveType);?></td>
-                                            <td><?php echo htmlentities($result->FromDate);?></td>
-                                            <td><?php echo htmlentities($result->ToDate);?></td>
-                                           <td><?php echo htmlentities($result->Description);?></td>
+                                            <td> <b><?php echo htmlentities($cnt);?></b></td>
+                                              <td><?php echo htmlentities($result->FirstName." ".$result->LastName);?></td>
+                                            <td><?php echo htmlentities($result->Department);?></td>
                                             <td><?php echo htmlentities($result->PostingDate);?></td>
-                                            <td><?php if($result->AdminRemark=="")
-                                            {
-echo htmlentities('waiting for approval');
-                                            } else
-{
-
- echo htmlentities(($result->AdminRemark)." "."at"." ".$result->AdminRemarkDate);
-}
-
-                                            ?></td>
-                                            <td><?php $stats=$result->Status;
-                                            if($stats==3){
-                                            ?>
-                                                <span style="color: chocolate">Forwarded to Principal</span>
-                                                <?php }if($stats==1){
+                                                                       <td><?php $stats=$result->Status;
+if($stats==1){
                                              ?>
-                                                <span style="color: green">Approved</span>
-                                                <?php } if($stats==4)  { ?>
-                                                <span style="color: orange">Application Returned</span>
-                                                <?php }if($stats==2)  { ?>
-                                                <span style="color: red">Not Approved</span>
-                                                <?php } if($stats==0)  { ?>
-                                                <span style="color: blue">Waiting for Approval</span>
-                                                <?php } ?>
-
-                                             </td>
-                                             <td>
-                                             <a href="./leave-details.php?leaveid=<?php echo htmlentities($result->id);?>">&nbsp; <i  class="fas fa-info"></i></a>
-                                             <?php $stats=$result->Status;
-                                           if($stats==4){
-                                            ?>
-
-
-                                              <a style="margin-left: 20px;" href="./apply-leave-update.php?leaveid=<?php echo htmlentities($result->id);?>">  <i  class="fas fa-edit"></i></a>&nbsp;
+                                                 <span style="color: green">Approved</span>
+                                                 <?php } if($stats==2)  { ?>
+                                                <span style="color: darkorange">Office Staff Updated</span>
+                                                 <?php } if($stats==0)  { ?>
+ <span style="color: blue">Awaiting Verification</span>
+ <?php } ?></td>
                                              
-                                              
-                                                     <?php } ?>  
 
-                                             </td>
-          
-                                        </tr>
+          <td>
+             
+           <td><a href="cert-details.php?documentnumber=<?php echo htmlentities($result->DocumentNumber);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
+                                    </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>
                                 </table>
