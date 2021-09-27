@@ -4,6 +4,10 @@ include('includes/config.php');
 if(isset($_POST['signin']))
 {
 $uname=$_POST['username'];
+if($uname=='admin'){
+    echo "<script>alert('Invalid Details');</script>";
+    echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+}
 $password=md5($_POST['password']);
 $sql ="SELECT UserName,Password,dept_code,EmpId FROM admin WHERE UserName=:uname and Password=:password";
 $query= $dbh -> prepare($sql);
