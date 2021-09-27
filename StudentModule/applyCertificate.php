@@ -7,6 +7,7 @@ if(isset($_POST['update']))
 
 $fname=$_POST["firstName"];
 $lname=$_POST["lastName"];
+$emailid=$_POST["emailid"];
 $department=$_POST["Dept"];
 $quota=$_POST["Quota"];
 $admssnYear=$_POST["AdmssnYear"];
@@ -17,10 +18,11 @@ $bankName=$_POST["BName"];
 $bankBranch=$_POST["Branch"];
 
 
-$sql="INSERT INTO bonafide_cert(FirstName,LastName,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
+$sql="INSERT INTO bonafide_cert(FirstName,LastName,EmailId,Department,Quota,AdmssnYear,CurrYear,LoanYear,AdmssnNo,BankName,BankBranch) VALUES(:fname,:lname,:emailid,:department,:quota,:admssnYear,:currYear,:loanYear,:admssnNo,:bankName,:bankBranch)"; 
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':fname', $fname, PDO::PARAM_STR);
 $query-> bindParam(':lname', $lname, PDO::PARAM_STR);
+$query-> bindParam(':emailid', $emailid, PDO::PARAM_STR);
 $query-> bindParam(':department', $department, PDO::PARAM_STR);
 $query-> bindParam(':quota', $quota, PDO::PARAM_STR);
 $query-> bindParam(':admssnYear', $admssnYear, PDO::PARAM_STR);
@@ -206,6 +208,11 @@ else
 <div class="input-field col m6 s12">
 <label for="lastName">Last Name </label>
 <input id="lastName" name="lastName"type="text" autocomplete="off" required>
+</div>
+
+<div class="input-field col m6 s12">
+<label for="emailid">Email</label>
+<input id="emailid" name="emailid"type="text" autocomplete="off" required>
 </div>
 
 <div class="input-field col s12">
