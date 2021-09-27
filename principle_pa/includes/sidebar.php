@@ -94,7 +94,7 @@
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">apps</i>Certificate Management<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="">Bonafide Certificate</a></li>
+                                <li><a href="dashboard.php">Bonafide Certificate</a></li>
                                 <li><a href="upload.php">Upload Certificate</a></li>
                                
                             </ul>
